@@ -6,3 +6,4 @@ dist/
 Thumbs.db
 __pycache__/
 experiments/
+temp_check.js
