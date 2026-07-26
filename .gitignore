@@ -1,9 +1,3 @@
+.wrangler/
 node_modules/
-dist/
-.env
-*.log
 .DS_Store
-Thumbs.db
-__pycache__/
-experiments/
-temp_check.js
