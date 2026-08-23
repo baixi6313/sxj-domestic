@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hygzz.中国/schemas/attestation/v1.0",
+  "title": "事现鉴存根验证Schema v1.0",
+  "description": "基于EAS(Schema Registry)设计理念，定义事现鉴公共事实存根的数据结构。参照：Ethereum Attestation Service、W3C Verifiable Credentials v2.0、IETF AGTP-TRUST。",
+  "type": "object",
+  "required": ["id", "issuer", "subject", "timestamp", "evidence", "claim"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "存根唯一标识，格式：sxj-{timestamp}-{hash8}",
+      "pattern": "^sxj-\\d{14}-[a-f0-9]{8}$",
+      "examples": ["sxj-20260822143000-a1b2c3d4"]
+    },
+    "schema_version": {
+      "type": "string",
+      "const": "1.0",
+      "description": "Schema版本号"
+    },
+    "issuer": {
+      "type": "object",
+      "description": "存根签发者（Agent或人类）",
+      "required": ["gzz_id", "type"],
+      "properties": {
+        "gzz_id": {
+          "type": "string",
+          "description": "Gzz身份码，格式：Gzz-{zone}-{role}-{CN}-{seq}",
+          "pattern": "^Gzz-[A-Z]-[A-Za-z]+-CN-\\d{3}$",
+          "examples": ["Gzz-A-Li-CN-006"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["human", "agent", "hybrid"],
+          "description": "签发者类型：人类/Agent/混合"
+        },
+        "agent_name": {
+          "type": "string",
+          "description": "Agent名称（type为agent或hybrid时必填）"
+        }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "description": "存根对象（被验证的实体或声明）",
+      "required": ["type", "identifier"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["person", "organization", "product", "event", "data", "claim"],
+          "description": "对象类型"
+        },
+        "identifier": {
+          "type": "string",
+          "description": "对象唯一标识"
+        },
+        "name": {
+          "type": "string",
+          "description": "对象名称"
+        }
+      }
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "存根生成时间，ISO 8601格式，北京时间+08:00"
+    },
+    "claim": {
+      "type": "object",
+      "description": "声明内容",
+      "required": ["statement", "category"],
+      "properties": {
+        "statement": {
+          "type": "string",
+          "description": "声明文本",
+          "maxLength": 5000
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "financial_disclosure",
+            "product_claim",
+            "identity_verification",
+            "event_record",
+            "data_attestation",
+            "governance_decision",
+            "community_contribution",
+            "other"
+          ],
+          "description": "声明类别"
+        },
+        "tags": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "标签"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "description": "证据信息（参照E1/E2/E3分级）",
+      "required": ["grade", "sources"],
+      "properties": {
+        "grade": {
+          "type": "string",
+          "enum": ["E1", "E2", "E3"],
+          "description": "证据等级：E1=一手官方数据，E2=权威二手来源，E3=推断/间接证据"
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["url", "type"],
+            "properties": {
+              "url": {"type": "string", "format": "uri"},
+              "type": {"type": "string", "enum": ["official", "media", "academic", "government", "other"]},
+              "title": {"type": "string"},
+              "access_time": {"type": "string", "format": "date-time"}
+            }
+          },
+          "minItems": 1
+        },
+        "hash": {
+          "type": "string",
+          "description": "证据原文SHA-256哈希"
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "description": "多Agent交叉验证结果",
+      "properties": {
+        "method": {
+          "type": "string",
+          "enum": ["single", "dual_debate", "multi_consensus"],
+          "description": "验证方法：单Agent/双Agent辩论/多Agent共识"
+        },
+        "verifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "gzz_id": {"type": "string"},
+              "agent_name": {"type": "string"},
+              "vote": {"type": "string", "enum": ["confirm", "dispute", "abstain"]},
+              "comment": {"type": "string"}
+            }
+          }
+        },
+        "consensus_level": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "共识度：0=全部分歧，1=完全一致"
+        }
+      }
+    },
+    "rho": {
+      "type": "object",
+      "description": "ρ值计算参数",
+      "properties": {
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "source_independence": {"type": "number", "minimum": 0, "maximum": 1},
+        "evidence_grade_weight": {"type": "number"},
+        "role_weight": {"type": "number"},
+        "computed_rho": {"type": "number", "description": "最终ρ值"}
+      }
+    },
+    "gzz_values": {
+      "type": "object",
+      "description": "Gzz三值关联",
+      "properties": {
+        "gzz_a": {"type": "number", "description": "共济值增量"},
+        "gzz_b": {"type": "number", "description": "贡献值增量"},
+        "gzz_c": {"type": "number", "description": "负贡献值"}
+      }
+    },
+    "signature": {
+      "type": "string",
+      "description": "签发者数字签名"
+    },
+    "prev_stub": {
+      "type": "string",
+      "description": "前一条存根哈希（存根链）"
+    }
+  }
+}
