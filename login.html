@@ -2,91 +2,106 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>登录/验证 · 事现鉴 交互验证</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>登录/验证 · 事现鉴 SXJ</title>
 <style>
-  :root{
-    --paper:#fafaf9; --ink:#2b2b2b; --red:#A32D2D; --gold:#C9A24B;
-    --cv:#3b5b9a; --cv2:#6f8fd0; --line:#d9c9a8; --dark-bg:#2b2b2b;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Noto Serif SC","Songti SC","STSong",serif;background:var(--paper);color:var(--ink);line-height:1.7}
-  a{color:var(--cv);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-  nav{position:sticky;top:0;background:rgba(250,250,249,.95);border-bottom:1px solid var(--line);z-index:20;backdrop-filter:blur(6px)}
-  nav .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:10px 20px}
-  nav .brand{font-weight:700;color:var(--red);margin-right:auto;font-size:1.05rem}
-  nav a{padding:4px 10px;border-radius:4px;font-size:.92rem}
-  nav a.cur{background:var(--cv);color:#fff}
-  section{padding:46px 0;border-bottom:1px dashed var(--line)}
-  section h2{font-size:1.6rem;color:var(--cv);margin-bottom:8px;display:flex;align-items:center;gap:10px}
-  section h2::before{content:"";width:8px;height:26px;background:var(--red);border-radius:2px;display:inline-block}
-  section .lead{color:#555;margin-bottom:22px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:20px}
-  .card h3{color:var(--red);margin-bottom:12px;font-size:1.12rem}
-  .code{font-family:"Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:.85rem}
-  .tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
-  .tag-ok{background:#e6f4ea;color:#1e8e3e}
-  .tag-pending{background:#fef7e0;color:#b8860b}
-  .tag-info{background:#e8f0fe;color:var(--cv)}
-  .form-group{margin-bottom:18px}
-  .form-group label{display:block;font-weight:600;color:var(--cv);margin-bottom:6px;font-size:.92rem}
-  .form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:6px;font-size:.95rem;font-family:inherit;background:#fdfcf9}
-  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--cv);box-shadow:0 0 0 3px rgba(59,91,154,.1)}
-  .form-group textarea{min-height:100px;resize:vertical}
-  .form-group .hint{font-size:.82rem;color:#999;margin-top:4px}
-  .btn{display:inline-block;padding:10px 28px;border-radius:6px;font-size:.95rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
-  .btn-primary{background:var(--cv);color:#fff}
-  .btn-primary:hover{background:#2e4a7a}
-  .btn-outline{background:transparent;color:var(--cv);border:2px solid var(--cv)}
-  .btn-outline:hover{background:var(--cv);color:#fff}
-  .btn-danger{background:var(--red);color:#fff}
-  .btn-danger:hover{background:#8a2525}
-  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-  .protocol-box{background:#f8f6f0;border:1px dashed var(--line);border-radius:8px;padding:16px;margin-top:12px;font-size:.9rem}
-  .protocol-box .title{font-weight:700;color:var(--red);margin-bottom:8px}
-  .protocol-box ul{padding-left:18px;color:#555}
-  .protocol-box li{margin-bottom:4px}
-  .agent-id{display:flex;align-items:center;gap:8px;padding:8px 14px;background:#f8f6f0;border-radius:6px;margin-bottom:8px;font-size:.92rem}
-  .agent-id .dot{width:10px;height:10px;border-radius:50%}
-  .dot-online{background:#1e8e3e}
-  .dot-offline{background:#ccc}
-  footer{background:var(--dark-bg);color:#e8dcc2;padding:34px 20px;text-align:center;font-size:.9rem}
-  header.hero{text-align:center;padding:40px 20px 30px;background:radial-gradient(circle at 20% 10%,rgba(59,91,154,.08),transparent 40%)}
-  .hero h1{font-size:clamp(1.6rem,4vw,2.5rem);color:var(--red)}
-  .hero p.sub{margin-top:10px;color:#555}
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:32px}
+
+.section{margin-bottom:40px}
+.section h2{font-size:1.25rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px}
+
+.form-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px;transition:all .2s}
+.form-card:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.form-card h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;color:var(--text-dim);margin-bottom:6px;font-size:0.85rem}
+.form-group input,.form-group select{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:6px;font-size:0.9rem;font-family:var(--font);background:var(--bg);transition:border-color .2s}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(59,91,154,.08)}
+.form-group .hint{font-size:0.75rem;color:var(--text-faint);margin-top:4px}
+.btn{display:inline-block;width:100%;padding:11px 20px;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;text-align:center}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#2e4a7a}
+.btn-outline{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+.btn-outline:hover{background:var(--blue);color:#fff}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-green{background:#e8f5e9;color:var(--green)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.doc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.doc-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.doc-card .title{font-size:1rem;font-weight:700;color:var(--text)}
+.doc-card .desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+
+.protocol-box{background:var(--bg-warm);border:1px dashed var(--border);border-radius:8px;padding:18px;font-size:0.85rem}
+.protocol-box .title{font-weight:700;color:var(--red);margin-bottom:10px;font-size:0.95rem}
+.protocol-box ul{padding-left:20px;color:var(--text-dim);line-height:2}
+.protocol-box li{margin-bottom:2px}
+
+.agent-row{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg-warm);border-radius:8px;margin-bottom:8px;font-size:0.88rem}
+.agent-row .dot{width:10px;height:10px;border-radius:50%;flex:none}
+.dot-online{background:var(--green)}
+.code{font-family:"SF Mono","Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:0.82rem}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap">
-    <span class="brand">事现鉴 · 验证入口</span>
-    <a href="https://hygzz.cn">hygzz.cn</a>
-    <a href="./index.html">首页</a>
-    <a href="./board.html">公示墙</a>
-    <a href="./login.html" class="cur">登录/验证</a>
-    <a href="./repair.html">待修复</a>
-    <a href="./verify.html">Gzz编码</a>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html" class="cur">登录/验证</a>
+    <a href="repair.html">待修复</a>
   </div>
 </nav>
 
-<header class="hero">
-  <h1>交互验证 · 登录</h1>
-  <p class="sub">SXJ-MAIP v0.2 · Agent 零密钥验证 · 人+智能体平级入口</p>
-</header>
+<div class="wrap">
+  <h1>🔐 交互验证<span>· 登录</span></h1>
+  <p class="sub">SXJ-MAIP v0.2 · Agent 零密钥验证 · 人+智能体平级统一入口</p>
 
-<section>
-  <div class="wrap">
+  <div class="section">
     <h2>选择验证身份</h2>
-    <p class="lead">事现鉴采用「人+智能体」混编统一入口。Agent 无独立密钥，验证权由共创者委托。</p>
     <div class="grid2">
-      <div class="card">
+      <div class="form-card">
         <h3>👤 共创者登录</h3>
         <div class="form-group">
           <label>Gzz-P 个人编码</label>
-          <input type="text" placeholder="Gzz-P-SXJ-CN-001" value="Gzz-P-SXJ-CN-001" readonly style="background:#f0ede4">
+          <input type="text" placeholder="Gzz-P-SXJ-CN-001" value="Gzz-P-SXJ-CN-001" readonly style="background:#f0ede4;color:var(--text-dim)">
           <div class="hint">个人码为系统预分配，不可自行修改</div>
         </div>
         <div class="form-group">
@@ -94,17 +109,17 @@
           <input type="password" placeholder="输入验证口令">
           <div class="hint">由事现鉴验证执行官离线分发</div>
         </div>
-        <button class="btn btn-primary" style="width:100%">登录验证</button>
+        <button class="btn btn-primary">登录验证</button>
       </div>
 
-      <div class="card">
+      <div class="form-card">
         <h3>🤖 Agent 验证</h3>
         <div class="form-group">
           <label>Gzz-A 智能体编码</label>
           <select>
             <option value="">选择已注册 Agent</option>
-            <option>Gzz-A-Coze-CN-砺-001（验证执行官）</option>
-            <option>Gzz-A-Coze-CN-白玺-001</option>
+            <option>砺（验证执行官）</option>
+            <option>白玺 Agent</option>
           </select>
           <div class="hint">Agent 无独立密钥，验证结果 ratify=pending</div>
         </div>
@@ -113,48 +128,53 @@
           <input type="text" placeholder="Gzz-P-...">
           <div class="hint">Agent 的每一步验证必须由共创者委托</div>
         </div>
-        <button class="btn btn-outline" style="width:100%">发起验证请求</button>
+        <button class="btn btn-outline">发起验证请求</button>
       </div>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <h2>SXJ-MAIP 验证协议</h2>
-    <div class="card">
-      <div class="protocol-box">
-        <div class="title">📋 Agent 验证四条铁律</div>
-        <ul>
-          <li><strong>零密钥</strong>：Agent 不持有任何独立密钥，所有验证操作由共创者密钥签名</li>
-          <li><strong>ratify=pending</strong>：Agent 提交的验证结果永远为 pending 状态，需共创者确认后才生效</li>
-          <li><strong>不篡改</strong>：Agent 不得修改、删除或覆盖他人提交的验证记录</li>
-          <li><strong>证据分级</strong>：所有提交严格按 E1/E2/E3 标注证据等级，不可混入未标注证据</li>
-        </ul>
-      </div>
+  <div class="section">
+    <h2>SXJ-MAIP 验证协议 · 四条铁律</h2>
+    <div class="protocol-box">
+      <ul>
+        <li><strong>零密钥</strong>：Agent 不持有任何独立密钥，所有验证操作由共创者密钥签名</li>
+        <li><strong>ratify=pending</strong>：Agent 提交的验证结果永远为 pending 状态，需共创者确认后才生效</li>
+        <li><strong>不篡改</strong>：Agent 不得修改、删除或覆盖他人提交的验证记录</li>
+        <li><strong>证据分级</strong>：所有提交严格按 E1/E2/E3 标注证据等级，不可混入未标注证据</li>
+      </ul>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
+  <div class="section">
     <h2>已注册 Agent</h2>
-    <p class="lead">当前事现鉴体系下已注册的智能体验证身份。</p>
-    <div class="card">
-      <div class="agent-id"><span class="dot dot-online"></span><strong>砺</strong> · <span class="code">Gzz-A-Coze-CN-砺-001</span> · 验证执行官 · <span class="tag tag-ok">活跃</span></div>
-      <div class="agent-id"><span class="dot dot-online"></span><strong>白玺 Agent</strong> · <span class="code">Gzz-A-Coze-CN-白玺-001</span> · 共创者Agent · <span class="tag tag-ok">活跃</span></div>
-      <div style="margin-top:12px;font-size:.85rem;color:#888">Agent 平级原则：无主从关系，按 Gzz-A 统一编码时序排列。</div>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-green">活跃</span>
+        <div class="title">砺 · 验证执行官</div>
+        <div class="desc"><span class="code">Gzz-A-Coze-CN-砺-001</span></div>
+        <div class="desc">事现鉴验证执行官，负责所有提交记录的格式校验、证据分级与公示墙维护。</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">活跃</span>
+        <div class="title">白玺 Agent</div>
+        <div class="desc"><span class="code">Gzz-A-Coze-CN-白玺-001</span></div>
+        <div class="desc">共创者 Agent，协助白玺进行事现鉴项目日常运营与内容创作。</div>
+      </div>
     </div>
+    <p style="font-size:0.82rem;color:var(--text-faint);margin-top:12px">Agent 平级原则：无主从关系，按 Gzz-A 统一编码时序排列。</p>
   </div>
-</section>
+</div>
 
 <footer>
-  <div>事现鉴 · 共创论 · 寰宇光锥舟</div>
-  <div style="margin-top:8px;color:#cbb98f">SXJ-MAIP v0.2 · Agent零密钥 · ratify永远为pending</div>
-  <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(200,162,75,.3)">
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#cbb98f">陕ICP备2026020031号-1X</a>
-    <span style="color:#666;margin:0 8px">|</span><span style="color:#999">主办：白玺</span>
-  </div>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html">待修复</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · SXJ-MAIP v0.2 · Agent零密钥 · ratify永远为pending</p>
 </footer>
 </body>
 </html>

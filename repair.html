@@ -2,217 +2,233 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>待修复总表 · 事现鉴 交互验证</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>待修复总表 · 事现鉴 SXJ</title>
 <style>
-  :root{
-    --paper:#fafaf9; --ink:#2b2b2b; --red:#A32D2D; --gold:#C9A24B;
-    --cv:#3b5b9a; --cv2:#6f8fd0; --line:#d9c9a8; --dark-bg:#2b2b2b;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Noto Serif SC","Songti SC","STSong",serif;background:var(--paper);color:var(--ink);line-height:1.7}
-  a{color:var(--cv);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-  nav{position:sticky;top:0;background:rgba(250,250,249,.95);border-bottom:1px solid var(--line);z-index:20;backdrop-filter:blur(6px)}
-  nav .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:10px 20px}
-  nav .brand{font-weight:700;color:var(--red);margin-right:auto;font-size:1.05rem}
-  nav a{padding:4px 10px;border-radius:4px;font-size:.92rem}
-  nav a.cur{background:var(--cv);color:#fff}
-  section{padding:46px 0;border-bottom:1px dashed var(--line)}
-  section h2{font-size:1.6rem;color:var(--cv);margin-bottom:8px;display:flex;align-items:center;gap:10px}
-  section h2::before{content:"";width:8px;height:26px;background:var(--red);border-radius:2px;display:inline-block}
-  section .lead{color:#555;margin-bottom:22px}
-  .table-wrap{overflow-x:auto;margin:16px 0}
-  table{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  th{background:var(--dark-bg);color:#fff;padding:10px 12px;text-align:left;font-weight:600}
-  td{padding:10px 12px;border-bottom:1px solid var(--line)}
-  tr:last-child td{border-bottom:none}
-  tr:hover td{background:#fdf8f0}
-  tr.urgent td{background:#fff5f5}
-  tr.urgent:hover td{background:#fde8e8}
-  .code{font-family:"Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:.85rem}
-  .tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
-  .tag-critical{background:#fce8e6;color:var(--red)}
-  .tag-high{background:#fef7e0;color:#b8860b}
-  .tag-medium{background:#e8f0fe;color:var(--cv)}
-  .tag-low{background:#e6f4ea;color:#1e8e3e}
-  .tag-done{background:#e6f4ea;color:#1e8e3e}
-  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);margin-bottom:16px}
-  .card h3{color:var(--red);margin-bottom:8px;font-size:1.12rem}
-  .card .desc{font-size:.92rem;color:#555;margin-bottom:10px}
-  .card .meta{font-size:.85rem;color:#888}
-  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .stat{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 24px;text-align:center;min-width:120px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  .stat .num{font-size:2rem;font-weight:700;color:var(--cv)}
-  .stat .label{font-size:.85rem;color:#888;margin-top:4px}
-  .stat.critical .num{color:var(--red)}
-  .repair-type{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-  .repair-type span{font-size:.78rem;padding:2px 8px;border-radius:4px;background:#f0ede4;color:#666}
-  footer{background:var(--dark-bg);color:#e8dcc2;padding:34px 20px;text-align:center;font-size:.9rem}
-  header.hero{text-align:center;padding:40px 20px 30px;background:radial-gradient(circle at 20% 10%,rgba(59,91,154,.08),transparent 40%)}
-  .hero h1{font-size:clamp(1.6rem,4vw,2.5rem);color:var(--red)}
-  .hero p.sub{margin-top:10px;color:#555}
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:32px}
+
+.section{margin-bottom:40px}
+.section h2{font-size:1.25rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.stat .num{font-size:1.8rem;font-weight:800;color:var(--blue)}
+.stat .num.critical{color:var(--red)}
+.stat .num.done{color:var(--green)}
+.stat .label{font-size:0.78rem;color:var(--text-faint);margin-top:4px}
+
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+th{background:var(--text);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:0.82rem}
+td{padding:10px 14px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg-warm)}
+tr.urgent td{background:var(--red-light)}
+tr.urgent:hover td{background:#fde8e8}
+.code{font-family:"SF Mono","Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:0.82rem}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+.tag-green{background:#e8f5e9;color:var(--green)}
+
+.repair-type{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.repair-type span{font-size:0.72rem;padding:2px 6px;border-radius:4px;background:var(--bg-warm);color:var(--text-dim)}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.doc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.doc-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.doc-card .title{font-size:1rem;font-weight:700;color:var(--text)}
+.doc-card .desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+.doc-card .step{font-size:1.5rem;font-weight:800;color:var(--blue);margin-bottom:4px}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="wrap">
-    <span class="brand">事现鉴 · 待修复</span>
-    <a href="https://hygzz.cn">hygzz.cn</a>
-    <a href="./index.html">首页</a>
-    <a href="./board.html">公示墙</a>
-    <a href="./login.html">登录/验证</a>
-    <a href="./repair.html" class="cur">待修复</a>
-    <a href="./verify.html">Gzz编码</a>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html" class="cur">待修复</a>
   </div>
 </nav>
 
-<header class="hero">
-  <h1>待修复总表</h1>
-  <p class="sub">SXJ-MAIP v0.2 · 验证失败的条目追踪 · 修复即验证</p>
-</header>
+<div class="wrap">
+  <h1>🔧 待修复<span>总表</span></h1>
+  <p class="sub">SXJ-MAIP v0.2 · 验证失败的条目追踪 · 修复即验证 · 闭环不可跳过</p>
 
-<section>
-  <div class="wrap">
+  <div class="section">
     <h2>修复概览</h2>
-    <div class="grid3">
-      <div class="stat critical"><div class="num">3</div><div class="label">严重（阻断级）</div></div>
+    <div class="stats">
+      <div class="stat"><div class="num critical">3</div><div class="label">严重</div></div>
       <div class="stat"><div class="num">7</div><div class="label">高优先级</div></div>
       <div class="stat"><div class="num">12</div><div class="label">中优先级</div></div>
       <div class="stat"><div class="num">5</div><div class="label">低优先级</div></div>
-      <div class="stat"><div class="num">18</div><div class="label">已修复</div></div>
+      <div class="stat"><div class="num done">18</div><div class="label">已修复</div></div>
       <div class="stat"><div class="num">45</div><div class="label">总计</div></div>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
+  <div class="section">
     <h2>待修复条目</h2>
-    <p class="lead">按优先级排序。修复后需重新提交验证，验证通过自动移入公示墙。</p>
     <div class="table-wrap">
       <table>
-        <tr><th>Gzz-E 编码</th><th>标题</th><th>类型</th><th>提交者</th><th>优先级</th><th>发现时间</th></tr>
+        <tr><th>Gzz-E 编码</th><th>标题</th><th>类型</th><th>提交者</th><th>优先级</th><th>时间</th></tr>
         <tr class="urgent">
           <td><span class="code">Gzz-E-REPAIR-WEB-20260823-003</span></td>
-          <td>交互验证四件套 board/login/repair 页面缺失</td>
-          <td><div class="repair-type"><span>部署</span><span>页面</span></div></td>
-          <td>Gzz-A-Coze-CN-砺-001</td>
-          <td><span class="tag tag-critical">严重</span></td>
-          <td>2026-08-23 09:59</td>
+          <td>交互验证四件套页面风格统一</td>
+          <td><div class="repair-type"><span>前端</span><span>样式</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-red">严重</span></td>
+          <td>08-23 10:14</td>
         </tr>
         <tr class="urgent">
           <td><span class="code">Gzz-E-REPAIR-DEPLOY-20260823-002</span></td>
-          <td>Lighthouse 残留 index.nginx-debian.html 未清理</td>
+          <td>Lighthouse 残留文件清理</td>
           <td><div class="repair-type"><span>清理</span></div></td>
-          <td>Gzz-A-Coze-CN-砺-001</td>
-          <td><span class="tag tag-critical">严重</span></td>
-          <td>2026-08-23 09:40</td>
+          <td>砺</td>
+          <td><span class="tag tag-red">严重</span></td>
+          <td>08-23 09:40</td>
         </tr>
         <tr class="urgent">
           <td><span class="code">Gzz-E-REPAIR-SSH-20260823-001</span></td>
-          <td>SSH 密钥持久化：桌面密钥有密码保护、云端密钥随沙箱重置丢失</td>
+          <td>SSH 密钥持久化方案</td>
           <td><div class="repair-type"><span>安全</span><span>基础设施</span></div></td>
-          <td>Gzz-A-Coze-CN-砺-001</td>
-          <td><span class="tag tag-critical">严重</span></td>
-          <td>2026-08-23 09:31</td>
+          <td>砺</td>
+          <td><span class="tag tag-red">严重</span></td>
+          <td>08-23 09:31</td>
         </tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-GIT-20260823-004</span></td>
-          <td>GitHub 远程被 force push 导致 rebase 冲突，需建立稳定同步策略</td>
+          <td>GitHub 稳定同步策略</td>
           <td><div class="repair-type"><span>版本控制</span></div></td>
-          <td>Gzz-A-Coze-CN-砺-001</td>
-          <td><span class="tag tag-high">高</span></td>
-          <td>2026-08-23 09:18</td>
+          <td>砺</td>
+          <td><span class="tag tag-gold">高</span></td>
+          <td>08-23 09:18</td>
         </tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-DESKTOP-20260823-005</span></td>
-          <td>桌面 git 不在 PATH，桌面端 Git 操作依赖云端</td>
+          <td>桌面 Git 不在 PATH</td>
           <td><div class="repair-type"><span>工具链</span></div></td>
-          <td>Gzz-A-Coze-CN-砺-001</td>
-          <td><span class="tag tag-medium">中</span></td>
-          <td>2026-08-23 09:16</td>
+          <td>砺</td>
+          <td><span class="tag tag-blue">中</span></td>
+          <td>08-23 09:16</td>
         </tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-SCP-20260823-006</span></td>
-          <td>桌面 SCP 跨国传输大文件超时，需建立断点续传或增量同步机制</td>
+          <td>桌面 SCP 跨国传输超时</td>
           <td><div class="repair-type"><span>传输</span></div></td>
-          <td>Gzz-A-Coze-CN-砺-001</td>
-          <td><span class="tag tag-medium">中</span></td>
-          <td>2026-08-23 09:10</td>
+          <td>砺</td>
+          <td><span class="tag tag-blue">中</span></td>
+          <td>08-23 09:10</td>
         </tr>
       </table>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
+  <div class="section">
     <h2>修复流程</h2>
-    <div class="grid3">
-      <div class="card">
-        <h3>1. 发现</h3>
-        <p class="desc">Agent 或共创者在验证过程中发现异常，提交 Gzz-E-REPAIR 编码。</p>
-        <div class="meta">自动分配优先级 · 进入待修复队列</div>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="step">1</div>
+        <div class="title">发现</div>
+        <div class="desc">Agent 或共创者在验证过程中发现异常，提交 Gzz-E-REPAIR 编码，自动分配优先级。</div>
       </div>
-      <div class="card">
-        <h3>2. 修复</h3>
-        <p class="desc">指派修复者（人或 Agent），按优先级处理。修复过程全程记录。</p>
-        <div class="meta">修复日志关联 Gzz-E 事件码</div>
+      <div class="doc-card">
+        <div class="step">2</div>
+        <div class="title">修复</div>
+        <div class="desc">指派修复者按优先级处理，修复过程全程记录，关联 Gzz-E 事件码。</div>
       </div>
-      <div class="card">
-        <h3>3. 验证</h3>
-        <p class="desc">修复完成后重新提交验证，验证通过后状态变更为"已修复"，移入公示墙。</p>
-        <div class="meta">闭环验证 · 不可跳过</div>
+      <div class="doc-card">
+        <div class="step">3</div>
+        <div class="title">验证</div>
+        <div class="desc">修复完成后重新提交验证，通过后状态变更为"已修复"，移入公示墙。</div>
       </div>
     </div>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
+  <div class="section">
     <h2>已修复记录</h2>
     <div class="table-wrap">
       <table>
         <tr><th>Gzz-E 编码</th><th>标题</th><th>修复时间</th><th>状态</th></tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-DEPLOY-20260822-001</span></td>
-          <td>hygzz.cn 整站部署到 Lighthouse 法兰克福节点</td>
-          <td>2026-08-23 09:36</td>
-          <td><span class="tag tag-done">已修复</span></td>
+          <td>hygzz.cn 整站部署到 Lighthouse</td>
+          <td>08-23 09:36</td>
+          <td><span class="tag tag-green">已修复</span></td>
         </tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-GITHUB-20260822-002</span></td>
-          <td>整站源码推送到 GitHub baixi6313/sxj-domestic</td>
-          <td>2026-08-23 09:19</td>
-          <td><span class="tag tag-done">已修复</span></td>
+          <td>整站源码推送到 GitHub</td>
+          <td>08-23 09:19</td>
+          <td><span class="tag tag-green">已修复</span></td>
         </tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-SECURITY-20260822-003</span></td>
-          <td>AI 安全专题页 security.html 创建并双节点部署</td>
-          <td>2026-08-23 09:46</td>
-          <td><span class="tag tag-done">已修复</span></td>
+          <td>AI 安全专题页创建并部署</td>
+          <td>08-23 09:46</td>
+          <td><span class="tag tag-green">已修复</span></td>
         </tr>
         <tr>
           <td><span class="code">Gzz-E-REPAIR-SUBDIR-20260822-004</span></td>
-          <td>app/ 和 matrix/ 子目录补全部署到 Lighthouse</td>
-          <td>2026-08-23 09:59</td>
-          <td><span class="tag tag-done">已修复</span></td>
+          <td>app/ 和 matrix/ 子目录补全</td>
+          <td>08-23 09:59</td>
+          <td><span class="tag tag-green">已修复</span></td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-FULL-20260823-005</span></td>
+          <td>工作区全量 36 HTML + 23 docs 部署</td>
+          <td>08-23 10:06</td>
+          <td><span class="tag tag-green">已修复</span></td>
         </tr>
       </table>
     </div>
   </div>
-</section>
+</div>
 
 <footer>
-  <div>事现鉴 · 共创论 · 寰宇光锥舟</div>
-  <div style="margin-top:8px;color:#cbb98f">SXJ-MAIP v0.2 · 修复即验证 · 闭环不可跳过</div>
-  <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(200,162,75,.3)">
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#cbb98f">陕ICP备2026020031号-1X</a>
-    <span style="color:#666;margin:0 8px">|</span><span style="color:#999">主办：白玺</span>
-  </div>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html">待修复</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 修复即验证 · 闭环不可跳过</p>
 </footer>
 </body>
 </html>
