@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>事现鉴 · SXJ — 贡献征信数据链 | 超越银行征信的下一代信用体系</title>
 <meta name="description" content="事现鉴(SXJ)是基于可验证公共事实的开放协议。银行征信看你能借多少钱，事现鉴征信看你创造多少价值。">
-<meta name="keywords" content="事现鉴, SXJ, 共创论, 五卡模式, 贡献值, 征信, 财政直销, 共济值">
+<meta name="keywords" content="事现鉴, SXJ, 共创论, 五卡模式, 贡献值, 征信, 财政直销, 共济值, Gzz编码, 碳足迹">
 <meta name="author" content="白玺">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://hygzz.top">
+<link rel="canonical" href="https://hygzz.cn">
 <meta property="og:type" content="website">
 <meta property="og:title" content="事现鉴 · 贡献征信数据链">
 <meta property="og:description" content="银行征信看你能借多少钱，事现鉴征信看你创造多少价值。">
-<meta property="og:url" content="https://hygzz.top">
+<meta property="og:url" content="https://hygzz.cn">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="事现鉴 · SXJ — 贡献征信数据链">
@@ -38,6 +38,7 @@ html{scroll-behavior:smooth}
   --gold-light:#fef8e8;
   --gold-hover:#b08a3a;
   --green:#2d8a4e;
+  --blue:#3b5b9a;
   --shadow:0 2px 12px rgba(0,0,0,0.06);
   --shadow-lg:0 8px 30px rgba(0,0,0,0.1);
   --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
@@ -45,7 +46,6 @@ html{scroll-behavior:smooth}
 body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
 a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
 
-/* Nav */
 nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
 .nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
 .nav-logo svg{width:24px;height:24px}
@@ -56,9 +56,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bo
 .nav-links .pill:hover{background:var(--red-hover)}
 .nav-links .gold-pill{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:4px 10px}
 .nav-links .gold-pill:hover{background:var(--gold-light)}
+.nav-links .blue-pill{background:var(--blue);color:#fff;padding:4px 10px;border-radius:4px}
+.nav-links .blue-pill:hover{background:#2f4a7a}
 .nav-hamburger{display:none;background:none;border:none;font-size:1.3rem;color:var(--text-dim);margin-left:auto}
 
-/* Hero */
 .hero{min-height:86vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 40px;background:linear-gradient(180deg,#fafaf9 0%,#fef8e8 60%,#f7f3f0 100%);position:relative;overflow:hidden}
 .hero-badge{display:inline-block;background:var(--red);color:#fff;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;margin-bottom:24px;letter-spacing:.5px}
 .hero h1{font-size:clamp(2rem,5.5vw,3.6rem);font-weight:800;color:var(--text);line-height:1.25;margin-bottom:18px}
@@ -71,8 +72,8 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bo
 .cta-btn.primary{background:var(--red);color:#fff}.cta-btn.primary:hover{background:var(--red-hover);text-decoration:none}
 .cta-btn.gold{background:var(--gold);color:#fff}.cta-btn.gold:hover{background:var(--gold-hover);text-decoration:none}
 .cta-btn.outline{background:transparent;color:var(--red);border:2px solid var(--red)}.cta-btn.outline:hover{background:var(--red-light);text-decoration:none}
+.cta-btn.blue{background:var(--blue);color:#fff}.cta-btn.blue:hover{background:#2f4a7a;text-decoration:none}
 
-/* Directory */
 .directory{padding:56px 24px 72px;max-width:980px;margin:0 auto}
 .directory-head{text-align:center;margin-bottom:36px}
 .directory-head h2{font-size:1.6rem;font-weight:700;color:var(--text)}
@@ -97,7 +98,22 @@ nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bo
 .dir-list a span:first-child{font-weight:500;color:var(--text)}
 .dir-list a:hover span:first-child{color:var(--red)}
 
-/* Footer */
+/* 新增：近期更新板块 */
+.updates{padding:0 24px 56px;max-width:980px;margin:0 auto}
+.updates h2{font-size:1.4rem;font-weight:700;color:var(--text);margin-bottom:20px;text-align:center}
+.updates h2 span{color:var(--red)}
+.update-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.update-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .2s}
+.update-card:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.update-card .date{font-size:0.75rem;color:var(--text-faint);margin-bottom:6px}
+.update-card .title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.update-card .desc{font-size:0.82rem;color:var(--text-dim);margin-bottom:10px}
+.update-card .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600;margin-right:6px}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+.tag-green{background:#e8f5e9;color:var(--green)}
+
 footer{padding:32px 24px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
 footer a{color:var(--text-dim);margin:0 8px}
 footer a:hover{color:var(--red)}
@@ -112,19 +128,6 @@ footer a:hover{color:var(--red)}
 </style>
 </head>
 <body>
-<!-- 创始完成声明 · 白玺 -->
-<div style="background:linear-gradient(135deg,#A32D2D,#7a1f1f);color:#fff;padding:9px 20px;text-align:center;font-family:-apple-system,Segoe UI,Roboto,'PingFang SC','Microsoft YaHei',sans-serif;border-bottom:2px solid #C9A24B;font-size:0.9rem;line-height:1.45;">
-  <span style="color:#f4e9c9;font-weight:700;letter-spacing:1px;">✦ 创始完成</span>&nbsp;&nbsp;白玺已经完成所有创始内容，剩下的交给世界和时间了。
-</div>
-<!-- SXJ_NAV -->
-<nav style="position:sticky;top:0;z-index:999;display:flex;flex-wrap:wrap;gap:4px;align-items:center;background:#A32D2D;padding:8px 14px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-  <a href="./" style="color:#fff;font-weight:700;text-decoration:none;margin-right:10px;">事现鉴</a>
-  <a href="./events.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">事件簿</a>
-  <a href="./knowledge_tree.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">知识树</a>
-  <a href="./org.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">组织架构一览</a>
-  <a href="./history.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">发展历史</a>
-</nav>
-
 
 <nav>
   <div class="nav-logo">
@@ -134,8 +137,8 @@ footer a:hover{color:var(--red)}
   <div class="nav-links" id="nav-links">
     <a href="/">总览</a>
     <a href="events.html">事件簿</a>
-    <a href="events.html">验证</a>
-    <a href="cv.html">我的</a>
+    <a href="docs.html" class="blue-pill">文档中心</a>
+    <a href="cv.html">CV验证</a>
     <a href="co_creation.html">共创论</a>
     <a href="app/index.html" class="pill">App</a>
     <a href="https://hygzz.com" class="gold-pill">EN</a>
@@ -143,24 +146,14 @@ footer a:hover{color:var(--red)}
   <button class="nav-hamburger" id="nav-hamburger" aria-label="打开导航">☰</button>
 </nav>
 
-<!-- 最新事现横幅：导航下最醒目位置 -->
-<div style="background:linear-gradient(135deg,#A32D2D,#7a1f1f);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--font);border-bottom:2px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.18)">
-  <span style="background:#fff;color:#A32D2D;font-weight:700;padding:4px 11px;border-radius:6px;font-size:0.78rem;white-space:nowrap;letter-spacing:.4px">最新事现 · evt_009</span>
-  <div style="flex:1;min-width:240px">
-    <div style="font-weight:700;font-size:0.98rem;line-height:1.35">跨平台 AI 分享链接不可用性 · 已记录为公共事现</div>
-    <div style="font-size:0.82rem;opacity:.92;margin-top:2px">6–7 家平台原生分享链接生成 / 渲染失败，确认为系统性基础设施风险；可验证密度首个真实测量点 <b style="color:#f4e9c9">ρ = 0.5355</b>。</div>
-  </div>
-  <a href="events.html" style="background:var(--gold);color:#3a2a00;font-weight:700;padding:9px 18px;border-radius:8px;white-space:nowrap;text-decoration:none;font-size:0.9rem">查看完整事现 →</a>
-</div>
-
 <section class="hero">
-  <div class="hero-badge">贡献征信数据链 · Phase 核对清算</div>
+  <div class="hero-badge">贡献征信数据链 · Gzz编码体系 v1.0</div>
   <h1>银行征信看你能借多少钱<br><span>事现鉴征信看你创造多少价值</span></h1>
   <div class="hero-sub">每一次消费、每一次志愿、每一次减碳——都可以被验证、不可篡改、属于你自己。</div>
   <div class="hero-quote">共创论8.0：不推销真理，给人防忽悠的免疫系统。<br><em>"算得清"是你的权利，不是特权。</em></div>
   <div class="hero-btns">
     <a href="knowledge_tree.html" class="cta-btn primary">查看五卡模式 →</a>
-    <a href="critical_synthesis_report.html" class="cta-btn gold">财政直销模拟 →</a>
+    <a href="docs.html" class="cta-btn blue">文档中心 →</a>
     <a href="concept_tree.html" class="cta-btn outline">征信对比 →</a>
   </div>
 </section>
@@ -168,7 +161,7 @@ footer a:hover{color:var(--red)}
 <main class="directory">
   <div class="directory-head">
     <h2>事现鉴入口</h2>
-    <p>官网内容与小程序对齐：总览 / 事件簿 / 验证 / 我的</p>
+    <p>官网内容：总览 / 事件簿 / 文档中心 / 验证 / 我的</p>
   </div>
 
   <div class="dir-grid">
@@ -185,15 +178,15 @@ footer a:hover{color:var(--red)}
       <a href="events.html">进入事件簿 →</a>
     </div>
     <div class="dir-card">
-      <div class="dir-icon">🔍</div>
-      <div class="dir-title">验证</div>
-      <div class="dir-desc">双向验证机制、SHA-256 哈希链、现实后果回路。</div>
-      <a href="events.html">进入验证 →</a>
+      <div class="dir-icon">📚</div>
+      <div class="dir-title">文档中心</div>
+      <div class="dir-desc">Gzz编码体系、碳足迹报告、资产分析、工程文档。</div>
+      <a href="docs.html">进入文档中心 →</a>
     </div>
     <div class="dir-card">
       <div class="dir-icon">👤</div>
       <div class="dir-title">我的</div>
-      <div class="dir-desc">个人贡献档案、CV 平台、数据主权归你。</div>
+      <div class="dir-desc">个人贡献档案、CV平台、数据主权归你。</div>
       <a href="cv.html">进入我的 →</a>
     </div>
   </div>
@@ -207,15 +200,59 @@ footer a:hover{color:var(--red)}
       <li><a href="knowledge_tree.html"><span>知识树</span> →</a></li>
       <li><a href="concept_tree.html"><span>概念树</span> →</a></li>
       <li><a href="whitepaper.html"><span>白皮书</span> →</a></li>
+      <li><a href="matrix/"><span>三元坐标场</span> →</a></li>
       <li><a href="app/index.html"><span>下载事现鉴 App</span> →</a></li>
     </ul>
   </div>
 </main>
 
+<section class="updates">
+  <h2>📌 <span>近期更新</span> · 2026年8月</h2>
+  <div class="update-grid">
+    <div class="update-card">
+      <div class="date">2026-08-23</div>
+      <div class="title">Gzz编码体系 v1.0 定稿</div>
+      <div class="desc">七前缀编码体系最终版确认，配套 gzz-engine 编码引擎完工。支持个人/代理/治理/事件/商业/数字六类编码。</div>
+      <span class="tag tag-red">编码</span><span class="tag tag-blue">工程</span>
+    </div>
+    <div class="update-card">
+      <div class="date">2026-08-23</div>
+      <div class="title">资产分布多维度分析</div>
+      <div class="desc">基于千问扫描结果，三维度（文件个数/内容厚度/完整度）树形图分析，可视化事现鉴项目资产全景。</div>
+      <span class="tag tag-green">分析</span><span class="tag tag-gold">可视化</span>
+    </div>
+    <div class="update-card">
+      <div class="date">2026-08-22</div>
+      <div class="title">碳足迹核算方案</div>
+      <div class="desc">寰宇光锥舟碳足迹事件记录（Gzz-E-GOVERN-CARBON-20251006-001），碳排放核算方法论与证据链。</div>
+      <span class="tag tag-green">碳足迹</span><span class="tag tag-red">Gzz-E</span>
+    </div>
+    <div class="update-card">
+      <div class="date">2026-08-22</div>
+      <div class="title">学科体系 L5-L9 扩展</div>
+      <div class="desc">十层学科体系总纲完成，新增 L5-L9 五份学科文档，涵盖社会工程学、数字元等前沿领域。</div>
+      <span class="tag tag-blue">学科</span>
+    </div>
+    <div class="update-card">
+      <div class="date">2026-08-22</div>
+      <div class="title">Lighthouse 法兰克福节点上线</div>
+      <div class="desc">腾讯云 OpenClaw-CNI3 服务器部署完成（43.131.35.57），hygzz.cn 正式上线运行。</div>
+      <span class="tag tag-blue">基础设施</span>
+    </div>
+    <div class="update-card">
+      <div class="date">2026-08-21</div>
+      <div class="title">三元素材体系建立</div>
+      <div class="desc">sxj_sanyuan 新增13份三元素材，涵盖数字元、自然元、人力元的内容归位与度量锚点。</div>
+      <span class="tag tag-gold">三元</span>
+    </div>
+  </div>
+</section>
+
 <footer>
   <p>
     <a href="co_creation.html">共创论</a>
     <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
     <a href="cv.html">CV平台</a>
     <a href="https://github.com/baixi6313/sxj-android-app">GitHub</a>
   </p>
