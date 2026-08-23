@@ -33,8 +33,28 @@
   .toc{background:#f3f1ea;padding:12px 18px;border-radius:6px;font-size:13px;margin:16px 0}
   .toc a{color:var(--blu);text-decoration:none}
 </style>
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#A32D2D">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="事现鉴">
+  <link rel="apple-touch-icon" href="/icon-192.png">
 </head>
 <body>
+<!-- SXJ_NAV -->
+<nav style="position:sticky;top:0;z-index:999;display:flex;flex-wrap:wrap;gap:4px;align-items:center;background:#A32D2D;padding:8px 14px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+  <a href="./" style="color:#fff;font-weight:700;text-decoration:none;margin-right:10px;">事现鉴</a>
+  <a href="./events.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">事件簿</a>
+  <a href="./knowledge_tree.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">知识树</a>
+  <a href="./org.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">组织架构一览</a>
+  <a href="./history.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">发展历史</a>
+  <a href="./matrix/" style="color:#FFE6A8;text-decoration:none;padding:4px 8px;font-weight:700;">三元坐标场</a>
+</nav>
+
+
+
 
 <h1>共创论·事现鉴 跨平台语料批判性综合研究报告</h1>
 <div class="sub">基于 DeepSeek / 元宝 / 千问 / 豆包 / 知乎 四平台一社区语料的学术与政策双视角整理</div>
@@ -188,5 +208,6 @@
 本报告为本地分析产物，<b>未上传</b>至任何官网或白皮书；仅整理不裁定，框架冲突见第 5 节待裁定清单。
 </div>
 
+<script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
 </body>
 </html>

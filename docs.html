@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文档中心 · 事现鉴 SXJ</title>
+<style>
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:32px}
+
+.section{margin-bottom:40px}
+.section h2{font-size:1.25rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.doc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.doc-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.doc-card .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600;width:fit-content}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+.tag-green{background:#e8f5e9;color:var(--green)}
+.doc-card .title{font-size:1rem;font-weight:700;color:var(--text)}
+.doc-card .desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+.doc-card .meta{font-size:0.75rem;color:var(--text-faint)}
+.doc-card a{font-size:0.82rem;font-weight:600;color:var(--red);margin-top:4px}
+.doc-card a:hover{text-decoration:underline}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html" class="cur">文档中心</a>
+    <a href="cv.html">CV验证</a>
+    <a href="https://hygzz.com">EN</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>📚 文档<span>中心</span></h1>
+  <p class="sub">事现鉴项目全部文档、报告、编码体系与工程资料索引。持续更新。</p>
+
+  <!-- 编码体系 -->
+  <div class="section">
+    <h2>Gzz编码体系</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-red">编码</span>
+        <div class="title">Gzz编码体系参考·最终版</div>
+        <div class="desc">七前缀（P/A/G/N/E/B/C）完整编码规范，含统一码表、三值模型与文法定义。已修正两处文档/代码不一致。</div>
+        <div class="meta">2026-08-23 · v1.0 定稿</div>
+        <a href="https://github.com/baixi6313" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">工程</span>
+        <div class="title">gzz-engine 编码引擎</div>
+        <div class="desc">Python 实现的编码引擎（gzz_encoder.py / gzz_registry.py / gzz_cli.py），支持命令行编码/解码/注册。</div>
+        <div class="meta">2026-08-23 · Python 3.13</div>
+        <a href="https://github.com/baixi6313" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">事件</span>
+        <div class="title">碳足迹：Gzz-E-GOVERN-CARBON</div>
+        <div class="desc">寰宇光锥舟碳足迹核算方案，Gzz-E 事件编码 Gzz-E-GOVERN-CARBON-20251006-001，含碳排放核算方法论。</div>
+        <div class="meta">2026-08-22 · 碳足迹</div>
+        <a href="https://hygzz.top/carbon.html" target="_blank">查看 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 资产与数据 -->
+  <div class="section">
+    <h2>资产分析与数据</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-gold">分析</span>
+        <div class="title">资产分布多维度分析</div>
+        <div class="desc">三维度（文件个数/内容厚度/完整度）树形图可视化，基于千问资产扫描结果的事现鉴项目全景。</div>
+        <div class="meta">2026-08-23</div>
+        <a href="https://www.coze.cn/s/2bnr2k53cek/" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">验证</span>
+        <div class="title">Gzz编码验证工具</div>
+        <div class="desc">在线验证页面，支持输入编码字符串即时校验格式、前缀、子类和归属单位。</div>
+        <div class="meta">2026-08-23</div>
+        <a href="https://hygzz.top/verify.html" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">扫描</span>
+        <div class="title">千问资产扫描报告</div>
+        <div class="desc">近7天B盘80+文件变动全扫描，发现编码体系两处矛盾并已修正。含统一码表确认。</div>
+        <div class="meta">2026-08-23</div>
+        <a href="https://www.coze.cn/s/e3cwkM7vPvA/" target="_blank">查看 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 学科体系 -->
+  <div class="section">
+    <h2>学科体系</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-blue">学科</span>
+        <div class="title">十层学科体系总纲</div>
+        <div class="desc">L1-L10 十层学科体系全景，涵盖基础科学到社会工程学的完整知识树框架。</div>
+        <div class="meta">2026-08-22</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">学科</span>
+        <div class="title">学科体系 L5-L9 扩展</div>
+        <div class="desc">新增五份学科文档（L5应用科学/L6工程学/L7系统科学/L8社会工程/L9数字元），补齐中高层知识结构。</div>
+        <div class="meta">2026-08-22</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 基础设施 -->
+  <div class="section">
+    <h2>基础设施与部署</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-blue">服务器</span>
+        <div class="title">Lighthouse 法兰克福节点</div>
+        <div class="desc">腾讯云 OpenClaw-CNI3（43.131.35.57），Ubuntu 24.04 + Nginx，hygzz.cn 正式运行。</div>
+        <div class="meta">2026-08-22 · 法兰克福</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">认证</span>
+        <div class="title">DPG数字公共产品认证</div>
+        <div class="desc">GID0094044 已提交评审队列，周期4-8周。事现鉴作为可验证公共事实协议的认证推进。</div>
+        <div class="meta">2026-08 · 评审中</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">公司</span>
+        <div class="title">深圳公司注册启动</div>
+        <div class="desc">选定南山区，目标9月6日前取得进展。挂靠地址与监事人选进行中。</div>
+        <div class="meta">2026-08 · 进行中</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心理论 -->
+  <div class="section">
+    <h2>核心理论与协议</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-red">理论</span>
+        <div class="title">共创论 8.0</div>
+        <div class="desc">不推销真理，给人防忽悠的免疫系统。三值模型、五卡模式、全球社保终极目标。</div>
+        <div class="meta">核心理论</div>
+        <a href="co_creation.html">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-red">协议</span>
+        <div class="title">SXJ-MAIP 协议 v0.2</div>
+        <div class="desc">事现鉴多智能体互操作协议：Agent零密钥、ratify永远pending、证据E1/E2/E3分级、不篡改他人产出。</div>
+        <div class="meta">核心协议</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">合规</span>
+        <div class="title">SXJ-VC 凭证协议</div>
+        <div class="desc">统一对外接入标准（UAXS），VERIFY/ATTEST/CONSENSUS 报文规范，安全合规部维护。</div>
+        <div class="meta">进行中</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="cv.html">CV平台</a>
+    <a href="https://github.com/baixi6313">GitHub</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 基于 UDHR 第22条的可验证公共事实协议</p>
+</footer>
+
+</body>
+</html>
