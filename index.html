@@ -2,220 +2,231 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>hygzz.top · 事现鉴 贡献值（CV）验证平台</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事现鉴 · SXJ — 贡献征信数据链 | 超越银行征信的下一代信用体系</title>
+<meta name="description" content="事现鉴(SXJ)是基于可验证公共事实的开放协议。银行征信看你能借多少钱，事现鉴征信看你创造多少价值。">
+<meta name="keywords" content="事现鉴, SXJ, 共创论, 五卡模式, 贡献值, 征信, 财政直销, 共济值">
+<meta name="author" content="白玺">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hygzz.top">
+<meta property="og:type" content="website">
+<meta property="og:title" content="事现鉴 · 贡献征信数据链">
+<meta property="og:description" content="银行征信看你能借多少钱，事现鉴征信看你创造多少价值。">
+<meta property="og:url" content="https://hygzz.top">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="事现鉴 · SXJ — 贡献征信数据链">
+<meta name="twitter:description" content="银行征信看你能借多少钱，事现鉴征信看你创造多少价值。">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A32D2D'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%23F5F0E6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23A32D2D'/%3E%3C/svg%3E">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <style>
-  :root{
-    --paper:#f7f1e3; --ink:#2b2b2b; --red:#a23b32; --gold:#c8a24b;
-    --cv:#3b5b9a; --cv2:#6f8fd0; --line:#d9c9a8;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:"Noto Serif SC","Songti SC","STSong",serif;background:var(--paper);color:var(--ink);line-height:1.7}
-  a{color:var(--cv);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-  nav{position:sticky;top:0;background:rgba(247,241,227,.95);border-bottom:1px solid var(--line);z-index:20;backdrop-filter:blur(6px)}
-  nav .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:10px 20px}
-  nav .brand{font-weight:700;color:var(--red);margin-right:auto;font-size:1.05rem}
-  nav a{padding:4px 10px;border-radius:4px;font-size:.92rem}
-  nav a.cur{background:var(--cv);color:#fff}
-  nav a.ext{color:var(--gold);border:1px solid var(--gold)}
-  header.hero{text-align:center;padding:64px 20px 40px;background:
-    radial-gradient(circle at 20% 10%,rgba(59,91,154,.10),transparent 40%),
-    radial-gradient(circle at 80% 90%,rgba(162,59,50,.10),transparent 40%)}
-  .hero h1{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:1px;color:var(--red)}
-  .hero .dot{color:var(--cv)}
-  .hero p.sub{margin-top:14px;font-size:1.15rem;color:#444}
-  .hero .tag{display:inline-block;margin-top:18px;padding:6px 16px;border:1px solid var(--cv);border-radius:20px;color:var(--cv);font-size:.9rem}
-  section{padding:46px 0;border-bottom:1px dashed var(--line)}
-  section h2{font-size:1.6rem;color:var(--cv);margin-bottom:8px;display:flex;align-items:center;gap:10px}
-  section h2::before{content:"";width:8px;height:26px;background:var(--red);border-radius:2px;display:inline-block}
-  section .lead{color:#555;margin-bottom:22px}
-  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  .card h3{color:var(--red);margin-bottom:8px;font-size:1.12rem}
-  .card .k{font-size:.82rem;color:var(--cv);font-weight:700;letter-spacing:.5px}
-  .card p{font-size:.95rem;color:#444;margin-top:6px}
-  .cvbox{background:linear-gradient(135deg,#2b3c63,#3b5b9a);color:#fff;border-radius:14px;padding:30px;text-align:center;margin-top:10px}
-  .cvbox .formula{font-size:clamp(1.1rem,3vw,1.7rem);font-family:"Courier New",monospace;letter-spacing:.5px;line-height:1.9}
-  .cvbox .formula b{color:#ffd479}
-  .cvbox .note{margin-top:14px;font-size:.9rem;opacity:.85}
-  .verify{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media(max-width:680px){.verify{grid-template-columns:1fr}}
-  .chain{background:#fff7e8;border:1px solid var(--gold);border-radius:10px;padding:18px}
-  .chain .node{font-family:"Courier New",monospace;font-size:.82rem;background:#fff;border-left:3px solid var(--cv);padding:8px 10px;margin:8px 0;border-radius:4px;word-break:break-all}
-  .chain .arrow{text-align:center;color:var(--gold);font-weight:700}
-  .cases .case{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:12px}
-  .cases .case .badge{flex:none;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.8rem}
-  .b1{background:var(--red)} .b2{background:var(--cv)} .b3{background:var(--gold)}
-  .cases .case .body{flex:1}
-  .cases .case h4{font-size:1.05rem;margin-bottom:4px}
-  .cases .case .meta{font-size:.8rem;color:#888;margin-bottom:6px}
-  .cases .case p{font-size:.92rem;color:#444}
-  .map{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-  .map .dom{background:#fff;border:1px solid var(--line);border-radius:10px;padding:16px;text-align:center}
-  .map .dom .d{font-weight:700;font-size:1.1rem;color:var(--cv)}
-  .map .dom.cur{border:2px solid var(--red);box-shadow:0 0 0 3px rgba(162,59,50,.12)}
-  .map .dom .r{font-size:.85rem;color:#555;margin-top:6px}
-  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
-  .btn{padding:12px 22px;border-radius:8px;font-weight:700;font-size:.95rem;border:1px solid var(--cv);color:var(--cv);background:#fff}
-  .btn.primary{background:var(--cv);color:#fff;border-color:var(--cv)}
-  .btn.gold{border-color:var(--gold);color:var(--gold)}
-  footer{background:#2b2b2b;color:#e8dcc2;padding:34px 20px;text-align:center;font-size:.9rem}
-  footer .udhr{max-width:760px;margin:14px auto 0;color:#cbb98f;font-style:italic;line-height:1.6}
-  .mirror-note{background:#fff;border:1px dashed var(--gold);border-radius:8px;padding:12px 16px;font-size:.85rem;color:#7a5b1e;margin-top:18px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#fafaf9;
+  --bg-warm:#f7f3f0;
+  --card:#fff;
+  --text:#1a1a2e;
+  --text-dim:#555;
+  --text-faint:#8892a0;
+  --border:#e8e0d8;
+  --red:#A32D2D;
+  --red-light:#fef0f0;
+  --red-hover:#8a2424;
+  --gold:#C9A24B;
+  --gold-light:#fef8e8;
+  --gold-hover:#b08a3a;
+  --green:#2d8a4e;
+  --shadow:0 2px 12px rgba(0,0,0,0.06);
+  --shadow-lg:0 8px 30px rgba(0,0,0,0.1);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;
+}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--red);text-decoration:none}a:hover{text-decoration:underline}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-logo svg{width:24px;height:24px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links .pill{background:var(--red);color:#fff;padding:4px 10px}
+.nav-links .pill:hover{background:var(--red-hover)}
+.nav-links .gold-pill{background:transparent;color:var(--gold);border:1px solid var(--gold);padding:4px 10px}
+.nav-links .gold-pill:hover{background:var(--gold-light)}
+.nav-hamburger{display:none;background:none;border:none;font-size:1.3rem;color:var(--text-dim);margin-left:auto}
+
+/* Hero */
+.hero{min-height:86vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:80px 24px 40px;background:linear-gradient(180deg,#fafaf9 0%,#fef8e8 60%,#f7f3f0 100%);position:relative;overflow:hidden}
+.hero-badge{display:inline-block;background:var(--red);color:#fff;padding:6px 16px;border-radius:20px;font-size:0.78rem;font-weight:600;margin-bottom:24px;letter-spacing:.5px}
+.hero h1{font-size:clamp(2rem,5.5vw,3.6rem);font-weight:800;color:var(--text);line-height:1.25;margin-bottom:18px}
+.hero h1 span{color:var(--red)}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.25rem);color:var(--text-dim);max-width:620px;margin:0 auto 14px}
+.hero-quote{font-size:0.88rem;color:var(--text-faint);max-width:560px;margin:8px auto 28px}
+.hero-quote em{color:var(--gold);font-weight:600;font-style:normal}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:600;font-size:0.95rem;transition:all .2s}
+.cta-btn.primary{background:var(--red);color:#fff}.cta-btn.primary:hover{background:var(--red-hover);text-decoration:none}
+.cta-btn.gold{background:var(--gold);color:#fff}.cta-btn.gold:hover{background:var(--gold-hover);text-decoration:none}
+.cta-btn.outline{background:transparent;color:var(--red);border:2px solid var(--red)}.cta-btn.outline:hover{background:var(--red-light);text-decoration:none}
+
+/* Directory */
+.directory{padding:56px 24px 72px;max-width:980px;margin:0 auto}
+.directory-head{text-align:center;margin-bottom:36px}
+.directory-head h2{font-size:1.6rem;font-weight:700;color:var(--text)}
+.directory-head p{font-size:0.9rem;color:var(--text-faint);margin-top:6px}
+.dir-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:40px}
+.dir-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:22px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.dir-card:hover{border-color:var(--red);box-shadow:var(--shadow);transform:translateY(-2px)}
+.dir-card:hover .dir-title{color:var(--red)}
+.dir-icon{font-size:1.4rem;line-height:1}
+.dir-title{font-size:1.05rem;font-weight:700;color:var(--text)}
+.dir-desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+.dir-card a{display:block;margin-top:10px;font-size:0.82rem;font-weight:600;color:var(--red)}
+.dir-card a:hover{text-decoration:underline}
+
+.dir-list{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.dir-list-title{font-size:0.9rem;font-weight:700;color:var(--text);padding:14px 18px;background:var(--bg-warm);border-bottom:1px solid var(--border)}
+.dir-list ul{list-style:none}
+.dir-list li{border-bottom:1px solid var(--border)}
+.dir-list li:last-child{border-bottom:none}
+.dir-list a{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;color:var(--text-dim);font-size:0.9rem}
+.dir-list a:hover{background:var(--red-light);color:var(--red);text-decoration:none}
+.dir-list a span:first-child{font-weight:500;color:var(--text)}
+.dir-list a:hover span:first-child{color:var(--red)}
+
+/* Footer */
+footer{padding:32px 24px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
+
+@media(max-width:760px){
+  .nav-links{display:none;position:absolute;top:52px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:12px 24px;flex-direction:column;align-items:flex-start;gap:6px}
+  .nav-links.open{display:flex}
+  .nav-hamburger{display:block}
+  .hero-btns{flex-direction:column;align-items:center}
+  .cta-btn{width:min(100%,260px)}
+}
 </style>
 </head>
 <body>
-
-<nav>
-  <span class="brand">事现鉴 · SXJ</span>
-  <a href="https://hygzz.cn">hygzz.cn 国内征信</a>
-  <a href="https://hygzz.com">hygzz.com 国际</a>
-  <a href="./" class="cur">hygzz.top CV验证</a>
-  <a href="./verify.html">Gzz编码验证</a>
-  <a href="./carbon.html">碳足迹报告</a>
-  <a href="https://hygzz.中国" class="ext">hygzz.中国 案例库</a>
+<!-- 创始完成声明 · 白玺 -->
+<div style="background:linear-gradient(135deg,#A32D2D,#7a1f1f);color:#fff;padding:9px 20px;text-align:center;font-family:-apple-system,Segoe UI,Roboto,'PingFang SC','Microsoft YaHei',sans-serif;border-bottom:2px solid #C9A24B;font-size:0.9rem;line-height:1.45;">
+  <span style="color:#f4e9c9;font-weight:700;letter-spacing:1px;">✦ 创始完成</span>&nbsp;&nbsp;白玺已经完成所有创始内容，剩下的交给世界和时间了。
+</div>
+<!-- SXJ_NAV -->
+<nav style="position:sticky;top:0;z-index:999;display:flex;flex-wrap:wrap;gap:4px;align-items:center;background:#A32D2D;padding:8px 14px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+  <a href="./" style="color:#fff;font-weight:700;text-decoration:none;margin-right:10px;">事现鉴</a>
+  <a href="./events.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">事件簿</a>
+  <a href="./knowledge_tree.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">知识树</a>
+  <a href="./org.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">组织架构一览</a>
+  <a href="./history.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">发展历史</a>
 </nav>
 
-<header class="hero">
-  <h1>hygzz<span class="dot">.</span>top</h1>
-  <p class="sub">事现鉴 · 贡献值（CV）验证平台</p>
-  <span class="tag">让每一种"做出来"都被记录、被验证、被带走</span>
-</header>
 
-<section>
-  <div class="wrap">
-    <h2>三值体系 · 这里只管"发展权"那一根</h2>
-    <p class="lead">事现鉴用一把公共验算尺量三件事：共济值（生存权·按需）、贡献值 CV（发展权·按劳）、负贡献值（追责·修复）。<b>hygzz.top 是贡献值这一根的专用验证平台</b>——你创造了什么、被谁验证、净值是正是负，都记在这里，可携带、可互认、不可篡改。</p>
-    <div class="grid3">
-      <div class="card">
-        <span class="k">共济值 · 生存权</span>
-        <h3>按需 · 生存权</h3>
-        <p>被验证过的公共需求的加权总和，是人人在生存层面应当享有的初始共同财富。本平台不重复造它，只引用。</p>
-      </div>
-      <div class="card" style="border-color:var(--cv)">
-        <span class="k" style="color:var(--cv)">贡献值 CV · 发展权</span>
-        <h3>按劳 · 发展权</h3>
-        <p>个人与经济社会相交的可测量产出，经验证后折算成净值。这是 .top 的主战场。</p>
-      </div>
-      <div class="card">
-        <span class="k">负贡献值 · 追责</span>
-        <h3>追责（修复非惩罚）</h3>
-        <p>满足主体性/因果性/可避免性/修复性四条件才计入，目的是修复。</p>
-      </div>
-    </div>
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links" id="nav-links">
+    <a href="/">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="events.html">验证</a>
+    <a href="cv.html">我的</a>
+    <a href="co_creation.html">共创论</a>
+    <a href="app/index.html" class="pill">App</a>
+    <a href="https://hygzz.com" class="gold-pill">EN</a>
+  </div>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="打开导航">☰</button>
+</nav>
+
+<!-- 最新事现横幅：导航下最醒目位置 -->
+<div style="background:linear-gradient(135deg,#A32D2D,#7a1f1f);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-family:var(--font);border-bottom:2px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.18)">
+  <span style="background:#fff;color:#A32D2D;font-weight:700;padding:4px 11px;border-radius:6px;font-size:0.78rem;white-space:nowrap;letter-spacing:.4px">最新事现 · evt_009</span>
+  <div style="flex:1;min-width:240px">
+    <div style="font-weight:700;font-size:0.98rem;line-height:1.35">跨平台 AI 分享链接不可用性 · 已记录为公共事现</div>
+    <div style="font-size:0.82rem;opacity:.92;margin-top:2px">6–7 家平台原生分享链接生成 / 渲染失败，确认为系统性基础设施风险；可验证密度首个真实测量点 <b style="color:#f4e9c9">ρ = 0.5355</b>。</div>
+  </div>
+  <a href="events.html" style="background:var(--gold);color:#3a2a00;font-weight:700;padding:9px 18px;border-radius:8px;white-space:nowrap;text-decoration:none;font-size:0.9rem">查看完整事现 →</a>
+</div>
+
+<section class="hero">
+  <div class="hero-badge">贡献征信数据链 · Phase 核对清算</div>
+  <h1>银行征信看你能借多少钱<br><span>事现鉴征信看你创造多少价值</span></h1>
+  <div class="hero-sub">每一次消费、每一次志愿、每一次减碳——都可以被验证、不可篡改、属于你自己。</div>
+  <div class="hero-quote">共创论8.0：不推销真理，给人防忽悠的免疫系统。<br><em>"算得清"是你的权利，不是特权。</em></div>
+  <div class="hero-btns">
+    <a href="knowledge_tree.html" class="cta-btn primary">查看五卡模式 →</a>
+    <a href="critical_synthesis_report.html" class="cta-btn gold">财政直销模拟 →</a>
+    <a href="concept_tree.html" class="cta-btn outline">征信对比 →</a>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <h2>贡献值怎么算</h2>
-    <p class="lead">一条可测量的公式，把所有"我做了什么"折算成同一把尺上的净值。</p>
-    <div class="cvbox">
-      <div class="formula">
-        CV = 可测量产出 × <b>Vf</b>(验证系数) × <b>Wj</b>(动态权重) <br>− 资源消耗 × 折旧系数
-      </div>
-      <div class="note">Vf 由事现鉴验证机制赋予（多人交叉验证→系数趋近 1）；Wj 随公共需求动态调节。净值=正贡献−负贡献，是一本人人可读的账。</div>
-    </div>
+<main class="directory">
+  <div class="directory-head">
+    <h2>事现鉴入口</h2>
+    <p>官网内容与小程序对齐：总览 / 事件簿 / 验证 / 我的</p>
   </div>
-</section>
 
-<section>
-  <div class="wrap">
-    <h2>怎么验证 · 双向回路</h2>
-    <p class="lead">验证不是单向"上传身份证"，而是现实↔数字闭环：现实行为 → 哈希上链 → CV 记录 → 反作用于现实（信用/代偿/跨境社保）。</p>
-    <div class="verify">
-      <div class="chain">
-        <h3 style="color:var(--red);margin-bottom:8px">SHA-256 哈希链</h3>
-        <div class="node">记录#1 · 南京博物院文物流向核查</div>
-        <div class="arrow">↓ hash(prev+content)</div>
-        <div class="node">记录#2 · 耿同学学术不端证据核验</div>
-        <div class="arrow">↓ hash(prev+content)</div>
-        <div class="node">记录#3 · 小红书期权应得权益确认</div>
-        <div class="arrow">↓ …</div>
-        <div class="node" style="border-left-color:var(--gold)">任一记录被改 → 后续哈希全断裂 → 立即发现</div>
-      </div>
-      <div class="chain" style="border-color:var(--cv);background:#eef2fb">
-        <h3 style="color:var(--cv);margin-bottom:8px">双向验证回路</h3>
-        <p style="font-size:.92rem;color:#333">① 现实行为发生（你做了/查了/贡献了）</p>
-        <p style="font-size:.92rem;color:#333">② 多方交叉验证 → 写入 CV（数字证明）</p>
-        <p style="font-size:.92rem;color:#333">③ CV / 共济值 → 触发现实后果（信用准入 / 代偿 / 社保互认）</p>
-        <p style="font-size:.92rem;color:#333">④ 现实后果反过来校准下一条记录 → 回路闭合</p>
-        <p style="font-size:.82rem;color:#888;margin-top:8px">验证权威=事现鉴 + Gzz/GZZ，不依附任何中心化平台。</p>
-      </div>
+  <div class="dir-grid">
+    <div class="dir-card">
+      <div class="dir-icon">🧭</div>
+      <div class="dir-title">总览</div>
+      <div class="dir-desc">共创论总论、三值模型、全球社保终极目标。</div>
+      <a href="co_creation.html">进入总览 →</a>
+    </div>
+    <div class="dir-card">
+      <div class="dir-icon">📋</div>
+      <div class="dir-title">事件簿</div>
+      <div class="dir-desc">可验证公共事实记录，三值分类与状态追踪。</div>
+      <a href="events.html">进入事件簿 →</a>
+    </div>
+    <div class="dir-card">
+      <div class="dir-icon">🔍</div>
+      <div class="dir-title">验证</div>
+      <div class="dir-desc">双向验证机制、SHA-256 哈希链、现实后果回路。</div>
+      <a href="events.html">进入验证 →</a>
+    </div>
+    <div class="dir-card">
+      <div class="dir-icon">👤</div>
+      <div class="dir-title">我的</div>
+      <div class="dir-desc">个人贡献档案、CV 平台、数据主权归你。</div>
+      <a href="cv.html">进入我的 →</a>
     </div>
   </div>
-</section>
 
-<section class="cases">
-  <div class="wrap">
-    <h2>已经在发生的"事现鉴"案例</h2>
-    <p class="lead">你点名的三个事件，就是已达集体需求（共济值）的事现鉴——公众自发取证、交叉验证、形成共识。它们正好各踩中三值一格：</p>
-    <div class="case">
-      <div class="badge b1">共济值</div>
-      <div class="body">
-        <h4>南京博物院《江南春》等文物流失事件</h4>
-        <div class="meta">共济值 · 已归责 · 2026-02-09 省级通报，24 人被查，4 幅追回</div>
-        <p>公众把院方说辞与线索逐一对账、追流向，逼出调查与追责——对"公物去向 / 制度可信"的集体验证。</p>
-      </div>
-    </div>
-    <div class="case">
-      <div class="badge b2">负贡献</div>
-      <div class="body">
-        <h4>耿同学学术打假事件</h4>
-        <div class="meta">负贡献 · 已验证 · 学界与网民共同核验证据</div>
-        <p>一个人牵头，集体把"做"（行为）钉在记录上——对负贡献的集体归责，目的是修复而非惩罚。</p>
-      </div>
-    </div>
-    <div class="case">
-      <div class="badge b3">贡献值</div>
-      <div class="body">
-        <h4>小红书原员工期权事件</h4>
-        <div class="meta">贡献值 · 追踪中 · 前员工公开核验应得权益</div>
-        <p>"我创造的贡献对应的期权去哪了"——对贡献值 / 应得权益的集体确认。</p>
-      </div>
-    </div>
-    <div class="cta">
-      <a class="btn primary" href="https://baixi6313.github.io/sxj-domestic/events.html">打开事件簿 · 记录与追踪 →</a>
-    </div>
+  <div class="dir-list">
+    <div class="dir-list-title">更多资料与工具</div>
+    <ul>
+      <li><a href="knowledge_tree.html"><span>五卡模式</span> →</a></li>
+      <li><a href="critical_synthesis_report.html"><span>财政直销模型</span> →</a></li>
+      <li><a href="concept_tree.html"><span>征信对比</span> →</a></li>
+      <li><a href="knowledge_tree.html"><span>知识树</span> →</a></li>
+      <li><a href="concept_tree.html"><span>概念树</span> →</a></li>
+      <li><a href="whitepaper.html"><span>白皮书</span> →</a></li>
+      <li><a href="app/index.html"><span>下载事现鉴 App</span> →</a></li>
+    </ul>
   </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>四把尺 · 一把逻辑</h2>
-    <p class="lead">事现鉴体系用同一把公共验算尺，分出四个面向。hygzz.top 是其中"贡献值验证"这一根。</p>
-    <div class="map">
-      <div class="dom"><div class="d">hygzz.cn</div><div class="r">国内 · 金融财政验证 / 征信化债</div></div>
-      <div class="dom"><div class="d">hygzz.com</div><div class="r">国际 · 共济值 / 生存权</div></div>
-      <div class="dom cur"><div class="d">hygzz.top</div><div class="r">贡献值 CV 验证平台（本页）</div></div>
-      <div class="dom"><div class="d">hygzz.中国</div><div class="r">中文案例库</div></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <h2>从这里进去</h2>
-    <p class="lead">事件簿、知识树、白皮书、Gzz编码验证、碳足迹报告均已上线。</p>
-    <div class="cta">
-      <a class="btn primary" href="./verify.html">Gzz 编码体系 · 验证包</a>
-      <a class="btn" href="./carbon.html">碳足迹 · Gzz-E 事件记录</a>
-      <a class="btn gold" href="https://baixi6313.github.io/sxj-domestic/whitepaper.html">白皮书 v2</a>
-    </div>
-    <div class="mirror-note">说明：hygzz.top 域名解析权在腾讯云 DNSPod，本页已部署至 GitHub Pages 并通过腾讯云 DNS 指向 hygzz.top。其余三域（.cn/.com）因 Cloudflare 凭证待更新，真域名仍跑旧版；新内容经 GitHub Pages 镜像可公开访问。</div>
-  </div>
-</section>
+</main>
 
 <footer>
-  <div>事现鉴 · 共创论 · 寰宇光锥舟 —— 不推销真理，给人防忽悠的免疫系统</div>
-  <div class="udhr">《世界人权宣言》第二十二条：每个人，作为社会的一员，有权享受社会保障，并有权通过国家努力和国际合作，依据各自国家的组织和资源，实现经济、社会和文化方面不可或缺的权利。</div>
-  <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(200,162,75,.3)">
-    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#cbb98f">陕ICP备2026020031号-1X</a>
-    <span style="color:#666;margin:0 8px">|</span>
-    <span style="color:#999">主办：白玺</span>
-  </div>
+  <p>
+    <a href="co_creation.html">共创论</a>
+    <a href="events.html">事件簿</a>
+    <a href="cv.html">CV平台</a>
+    <a href="https://github.com/baixi6313/sxj-android-app">GitHub</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 基于 UDHR 第22条的可验证公共事实协议</p>
 </footer>
+
+<script>
+document.getElementById('nav-hamburger').addEventListener('click', function(){
+  document.getElementById('nav-links').classList.toggle('open');
+});
+</script>
+
 </body>
 </html>
