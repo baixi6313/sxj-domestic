@@ -1,0 +1,3329 @@
+{
+  "version": "v3.0",
+  "encoding_time": "2026-08-26T23:40:00+08:00",
+  "total_anchors": 413,
+  "categories": [
+    "人权/劳工类",
+    "环境/气候类",
+    "AI/数字治理类",
+    "贸易/供应链类",
+    "数据/隐私类",
+    "金融/治理类",
+    "社会/发展类"
+  ],
+  "category_counts": {
+    "人权/劳工类": 82,
+    "环境/气候类": 65,
+    "AI/数字治理类": 48,
+    "贸易/供应链类": 48,
+    "数据/隐私类": 69,
+    "金融/治理类": 74,
+    "社会/发展类": 27
+  },
+  "anchors": [
+    {
+      "index": 202,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-089ab2a1",
+      "term": "UDHR-第1条 人人生而自由平等",
+      "prev_hash": "2d5a9f68",
+      "current_hash": "089ab2a1",
+      "full_sha256": "089ab2a1252bba078f7e2161f4020b99bf8afff1f653d6f12f570e24702488da"
+    },
+    {
+      "index": 203,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-f08a86c1",
+      "term": "UDHR-第2条 人人不受歧视",
+      "prev_hash": "089ab2a1",
+      "current_hash": "f08a86c1",
+      "full_sha256": "f08a86c18798685e889f91ce420e8456f91dff45dbbe7690b6396bd855c69cdf"
+    },
+    {
+      "index": 204,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-084425d2",
+      "term": "UDHR-第3条 生命自由人身安全",
+      "prev_hash": "f08a86c1",
+      "current_hash": "084425d2",
+      "full_sha256": "084425d257a4c40cd5f6ba7dde33e481e8d8e87019f1e6d4e789c4458ac8da06"
+    },
+    {
+      "index": 205,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-9de8ecce",
+      "term": "UDHR-第4条 禁止奴役",
+      "prev_hash": "084425d2",
+      "current_hash": "9de8ecce",
+      "full_sha256": "9de8ecce345a7c0c1976a587db601468b7c8a58c254267c25dffd6d061a49316"
+    },
+    {
+      "index": 206,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-94d910bd",
+      "term": "UDHR-第5条 禁止酷刑",
+      "prev_hash": "9de8ecce",
+      "current_hash": "94d910bd",
+      "full_sha256": "94d910bdd54c176994f172584eea37050d843cb3fb498ea34f1ab5a4c0e7fb02"
+    },
+    {
+      "index": 207,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-1899b3f7",
+      "term": "UDHR-第6条 法律前人格承认",
+      "prev_hash": "94d910bd",
+      "current_hash": "1899b3f7",
+      "full_sha256": "1899b3f72c5374f7ed6ebbf048f77f598ca4d74228df01c3a067af6f526f33e6"
+    },
+    {
+      "index": 208,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-4d59a2ff",
+      "term": "UDHR-第7条 法律前人人平等",
+      "prev_hash": "1899b3f7",
+      "current_hash": "4d59a2ff",
+      "full_sha256": "4d59a2fffd1edc8fcb67cc663f8a164d96e9d6067345f4cb1a3b4d7761c65e29"
+    },
+    {
+      "index": 209,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-783480c3",
+      "term": "UDHR-第8条 有效司法补救",
+      "prev_hash": "4d59a2ff",
+      "current_hash": "783480c3",
+      "full_sha256": "783480c3cb2322cc3b1f1a0767553b9132ea37193451a36d0be57a4bdd293145"
+    },
+    {
+      "index": 210,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-2f2f55a5",
+      "term": "UDHR-第9条 禁止任意逮捕拘禁",
+      "prev_hash": "783480c3",
+      "current_hash": "2f2f55a5",
+      "full_sha256": "2f2f55a52e100f4f1bec304e3949e45f193005688b12d9bf025eb91de7a09927"
+    },
+    {
+      "index": 211,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-508eb874",
+      "term": "UDHR-第10条 公正公开审讯",
+      "prev_hash": "2f2f55a5",
+      "current_hash": "508eb874",
+      "full_sha256": "508eb874a08a1fbc9e37b7af0694921425ee45d09e4a639679105a1361d71803"
+    },
+    {
+      "index": 212,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-0eca5250",
+      "term": "UDHR-第11条 无罪推定",
+      "prev_hash": "508eb874",
+      "current_hash": "0eca5250",
+      "full_sha256": "0eca52501a6dcb15cc3de62c9734b32d2a4f23b8850574d106ef5f555d3bd18d"
+    },
+    {
+      "index": 213,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-05e38398",
+      "term": "UDHR-第12条 私生活家庭住宅通信",
+      "prev_hash": "0eca5250",
+      "current_hash": "05e38398",
+      "full_sha256": "05e38398028dd519072e8e13b588e80da6999033b0567e9bb4544b668a15c651"
+    },
+    {
+      "index": 214,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-cc5352a9",
+      "term": "UDHR-第13条 自由迁徙居住",
+      "prev_hash": "05e38398",
+      "current_hash": "cc5352a9",
+      "full_sha256": "cc5352a9220da5c9cfc6a1effb489b9f94544ccb891d8415c3f8a6e256b482b8"
+    },
+    {
+      "index": 215,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-c386651a",
+      "term": "UDHR-第14条 寻求庇护权",
+      "prev_hash": "cc5352a9",
+      "current_hash": "c386651a",
+      "full_sha256": "c386651a0ce7e1d13fc17ae15d1dfc0a3d3d7ba9a4b87f1fd509d27ab5369cac"
+    },
+    {
+      "index": 216,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-d930d202",
+      "term": "UDHR-第15条 享有国籍权",
+      "prev_hash": "c386651a",
+      "current_hash": "d930d202",
+      "full_sha256": "d930d202fcc7003393cd3956d7003b7678967e657e72839bfc96902e38e51b61"
+    },
+    {
+      "index": 217,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-995181b9",
+      "term": "UDHR-第16条 婚姻家庭权",
+      "prev_hash": "d930d202",
+      "current_hash": "995181b9",
+      "full_sha256": "995181b9d08f02d768fc7c95da429e9f5096a631f5f9fded66a0033a6ae005d0"
+    },
+    {
+      "index": 218,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-86c8e3ed",
+      "term": "UDHR-第17条 财产所有权",
+      "prev_hash": "995181b9",
+      "current_hash": "86c8e3ed",
+      "full_sha256": "86c8e3ed016fb1e615acd53d17865fa86579c5e97a63c7c69bbeb35dfc3fad34"
+    },
+    {
+      "index": 219,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-274dc7b0",
+      "term": "UDHR-第18条 思想良心宗教自由",
+      "prev_hash": "86c8e3ed",
+      "current_hash": "274dc7b0",
+      "full_sha256": "274dc7b0424e465d9a3c78c03398c20ade987705303aaa39e8992cda1ca6e35c"
+    },
+    {
+      "index": 220,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-ea7c4896",
+      "term": "UDHR-第19条 主张发表意见自由",
+      "prev_hash": "274dc7b0",
+      "current_hash": "ea7c4896",
+      "full_sha256": "ea7c48969ff5ff042e6a4cae577d48f2e23d841342d64af2a3955cf14bada04e"
+    },
+    {
+      "index": 221,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-f6cb7844",
+      "term": "UDHR-第20条 和平集会结社自由",
+      "prev_hash": "ea7c4896",
+      "current_hash": "f6cb7844",
+      "full_sha256": "f6cb784414279687322125489b630f4554be8d0dae6f60987d05c89233223e8c"
+    },
+    {
+      "index": 222,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-5f62f786",
+      "term": "UDHR-第21条 参与治理权",
+      "prev_hash": "f6cb7844",
+      "current_hash": "5f62f786",
+      "full_sha256": "5f62f786d696d4fad876f5dd0bb97b68aa6aeb63d7b0cc78ca7526c8e46e5d0e"
+    },
+    {
+      "index": 223,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-74405438",
+      "term": "UDHR-第22条 社会保障权",
+      "prev_hash": "5f62f786",
+      "current_hash": "74405438",
+      "full_sha256": "7440543847169b1be20770b035fe34673821a8d82ea344349f3ebc405b2a5eb3"
+    },
+    {
+      "index": 224,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-d8c253d8",
+      "term": "UDHR-第23条 工作与同工同酬",
+      "prev_hash": "74405438",
+      "current_hash": "d8c253d8",
+      "full_sha256": "d8c253d839a2790a47705b1c8b18c9014f20d04a61a393eb7504ae2d0ab2a653"
+    },
+    {
+      "index": 225,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-6a1356ff",
+      "term": "UDHR-第24条 休息闲暇权",
+      "prev_hash": "d8c253d8",
+      "current_hash": "6a1356ff",
+      "full_sha256": "6a1356ff46ed051f0e6d9e4d2262a3cedc03bdf84e50a4f8a592af47708db759"
+    },
+    {
+      "index": 226,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-517ea632",
+      "term": "UDHR-第25条 相当生活水准",
+      "prev_hash": "6a1356ff",
+      "current_hash": "517ea632",
+      "full_sha256": "517ea632c9071e527be3d3bd046bbf29dbc337d8517c037312e2a587465c8a11"
+    },
+    {
+      "index": 227,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-13ba032b",
+      "term": "UDHR-第26条 受教育权",
+      "prev_hash": "517ea632",
+      "current_hash": "13ba032b",
+      "full_sha256": "13ba032bebe845f27135a7f073d41b0c9cea9348c8f62427230cf3323aae4f28"
+    },
+    {
+      "index": 228,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-cf34ea6f",
+      "term": "UDHR-第27条 参加文化生活",
+      "prev_hash": "13ba032b",
+      "current_hash": "cf34ea6f",
+      "full_sha256": "cf34ea6fcb36b6999708ba2b1bc6f7bb9fd78118f239be24f217a453e89a3782"
+    },
+    {
+      "index": 229,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-028-f6927e14",
+      "term": "UDHR-第28条 社会国际秩序",
+      "prev_hash": "cf34ea6f",
+      "current_hash": "f6927e14",
+      "full_sha256": "f6927e149ae333a6c5d2e54f51b0c6d48271828930e4c85d16321d003e882dc3"
+    },
+    {
+      "index": 230,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-029-eab6bfa2",
+      "term": "UDHR-第29条 对社会的义务",
+      "prev_hash": "f6927e14",
+      "current_hash": "eab6bfa2",
+      "full_sha256": "eab6bfa25ba816090c3012ef0e138410d4dcc23554e381d9677cbe49ae2c61e6"
+    },
+    {
+      "index": 231,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-030-d2843a4e",
+      "term": "UDHR-第30条 权利不得滥用",
+      "prev_hash": "eab6bfa2",
+      "current_hash": "d2843a4e",
+      "full_sha256": "d2843a4e573ad2078ef60956bd17fb3c5e8bacd5326f5ae2399d230d148a6c13"
+    },
+    {
+      "index": 232,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-031-5604c962",
+      "term": "ICCPR-第1条 人民自决权",
+      "prev_hash": "d2843a4e",
+      "current_hash": "5604c962",
+      "full_sha256": "5604c96254e75af3021897bd1c4e57ea9f605131f1a19d418ec0100676f8378d"
+    },
+    {
+      "index": 233,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-032-2a20ff2a",
+      "term": "ICCPR-第2条 缔约国尊重保证义务",
+      "prev_hash": "5604c962",
+      "current_hash": "2a20ff2a",
+      "full_sha256": "2a20ff2a0365b8fd0c8c8a2a7b69ae852c63c8f00ab01ce0ba271f9ebd200a48"
+    },
+    {
+      "index": 234,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-033-798b7511",
+      "term": "ICCPR-第3条 男女平等享有权利",
+      "prev_hash": "2a20ff2a",
+      "current_hash": "798b7511",
+      "full_sha256": "798b7511184778d193137044890ef3d0bcf37f35aae09996ad8be1a0494a7211"
+    },
+    {
+      "index": 235,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-034-4c06ba7f",
+      "term": "ICCPR-第4条 社会紧急状态克减",
+      "prev_hash": "798b7511",
+      "current_hash": "4c06ba7f",
+      "full_sha256": "4c06ba7f494230587ec32696dcf60efbaffe647b733ef3e58a06dccaf8c7002f"
+    },
+    {
+      "index": 236,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-035-c54cd1bc",
+      "term": "ICCPR-第6条 固有生命权",
+      "prev_hash": "4c06ba7f",
+      "current_hash": "c54cd1bc",
+      "full_sha256": "c54cd1bc2f0325c1c96b1ace38778dc4f2ce1613ecec0b3f37afe98eb880a1da"
+    },
+    {
+      "index": 237,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-036-baf9e6a6",
+      "term": "ICCPR-第7条 禁止酷刑不人道待遇",
+      "prev_hash": "c54cd1bc",
+      "current_hash": "baf9e6a6",
+      "full_sha256": "baf9e6a66350b07621789838655381999965a7406d5dfd7368347ea828b36ed5"
+    },
+    {
+      "index": 238,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-037-4ea2dfd5",
+      "term": "ICCPR-第8条 禁止奴隶苦役",
+      "prev_hash": "baf9e6a6",
+      "current_hash": "4ea2dfd5",
+      "full_sha256": "4ea2dfd503d29b6ec01f2388b3805fa175fe291c0997a278fbae370b434084dc"
+    },
+    {
+      "index": 239,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-038-7063be5d",
+      "term": "ICCPR-第9条 人身自由安全权",
+      "prev_hash": "4ea2dfd5",
+      "current_hash": "7063be5d",
+      "full_sha256": "7063be5dd3be5d74bcdb92b8b1234f61c09c7daa9cc1c757062ecc2a7fda7f43"
+    },
+    {
+      "index": 240,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-039-f373d808",
+      "term": "ICCPR-第10条 被剥夺自由者待遇",
+      "prev_hash": "7063be5d",
+      "current_hash": "f373d808",
+      "full_sha256": "f373d8089b4c850fce59e785d28bb1ca2866bd5ab714c341a57367ee5aa3a796"
+    },
+    {
+      "index": 241,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-040-022212cf",
+      "term": "ICCPR-第12条 迁徙自由",
+      "prev_hash": "f373d808",
+      "current_hash": "022212cf",
+      "full_sha256": "022212cf2de81c82e224c21af075b9f8314ce5928f32c79ad6b677ddbaadbefe"
+    },
+    {
+      "index": 242,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-041-4c90690d",
+      "term": "ICCPR-第14条 法庭前平等公正审判",
+      "prev_hash": "022212cf",
+      "current_hash": "4c90690d",
+      "full_sha256": "4c90690d5b8ac6a909cfd27c1025fddf4955041828f6d17ec0c6c752c3ece93f"
+    },
+    {
+      "index": 243,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-042-bbf06e86",
+      "term": "ICCPR-第15条 法无明文不为罪",
+      "prev_hash": "4c90690d",
+      "current_hash": "bbf06e86",
+      "full_sha256": "bbf06e8664ad00c0bcff635b41339de9c7c802660eb4539b870aaa3ad5cc2b74"
+    },
+    {
+      "index": 244,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-043-27892dab",
+      "term": "ICCPR-第17条 私生活家庭通信",
+      "prev_hash": "bbf06e86",
+      "current_hash": "27892dab",
+      "full_sha256": "27892dab81df64f37304763a5dc6ad40642abb45112ddd5b78eda729c990a8a8"
+    },
+    {
+      "index": 245,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-044-d4634db7",
+      "term": "ICCPR-第18条 思想良心宗教自由",
+      "prev_hash": "27892dab",
+      "current_hash": "d4634db7",
+      "full_sha256": "d4634db74fff5337402618984e725d268aed0da739e27f8ac384c93d491821ac"
+    },
+    {
+      "index": 246,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-045-8fe8c120",
+      "term": "ICCPR-第19条 发表意见自由",
+      "prev_hash": "d4634db7",
+      "current_hash": "8fe8c120",
+      "full_sha256": "8fe8c1203813d18bf0cd4b77778922cf05bd1c7355829e0162cdce7d4d148d83"
+    },
+    {
+      "index": 247,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-046-1e6e270e",
+      "term": "ICCPR-第21条 和平集会权",
+      "prev_hash": "8fe8c120",
+      "current_hash": "1e6e270e",
+      "full_sha256": "1e6e270e85cebd614f5d7a4ab388e21b6a826b5fa96d899fea836e1a064a7b00"
+    },
+    {
+      "index": 248,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-047-7ceb5e29",
+      "term": "ICCPR-第22条 结社自由",
+      "prev_hash": "1e6e270e",
+      "current_hash": "7ceb5e29",
+      "full_sha256": "7ceb5e29ab8f7291ac294961d69a4920b7d48a0d785acd0f7c9599a45d902873"
+    },
+    {
+      "index": 249,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-048-90c41d10",
+      "term": "ICCPR-第24条 儿童权利",
+      "prev_hash": "7ceb5e29",
+      "current_hash": "90c41d10",
+      "full_sha256": "90c41d1082c99229eae656193fdf8dd6409371c8ec5188ef13b49f9e1f02fff9"
+    },
+    {
+      "index": 250,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-049-10f875f7",
+      "term": "ICCPR-第25条 参与公共事务权",
+      "prev_hash": "90c41d10",
+      "current_hash": "10f875f7",
+      "full_sha256": "10f875f71dafd68dca6c2d0570c4f43e78bb9a7503fd15525513cf16ff9adcb8"
+    },
+    {
+      "index": 251,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-050-b87bd280",
+      "term": "ICCPR-第26条 法律前平等保护",
+      "prev_hash": "10f875f7",
+      "current_hash": "b87bd280",
+      "full_sha256": "b87bd2802abb2b9605e262c194f6f3d765e216bf9c9281caef35bc5c54a96cb5"
+    },
+    {
+      "index": 252,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-051-93e2f343",
+      "term": "ICESCR-第1条 人民自决权",
+      "prev_hash": "b87bd280",
+      "current_hash": "93e2f343",
+      "full_sha256": "93e2f343c985ed82c1444447d86fd71c737cf25575aca888ba314eac34256efb"
+    },
+    {
+      "index": 253,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-052-e1aab712",
+      "term": "ICESCR-第2条 逐步实现义务",
+      "prev_hash": "93e2f343",
+      "current_hash": "e1aab712",
+      "full_sha256": "e1aab712faf5246ee6d0a1d73e6ddce230f689a7d2bdb4d4bc5923f95a02a496"
+    },
+    {
+      "index": 254,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-053-572b20b5",
+      "term": "ICESCR-第3条 男女平等权利",
+      "prev_hash": "e1aab712",
+      "current_hash": "572b20b5",
+      "full_sha256": "572b20b56699f70c46316f456316e36fe1f79d8dc930bbff6b0f7be862d08de4"
+    },
+    {
+      "index": 255,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-054-269a2896",
+      "term": "ICESCR-第4条 权利限制条件",
+      "prev_hash": "572b20b5",
+      "current_hash": "269a2896",
+      "full_sha256": "269a289602cf1e197665f120b87ec28c59f4d9ab9e05819bcef652220b09bef4"
+    },
+    {
+      "index": 256,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-055-8b0cda24",
+      "term": "ICESCR-第6条 工作权",
+      "prev_hash": "269a2896",
+      "current_hash": "8b0cda24",
+      "full_sha256": "8b0cda2441f418b1eb2bf4a7688b5ced8fc77bc1a098f678cd5f4d45cfebbf64"
+    },
+    {
+      "index": 257,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-056-4adbafe9",
+      "term": "ICESCR-第7条 公正良好工作条件",
+      "prev_hash": "8b0cda24",
+      "current_hash": "4adbafe9",
+      "full_sha256": "4adbafe9f652c46d0521d348bb016df7918cc2b3818aaac47c593c59e6fd53fa"
+    },
+    {
+      "index": 258,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-057-6e82dbd6",
+      "term": "ICESCR-第8条 组织工会罢工权",
+      "prev_hash": "4adbafe9",
+      "current_hash": "6e82dbd6",
+      "full_sha256": "6e82dbd64ac48c804450c8c8fd0c8d4fa0e31de29bdbe5879f74e7e37f044f18"
+    },
+    {
+      "index": 259,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-058-0b808b15",
+      "term": "ICESCR-第9条 社会保障权",
+      "prev_hash": "6e82dbd6",
+      "current_hash": "0b808b15",
+      "full_sha256": "0b808b15d448928313b9184fd31412895d2469e66f2cae8d74def644573d912e"
+    },
+    {
+      "index": 260,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-059-c7aaaeb5",
+      "term": "ICESCR-第10条 家庭保护",
+      "prev_hash": "0b808b15",
+      "current_hash": "c7aaaeb5",
+      "full_sha256": "c7aaaeb57beb13f03b42c2ae28b756ec37601d35f0a125024d9617c23da33535"
+    },
+    {
+      "index": 261,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-060-736518b6",
+      "term": "ICESCR-第11条 相当生活水准",
+      "prev_hash": "c7aaaeb5",
+      "current_hash": "736518b6",
+      "full_sha256": "736518b6b21ce67dadbb7405b761e7daa76b03d08c64ed2434732f2bfac101c2"
+    },
+    {
+      "index": 262,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-061-a36442fd",
+      "term": "ICESCR-第12条 身心健康权利",
+      "prev_hash": "736518b6",
+      "current_hash": "a36442fd",
+      "full_sha256": "a36442fda6ad8af0f1ee06037b916395ac7015a8c4bf39782f813f7ce58cfaa6"
+    },
+    {
+      "index": 263,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-062-2e8fa77d",
+      "term": "ICESCR-第13条 受教育权",
+      "prev_hash": "a36442fd",
+      "current_hash": "2e8fa77d",
+      "full_sha256": "2e8fa77d209515020f9414b54d82500e6ebb8a95f562112541167ba36b31fd5c"
+    },
+    {
+      "index": 264,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-063-9bb4a31f",
+      "term": "ICESCR-第14条 初等教育免费义务",
+      "prev_hash": "2e8fa77d",
+      "current_hash": "9bb4a31f",
+      "full_sha256": "9bb4a31fc93db733ce19f3e7000db662de3841ede2ac28ff4c33264fbe38e51d"
+    },
+    {
+      "index": 265,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-064-fb7e1ef3",
+      "term": "ICESCR-第15条 参加文化生活",
+      "prev_hash": "9bb4a31f",
+      "current_hash": "fb7e1ef3",
+      "full_sha256": "fb7e1ef3935a634a905a54e04c3a56675085b62a2cf2201f51cd478aa5037680"
+    },
+    {
+      "index": 266,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-065-42ba596c",
+      "term": "ICESCR-第16条 报告提交义务",
+      "prev_hash": "fb7e1ef3",
+      "current_hash": "42ba596c",
+      "full_sha256": "42ba596c2daa4b976aa409269cd174b9ea804e9cabf819facf4fd505f853f832"
+    },
+    {
+      "index": 267,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-066-f173c4db",
+      "term": "ILO-第29号 强迫劳动公约",
+      "prev_hash": "42ba596c",
+      "current_hash": "f173c4db",
+      "full_sha256": "f173c4dbb7abd1088e3737b349d8f258e4cf709ee6ec67eb0c88a253013a7d58"
+    },
+    {
+      "index": 268,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-067-dc91d4e9",
+      "term": "ILO-第87号 结社自由公约",
+      "prev_hash": "f173c4db",
+      "current_hash": "dc91d4e9",
+      "full_sha256": "dc91d4e9f6971700f586d8a5eaa1d76d716eb6f5ada5cca25ebb365f97985cc7"
+    },
+    {
+      "index": 269,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-068-25446307",
+      "term": "ILO-第98号 组织权利集体谈判",
+      "prev_hash": "dc91d4e9",
+      "current_hash": "25446307",
+      "full_sha256": "254463078093027c2c647c29e8c28fe2b76dd180a25b8a8f9c1af048211ad7cf"
+    },
+    {
+      "index": 270,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-069-22c3d3f8",
+      "term": "ILO-第100号 同工同酬公约",
+      "prev_hash": "25446307",
+      "current_hash": "22c3d3f8",
+      "full_sha256": "22c3d3f8c6399a534eae5bde87ded76f0c36cace2c1cbcd90b10c0faf8020749"
+    },
+    {
+      "index": 271,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-070-49e25e3a",
+      "term": "ILO-第105号 废除强迫劳动公约",
+      "prev_hash": "22c3d3f8",
+      "current_hash": "49e25e3a",
+      "full_sha256": "49e25e3aa312239dd1b7fcb8e4e98de4ce7f7a9078f9ca9d178e1050db21d47c"
+    },
+    {
+      "index": 272,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-071-785827a1",
+      "term": "ILO-第111号 就业歧视公约",
+      "prev_hash": "49e25e3a",
+      "current_hash": "785827a1",
+      "full_sha256": "785827a102e8c45b5cc48e71737921db427f67686ef2d4fa0a77d837151581f1"
+    },
+    {
+      "index": 273,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-072-f561dfaa",
+      "term": "ILO-第138号 最低年龄公约",
+      "prev_hash": "785827a1",
+      "current_hash": "f561dfaa",
+      "full_sha256": "f561dfaaadbcffa123a6dda2be48f32e1868711f7cce1805db322c8d8478a919"
+    },
+    {
+      "index": 274,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-073-0e1165dd",
+      "term": "ILO-第182号 最恶劣形式童工",
+      "prev_hash": "f561dfaa",
+      "current_hash": "0e1165dd",
+      "full_sha256": "0e1165dd11382e11ad9bbd5e69653bc4ed983cdf900c010699fbdd2a2b5816df"
+    },
+    {
+      "index": 275,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-074-5d238440",
+      "term": "UNGP-支柱1-P1 国家保护人权义务",
+      "prev_hash": "0e1165dd",
+      "current_hash": "5d238440",
+      "full_sha256": "5d238440fd1597bd24f58574fc488b3493fe7ccff48390ee29d0da8e54b65afd"
+    },
+    {
+      "index": 276,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-075-339b85e6",
+      "term": "UNGP-支柱1-P3 政策法律阐明期望",
+      "prev_hash": "5d238440",
+      "current_hash": "339b85e6",
+      "full_sha256": "339b85e68ae12f5e90822464263504ab01947282c74fded94134d34380fdbb26"
+    },
+    {
+      "index": 277,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-076-81d89a92",
+      "term": "UNGP-支柱1-P4 人权影响评估",
+      "prev_hash": "339b85e6",
+      "current_hash": "81d89a92",
+      "full_sha256": "81d89a92d4ce13831a768a502ee664a16732b873292477b0b6475d63d3a852bd"
+    },
+    {
+      "index": 278,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-077-8ef8588c",
+      "term": "UNGP-支柱2-P11 企业尊重人权责任",
+      "prev_hash": "81d89a92",
+      "current_hash": "8ef8588c",
+      "full_sha256": "8ef8588c4045eb0600f4e161d9ee607a8fa6a0e60a6161da07714e84ff522431"
+    },
+    {
+      "index": 279,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-078-5477ce0b",
+      "term": "UNGP-支柱2-P13 避免侵犯处理影响",
+      "prev_hash": "8ef8588c",
+      "current_hash": "5477ce0b",
+      "full_sha256": "5477ce0b89582bc209537cb45fb3ebff6b4902de72623093635fe9f9f24f2ec4"
+    },
+    {
+      "index": 280,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-079-05317ea3",
+      "term": "UNGP-支柱2-P17 人权尽责调查",
+      "prev_hash": "5477ce0b",
+      "current_hash": "05317ea3",
+      "full_sha256": "05317ea386defe469a20f4ad8878c123fcd1dbf7e3009dd5de4a6276af84ac6f"
+    },
+    {
+      "index": 281,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-080-66f48b84",
+      "term": "UNGP-支柱2-P19 处理不利影响进程",
+      "prev_hash": "05317ea3",
+      "current_hash": "66f48b84",
+      "full_sha256": "66f48b84d66be3b6abd83eea79e81c65bb44566cb687932b81763f04eb833faa"
+    },
+    {
+      "index": 282,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-081-ad7896d4",
+      "term": "UNGP-支柱3-P25 国家提供补救义务",
+      "prev_hash": "66f48b84",
+      "current_hash": "ad7896d4",
+      "full_sha256": "ad7896d495c570075ed169b3a49a36638dcaaf56ea41f913a38a32c6526a706b"
+    },
+    {
+      "index": 283,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-082-cddaef2b",
+      "term": "UNGP-支柱3-P31 企业申诉机制",
+      "prev_hash": "ad7896d4",
+      "current_hash": "cddaef2b",
+      "full_sha256": "cddaef2be2ab2cce51aa41f2d2847d9266ca8e4ddb78df396ca0a3da117b5b41"
+    },
+    {
+      "index": 284,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-7a582af9",
+      "term": "巴黎协定-第1条 定义",
+      "prev_hash": "cddaef2b",
+      "current_hash": "7a582af9",
+      "full_sha256": "7a582af9ca3428235212dba732102d0a1aecce73e57d277224d4ceab382d8e7b"
+    },
+    {
+      "index": 285,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-c60c6410",
+      "term": "巴黎协定-第2条 协定目标",
+      "prev_hash": "7a582af9",
+      "current_hash": "c60c6410",
+      "full_sha256": "c60c64108c3c16aaaf2cdbc7ff0b6bdb627b4cf474c40e70d81ca29ec4e4464c"
+    },
+    {
+      "index": 286,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-47aded35",
+      "term": "巴黎协定-第3条 国家自主贡献",
+      "prev_hash": "c60c6410",
+      "current_hash": "47aded35",
+      "full_sha256": "47aded357ede4a3f681f96116c8b9a784c149e0cedbc02dda9a9e7d96fb8c9de"
+    },
+    {
+      "index": 287,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-6ece271b",
+      "term": "巴黎协定-第4条 减缓目标",
+      "prev_hash": "47aded35",
+      "current_hash": "6ece271b",
+      "full_sha256": "6ece271bc71e3ffaf52e9b397a61b05d2f2fb94f15a892adea172bb16cfd6f13"
+    },
+    {
+      "index": 288,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-997a85a3",
+      "term": "巴黎协定-第5条 汇和库保护加强",
+      "prev_hash": "6ece271b",
+      "current_hash": "997a85a3",
+      "full_sha256": "997a85a3c4b835ea21a813f5c37cc5e46100c705b5fbbff4a90388334d2f4b59"
+    },
+    {
+      "index": 289,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-30b63e42",
+      "term": "巴黎协定-第6条 自愿合作机制",
+      "prev_hash": "997a85a3",
+      "current_hash": "30b63e42",
+      "full_sha256": "30b63e42196d07334746ded68adf056095362955bb7ba6c6d4468851666d658d"
+    },
+    {
+      "index": 290,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-d594921a",
+      "term": "巴黎协定-第7条 适应行动",
+      "prev_hash": "30b63e42",
+      "current_hash": "d594921a",
+      "full_sha256": "d594921a660d5180fda0206a4282807b50385ecb322186e67971e5437df942d0"
+    },
+    {
+      "index": 291,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-9bb5aa53",
+      "term": "巴黎协定-第8条 损失和损害",
+      "prev_hash": "d594921a",
+      "current_hash": "9bb5aa53",
+      "full_sha256": "9bb5aa5332ce78c109c8058c356f20be0b62527fff3aad2e53f264e8e33b5382"
+    },
+    {
+      "index": 292,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-bc4cedc4",
+      "term": "巴黎协定-第9条 资金提供",
+      "prev_hash": "9bb5aa53",
+      "current_hash": "bc4cedc4",
+      "full_sha256": "bc4cedc43e77e436c1057693421ea8167e021398518efa8294113b635d50aa88"
+    },
+    {
+      "index": 293,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-38cb273f",
+      "term": "巴黎协定-第10条 技术开发转让",
+      "prev_hash": "bc4cedc4",
+      "current_hash": "38cb273f",
+      "full_sha256": "38cb273f3febd5dfae248716e7cdb350a97c247b744f8b6c0049fa8e641a9dec"
+    },
+    {
+      "index": 294,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-ded809db",
+      "term": "巴黎协定-第11条 能力建设",
+      "prev_hash": "38cb273f",
+      "current_hash": "ded809db",
+      "full_sha256": "ded809db23d8118f137a68f6bd4c29770c770103e5e03283b05f4f0439fdf92b"
+    },
+    {
+      "index": 295,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-45762719",
+      "term": "巴黎协定-第12条 气候变化教育",
+      "prev_hash": "ded809db",
+      "current_hash": "45762719",
+      "full_sha256": "45762719f0ff10f7ee8c2e839b961435721c60e72498be20b2289c5659b00221"
+    },
+    {
+      "index": 296,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-0a6f4d45",
+      "term": "巴黎协定-第13条 透明度框架",
+      "prev_hash": "45762719",
+      "current_hash": "0a6f4d45",
+      "full_sha256": "0a6f4d4595f906320e570f80d34673bc5e36b2162320d948d0869d3104073abc"
+    },
+    {
+      "index": 297,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-8317b3d1",
+      "term": "巴黎协定-第14条 全球盘点",
+      "prev_hash": "0a6f4d45",
+      "current_hash": "8317b3d1",
+      "full_sha256": "8317b3d191a2584a3a922af8f8042667c4ea81ed76be76541b5dc06f31aadef8"
+    },
+    {
+      "index": 298,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-2922525b",
+      "term": "巴黎协定-第15条 遵约机制",
+      "prev_hash": "8317b3d1",
+      "current_hash": "2922525b",
+      "full_sha256": "2922525bfad4ded8709a47411c247bdb44d5e8a66216e7ce6a59a5bc8b26367c"
+    },
+    {
+      "index": 299,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-367ca553",
+      "term": "巴黎协定-第16条 多边平台",
+      "prev_hash": "2922525b",
+      "current_hash": "367ca553",
+      "full_sha256": "367ca55332d41c2ea88bc9c4447d99ae6a1b6c5e24b602432e35ee08a8413108"
+    },
+    {
+      "index": 300,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-50d583de",
+      "term": "巴黎协定-第17条 表决程序",
+      "prev_hash": "367ca553",
+      "current_hash": "50d583de",
+      "full_sha256": "50d583de7561191fe3631a88c44e52401f42557af71757c444dcc8b46d187b3e"
+    },
+    {
+      "index": 301,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-a4627d64",
+      "term": "巴黎协定-第18条 秘书处",
+      "prev_hash": "50d583de",
+      "current_hash": "a4627d64",
+      "full_sha256": "a4627d64d9a624845fb36648055c30ee4687e0124f2d4ade416c2a7f5ce682e3"
+    },
+    {
+      "index": 302,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-bcc087d6",
+      "term": "巴黎协定-第19条 附属机构",
+      "prev_hash": "a4627d64",
+      "current_hash": "bcc087d6",
+      "full_sha256": "bcc087d6a17bed8a24d4853dfd8897a6f09b3e0d90342c242e0951e3d8c0d9d0"
+    },
+    {
+      "index": 303,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-b671a537",
+      "term": "巴黎协定-第20条 签署批准",
+      "prev_hash": "bcc087d6",
+      "current_hash": "b671a537",
+      "full_sha256": "b671a537bd3d1189c654ab139e3f202a1acd9ef72a81fa680184a6a74c2decec"
+    },
+    {
+      "index": 304,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-eee9914a",
+      "term": "巴黎协定-第21条 生效条件",
+      "prev_hash": "b671a537",
+      "current_hash": "eee9914a",
+      "full_sha256": "eee9914ae0886bd82d25271eb063b2ebe1127efb2820c3e21a949037f27ae941"
+    },
+    {
+      "index": 305,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-2d18f966",
+      "term": "巴黎协定-第22条 保留",
+      "prev_hash": "eee9914a",
+      "current_hash": "2d18f966",
+      "full_sha256": "2d18f96662841c1fbaba52cd38b3b9d9ee5af6716eccde2c9bfa8cab5325ecf8"
+    },
+    {
+      "index": 306,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-81b4df7b",
+      "term": "巴黎协定-第23条 修正程序",
+      "prev_hash": "2d18f966",
+      "current_hash": "81b4df7b",
+      "full_sha256": "81b4df7bb5339236503864069f6684d703782dbe86669be7fc30fbd30343a8ee"
+    },
+    {
+      "index": 307,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-ff6be4ec",
+      "term": "巴黎协定-第24条 争端解决",
+      "prev_hash": "81b4df7b",
+      "current_hash": "ff6be4ec",
+      "full_sha256": "ff6be4ec5b0ed4f379b919f471209a4a7c56f7ec00fbb5e9d5ddd554b50330a9"
+    },
+    {
+      "index": 308,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-b0b435fc",
+      "term": "巴黎协定-第25条 保存人",
+      "prev_hash": "ff6be4ec",
+      "current_hash": "b0b435fc",
+      "full_sha256": "b0b435fcf7b3320766442e4f115d3fe4ed2dd57e368e8bbc9ef4312780ad8501"
+    },
+    {
+      "index": 309,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-f33b2165",
+      "term": "巴黎协定-第26条 作准文本",
+      "prev_hash": "b0b435fc",
+      "current_hash": "f33b2165",
+      "full_sha256": "f33b216550d88678fdbde7d011462bdb9104d7b2b55419478108ac6d42984656"
+    },
+    {
+      "index": 310,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-02b4b272",
+      "term": "巴黎协定-第27条 退出",
+      "prev_hash": "f33b2165",
+      "current_hash": "02b4b272",
+      "full_sha256": "02b4b27215363aac4b5021a7f5dc7e39f54603a8680c251099c7937a48e50a87"
+    },
+    {
+      "index": 311,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-028-b186a380",
+      "term": "巴黎协定-第28条 附件",
+      "prev_hash": "02b4b272",
+      "current_hash": "b186a380",
+      "full_sha256": "b186a380e56528e2f31ec7eb4831154727d93b4e62ac395aad40222cd991b9e8"
+    },
+    {
+      "index": 312,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-029-98a119da",
+      "term": "巴黎协定-第29条 最后条款",
+      "prev_hash": "b186a380",
+      "current_hash": "98a119da",
+      "full_sha256": "98a119da2e819724e412a77295fe46f0552163f47b353de3a83a0f756d7c57e3"
+    },
+    {
+      "index": 313,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-030-7b42e8a3",
+      "term": "京都议定书-第2条 政策与措施",
+      "prev_hash": "98a119da",
+      "current_hash": "7b42e8a3",
+      "full_sha256": "7b42e8a39c57eb6786b8c9f5e205431a617ca70ec6bd7c852dc7bc0888cf12fc"
+    },
+    {
+      "index": 314,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-031-8ff37c64",
+      "term": "京都议定书-第3条 量化减排承诺",
+      "prev_hash": "7b42e8a3",
+      "current_hash": "8ff37c64",
+      "full_sha256": "8ff37c64cdd5d9e5c88ddd15718a1dea6b80ad8832b7ed78a7ae4ce0102f6c0b"
+    },
+    {
+      "index": 315,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-032-fe00c6fa",
+      "term": "京都议定书-第4条 联合履约",
+      "prev_hash": "8ff37c64",
+      "current_hash": "fe00c6fa",
+      "full_sha256": "fe00c6fa585aed44d9aac9e367478a07475070afeb4a47ae9b6fc6b8a4fde9e6"
+    },
+    {
+      "index": 316,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-033-ecb515b4",
+      "term": "京都议定书-第6条 联合履约项目",
+      "prev_hash": "fe00c6fa",
+      "current_hash": "ecb515b4",
+      "full_sha256": "ecb515b452d341261daf207a81201cfc473100043c5eeb724551fee606be8096"
+    },
+    {
+      "index": 317,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-034-620cb9ba",
+      "term": "京都议定书-第10条 所有缔约方行动",
+      "prev_hash": "ecb515b4",
+      "current_hash": "620cb9ba",
+      "full_sha256": "620cb9ba45b1de6a275c23a56ffc62a213ae28270be136157a054b744d32d910"
+    },
+    {
+      "index": 318,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-035-9b2fa7c2",
+      "term": "京都议定书-第12条 清洁发展机制",
+      "prev_hash": "620cb9ba",
+      "current_hash": "9b2fa7c2",
+      "full_sha256": "9b2fa7c2bdcbbef4c6e3bf01025552dc453126898eea3623b12b39fdff336ce4"
+    },
+    {
+      "index": 319,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-036-efdb7481",
+      "term": "京都议定书-第16条 多边协商程序",
+      "prev_hash": "9b2fa7c2",
+      "current_hash": "efdb7481",
+      "full_sha256": "efdb748172f9145c4f3257b78e90b2caee2414fddfb64a56badb99f7967d9a27"
+    },
+    {
+      "index": 320,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-037-41128790",
+      "term": "京都议定书-第17条 排放贸易",
+      "prev_hash": "efdb7481",
+      "current_hash": "41128790",
+      "full_sha256": "4112879084b2f3390284894326cf06c4203e2c8847b551adbfa2987f59bbd4a7"
+    },
+    {
+      "index": 321,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-038-ae9326b9",
+      "term": "京都议定书-第18条 不遵守程序",
+      "prev_hash": "41128790",
+      "current_hash": "ae9326b9",
+      "full_sha256": "ae9326b9dba0e8b7667a403950c3485e5df1bcd150a878941fb5508af61a0453"
+    },
+    {
+      "index": 322,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-039-c30c7cbd",
+      "term": "京都议定书-第22条 争端解决",
+      "prev_hash": "ae9326b9",
+      "current_hash": "c30c7cbd",
+      "full_sha256": "c30c7cbdbe57d069f0cb4715e9b1e0fc068fb6a2bd3fb84ee16f6379ed22eed7"
+    },
+    {
+      "index": 323,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-040-f288272a",
+      "term": "SDGs-目标1 无贫穷",
+      "prev_hash": "c30c7cbd",
+      "current_hash": "f288272a",
+      "full_sha256": "f288272ae1a043ff231c06ae99bcfbfb0ee322c20fd8c5bf8747302add9bb14a"
+    },
+    {
+      "index": 324,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-041-9688531a",
+      "term": "SDGs-目标2 零饥饿",
+      "prev_hash": "f288272a",
+      "current_hash": "9688531a",
+      "full_sha256": "9688531aca6e04e8a6a6d4099062ebadb8967ffb637b4e103b6e84ac7a5c01ba"
+    },
+    {
+      "index": 325,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-042-1f924295",
+      "term": "SDGs-目标3 良好健康福祉",
+      "prev_hash": "9688531a",
+      "current_hash": "1f924295",
+      "full_sha256": "1f9242959efb4dcdfb365a4b42143d5c10704a74e8fb278d8ae65a50e045268d"
+    },
+    {
+      "index": 326,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-043-e5813a73",
+      "term": "SDGs-目标4 优质教育",
+      "prev_hash": "1f924295",
+      "current_hash": "e5813a73",
+      "full_sha256": "e5813a73c9ba07bd01ad9c4c860aae7786ea75dddd60e836018dfc323a20ea2b"
+    },
+    {
+      "index": 327,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-044-a8a2477f",
+      "term": "SDGs-目标5 性别平等",
+      "prev_hash": "e5813a73",
+      "current_hash": "a8a2477f",
+      "full_sha256": "a8a2477f282411de80b59937f14b98f30e8fc2c63730bb73c9a7a594a732db61"
+    },
+    {
+      "index": 328,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-045-0654400d",
+      "term": "SDGs-目标6 清洁饮水卫生",
+      "prev_hash": "a8a2477f",
+      "current_hash": "0654400d",
+      "full_sha256": "0654400d77cbf5e7327699bedb7483a0c3c72cb2eea5e2041ef5cc9a7cb75f45"
+    },
+    {
+      "index": 329,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-046-8317353f",
+      "term": "SDGs-目标7 经济适用清洁能源",
+      "prev_hash": "0654400d",
+      "current_hash": "8317353f",
+      "full_sha256": "8317353fe266a19b6af1cc519f11355a6b48db4ef09a453e0ff45de6b90a09ff"
+    },
+    {
+      "index": 330,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-047-4f6794e9",
+      "term": "SDGs-目标8 体面工作经济增长",
+      "prev_hash": "8317353f",
+      "current_hash": "4f6794e9",
+      "full_sha256": "4f6794e9432467ae69cf92f27eeccb85964b6ea64ccb60dff134f330e0a3612d"
+    },
+    {
+      "index": 331,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-048-987c8f80",
+      "term": "SDGs-目标9 产业创新基础设施",
+      "prev_hash": "4f6794e9",
+      "current_hash": "987c8f80",
+      "full_sha256": "987c8f80415f681bbd682e77684d088da743b27bc596253cf56dd596bec6a236"
+    },
+    {
+      "index": 332,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-049-ed319e71",
+      "term": "SDGs-目标10 减少不平等",
+      "prev_hash": "987c8f80",
+      "current_hash": "ed319e71",
+      "full_sha256": "ed319e7185180a581b30225e13a785d734ad912cc1e1a75c27aac134d013ff2c"
+    },
+    {
+      "index": 333,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-050-06d78b13",
+      "term": "SDGs-目标11 可持续城市社区",
+      "prev_hash": "ed319e71",
+      "current_hash": "06d78b13",
+      "full_sha256": "06d78b135919c8873f8e060bfde7a113ea21e4dbead9d7f782a119a31e3fbeb5"
+    },
+    {
+      "index": 334,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-051-cbcc611c",
+      "term": "SDGs-目标12 负责任消费生产",
+      "prev_hash": "06d78b13",
+      "current_hash": "cbcc611c",
+      "full_sha256": "cbcc611c6b91021335c9afc0a29f1a65dac88e191be46b647a596a29489f2a28"
+    },
+    {
+      "index": 335,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-052-09754b4f",
+      "term": "SDGs-目标13 气候行动",
+      "prev_hash": "cbcc611c",
+      "current_hash": "09754b4f",
+      "full_sha256": "09754b4f8c923395022f57fbfd5123d2194d5f09fa84d04f72002a48708ac984"
+    },
+    {
+      "index": 336,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-053-d08f7114",
+      "term": "SDGs-目标14 水下生物",
+      "prev_hash": "09754b4f",
+      "current_hash": "d08f7114",
+      "full_sha256": "d08f7114b0d44afa157b78ab4b84d18406c49c60c248681fd0eea1b6ef0554d5"
+    },
+    {
+      "index": 337,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-054-b491bc98",
+      "term": "SDGs-目标15 陆地生物",
+      "prev_hash": "d08f7114",
+      "current_hash": "b491bc98",
+      "full_sha256": "b491bc98381a7083cb702767460092b698cb6c568bafea1bbd63bdea96f17f9b"
+    },
+    {
+      "index": 338,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-055-b7b14493",
+      "term": "SDGs-目标16 和平正义强机构",
+      "prev_hash": "b491bc98",
+      "current_hash": "b7b14493",
+      "full_sha256": "b7b14493921eafa9fdd45d49f9ca84fa33d81786986d7f75e8b481511b7ada94"
+    },
+    {
+      "index": 339,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-056-7680b6c8",
+      "term": "SDGs-目标17 促进目标伙伴关系",
+      "prev_hash": "b7b14493",
+      "current_hash": "7680b6c8",
+      "full_sha256": "7680b6c810b88d6d21b3f1dbe29cec34a4cb6462cf5f31087f76dfb7ec36e29a"
+    },
+    {
+      "index": 340,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-057-c3239b63",
+      "term": "ISO14001-第4章 组织所处环境",
+      "prev_hash": "7680b6c8",
+      "current_hash": "c3239b63",
+      "full_sha256": "c3239b639f40633169f17f1e5dc15dd7f58ada73d08028b9b189a51eff6105c7"
+    },
+    {
+      "index": 341,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-058-ab17e267",
+      "term": "ISO14001-第5章 领导作用",
+      "prev_hash": "c3239b63",
+      "current_hash": "ab17e267",
+      "full_sha256": "ab17e267258dc01bc99d36566bf3160553183583983e4121a57c0394f467c8f1"
+    },
+    {
+      "index": 342,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-059-28aeaac4",
+      "term": "ISO14064-第1部分 组织层级GHG排放",
+      "prev_hash": "ab17e267",
+      "current_hash": "28aeaac4",
+      "full_sha256": "28aeaac488e28e28a3f5769f73e12232681d87c6699176f5633607e2b5346759"
+    },
+    {
+      "index": 343,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-060-f8ed33bb",
+      "term": "ISO14064-第2部分 项目层级GHG减排",
+      "prev_hash": "28aeaac4",
+      "current_hash": "f8ed33bb",
+      "full_sha256": "f8ed33bb055bf0b713f0132881c9bd68100407f94a64ff06eff812de26fbe83b"
+    },
+    {
+      "index": 344,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-061-3b058999",
+      "term": "ISO14068-第1部分 碳中和承诺",
+      "prev_hash": "f8ed33bb",
+      "current_hash": "3b058999",
+      "full_sha256": "3b058999c8d7eda3469459f83e84d646474205b0eb8bb9f815f603dc3ff8d4f4"
+    },
+    {
+      "index": 345,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-062-6a319374",
+      "term": "SBTi-核心原则 基于气候科学减排目标",
+      "prev_hash": "3b058999",
+      "current_hash": "6a319374",
+      "full_sha256": "6a319374f6873b2c5070606420d0ddce9c2c8037fa9320d173fc7a55d0b88491"
+    },
+    {
+      "index": 346,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-063-5571a562",
+      "term": "TCFD-支柱1 治理结构",
+      "prev_hash": "6a319374",
+      "current_hash": "5571a562",
+      "full_sha256": "5571a562504862bc98f8f0d1339dbf2cb5b41ebd36cbb23ecc34de5d0a1da304"
+    },
+    {
+      "index": 347,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-064-81001552",
+      "term": "TCFD-支柱2 战略影响",
+      "prev_hash": "5571a562",
+      "current_hash": "81001552",
+      "full_sha256": "81001552687ba58c5c10dc1b384b8c7bb32c3ec334639e50b5abe0837ab73a90"
+    },
+    {
+      "index": 348,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-065-b156a9cc",
+      "term": "TCFD-支柱3 风险管理",
+      "prev_hash": "81001552",
+      "current_hash": "b156a9cc",
+      "full_sha256": "b156a9cc85c693d2935172d697a8faddfe4f23ba00d68b5e9e6cc99fec10bd43"
+    },
+    {
+      "index": 349,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-059d944f",
+      "term": "EU-AI-第3条 定义",
+      "prev_hash": "b156a9cc",
+      "current_hash": "059d944f",
+      "full_sha256": "059d944f7fe984c45d4e9fd40ff215492636c687e968596860ecadc394102aaa"
+    },
+    {
+      "index": 350,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-032d5545",
+      "term": "EU-AI-第5条 不可接受风险AI",
+      "prev_hash": "059d944f",
+      "current_hash": "032d5545",
+      "full_sha256": "032d55458c4821c4cac72b61d0717e32ca2f5f42508e816c6cd172c88fdad944"
+    },
+    {
+      "index": 351,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-13e357e6",
+      "term": "EU-AI-第6条 AI系统风险分类",
+      "prev_hash": "032d5545",
+      "current_hash": "13e357e6",
+      "full_sha256": "13e357e60d4866a142ba4560b83784beae1ccf19d92ec591113e13097bd6f894"
+    },
+    {
+      "index": 352,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-12d3211e",
+      "term": "EU-AI-第7条 高风险AI系统要求",
+      "prev_hash": "13e357e6",
+      "current_hash": "12d3211e",
+      "full_sha256": "12d3211e6f544c18ce06ec9d5cf362f291a5b27985ffaeb21613c121ff66e5c3"
+    },
+    {
+      "index": 353,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-449148ca",
+      "term": "EU-AI-第9条 风险管理体系",
+      "prev_hash": "12d3211e",
+      "current_hash": "449148ca",
+      "full_sha256": "449148ca02386a9fd23b92087cab04ee0506608717a04fc9a9e46d2a90e0e001"
+    },
+    {
+      "index": 354,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-235f2a31",
+      "term": "EU-AI-第10条 数据和数据治理",
+      "prev_hash": "449148ca",
+      "current_hash": "235f2a31",
+      "full_sha256": "235f2a31d45c0c493a6fc354492251eb5ce8739514846fba17b2f8ba58e6cabf"
+    },
+    {
+      "index": 355,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-069291c2",
+      "term": "EU-AI-第11条 技术文档",
+      "prev_hash": "235f2a31",
+      "current_hash": "069291c2",
+      "full_sha256": "069291c20f50247ffa0d5e92d4c0192dde01b1fb6344ec3a2abdbcf1f8f93459"
+    },
+    {
+      "index": 356,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-1e8d2e7c",
+      "term": "EU-AI-第12条 记录保存",
+      "prev_hash": "069291c2",
+      "current_hash": "1e8d2e7c",
+      "full_sha256": "1e8d2e7ca35406398416e7629072f8e7a6ea1ba98bfa1cc158062a890e00a4b6"
+    },
+    {
+      "index": 357,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-b6d18d45",
+      "term": "EU-AI-第13条 透明度义务",
+      "prev_hash": "1e8d2e7c",
+      "current_hash": "b6d18d45",
+      "full_sha256": "b6d18d4579777b1fe6adf9289a682d602e5f79bd2866f2887fcf8d58963cd8c3"
+    },
+    {
+      "index": 358,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-7896a510",
+      "term": "EU-AI-第14条 人工监督",
+      "prev_hash": "b6d18d45",
+      "current_hash": "7896a510",
+      "full_sha256": "7896a510e313c89fc85c604f1b0c0dca05bdec4b350f51dda8bac31c10071f13"
+    },
+    {
+      "index": 359,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-b67b98bd",
+      "term": "EU-AI-第15条 准确性稳健性",
+      "prev_hash": "7896a510",
+      "current_hash": "b67b98bd",
+      "full_sha256": "b67b98bd8cfd230d44b5e514a4c28d9a5a45bcb9c1c4ba6a4a06eca44eb38b86"
+    },
+    {
+      "index": 360,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-bb0ea8d8",
+      "term": "EU-AI-第16条 提供者义务",
+      "prev_hash": "b67b98bd",
+      "current_hash": "bb0ea8d8",
+      "full_sha256": "bb0ea8d81d4b7f8013bbd4953b224265f68866c00385b8e22f555d474e125bc8"
+    },
+    {
+      "index": 361,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-cda3eff1",
+      "term": "EU-AI-第17条 进口商义务",
+      "prev_hash": "bb0ea8d8",
+      "current_hash": "cda3eff1",
+      "full_sha256": "cda3eff167cc018f72718f86c221464651e8cb4498efec324aedc61539c84a64"
+    },
+    {
+      "index": 362,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-0c9f3b93",
+      "term": "EU-AI-第18条 分销商义务",
+      "prev_hash": "cda3eff1",
+      "current_hash": "0c9f3b93",
+      "full_sha256": "0c9f3b93e77d6c0cdcea72df335a0b2e7cc82b607ecc8d947521a6505aa7d448"
+    },
+    {
+      "index": 363,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-0613b9b1",
+      "term": "EU-AI-第25条 通用AI模型",
+      "prev_hash": "0c9f3b93",
+      "current_hash": "0613b9b1",
+      "full_sha256": "0613b9b115dd78ddfae325cd4d02cd1c4d0e7d361fd354c5cca32d5d71141984"
+    },
+    {
+      "index": 364,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-b2d41b8e",
+      "term": "EU-AI-第26条 通用AI模型透明度",
+      "prev_hash": "0613b9b1",
+      "current_hash": "b2d41b8e",
+      "full_sha256": "b2d41b8e47401f76c94f748122859516659cb5d4f6f39e54092d7029aac0720b"
+    },
+    {
+      "index": 365,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-2cd4941a",
+      "term": "EU-AI-第28条 AI治理框架",
+      "prev_hash": "b2d41b8e",
+      "current_hash": "2cd4941a",
+      "full_sha256": "2cd4941aab42b81d0b52921ab3c63bb11c628de010d8a997c397246241e644b8"
+    },
+    {
+      "index": 366,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-c3c53c35",
+      "term": "EU-AI-第30条 市场监督",
+      "prev_hash": "2cd4941a",
+      "current_hash": "c3c53c35",
+      "full_sha256": "c3c53c357bbb4f47202b3a9ebb6faa33479c3676e47570fd35957bf85866ebe7"
+    },
+    {
+      "index": 367,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-64db05f4",
+      "term": "EU-AI-第49条 处罚条款",
+      "prev_hash": "c3c53c35",
+      "current_hash": "64db05f4",
+      "full_sha256": "64db05f4273b4a8708e5956cab492ba0bd2a487a8aac3598fe175d616eb65607"
+    },
+    {
+      "index": 368,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-db299837",
+      "term": "EU-AI-第51条 处罚上限",
+      "prev_hash": "64db05f4",
+      "current_hash": "db299837",
+      "full_sha256": "db2998372e61a96dbcbc490026352c33949efcc43cc64b2a00be9cf9f8aa16d1"
+    },
+    {
+      "index": 369,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-093cf0c2",
+      "term": "OECD-AI-原则1 包容性增长福祉",
+      "prev_hash": "db299837",
+      "current_hash": "093cf0c2",
+      "full_sha256": "093cf0c2119154146d62307e98783d3637dae6b604a8082e1dfa02277723e5dc"
+    },
+    {
+      "index": 370,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-626543d3",
+      "term": "OECD-AI-原则2 以人为中心价值",
+      "prev_hash": "093cf0c2",
+      "current_hash": "626543d3",
+      "full_sha256": "626543d3cbd08e158b0d2d4c3dba1dc20904f4285aa5b73f2bab077bb4c29097"
+    },
+    {
+      "index": 371,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-db27d7a6",
+      "term": "OECD-AI-原则3 公平公正",
+      "prev_hash": "626543d3",
+      "current_hash": "db27d7a6",
+      "full_sha256": "db27d7a602f2ac08e88476443547d335fa0eca12ef48f835fad51d7775b2dd8b"
+    },
+    {
+      "index": 372,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-c4bda894",
+      "term": "OECD-AI-原则4 透明度可解释性",
+      "prev_hash": "db27d7a6",
+      "current_hash": "c4bda894",
+      "full_sha256": "c4bda894b312f341da64acfe32b7eca1502b7c87410dba9a2e95f9094fb11412"
+    },
+    {
+      "index": 373,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-7c2e074e",
+      "term": "OECD-AI-原则5 稳健安全保障",
+      "prev_hash": "c4bda894",
+      "current_hash": "7c2e074e",
+      "full_sha256": "7c2e074e605e9c1701f11ff9d54e2a9a9b964ec7e7309aa9bfdf6288e1646222"
+    },
+    {
+      "index": 374,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-87e14382",
+      "term": "UN-AI-第1条 AI促进可持续发展",
+      "prev_hash": "7c2e074e",
+      "current_hash": "87e14382",
+      "full_sha256": "87e143829a438b74826cc28e3c346e2c136eb8d4356f6cc94ac4b65cde92f765"
+    },
+    {
+      "index": 375,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-8a40a1ec",
+      "term": "UN-AI-第2条 人权保护",
+      "prev_hash": "87e14382",
+      "current_hash": "8a40a1ec",
+      "full_sha256": "8a40a1ec3811567771d781728b7eca77dc4080ebe89d0a978b5744b8a9b1169e"
+    },
+    {
+      "index": 376,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-028-1fa6d259",
+      "term": "UN-AI-第3条 包容性公平公正",
+      "prev_hash": "8a40a1ec",
+      "current_hash": "1fa6d259",
+      "full_sha256": "1fa6d259d523d71fde6e6a09375b5fb3c2e4ba80e124e0b6b01fdf77855ba61d"
+    },
+    {
+      "index": 377,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-029-6aa94a6a",
+      "term": "UN-AI-第4条 透明度问责制",
+      "prev_hash": "1fa6d259",
+      "current_hash": "6aa94a6a",
+      "full_sha256": "6aa94a6abba6150b3358332e9874bb43d76e261f1851792501480b019c7aedcc"
+    },
+    {
+      "index": 378,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-030-2b57399d",
+      "term": "UN-AI-第5条 国际合作机制",
+      "prev_hash": "6aa94a6a",
+      "current_hash": "2b57399d",
+      "full_sha256": "2b57399df17b52ad7ec62c6880a3685d733e79c226891cb2543607b41d17c221"
+    },
+    {
+      "index": 379,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-031-5db5b611",
+      "term": "ISO42001-第4章 组织环境",
+      "prev_hash": "2b57399d",
+      "current_hash": "5db5b611",
+      "full_sha256": "5db5b61112fcec36cd79590cf84e05ba3e23d9ad74547722514930e8fa803577"
+    },
+    {
+      "index": 380,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-032-cd544f38",
+      "term": "ISO42001-第5章 领导作用",
+      "prev_hash": "5db5b611",
+      "current_hash": "cd544f38",
+      "full_sha256": "cd544f388bef0013fc980d4ec9880434eb91d8b78f6f10c4fd9fe1a5ccfde7f7"
+    },
+    {
+      "index": 381,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-033-a5b7e7a6",
+      "term": "ISO42001-第6章 策划",
+      "prev_hash": "cd544f38",
+      "current_hash": "a5b7e7a6",
+      "full_sha256": "a5b7e7a617e5db497753e67695a81b9196179562c46d8ec0e7453905824fdfe5"
+    },
+    {
+      "index": 382,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-034-4cbb157b",
+      "term": "ISO42001-第7章 支持资源",
+      "prev_hash": "a5b7e7a6",
+      "current_hash": "4cbb157b",
+      "full_sha256": "4cbb157b2010b1b1a19e0d25a71ad586038623765826e0ec5f18bee6526abdf7"
+    },
+    {
+      "index": 383,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-035-5f8b2f4e",
+      "term": "ISO42001-第8章 运行控制",
+      "prev_hash": "4cbb157b",
+      "current_hash": "5f8b2f4e",
+      "full_sha256": "5f8b2f4ec06d7212683c38ac30df25b73bfe93bf9495bfee1bdc614df68be943"
+    },
+    {
+      "index": 384,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-036-10fc09c9",
+      "term": "ISO42001-第9章 绩效评价",
+      "prev_hash": "5f8b2f4e",
+      "current_hash": "10fc09c9",
+      "full_sha256": "10fc09c9ce28fdc9f8829158022599497513619a716a6244b41d9536ac2f66b6"
+    },
+    {
+      "index": 385,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-037-6107f6ee",
+      "term": "ISO42001-第10章 持续改进",
+      "prev_hash": "10fc09c9",
+      "current_hash": "6107f6ee",
+      "full_sha256": "6107f6ee9ba488a51e476530d0353ae391cfdfa0930d56a33bbb304069eb56dc"
+    },
+    {
+      "index": 386,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-038-43106e26",
+      "term": "ISO42001-附录A AI风险控制",
+      "prev_hash": "6107f6ee",
+      "current_hash": "43106e26",
+      "full_sha256": "43106e269a252cf6937d51d4b5fc929235cfcb4aa7bb85050d355f4c85de26b3"
+    },
+    {
+      "index": 387,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-039-baeca965",
+      "term": "IEEE-EA-原则1 人权",
+      "prev_hash": "43106e26",
+      "current_hash": "baeca965",
+      "full_sha256": "baeca9650bd603f39c4d957eccb8930a9abf17ba7e240bd76db11776d5741473"
+    },
+    {
+      "index": 388,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-040-45c1604d",
+      "term": "IEEE-EA-原则2 福祉",
+      "prev_hash": "baeca965",
+      "current_hash": "45c1604d",
+      "full_sha256": "45c1604d0c5dba1800540fa1dcd2911bebfbdd8c5f5f63ba349514fcb02305c5"
+    },
+    {
+      "index": 389,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-041-7162b970",
+      "term": "IEEE-EA-原则3 问责制",
+      "prev_hash": "45c1604d",
+      "current_hash": "7162b970",
+      "full_sha256": "7162b9707932a851a6aa8ad97e4133b5b7a219b83b2f8ce01120ca8db3f08287"
+    },
+    {
+      "index": 390,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-042-30225724",
+      "term": "IEEE-EA-原则4 透明性",
+      "prev_hash": "7162b970",
+      "current_hash": "30225724",
+      "full_sha256": "30225724cd8974cab32f4a89c25c7c05da02e6a789264677df0b49a37a6787fc"
+    },
+    {
+      "index": 391,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-043-93dd2db3",
+      "term": "IEEE-EA-原则5 教育意识",
+      "prev_hash": "30225724",
+      "current_hash": "93dd2db3",
+      "full_sha256": "93dd2db3ae0d66ac3c021eed4f0c2bd94d6cbbf276762f0e88c73c131f0caae9"
+    },
+    {
+      "index": 392,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-044-2f5dea91",
+      "term": "G7-AI-第1条 安全可信AI",
+      "prev_hash": "93dd2db3",
+      "current_hash": "2f5dea91",
+      "full_sha256": "2f5dea917ae4861cf36a0fde873e67f9541ec285454d5e87fe7be9fba343fbb9"
+    },
+    {
+      "index": 393,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-045-9d963b3e",
+      "term": "G7-AI-第2条 前沿AI风险",
+      "prev_hash": "2f5dea91",
+      "current_hash": "9d963b3e",
+      "full_sha256": "9d963b3eb51d79e780a853a5fd9776fe4586803812e0804f3ec77b8c326622b3"
+    },
+    {
+      "index": 394,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-046-d804334f",
+      "term": "G7-AI-第3条 国际标准合作",
+      "prev_hash": "9d963b3e",
+      "current_hash": "d804334f",
+      "full_sha256": "d804334fbe5c331b416d76382745ca23de3db85c6512ca87b034451779e7b60f"
+    },
+    {
+      "index": 395,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-047-de1bbf51",
+      "term": "G7-AI-第4条 AI治理框架",
+      "prev_hash": "d804334f",
+      "current_hash": "de1bbf51",
+      "full_sha256": "de1bbf51ab0933a836958778f33b5d1f2ff2b74ee96aca24053846a28fc39bb8"
+    },
+    {
+      "index": 396,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-048-520587da",
+      "term": "G7-AI-第5条 公私协作",
+      "prev_hash": "de1bbf51",
+      "current_hash": "520587da",
+      "full_sha256": "520587da4863ad74da11f1fa74e32b3cfc98a6ef7c41651b6d6de1f5c7b08538"
+    },
+    {
+      "index": 397,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-460566cb",
+      "term": "WTO-第1条 最惠国待遇",
+      "prev_hash": "520587da",
+      "current_hash": "460566cb",
+      "full_sha256": "460566cbf254bd30a88e08d4f1f3b66bc4963eaf5d01a9f8cc6e6c850f717608"
+    },
+    {
+      "index": 398,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-1fd298da",
+      "term": "WTO-第2条 关税减让表",
+      "prev_hash": "460566cb",
+      "current_hash": "1fd298da",
+      "full_sha256": "1fd298dac37cafb0636392a48f4b5e49b1678174ebbc5d16b4ef249a76794f79"
+    },
+    {
+      "index": 399,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-cc9da2f9",
+      "term": "WTO-第3条 国民待遇",
+      "prev_hash": "1fd298da",
+      "current_hash": "cc9da2f9",
+      "full_sha256": "cc9da2f9b0fec6ba0dabae6b4b3d9e3f6014fffb0769dbedc3932b43c0164965"
+    },
+    {
+      "index": 400,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-64f7bd39",
+      "term": "WTO-第6条 反倾销",
+      "prev_hash": "cc9da2f9",
+      "current_hash": "64f7bd39",
+      "full_sha256": "64f7bd392d2669bd82778c6974696743e55a7c6a8b2f0d761b813f0baca807f3"
+    },
+    {
+      "index": 401,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-ac6e2ef1",
+      "term": "WTO-第9条 原产地标记",
+      "prev_hash": "64f7bd39",
+      "current_hash": "ac6e2ef1",
+      "full_sha256": "ac6e2ef1ccfaf18f62cdc261f8f9ca4dade42d2a3b7698576fb488539b53ba6c"
+    },
+    {
+      "index": 402,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-750801ac",
+      "term": "WTO-第10条 贸易法规透明度",
+      "prev_hash": "ac6e2ef1",
+      "current_hash": "750801ac",
+      "full_sha256": "750801acd865bf28905222e7f7b6a5328758736418f57d0cac3d860160db9124"
+    },
+    {
+      "index": 403,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-5aaa06c1",
+      "term": "WTO-第11条 取消数量限制",
+      "prev_hash": "750801ac",
+      "current_hash": "5aaa06c1",
+      "full_sha256": "5aaa06c1f482aacff3d6ce873c85a4ae87a0b7fec77ced6725a9e6ebff3ba912"
+    },
+    {
+      "index": 404,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-4a0f5de1",
+      "term": "WTO-第12条 国际收支限制",
+      "prev_hash": "5aaa06c1",
+      "current_hash": "4a0f5de1",
+      "full_sha256": "4a0f5de1145249727c730893eb5c12a416366fefc28fd876f55b3dff2fe3d53a"
+    },
+    {
+      "index": 405,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-03bbd629",
+      "term": "WTO-第16条 补贴",
+      "prev_hash": "4a0f5de1",
+      "current_hash": "03bbd629",
+      "full_sha256": "03bbd6296345843b0cf9fc2b16b8f0ac4c0dba973bc2653a6e97eb8b38f55160"
+    },
+    {
+      "index": 406,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-881dbf11",
+      "term": "WTO-第18条 发展中国家",
+      "prev_hash": "03bbd629",
+      "current_hash": "881dbf11",
+      "full_sha256": "881dbf11eaef0f17a1f80edae224300f837f1f645593e9b3f7dcd4a48f309126"
+    },
+    {
+      "index": 407,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-bd4d8948",
+      "term": "WTO-第19条 紧急保障措施",
+      "prev_hash": "881dbf11",
+      "current_hash": "bd4d8948",
+      "full_sha256": "bd4d894836ed98e94b580083630eef5adefaf5dca30262018a8ff94f87d644b3"
+    },
+    {
+      "index": 408,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-9cdccf0e",
+      "term": "WTO-第20条 一般例外",
+      "prev_hash": "bd4d8948",
+      "current_hash": "9cdccf0e",
+      "full_sha256": "9cdccf0ef78e92a2714358b3d0ea9ca411c69716dd50a4e92ee6b179f150492b"
+    },
+    {
+      "index": 409,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-aec08c2c",
+      "term": "WTO-第21条 安全例外",
+      "prev_hash": "9cdccf0e",
+      "current_hash": "aec08c2c",
+      "full_sha256": "aec08c2c3976119f6beea88b023921533b2ccb6ef9c2e4451a64013bfb7bbb42"
+    },
+    {
+      "index": 410,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-00af2823",
+      "term": "WTO-第24条 关税同盟自贸区",
+      "prev_hash": "aec08c2c",
+      "current_hash": "00af2823",
+      "full_sha256": "00af28234a3921e017aff6143551c9cb04ebcbf6aff2d25e5031226e1b052d98"
+    },
+    {
+      "index": 411,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-9437dc6f",
+      "term": "WTO-第28条 关税谈判",
+      "prev_hash": "00af2823",
+      "current_hash": "9437dc6f",
+      "full_sha256": "9437dc6f4fe71595f21425dd333c4cae5822117f229a979b2075dbbec8d5320f"
+    },
+    {
+      "index": 412,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-ddf493e4",
+      "term": "OECD-MNE-概念1 适用范围",
+      "prev_hash": "9437dc6f",
+      "current_hash": "ddf493e4",
+      "full_sha256": "ddf493e4b491ac0c499f669c29b402ee12dfbdb5354a9f938363d6d468f7bad7"
+    },
+    {
+      "index": 413,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-19e612e6",
+      "term": "OECD-MNE-概念2 人权",
+      "prev_hash": "ddf493e4",
+      "current_hash": "19e612e6",
+      "full_sha256": "19e612e6975ef0789673376685780eb704a55252056f4a1417af5c54f0f4f7ae"
+    },
+    {
+      "index": 414,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-88a23ab6",
+      "term": "OECD-MNE-概念3 就业劳资关系",
+      "prev_hash": "19e612e6",
+      "current_hash": "88a23ab6",
+      "full_sha256": "88a23ab6a8ebcbca5de6debd356fc732fd88fa74cfe5e7984be0923bbf52664c"
+    },
+    {
+      "index": 415,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-bbca8312",
+      "term": "OECD-MNE-概念4 环境",
+      "prev_hash": "88a23ab6",
+      "current_hash": "bbca8312",
+      "full_sha256": "bbca831246916b291175c8b30d88fd81dbbc8e44d9752fae0b6f63bdeef8bdf5"
+    },
+    {
+      "index": 416,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-60fa7ccf",
+      "term": "OECD-MNE-概念5 反腐败",
+      "prev_hash": "bbca8312",
+      "current_hash": "60fa7ccf",
+      "full_sha256": "60fa7ccf739e151ff47346c36478f5c055f1758a862c7ab48531f187cec45825"
+    },
+    {
+      "index": 417,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-bc848b75",
+      "term": "OECD-MNE-概念6 消费者权益",
+      "prev_hash": "60fa7ccf",
+      "current_hash": "bc848b75",
+      "full_sha256": "bc848b75ebd34a1c7462447e03bd2ce96ae48a1ac49213e5fca80fcabd9ed5ec"
+    },
+    {
+      "index": 418,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-33860e9a",
+      "term": "OECD-MNE-概念7 科技技术",
+      "prev_hash": "bc848b75",
+      "current_hash": "33860e9a",
+      "full_sha256": "33860e9a51582eee60b1e94decd9bbab47f9687e5351c32ebfcb4dc6dc2062ad"
+    },
+    {
+      "index": 419,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-feec433a",
+      "term": "OECD-MNE-概念8 竞争",
+      "prev_hash": "33860e9a",
+      "current_hash": "feec433a",
+      "full_sha256": "feec433a7ddc393268082bf750820011920b4fb5b2e41a0960d1c745ea2c8e96"
+    },
+    {
+      "index": 420,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-f98c82a9",
+      "term": "OECD-MNE-概念9 税务",
+      "prev_hash": "feec433a",
+      "current_hash": "f98c82a9",
+      "full_sha256": "f98c82a9de477146829ea0e179a27c021aed9d7d8e9fa6950e6cf69aeeb27045"
+    },
+    {
+      "index": 421,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-35ca1074",
+      "term": "OECD-MNE-概念10 信息披露",
+      "prev_hash": "f98c82a9",
+      "current_hash": "35ca1074",
+      "full_sha256": "35ca10741790fb19552a68630297f20dede9d9ca29ef9407777627cad9f71ff3"
+    },
+    {
+      "index": 422,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-af9858dd",
+      "term": "UNGC-原则1 尊重并维护人权",
+      "prev_hash": "35ca1074",
+      "current_hash": "af9858dd",
+      "full_sha256": "af9858ddc36a528ce3db12dded0940280acef63745326fedbff11a444576384a"
+    },
+    {
+      "index": 423,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-3bf489a7",
+      "term": "UNGC-原则2 不与人权侵犯共谋",
+      "prev_hash": "af9858dd",
+      "current_hash": "3bf489a7",
+      "full_sha256": "3bf489a7decae0c803a0fcce37ad5f6221a41bdbbbe30a0136362eb3bc888dcb"
+    },
+    {
+      "index": 424,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-028-4ec3bb3e",
+      "term": "UNGC-原则3 结社自由集体谈判",
+      "prev_hash": "3bf489a7",
+      "current_hash": "4ec3bb3e",
+      "full_sha256": "4ec3bb3ef7d9a6abb53b237140adc296aa752eba0d862e58ef8c56bc74881785"
+    },
+    {
+      "index": 425,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-029-a5df8ab0",
+      "term": "UNGC-原则4 消除强迫劳动",
+      "prev_hash": "4ec3bb3e",
+      "current_hash": "a5df8ab0",
+      "full_sha256": "a5df8ab005895d1df52d63aa5f55473f98022734522db119edd44d444bf604d1"
+    },
+    {
+      "index": 426,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-030-3a6c3556",
+      "term": "UNGC-原则5 废除童工",
+      "prev_hash": "a5df8ab0",
+      "current_hash": "3a6c3556",
+      "full_sha256": "3a6c3556c4b024fb34e9c1050ffe56fe05fcf4ed033143ebf53aec4fd94163fa"
+    },
+    {
+      "index": 427,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-031-7919baab",
+      "term": "UNGC-原则6 消除就业歧视",
+      "prev_hash": "3a6c3556",
+      "current_hash": "7919baab",
+      "full_sha256": "7919baabb78a1ed9bad282cb1a5c9792b94597fc0fdef7ebe3a1ad807ab8a7e6"
+    },
+    {
+      "index": 428,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-032-cd6d3a90",
+      "term": "UNGC-原则7 环境挑战预防",
+      "prev_hash": "7919baab",
+      "current_hash": "cd6d3a90",
+      "full_sha256": "cd6d3a909a2411cc4fef62b8dbf9c676c4eeb2b09ecfad3ca11a778916b87196"
+    },
+    {
+      "index": 429,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-033-2f64efc7",
+      "term": "UNGC-原则8 环境责任主动",
+      "prev_hash": "cd6d3a90",
+      "current_hash": "2f64efc7",
+      "full_sha256": "2f64efc71b429bfb574c3872e86d8672817db810119a4a64dd1cba5adb65f82f"
+    },
+    {
+      "index": 430,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-034-9c6c283d",
+      "term": "UNGC-原则9 环保技术推广",
+      "prev_hash": "2f64efc7",
+      "current_hash": "9c6c283d",
+      "full_sha256": "9c6c283d3bfc626b10ea0b71754a910a5e825a1ebbbd055077261b19a0010e17"
+    },
+    {
+      "index": 431,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-035-6cbd1230",
+      "term": "UNGC-原则10 反对腐败",
+      "prev_hash": "9c6c283d",
+      "current_hash": "6cbd1230",
+      "full_sha256": "6cbd123071ff1fcbc3502f4cb24e75e883d37e6e7a9ee49efaabf835d5a8d450"
+    },
+    {
+      "index": 432,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-036-3748901e",
+      "term": "巴黎公约-第2条 国民待遇",
+      "prev_hash": "6cbd1230",
+      "current_hash": "3748901e",
+      "full_sha256": "3748901eb243eb9b8f9382a19f37e63079b851e8a74cf1bdb4b09ec0b7b26133"
+    },
+    {
+      "index": 433,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-037-0f6dae25",
+      "term": "巴黎公约-第4条 优先权",
+      "prev_hash": "3748901e",
+      "current_hash": "0f6dae25",
+      "full_sha256": "0f6dae25bb6dbc9ba89e5c54d5565f7ed74b561aa23316ba7b9b30adcf3601e2"
+    },
+    {
+      "index": 434,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-038-fd7eb4c1",
+      "term": "巴黎公约-第5条 专利强制许可",
+      "prev_hash": "0f6dae25",
+      "current_hash": "fd7eb4c1",
+      "full_sha256": "fd7eb4c14b3317d531a7da576015e41e659f6da033311c855b9035f72253c57b"
+    },
+    {
+      "index": 435,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-039-12f86e7c",
+      "term": "巴黎公约-第6条 商标注册条件",
+      "prev_hash": "fd7eb4c1",
+      "current_hash": "12f86e7c",
+      "full_sha256": "12f86e7c9c2ca913763dfcb6e2de5815e6a06ed07fe3b430c8889f6a746e218f"
+    },
+    {
+      "index": 436,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-040-5111cce2",
+      "term": "巴黎公约-第6bis 驰名商标保护",
+      "prev_hash": "12f86e7c",
+      "current_hash": "5111cce2",
+      "full_sha256": "5111cce26f1b4b21711b6d7043a26c69a4ef1c985606678e88ef12e196baffb0"
+    },
+    {
+      "index": 437,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-041-e74b4060",
+      "term": "伯尔尼公约-第2条 受保护作品",
+      "prev_hash": "5111cce2",
+      "current_hash": "e74b4060",
+      "full_sha256": "e74b406082850aa723ad925e0ef8e55dd5e3b5561c7336a516616bca79f56dc6"
+    },
+    {
+      "index": 438,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-042-47422296",
+      "term": "伯尔尼公约-第3条 国民待遇",
+      "prev_hash": "e74b4060",
+      "current_hash": "47422296",
+      "full_sha256": "474222969d4a7308595049645136f7e9eb89fc5d0aa0101fcf615832b9affd8f"
+    },
+    {
+      "index": 439,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-043-ce1915b4",
+      "term": "伯尔尼公约-第5条 自动保护",
+      "prev_hash": "47422296",
+      "current_hash": "ce1915b4",
+      "full_sha256": "ce1915b4c229a13f8f017870e5b3b9f1397dd9c50cc0c577e4707c2a1f9e305e"
+    },
+    {
+      "index": 440,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-044-deae7259",
+      "term": "伯尔尼公约-第7条 保护期限",
+      "prev_hash": "ce1915b4",
+      "current_hash": "deae7259",
+      "full_sha256": "deae725929f7aecabfa81fc6647f194d25736851c36b1a148963643ef0902dc6"
+    },
+    {
+      "index": 441,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-045-666bdec3",
+      "term": "伯尔尼公约-第9条 复制权",
+      "prev_hash": "deae7259",
+      "current_hash": "666bdec3",
+      "full_sha256": "666bdec3c2a0b8e27507a354b609b6142a1d713abb1d36383f939813c5ecdf0b"
+    },
+    {
+      "index": 442,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-046-bd22d970",
+      "term": "PCT-第11条 国际申请效力",
+      "prev_hash": "666bdec3",
+      "current_hash": "bd22d970",
+      "full_sha256": "bd22d970e8006e8d6c8f93a2d731e943847ed946fae66b97c79bae6ec42e34ea"
+    },
+    {
+      "index": 443,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-047-e45d6cdd",
+      "term": "PCT-第21条 国际公布",
+      "prev_hash": "bd22d970",
+      "current_hash": "e45d6cdd",
+      "full_sha256": "e45d6cdd590c0ec22be4f40f2e1bc78fd56104cb924961d8976aaa011ebb7be3"
+    },
+    {
+      "index": 444,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-048-9e8788a2",
+      "term": "PCT-第33条 国际初步审查",
+      "prev_hash": "e45d6cdd",
+      "current_hash": "9e8788a2",
+      "full_sha256": "9e8788a2af1c233787060c44be1288c1b6afe1e2151376ac68b853b9bc1fe680"
+    },
+    {
+      "index": 445,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-8fe63f5a",
+      "term": "GDPR-第4条 定义",
+      "prev_hash": "9e8788a2",
+      "current_hash": "8fe63f5a",
+      "full_sha256": "8fe63f5ae9fb1f24b2d97d02df826866c5ef7f9acb7667fa9d6d13f266664b47"
+    },
+    {
+      "index": 446,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-8dd9c01f",
+      "term": "GDPR-第5条 处理原则",
+      "prev_hash": "8fe63f5a",
+      "current_hash": "8dd9c01f",
+      "full_sha256": "8dd9c01f00e1c967e96a32b98bcc2ec65d59abf411b145bc3bdc569fe05c92fa"
+    },
+    {
+      "index": 447,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-e4398b9b",
+      "term": "GDPR-第6条 合法性基础",
+      "prev_hash": "8dd9c01f",
+      "current_hash": "e4398b9b",
+      "full_sha256": "e4398b9bf828ffb7051a9ff08332f742b1d148196a163c154e3e5c39d187f97e"
+    },
+    {
+      "index": 448,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-f63cb281",
+      "term": "GDPR-第7条 同意条件",
+      "prev_hash": "e4398b9b",
+      "current_hash": "f63cb281",
+      "full_sha256": "f63cb281b1b71441614b10e4ae0f685e8ca7480ac38654e28b7e138e7fe9731a"
+    },
+    {
+      "index": 449,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-a836f339",
+      "term": "GDPR-第8条 儿童同意",
+      "prev_hash": "f63cb281",
+      "current_hash": "a836f339",
+      "full_sha256": "a836f339744c270ea6c3dff31b134689dc2a1b19f60cad0343588bab005f99d1"
+    },
+    {
+      "index": 450,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-9ff93239",
+      "term": "GDPR-第9条 特殊类别数据",
+      "prev_hash": "a836f339",
+      "current_hash": "9ff93239",
+      "full_sha256": "9ff9323959a2aadf23e8fc496d6dc76dcd5152fa2485f5a3c752b62aafc35447"
+    },
+    {
+      "index": 451,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-d71b2a12",
+      "term": "GDPR-第12条 透明信息",
+      "prev_hash": "9ff93239",
+      "current_hash": "d71b2a12",
+      "full_sha256": "d71b2a12ce03319adecf0ed5a95529afa3934deb86b6135755a32ec44b22b526"
+    },
+    {
+      "index": 452,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-3ed7f7b8",
+      "term": "GDPR-第13条 数据收集告知",
+      "prev_hash": "d71b2a12",
+      "current_hash": "3ed7f7b8",
+      "full_sha256": "3ed7f7b8648dfd7a29da0cadfd7082d0c38e1f188e9ac78b4d376cd88003334c"
+    },
+    {
+      "index": 453,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-1b035a61",
+      "term": "GDPR-第14条 第三方获取告知",
+      "prev_hash": "3ed7f7b8",
+      "current_hash": "1b035a61",
+      "full_sha256": "1b035a6142511f3efbc10ed2fd712ab0ee38d5c0936c09766041814c1be086a8"
+    },
+    {
+      "index": 454,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-81d7cd30",
+      "term": "GDPR-第15条 访问权",
+      "prev_hash": "1b035a61",
+      "current_hash": "81d7cd30",
+      "full_sha256": "81d7cd3069ef74edf7546906faf533ab03a5088e5ceb720d887ce7e1e178c2e9"
+    },
+    {
+      "index": 455,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-4481a261",
+      "term": "GDPR-第16条 更正权",
+      "prev_hash": "81d7cd30",
+      "current_hash": "4481a261",
+      "full_sha256": "4481a2617bb878b38b157c58491abab5012cc0fc6e533089f6eb0bb57c10e762"
+    },
+    {
+      "index": 456,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-b1af1056",
+      "term": "GDPR-第17条 删除权被遗忘权",
+      "prev_hash": "4481a261",
+      "current_hash": "b1af1056",
+      "full_sha256": "b1af1056d54a65bf8812377cb4f18cc000118bcbf0ed27121c46aad6e5cf6d63"
+    },
+    {
+      "index": 457,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-89df58c8",
+      "term": "GDPR-第18条 限制处理权",
+      "prev_hash": "b1af1056",
+      "current_hash": "89df58c8",
+      "full_sha256": "89df58c83182da7ceb5c02328d82526452c009dee072c30a6aa02ed5d7f06bac"
+    },
+    {
+      "index": 458,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-9e67b5a7",
+      "term": "GDPR-第19条 更正删除通知",
+      "prev_hash": "89df58c8",
+      "current_hash": "9e67b5a7",
+      "full_sha256": "9e67b5a74d4142e7b887fffaf094b540a2fd12e5f6df6c0852eb486a848045f2"
+    },
+    {
+      "index": 459,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-22a6974b",
+      "term": "GDPR-第20条 数据可携带权",
+      "prev_hash": "9e67b5a7",
+      "current_hash": "22a6974b",
+      "full_sha256": "22a6974b88fb870a805be13c25e89571b2ff05c63462c5913eb7cc25765dbedc"
+    },
+    {
+      "index": 460,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-5108965a",
+      "term": "GDPR-第21条 反对权",
+      "prev_hash": "22a6974b",
+      "current_hash": "5108965a",
+      "full_sha256": "5108965a9a51f6bd8995b1aefcc8e390a3aca0dc292b6dd09d2566fe75ef4c2b"
+    },
+    {
+      "index": 461,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-9300deb1",
+      "term": "GDPR-第22条 自动化决策",
+      "prev_hash": "5108965a",
+      "current_hash": "9300deb1",
+      "full_sha256": "9300deb1577f9221651a006ad8e9b665bf829ede510d3575b51b925f0a5af167"
+    },
+    {
+      "index": 462,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-a2af9c1d",
+      "term": "GDPR-第25条 数据保护设计",
+      "prev_hash": "9300deb1",
+      "current_hash": "a2af9c1d",
+      "full_sha256": "a2af9c1dc8fd47a52d51b0688aecc36f667c8cc9ec1413ac3f6abba69b5ca141"
+    },
+    {
+      "index": 463,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-d6caec11",
+      "term": "GDPR-第30条 处理活动记录",
+      "prev_hash": "a2af9c1d",
+      "current_hash": "d6caec11",
+      "full_sha256": "d6caec11d66fa613c6214619b47d72e42e46f51fb6a75adcbc2e0e49d5a3ea39"
+    },
+    {
+      "index": 464,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-da83bfaa",
+      "term": "GDPR-第32条 安全措施",
+      "prev_hash": "d6caec11",
+      "current_hash": "da83bfaa",
+      "full_sha256": "da83bfaad10f035cc69c228f35483f19f12b881a7316578cc78defdc70c42bdd"
+    },
+    {
+      "index": 465,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-114fa672",
+      "term": "GDPR-第33条 数据泄露通知",
+      "prev_hash": "da83bfaa",
+      "current_hash": "114fa672",
+      "full_sha256": "114fa6722ac135f83953d2cf789d55a99e96dbc21cb1f95ef3cbd090bfce6ada"
+    },
+    {
+      "index": 466,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-3228e886",
+      "term": "GDPR-第34条 数据主体通知",
+      "prev_hash": "114fa672",
+      "current_hash": "3228e886",
+      "full_sha256": "3228e8867df50bfe1c77dc68ac0efbdf2f65a716c188494f717d7a1848b85655"
+    },
+    {
+      "index": 467,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-30a2033f",
+      "term": "GDPR-第35条 数据保护影响评估",
+      "prev_hash": "3228e886",
+      "current_hash": "30a2033f",
+      "full_sha256": "30a2033f0d17778064eeba2733daf0617a432d543eecbb7726dba5f5bc8ca44d"
+    },
+    {
+      "index": 468,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-cc7eebe7",
+      "term": "GDPR-第37条 数据保护官",
+      "prev_hash": "30a2033f",
+      "current_hash": "cc7eebe7",
+      "full_sha256": "cc7eebe767f47d7c9af9b34180d7990eba547091ddc79d05d152b76bf53fb45a"
+    },
+    {
+      "index": 469,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-e5bdcc1b",
+      "term": "GDPR-第44条 跨境传输一般原则",
+      "prev_hash": "cc7eebe7",
+      "current_hash": "e5bdcc1b",
+      "full_sha256": "e5bdcc1b4fa89fca07ee444bd9b485b727ea03757dcf1d18faf025bdbc9a64cb"
+    },
+    {
+      "index": 470,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-ef00ebac",
+      "term": "GDPR-第46条 适当保障措施",
+      "prev_hash": "e5bdcc1b",
+      "current_hash": "ef00ebac",
+      "full_sha256": "ef00ebaccc5c4eb82c6e69c10b7ab4357b902f289995260da7ee2ee5881bf1cf"
+    },
+    {
+      "index": 471,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-81b38602",
+      "term": "GDPR-第47条 约束性公司规则",
+      "prev_hash": "ef00ebac",
+      "current_hash": "81b38602",
+      "full_sha256": "81b38602f189aa78d5b1bd2d85773c73e44dbefce8219ae4f88a76c688dd31f8"
+    },
+    {
+      "index": 472,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-028-d4459338",
+      "term": "GDPR-第49条 特殊情况例外",
+      "prev_hash": "81b38602",
+      "current_hash": "d4459338",
+      "full_sha256": "d4459338b4eab84b8ce64f08b768495a8f90d5465c24c717d310f6b3c9a22f7e"
+    },
+    {
+      "index": 473,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-029-9df6667c",
+      "term": "GDPR-第82条 赔偿权利",
+      "prev_hash": "d4459338",
+      "current_hash": "9df6667c",
+      "full_sha256": "9df6667c186ea27f18628e4eedf1d06d4cda14f0afd9c7b65dd8d0fb8d478cc2"
+    },
+    {
+      "index": 474,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-030-d1ad83b7",
+      "term": "GDPR-第83条 处罚条件",
+      "prev_hash": "9df6667c",
+      "current_hash": "d1ad83b7",
+      "full_sha256": "d1ad83b7c079ce98b6f7d376f482ebc07abdfdd08d072f6e151a2163c0179046"
+    },
+    {
+      "index": 475,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-031-617d12d1",
+      "term": "APEC-CBPR-原则1 预防损害",
+      "prev_hash": "d1ad83b7",
+      "current_hash": "617d12d1",
+      "full_sha256": "617d12d1c7085b513ddae61be43b161875e04e99913549c0006f2e989021a573"
+    },
+    {
+      "index": 476,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-032-fc4faf43",
+      "term": "APEC-CBPR-原则2 告知",
+      "prev_hash": "617d12d1",
+      "current_hash": "fc4faf43",
+      "full_sha256": "fc4faf43b9e62a1f5d633592a6aa5ac33c7688ce04e2c835e499eedcd4c999b7"
+    },
+    {
+      "index": 477,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-033-316287bf",
+      "term": "APEC-CBPR-原则3 收集限制",
+      "prev_hash": "fc4faf43",
+      "current_hash": "316287bf",
+      "full_sha256": "316287bf29eaa5fb7afd42ff976627313cf55db944e23c492cebc2e4f41f3288"
+    },
+    {
+      "index": 478,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-034-5e8acff3",
+      "term": "APEC-CBPR-原则4 使用个人信息",
+      "prev_hash": "316287bf",
+      "current_hash": "5e8acff3",
+      "full_sha256": "5e8acff3c74a3c51bbfe41e1499dfa64ed6dbf04ada1129b7038a4721fe36c7d"
+    },
+    {
+      "index": 479,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-035-aefb3e1b",
+      "term": "APEC-CBPR-原则9 问责制",
+      "prev_hash": "5e8acff3",
+      "current_hash": "aefb3e1b",
+      "full_sha256": "aefb3e1b547259fe135cb2f9db38629a4ffd94ea7e277429308e2657fedacb65"
+    },
+    {
+      "index": 480,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-036-4df45573",
+      "term": "数据安全法-第3条 数据定义分类",
+      "prev_hash": "aefb3e1b",
+      "current_hash": "4df45573",
+      "full_sha256": "4df455731d4192dbc503037dc077df5a63a6fff2ec2909ff30859248dd5bd029"
+    },
+    {
+      "index": 481,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-037-ce831375",
+      "term": "数据安全法-第4条 总体国家安全观",
+      "prev_hash": "4df45573",
+      "current_hash": "ce831375",
+      "full_sha256": "ce831375ebeffcaaaec0a4c35e536cd9f171a57663e6bb166d26f819e4f6bbaf"
+    },
+    {
+      "index": 482,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-038-10981def",
+      "term": "数据安全法-第6条 主管部门职责",
+      "prev_hash": "ce831375",
+      "current_hash": "10981def",
+      "full_sha256": "10981defe661be5f997f3d73b2cb07d13f0c876639a53fa41f4d8054f1fa220d"
+    },
+    {
+      "index": 483,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-039-ea9a0480",
+      "term": "数据安全法-第12条 数据安全保护义务",
+      "prev_hash": "10981def",
+      "current_hash": "ea9a0480",
+      "full_sha256": "ea9a0480414c814c102df7bbd79077dfc869e1d9abc3c42cdb4f648b2c005547"
+    },
+    {
+      "index": 484,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-040-b97c2665",
+      "term": "数据安全法-第14条 数据分级分类",
+      "prev_hash": "ea9a0480",
+      "current_hash": "b97c2665",
+      "full_sha256": "b97c2665e6a77198ba24aa1efe4f9891006ff50ca5fe0ba6bd2d2178535509cc"
+    },
+    {
+      "index": 485,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-041-83548a17",
+      "term": "数据安全法-第15条 重要数据目录",
+      "prev_hash": "b97c2665",
+      "current_hash": "83548a17",
+      "full_sha256": "83548a17bb6cb9c95a8b8af71df424f7584e26f5d58036edfedada955e8d1994"
+    },
+    {
+      "index": 486,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-042-93aedec5",
+      "term": "数据安全法-第19条 数据安全管理制度",
+      "prev_hash": "83548a17",
+      "current_hash": "93aedec5",
+      "full_sha256": "93aedec5a7d7bd3b51a5fdeac0079ce0ecb85316c7badcccda4120bae29d03f6"
+    },
+    {
+      "index": 487,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-043-a31eab73",
+      "term": "数据安全法-第20条 数据安全技术",
+      "prev_hash": "93aedec5",
+      "current_hash": "a31eab73",
+      "full_sha256": "a31eab73bce354c8ab5619e59379105173ce1b2c130d4775d8ed9833bbbdac24"
+    },
+    {
+      "index": 488,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-044-632d6d84",
+      "term": "数据安全法-第21条 风险监测预警",
+      "prev_hash": "a31eab73",
+      "current_hash": "632d6d84",
+      "full_sha256": "632d6d84543e72dad3d1a69aae0751d6c5b6cf9c90e4dcfd3b631ab422470701"
+    },
+    {
+      "index": 489,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-045-c70cef23",
+      "term": "数据安全法-第25条 数据出境安全",
+      "prev_hash": "632d6d84",
+      "current_hash": "c70cef23",
+      "full_sha256": "c70cef23177ccf3b9def8cead5284a942069c19734ec14fd98a413c791205fea"
+    },
+    {
+      "index": 490,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-046-4545bf37",
+      "term": "数据安全法-第31条 政务数据安全",
+      "prev_hash": "c70cef23",
+      "current_hash": "4545bf37",
+      "full_sha256": "4545bf3765558e5fe1fe877f820128a6a9b8b107b9a768bd31cd2678e2e5ffe9"
+    },
+    {
+      "index": 491,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-047-b2bdb2c3",
+      "term": "数据安全法-第35条 数据安全审查",
+      "prev_hash": "4545bf37",
+      "current_hash": "b2bdb2c3",
+      "full_sha256": "b2bdb2c35f60de7685bce740f458972a5fbe65f20a32530cec05a7b752d43278"
+    },
+    {
+      "index": 492,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-048-b94bcc98",
+      "term": "个保法-第3条 适用范围",
+      "prev_hash": "b2bdb2c3",
+      "current_hash": "b94bcc98",
+      "full_sha256": "b94bcc98ff59fc34b3292f1e2b85d2649c70395cf2e1448590361b21d51eddc4"
+    },
+    {
+      "index": 493,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-049-83af41bb",
+      "term": "个保法-第4条 个人信息定义",
+      "prev_hash": "b94bcc98",
+      "current_hash": "83af41bb",
+      "full_sha256": "83af41bbaef5b9851ec89dd925a612497a2d1f3322e3319e68db27f63697a02b"
+    },
+    {
+      "index": 494,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-050-072d243d",
+      "term": "个保法-第5条 合法正当必要",
+      "prev_hash": "83af41bb",
+      "current_hash": "072d243d",
+      "full_sha256": "072d243d13b6bb314876194beee88a1c75a6eff9b87052981653cc992ca7f021"
+    },
+    {
+      "index": 495,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-051-36b609e7",
+      "term": "个保法-第6条 最小必要原则",
+      "prev_hash": "072d243d",
+      "current_hash": "36b609e7",
+      "full_sha256": "36b609e7b1f03fabad42088190143e8d722ea27ee46fa3d2cd18571c98604c50"
+    },
+    {
+      "index": 496,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-052-7ae9a038",
+      "term": "个保法-第7条 公开透明原则",
+      "prev_hash": "36b609e7",
+      "current_hash": "7ae9a038",
+      "full_sha256": "7ae9a0382c1cc81b5539ba7ed5efb6e12ac331686dcc9ca4c859e79c7073cec7"
+    },
+    {
+      "index": 497,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-053-cdd7b9a9",
+      "term": "个保法-第9条 处理者责任",
+      "prev_hash": "7ae9a038",
+      "current_hash": "cdd7b9a9",
+      "full_sha256": "cdd7b9a9c0bda0319b765ee24aa2c2e0a76c2ed7a2f91e1e414b4a141a7a6641"
+    },
+    {
+      "index": 498,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-054-519c134d",
+      "term": "个保法-第13条 处理合法性基础",
+      "prev_hash": "cdd7b9a9",
+      "current_hash": "519c134d",
+      "full_sha256": "519c134d3c7236a9ec6103f3271cd798198df618c03daf23ffc8d16c052840c9"
+    },
+    {
+      "index": 499,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-055-cc02e309",
+      "term": "个保法-第14条 同意条件",
+      "prev_hash": "519c134d",
+      "current_hash": "cc02e309",
+      "full_sha256": "cc02e30917b50347eb3b8d22e48d3592214c2933fe54ad2300823c27e32144c0"
+    },
+    {
+      "index": 500,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-056-aab191c3",
+      "term": "个保法-第15条 撤回同意",
+      "prev_hash": "cc02e309",
+      "current_hash": "aab191c3",
+      "full_sha256": "aab191c3215b8d06a5556b5a1e9d84f54706913bcdbef703ce9327efc9787163"
+    },
+    {
+      "index": 501,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-057-a6dc4e9e",
+      "term": "个保法-第17条 告知义务",
+      "prev_hash": "aab191c3",
+      "current_hash": "a6dc4e9e",
+      "full_sha256": "a6dc4e9ebcaec18d901545ff85162d5e67c33d47f27de1b15d0231e1e694df55"
+    },
+    {
+      "index": 502,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-058-aaf1ef3f",
+      "term": "个保法-第19条 保存期限最小",
+      "prev_hash": "a6dc4e9e",
+      "current_hash": "aaf1ef3f",
+      "full_sha256": "aaf1ef3f03da4d5e9bb974d720094878c9e7f4803383d689345774b90160b243"
+    },
+    {
+      "index": 503,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-059-5db50660",
+      "term": "个保法-第24条 自动化决策",
+      "prev_hash": "aaf1ef3f",
+      "current_hash": "5db50660",
+      "full_sha256": "5db5066051745fc481f2d7f859b3c1758f68a1d7ff56e751175b121befe33cf5"
+    },
+    {
+      "index": 504,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-060-f488dcec",
+      "term": "个保法-第28条 敏感个人信息",
+      "prev_hash": "5db50660",
+      "current_hash": "f488dcec",
+      "full_sha256": "f488dceca01027aca13a33badcbdd4d010d05d2fec1e84e78144d35a9c522601"
+    },
+    {
+      "index": 505,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-061-633389b3",
+      "term": "个保法-第38条 出境条件",
+      "prev_hash": "f488dcec",
+      "current_hash": "633389b3",
+      "full_sha256": "633389b32301fc89d451e8b19f1b98f7b5d161a47e4f8b6176facb45fbacc4f1"
+    },
+    {
+      "index": 506,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-062-5af4d2f8",
+      "term": "个保法-第55条 个人信息保护影响评估",
+      "prev_hash": "633389b3",
+      "current_hash": "5af4d2f8",
+      "full_sha256": "5af4d2f853e87a33aee2618fed4d28ed6d9b15014a6d86681a58d0f9c5d6d12f"
+    },
+    {
+      "index": 507,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-063-0005f21e",
+      "term": "EU数据法-第1条 主题范围",
+      "prev_hash": "5af4d2f8",
+      "current_hash": "0005f21e",
+      "full_sha256": "0005f21e817ba5a2e605c144d1aaa659a6df6a7794bd5d084fc15bb6fb47535c"
+    },
+    {
+      "index": 508,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-064-038bc1e2",
+      "term": "EU数据法-第2条 定义",
+      "prev_hash": "0005f21e",
+      "current_hash": "038bc1e2",
+      "full_sha256": "038bc1e21453135c43da8dcbcd3bac640023406e1d8f663c4e9958eb0bc01d5b"
+    },
+    {
+      "index": 509,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-065-d4a1c77f",
+      "term": "EU数据法-第3条 数据可得性",
+      "prev_hash": "038bc1e2",
+      "current_hash": "d4a1c77f",
+      "full_sha256": "d4a1c77f060a9e6d0a7aad883aff8ba95402bc6109197384e3e2f4daf70d096a"
+    },
+    {
+      "index": 510,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-066-53350a81",
+      "term": "EU数据法-第4条 数据共享要求",
+      "prev_hash": "d4a1c77f",
+      "current_hash": "53350a81",
+      "full_sha256": "53350a818c8e3500a9d0d1146ccbcf0281cc500e59a9bf5e770c88616520e446"
+    },
+    {
+      "index": 511,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-067-489c08e6",
+      "term": "EU数据法-第5条 数据使用目的",
+      "prev_hash": "53350a81",
+      "current_hash": "489c08e6",
+      "full_sha256": "489c08e6fcbd2413e9dcce62557428ac9a893acbf33d050a918a44953db41ca0"
+    },
+    {
+      "index": 512,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-068-9587d4f1",
+      "term": "EU数据法-第6条 数据质量安全",
+      "prev_hash": "489c08e6",
+      "current_hash": "9587d4f1",
+      "full_sha256": "9587d4f1bb7d18bee66dc657717d82529b78b0f69a092e61c69bf0eed2532341"
+    },
+    {
+      "index": 513,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-069-1707d893",
+      "term": "EU数据法-第7条 云服务转换",
+      "prev_hash": "9587d4f1",
+      "current_hash": "1707d893",
+      "full_sha256": "1707d89329d9a63a780a2986d6e22ce795644b54e7d1e0bd97987f6219571e86"
+    },
+    {
+      "index": 514,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-1ea7f625",
+      "term": "巴塞尔III-资本1 一级资本充足率",
+      "prev_hash": "1707d893",
+      "current_hash": "1ea7f625",
+      "full_sha256": "1ea7f6253b5edf97c63adf3e67c772f1ea6e3aa51e25b309d434906319cd1025"
+    },
+    {
+      "index": 515,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-2ea1cc8b",
+      "term": "巴塞尔III-资本2 普通股一级资本",
+      "prev_hash": "1ea7f625",
+      "current_hash": "2ea1cc8b",
+      "full_sha256": "2ea1cc8becf7f1283f74a584385af58f09bb69b506671a87ff3b046f75bd029d"
+    },
+    {
+      "index": 516,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-80895ba1",
+      "term": "巴塞尔III-资本3 资本留存缓冲",
+      "prev_hash": "2ea1cc8b",
+      "current_hash": "80895ba1",
+      "full_sha256": "80895ba15b60b37ffdbecf2cf571ffe04174ed1f07d3e8125515d63f454aa194"
+    },
+    {
+      "index": 517,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-f8cc32a5",
+      "term": "巴塞尔III-资本4 逆周期资本缓冲",
+      "prev_hash": "80895ba1",
+      "current_hash": "f8cc32a5",
+      "full_sha256": "f8cc32a59ec03404b3ac55869c4df71fd85491d4d6a52b30ff93de8f8c4c5c4c"
+    },
+    {
+      "index": 518,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-b560ff46",
+      "term": "巴塞尔III-杠杆率 杠杆率要求",
+      "prev_hash": "f8cc32a5",
+      "current_hash": "b560ff46",
+      "full_sha256": "b560ff4608011bb9e3ebab577aa73396b5cab2c98379dc7a4aa906b92c025720"
+    },
+    {
+      "index": 519,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-841c5f0f",
+      "term": "巴塞尔III-流动性1 流动性覆盖率LCR",
+      "prev_hash": "b560ff46",
+      "current_hash": "841c5f0f",
+      "full_sha256": "841c5f0f82ea2304f5efc346537e3e509b51b463a630e5e00168b4c794ac7261"
+    },
+    {
+      "index": 520,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-1559580e",
+      "term": "巴塞尔III-流动性2 净稳定资金比例NSFR",
+      "prev_hash": "841c5f0f",
+      "current_hash": "1559580e",
+      "full_sha256": "1559580e202f82a269d69648d207504a758f5dea77e5401f438c422dee1f1db9"
+    },
+    {
+      "index": 521,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-0b011d45",
+      "term": "巴塞尔III-风险1 信用风险权重",
+      "prev_hash": "1559580e",
+      "current_hash": "0b011d45",
+      "full_sha256": "0b011d4534ac9d1768672b928338b3176bdce7650a9a2f752a75f705c85d70c8"
+    },
+    {
+      "index": 522,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-06014095",
+      "term": "巴塞尔III-风险2 市场风险",
+      "prev_hash": "0b011d45",
+      "current_hash": "06014095",
+      "full_sha256": "06014095fc305933bb83745a50217bc520e5a1231d6ade992746cc18966719df"
+    },
+    {
+      "index": 523,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-06c0758d",
+      "term": "巴塞尔III-风险3 操作风险",
+      "prev_hash": "06014095",
+      "current_hash": "06c0758d",
+      "full_sha256": "06c0758d93331975f51c4149266cf7e7417dae791255b7e9223d82b5a7b89b74"
+    },
+    {
+      "index": 524,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-e7cbc113",
+      "term": "巴塞尔III-风险4 标准化法修订",
+      "prev_hash": "06c0758d",
+      "current_hash": "e7cbc113",
+      "full_sha256": "e7cbc1130d970a95ab1ad8cf7dfe6aec44665ab8d126371edd232eedd21c4112"
+    },
+    {
+      "index": 525,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-3d158baf",
+      "term": "巴塞尔III-风险5 内部模型法修订",
+      "prev_hash": "e7cbc113",
+      "current_hash": "3d158baf",
+      "full_sha256": "3d158baf910c97b2e24dd9f817c6cdec26b0e602c1c4297dda85224c9f053aef"
+    },
+    {
+      "index": 526,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-f20bc433",
+      "term": "巴塞尔III-宏观1 系统重要性银行",
+      "prev_hash": "3d158baf",
+      "current_hash": "f20bc433",
+      "full_sha256": "f20bc433f7702c0ae3386ec26ecc61553e8712252889dde3fe374c1daa6a1987"
+    },
+    {
+      "index": 527,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-21c6a280",
+      "term": "巴塞尔III-宏观2 总损失吸收能力",
+      "prev_hash": "f20bc433",
+      "current_hash": "21c6a280",
+      "full_sha256": "21c6a2808b172f417da63c5a03a1408b5a25bdfff273eb611521ff2e6905c124"
+    },
+    {
+      "index": 528,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-0b477fb6",
+      "term": "巴塞尔III-公司治理 公司治理原则",
+      "prev_hash": "21c6a280",
+      "current_hash": "0b477fb6",
+      "full_sha256": "0b477fb699a51708d5f39b82cf98b9e350caf55aaa76d395981ea2d00661a954"
+    },
+    {
+      "index": 529,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-9054e3a0",
+      "term": "FATF-建议1 评估风险适用措施",
+      "prev_hash": "0b477fb6",
+      "current_hash": "9054e3a0",
+      "full_sha256": "9054e3a027a2d0ffcf3405fea740101c32b34144013a6c1b5d6d5a761c09a576"
+    },
+    {
+      "index": 530,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-446de619",
+      "term": "FATF-建议3 反洗钱恐怖融资措施",
+      "prev_hash": "9054e3a0",
+      "current_hash": "446de619",
+      "full_sha256": "446de61991bc6dfb0b7cde892563df9c19f424ffe6bf7481c1b02927d1fe894f"
+    },
+    {
+      "index": 531,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-2c9c7e54",
+      "term": "FATF-建议5 客户尽职调查",
+      "prev_hash": "446de619",
+      "current_hash": "2c9c7e54",
+      "full_sha256": "2c9c7e541548c15b8030e37de8abcbecaa7ea92aafdf883beeb957ce6097d13f"
+    },
+    {
+      "index": 532,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-540badeb",
+      "term": "FATF-建议6 政治公众人物",
+      "prev_hash": "2c9c7e54",
+      "current_hash": "540badeb",
+      "full_sha256": "540badebef2ae586f407bb723ddf06529ed25c67debdf4532f9769665c5f14ad"
+    },
+    {
+      "index": 533,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-067d539d",
+      "term": "FATF-建议7 电汇信息",
+      "prev_hash": "540badeb",
+      "current_hash": "067d539d",
+      "full_sha256": "067d539da3fa725cf8c5e02b0be53212b78033e5620a070d7c12f92fc72fd50c"
+    },
+    {
+      "index": 534,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-a3f380bc",
+      "term": "FATF-建议8 非营利组织",
+      "prev_hash": "067d539d",
+      "current_hash": "a3f380bc",
+      "full_sha256": "a3f380bc595e875e3a27c50ea1b90b9ff1242ae9e98552ef7cb1181178d34c0b"
+    },
+    {
+      "index": 535,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-31594549",
+      "term": "FATF-建议9 代理银行关系",
+      "prev_hash": "a3f380bc",
+      "current_hash": "31594549",
+      "full_sha256": "31594549c200167776f0a04ebb8f4346dda87d067d5fd8d88151b09ea44b86cd"
+    },
+    {
+      "index": 536,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-1b2d2bc7",
+      "term": "FATF-建议10 客户尽职调查总则",
+      "prev_hash": "31594549",
+      "current_hash": "1b2d2bc7",
+      "full_sha256": "1b2d2bc7d56b2817a76e1ce88bc99da5b5533c04681cf2564a4639e93ca5de1c"
+    },
+    {
+      "index": 537,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-fbda7918",
+      "term": "FATF-建议11 记录保存",
+      "prev_hash": "1b2d2bc7",
+      "current_hash": "fbda7918",
+      "full_sha256": "fbda7918c610059d233b0224e0b3c98e157d9bf60a99ace8594c02c05d0a5cbc"
+    },
+    {
+      "index": 538,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-d9acc1a5",
+      "term": "FATF-建议12 人寿保险业务",
+      "prev_hash": "fbda7918",
+      "current_hash": "d9acc1a5",
+      "full_sha256": "d9acc1a520f7fba78a685ed85cac4f0d2bfab3dc0111399812d856894750eb9d"
+    },
+    {
+      "index": 539,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-85e8f3f7",
+      "term": "FATF-建议13 可疑交易报告",
+      "prev_hash": "d9acc1a5",
+      "current_hash": "85e8f3f7",
+      "full_sha256": "85e8f3f7956d45de4e7c38e62ba2a0b8f06d40a0a09c07f1dad162c8ddee9eff"
+    },
+    {
+      "index": 540,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-8a36bcac",
+      "term": "FATF-建议15 新技术",
+      "prev_hash": "85e8f3f7",
+      "current_hash": "8a36bcac",
+      "full_sha256": "8a36bcac4aa1d4beb7ba3f525d6765cef68c12db68b456c6273b76a4aad6d6f4"
+    },
+    {
+      "index": 541,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-028-909b7de4",
+      "term": "FATF-建议16 电汇信息",
+      "prev_hash": "8a36bcac",
+      "current_hash": "909b7de4",
+      "full_sha256": "909b7de4192e69d1ca78201ec9bfad8082e073d9476c65c4d83dab3c30cf8e94"
+    },
+    {
+      "index": 542,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-029-67b4fd1b",
+      "term": "FATF-建议18 内部控制审计",
+      "prev_hash": "909b7de4",
+      "current_hash": "67b4fd1b",
+      "full_sha256": "67b4fd1b5354c361fa8d0196f3632b3bde6141cc3e4fd70d149f1434234dd5d3"
+    },
+    {
+      "index": 543,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-030-c8995c5a",
+      "term": "FATF-建议19 高风险国家",
+      "prev_hash": "67b4fd1b",
+      "current_hash": "c8995c5a",
+      "full_sha256": "c8995c5ab8bc059ecf43bd43588a5630d48ed00628a1d13ef0dce3e5db9930a2"
+    },
+    {
+      "index": 544,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-031-8371ceed",
+      "term": "FATF-建议20 境外分支机构",
+      "prev_hash": "c8995c5a",
+      "current_hash": "8371ceed",
+      "full_sha256": "8371ceeda118d014c6bf2cc50d16e26c94fabc420b834f218c400d5b884ec528"
+    },
+    {
+      "index": 545,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-032-9a24fe9c",
+      "term": "FATF-建议22 DNFBPs客户",
+      "prev_hash": "8371ceed",
+      "current_hash": "9a24fe9c",
+      "full_sha256": "9a24fe9c0435b7e6dcb0abb725ad2cbee36858baa5dcbdc40f421ab6439c3cac"
+    },
+    {
+      "index": 546,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-033-780e4a1b",
+      "term": "FATF-建议23 DNFBPs尽职",
+      "prev_hash": "9a24fe9c",
+      "current_hash": "780e4a1b",
+      "full_sha256": "780e4a1bea3f9812514878ba3d7d370cf80465aeaa2c9b7b104ee30c2dc39438"
+    },
+    {
+      "index": 547,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-034-01ea89ae",
+      "term": "FATF-建议24 法人透明度",
+      "prev_hash": "780e4a1b",
+      "current_hash": "01ea89ae",
+      "full_sha256": "01ea89aebc121dba6d1a875bd258642e4dad8f4028d50d140fa84385d925d5ab"
+    },
+    {
+      "index": 548,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-035-f9861676",
+      "term": "FATF-建议26 金融情报单位",
+      "prev_hash": "01ea89ae",
+      "current_hash": "f9861676",
+      "full_sha256": "f9861676df0192eed64b2255effd80c2f6f9a2552859b5b075eec1713a2c4cbe"
+    },
+    {
+      "index": 549,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-036-faa73531",
+      "term": "FATF-建议27 执法调查",
+      "prev_hash": "f9861676",
+      "current_hash": "faa73531",
+      "full_sha256": "faa7353193ecf6eb5ec09ef585c302540376628738d35f2505c591bde8c29705"
+    },
+    {
+      "index": 550,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-037-5f20ccd9",
+      "term": "FATF-建议28 主管部门权力",
+      "prev_hash": "faa73531",
+      "current_hash": "5f20ccd9",
+      "full_sha256": "5f20ccd9578f7333f6c3cf1f4e5edbcb4cb99dcd967702d06d7738317124c870"
+    },
+    {
+      "index": 551,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-038-65d02d72",
+      "term": "FATF-建议29 资产冻结没收",
+      "prev_hash": "5f20ccd9",
+      "current_hash": "65d02d72",
+      "full_sha256": "65d02d7295b93adfa576efc66ec9bde7ddac1ab612ce92be5e12773c973d200e"
+    },
+    {
+      "index": 552,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-039-fe5c1860",
+      "term": "FATF-建议30 跨境合作",
+      "prev_hash": "65d02d72",
+      "current_hash": "fe5c1860",
+      "full_sha256": "fe5c18602799f0ff49b11e2c8cdb3b1c04f8d80763afde828cff32d3cdaef8b5"
+    },
+    {
+      "index": 553,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-040-aabb225a",
+      "term": "FATF-建议40 国际合作原则",
+      "prev_hash": "fe5c1860",
+      "current_hash": "aabb225a",
+      "full_sha256": "aabb225a35e83d86cd29c0e7f365e9b766d1876a7f141ddafd383bd97e37ef47"
+    },
+    {
+      "index": 554,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-041-026adf02",
+      "term": "G20数字经济-原则1 数字经济促增长",
+      "prev_hash": "aabb225a",
+      "current_hash": "026adf02",
+      "full_sha256": "026adf027df861925fc026781ebef3226856f4a87b36d7663257a751a2785bce"
+    },
+    {
+      "index": 555,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-042-c2064d9f",
+      "term": "G20数字经济-原则2 数字化转型",
+      "prev_hash": "026adf02",
+      "current_hash": "c2064d9f",
+      "full_sha256": "c2064d9f62bcaee6ba354ece9a94834c131de0c1e8b074659ad550585ea37bf6"
+    },
+    {
+      "index": 556,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-043-ec449dd1",
+      "term": "G20数字经济-原则3 数据流动与信任",
+      "prev_hash": "c2064d9f",
+      "current_hash": "ec449dd1",
+      "full_sha256": "ec449dd1b778e5e8aa8c4b248e8c7c50489ebb74ac3dcc8b52f174a848e7b26d"
+    },
+    {
+      "index": 557,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-044-8bc5c516",
+      "term": "G20数字经济-原则4 数字基础设施",
+      "prev_hash": "ec449dd1",
+      "current_hash": "8bc5c516",
+      "full_sha256": "8bc5c5161c92fcae514cb4c5cd9ba29b74b223ed848ea733ffa4b335122b50a6"
+    },
+    {
+      "index": 558,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-045-95a43723",
+      "term": "G20数字经济-原则5 数字金融普惠",
+      "prev_hash": "8bc5c516",
+      "current_hash": "95a43723",
+      "full_sha256": "95a43723ae951238138b7ff04a175fd91d29fa65e8d737ddc4f00dbd142cdc6d"
+    },
+    {
+      "index": 559,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-046-8a9596b1",
+      "term": "G20数字经济-原则6 数字技能教育",
+      "prev_hash": "95a43723",
+      "current_hash": "8a9596b1",
+      "full_sha256": "8a9596b107d8c34b1056350f47e7a0fe05f7cf61a77fc78960233501697de2f5"
+    },
+    {
+      "index": 560,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-047-cc922927",
+      "term": "G20数字经济-原则7 创新与创业",
+      "prev_hash": "8a9596b1",
+      "current_hash": "cc922927",
+      "full_sha256": "cc92292775c261d82fd6258bdbf996de0e499536f2662444d5d051bb256d889b"
+    },
+    {
+      "index": 561,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-048-e1ab92d7",
+      "term": "G20数字经济-原则8 跨境数字贸易",
+      "prev_hash": "cc922927",
+      "current_hash": "e1ab92d7",
+      "full_sha256": "e1ab92d7c6002cce7bd1a45e80319305068c0b904675c9618bf067db86e8010a"
+    },
+    {
+      "index": 562,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-049-40538840",
+      "term": "G20数字经济-原则9 可持续发展",
+      "prev_hash": "e1ab92d7",
+      "current_hash": "40538840",
+      "full_sha256": "40538840d633a2dc67b9617295998af2fdc2e881a8832ed3b3b0fea4f1ebeb20"
+    },
+    {
+      "index": 563,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-050-ea8cb9ec",
+      "term": "G20数字经济-原则10 包容性与公平",
+      "prev_hash": "40538840",
+      "current_hash": "ea8cb9ec",
+      "full_sha256": "ea8cb9ec35af50b741b62d571a9833d3a7eb171b1fa093eb7c378d52f9987920"
+    },
+    {
+      "index": 564,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-051-4dc54f07",
+      "term": "赤道原则-原则1 审查和分类",
+      "prev_hash": "ea8cb9ec",
+      "current_hash": "4dc54f07",
+      "full_sha256": "4dc54f0768c5aad66c06f9318f7b3cb1ecd85b9538e931cc10a11d598f88e2e1"
+    },
+    {
+      "index": 565,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-052-bc552583",
+      "term": "赤道原则-原则2 环境社会评估",
+      "prev_hash": "4dc54f07",
+      "current_hash": "bc552583",
+      "full_sha256": "bc5525839344b2bd594123669fed726534ba0f809c28d07e57d947828a055e53"
+    },
+    {
+      "index": 566,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-053-28fc5be9",
+      "term": "赤道原则-原则3 适用环境社会标准",
+      "prev_hash": "bc552583",
+      "current_hash": "28fc5be9",
+      "full_sha256": "28fc5be9269719ff8cd9ec51f5f44464ec31c60b6666d81aeab6cc2583c31cee"
+    },
+    {
+      "index": 567,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-054-7937f421",
+      "term": "赤道原则-原则4 环境社会管理体系",
+      "prev_hash": "28fc5be9",
+      "current_hash": "7937f421",
+      "full_sha256": "7937f4214da332587cbc8f547cf462a6f92ccb3cef1f7464106f4ceffef5092f"
+    },
+    {
+      "index": 568,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-055-e0f2cd14",
+      "term": "赤道原则-原则5 利益相关者参与",
+      "prev_hash": "7937f421",
+      "current_hash": "e0f2cd14",
+      "full_sha256": "e0f2cd1497680e9d7c2db6d664dc770ed58e81c8a59617eaacb18477cf2701e4"
+    },
+    {
+      "index": 569,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-056-bd613649",
+      "term": "赤道原则-原则6 披露和透明度",
+      "prev_hash": "e0f2cd14",
+      "current_hash": "bd613649",
+      "full_sha256": "bd613649d89f27c21d2964b1ddee2f6022e2c943125300e937baebbaf9304949"
+    },
+    {
+      "index": 570,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-057-aa8adc29",
+      "term": "赤道原则-原则7 独立审查",
+      "prev_hash": "bd613649",
+      "current_hash": "aa8adc29",
+      "full_sha256": "aa8adc29227db3caae5fb88d0c31f5c9e30ad6c24949a47aabeebe6aea1207ca"
+    },
+    {
+      "index": 571,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-058-a70d16e3",
+      "term": "赤道原则-原则8 承诺契约",
+      "prev_hash": "aa8adc29",
+      "current_hash": "a70d16e3",
+      "full_sha256": "a70d16e332ccf4998b6e91804606bc132d12d2fdfc5c32ab14750ea62fad2695"
+    },
+    {
+      "index": 572,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-059-1b19d069",
+      "term": "赤道原则-原则9 独立监测报告",
+      "prev_hash": "a70d16e3",
+      "current_hash": "1b19d069",
+      "full_sha256": "1b19d0693a143de002c60ea1d7efaa020a9f0c7eaf572f9bc4c8be9278da8131"
+    },
+    {
+      "index": 573,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-060-87e9efd8",
+      "term": "赤道原则-原则10 报告和透明度",
+      "prev_hash": "1b19d069",
+      "current_hash": "87e9efd8",
+      "full_sha256": "87e9efd8120889f7ab7dcbffc41e0dec8df0cf49d59c6b74fd4eebeb11cc94b5"
+    },
+    {
+      "index": 574,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-061-24ae5a74",
+      "term": "IOSCO-原则1 监管目标明确",
+      "prev_hash": "87e9efd8",
+      "current_hash": "24ae5a74",
+      "full_sha256": "24ae5a74101716789ebcc314662b8bfadef44ba206d2d493d6b1feaa9e4b49c8"
+    },
+    {
+      "index": 575,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-062-f1b2a1dc",
+      "term": "IOSCO-原则2 监管独立性",
+      "prev_hash": "24ae5a74",
+      "current_hash": "f1b2a1dc",
+      "full_sha256": "f1b2a1dc07b49501d68d7bee0ccb6fb301df6c4ad7582f0c976e9b16c63033a9"
+    },
+    {
+      "index": 576,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-063-2b5820e8",
+      "term": "IOSCO-原则3 监管责任",
+      "prev_hash": "f1b2a1dc",
+      "current_hash": "2b5820e8",
+      "full_sha256": "2b5820e81d519b22367e0f474849863ee4928473262b945e08e30c7d32c87fac"
+    },
+    {
+      "index": 577,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-064-4d28dc3c",
+      "term": "IOSCO-原则4 合作监管",
+      "prev_hash": "2b5820e8",
+      "current_hash": "4d28dc3c",
+      "full_sha256": "4d28dc3c089c46a527be1214fb4e55f12eab6bac5aa73cf322f97073269a6ef5"
+    },
+    {
+      "index": 578,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-065-c00be73c",
+      "term": "IOSCO-原则5 信息披露",
+      "prev_hash": "4d28dc3c",
+      "current_hash": "c00be73c",
+      "full_sha256": "c00be73c6d7a615e27742f6de282ba0592e5842abe7fd315a524b0d4cb8a3f86"
+    },
+    {
+      "index": 579,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-066-925bae39",
+      "term": "IOSCO-原则6 审计独立性",
+      "prev_hash": "c00be73c",
+      "current_hash": "925bae39",
+      "full_sha256": "925bae39c56799320f448495f319dee605c1f5c4c2c495756f2b558ca0ba45b1"
+    },
+    {
+      "index": 580,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-067-ce0c84ca",
+      "term": "IOSCO-原则7 市场公平效率",
+      "prev_hash": "925bae39",
+      "current_hash": "ce0c84ca",
+      "full_sha256": "ce0c84caab50d272cafe166e4bea8241f696bc1f456b0fe104e5b3ea26f50132"
+    },
+    {
+      "index": 581,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-068-623ca851",
+      "term": "IOSCO-原则8 市场操纵禁止",
+      "prev_hash": "ce0c84ca",
+      "current_hash": "623ca851",
+      "full_sha256": "623ca8510452a38dfb1ade1739829c8354a42674c066b7e4f0a07c40d83bc3a3"
+    },
+    {
+      "index": 582,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-069-f5cbbfcd",
+      "term": "IOSCO-原则9 内幕交易禁止",
+      "prev_hash": "623ca851",
+      "current_hash": "f5cbbfcd",
+      "full_sha256": "f5cbbfcd7011a614f31626570b9027b32665e881f5832c0fc6795582078de9a4"
+    },
+    {
+      "index": 583,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-070-52a1ad27",
+      "term": "IOSCO-原则10 中介机构监管",
+      "prev_hash": "f5cbbfcd",
+      "current_hash": "52a1ad27",
+      "full_sha256": "52a1ad27f82486c398e3265cfbf7e980b9379794f38cb41f2672fca7d5cbb348"
+    },
+    {
+      "index": 584,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-071-6f1b458e",
+      "term": "IOSCO-原则11 中介机构准入",
+      "prev_hash": "52a1ad27",
+      "current_hash": "6f1b458e",
+      "full_sha256": "6f1b458e7fc5092a86dcc6676e08d6f6e7d86d80783f22ee50fb7d304186d50d"
+    },
+    {
+      "index": 585,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-072-3a1eab75",
+      "term": "IOSCO-原则12 中介机构资本",
+      "prev_hash": "6f1b458e",
+      "current_hash": "3a1eab75",
+      "full_sha256": "3a1eab75de802798d44696c774367bb4f3ada3bd88e6648d98d1dfe9270ff701"
+    },
+    {
+      "index": 586,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-073-a8a57824",
+      "term": "IOSCO-原则13 投资者保护",
+      "prev_hash": "3a1eab75",
+      "current_hash": "a8a57824",
+      "full_sha256": "a8a57824b9bb77a6b3cc58fa52598cd23857ccd0c9b9f6f32ce4a16335cda1b7"
+    },
+    {
+      "index": 587,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-074-7ebd6cdf",
+      "term": "IOSCO-原则14 集体投资计划",
+      "prev_hash": "a8a57824",
+      "current_hash": "7ebd6cdf",
+      "full_sha256": "7ebd6cdf6693c0a81f8ebedbed641a45bb863bfd9486c1753e5f841cc5313bd5"
+    },
+    {
+      "index": 588,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-001-25039163",
+      "term": "2030议程-宣言1 人类与地球",
+      "prev_hash": "7ebd6cdf",
+      "current_hash": "25039163",
+      "full_sha256": "25039163ac927b104a2a62375dae9c1411ce35531a64c9ca12b7647155273448"
+    },
+    {
+      "index": 589,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-002-b8f859fd",
+      "term": "2030议程-宣言2 普遍性整体性",
+      "prev_hash": "25039163",
+      "current_hash": "b8f859fd",
+      "full_sha256": "b8f859fd3548589ca2b57ed7521f207a5f51dbd0238b94beb422ca2ad6c7fcac"
+    },
+    {
+      "index": 590,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-003-c6f6aaad",
+      "term": "2030议程-宣言3 不让任何人掉队",
+      "prev_hash": "b8f859fd",
+      "current_hash": "c6f6aaad",
+      "full_sha256": "c6f6aaadd4b0696ba20c0f6e5f7eab044073b0de814c382d42aaa3e0c35445cd"
+    },
+    {
+      "index": 591,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-004-53eb538d",
+      "term": "2030议程-宣言4 和平正义包容",
+      "prev_hash": "c6f6aaad",
+      "current_hash": "53eb538d",
+      "full_sha256": "53eb538d5766878a84070e527fdaf90950253de30e4b88d74d29b786612ea114"
+    },
+    {
+      "index": 592,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-005-bd2529dd",
+      "term": "2030议程-原则1 人权平等",
+      "prev_hash": "53eb538d",
+      "current_hash": "bd2529dd",
+      "full_sha256": "bd2529ddabbb8d8df52bd79c2d1013a598e837c7523339b0db95545ecfab8e92"
+    },
+    {
+      "index": 593,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-006-a21b2c75",
+      "term": "2030议程-原则2 可持续发展",
+      "prev_hash": "bd2529dd",
+      "current_hash": "a21b2c75",
+      "full_sha256": "a21b2c75217a71b0207b08d9a7417ee3d084abab1e17f572555e43a322cdf89a"
+    },
+    {
+      "index": 594,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-007-5898a3f0",
+      "term": "2030议程-原则3 相互关联综合",
+      "prev_hash": "a21b2c75",
+      "current_hash": "5898a3f0",
+      "full_sha256": "5898a3f094735fca319dddcc5cca53bdd7a3d6359f24e0d87acbb713bf49f2fe"
+    },
+    {
+      "index": 595,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-008-eea41e4a",
+      "term": "2030议程-原则4 多方利益相关者",
+      "prev_hash": "5898a3f0",
+      "current_hash": "eea41e4a",
+      "full_sha256": "eea41e4aaca49e915eef503c9aa727f904e5f1872418a36723c5f51db9036d4b"
+    },
+    {
+      "index": 596,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-009-caaf078f",
+      "term": "亚的斯亚贝巴-行动1 国内公共资源",
+      "prev_hash": "eea41e4a",
+      "current_hash": "caaf078f",
+      "full_sha256": "caaf078f191a9d84043e916d2bbc6f6dd78032b649dc0e244bc1abeaa939a08b"
+    },
+    {
+      "index": 597,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-010-8a0f5a6c",
+      "term": "亚的斯亚贝巴-行动2 国内私人资源",
+      "prev_hash": "caaf078f",
+      "current_hash": "8a0f5a6c",
+      "full_sha256": "8a0f5a6c162ce7333908a348aa36b8d4822b9cac7837f8293aec8aa04bb6a2ae"
+    },
+    {
+      "index": 598,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-011-b7a13c5a",
+      "term": "亚的斯亚贝巴-行动3 国际发展合作",
+      "prev_hash": "8a0f5a6c",
+      "current_hash": "b7a13c5a",
+      "full_sha256": "b7a13c5a05d69669fd0c1d642617c2e908020e63bd9c9538b3d71838efbc9745"
+    },
+    {
+      "index": 599,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-012-a9b75211",
+      "term": "亚的斯亚贝巴-行动4 国际债务可持续",
+      "prev_hash": "b7a13c5a",
+      "current_hash": "a9b75211",
+      "full_sha256": "a9b75211b2611156ced27d8ac324f2579514651bf20639e701d298714df1ea8b"
+    },
+    {
+      "index": 600,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-013-12e8d224",
+      "term": "亚的斯亚贝巴-行动5 贸易促进发展",
+      "prev_hash": "a9b75211",
+      "current_hash": "12e8d224",
+      "full_sha256": "12e8d224f2b046d3ffda4d9d5e1eccc28a279dddb95b823d6886b635da230c79"
+    },
+    {
+      "index": 601,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-014-18c08442",
+      "term": "亚的斯亚贝巴-行动6 科学技术创新",
+      "prev_hash": "12e8d224",
+      "current_hash": "18c08442",
+      "full_sha256": "18c08442a7e78d4d84c94b7e6f90490c8c63e30192d8a8f15456b0ad82da134f"
+    },
+    {
+      "index": 602,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-015-f1f40619",
+      "term": "亚的斯亚贝巴-行动7 系统性问题",
+      "prev_hash": "18c08442",
+      "current_hash": "f1f40619",
+      "full_sha256": "f1f4061905f30232c517fb6d5ced3e16374deec0346b29201f983a43b12cd689"
+    },
+    {
+      "index": 603,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-016-efbb4715",
+      "term": "仙台框架-优先1 理解灾害风险",
+      "prev_hash": "f1f40619",
+      "current_hash": "efbb4715",
+      "full_sha256": "efbb471574876465b9a879b95930447ab01dfa46d387ea077542b41d2738e3ed"
+    },
+    {
+      "index": 604,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-017-14029b9b",
+      "term": "仙台框架-优先2 加强灾害治理",
+      "prev_hash": "efbb4715",
+      "current_hash": "14029b9b",
+      "full_sha256": "14029b9bc46e6657f01f545fa2244c3a5fffc506049c42d404591249e23cf98d"
+    },
+    {
+      "index": 605,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-018-91afb376",
+      "term": "仙台框架-优先3 投资减灾韧性",
+      "prev_hash": "14029b9b",
+      "current_hash": "91afb376",
+      "full_sha256": "91afb376761686d90fb805a24a015e71bbb7c946f19f0ead65c2d8a0732660c1"
+    },
+    {
+      "index": 606,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-019-8a6970f1",
+      "term": "仙台框架-优先4 提升备灾响应",
+      "prev_hash": "91afb376",
+      "current_hash": "8a6970f1",
+      "full_sha256": "8a6970f1ee5876ed5f96739190d222a7692b6c01f9362a97de93ec344361f842"
+    },
+    {
+      "index": 607,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-020-26a52890",
+      "term": "仙台框架-目标1 减少灾害死亡率",
+      "prev_hash": "8a6970f1",
+      "current_hash": "26a52890",
+      "full_sha256": "26a52890b4bf11bec63d6e4774908e48165bbca5ff2c611ec240261e0adc7026"
+    },
+    {
+      "index": 608,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-021-398e0ebe",
+      "term": "仙台框架-目标2 减少受灾人数",
+      "prev_hash": "26a52890",
+      "current_hash": "398e0ebe",
+      "full_sha256": "398e0ebe578781e2181208d69bf5e84bf68953200c60b64c4e27887281c34d9f"
+    },
+    {
+      "index": 609,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-022-31175fc1",
+      "term": "仙台框架-目标3 减少经济损失",
+      "prev_hash": "398e0ebe",
+      "current_hash": "31175fc1",
+      "full_sha256": "31175fc120870a2194f80d1251b8e2f67a04106c7447129571f6969a45f0fc11"
+    },
+    {
+      "index": 610,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-023-50a9d95e",
+      "term": "仙台框架-目标4 减少关键基础设施破坏",
+      "prev_hash": "31175fc1",
+      "current_hash": "50a9d95e",
+      "full_sha256": "50a9d95ed991c677449198c80a8c726ed42c2c5a5177477d8f74eec9c8861696"
+    },
+    {
+      "index": 611,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-024-4e73449b",
+      "term": "北京宣言-领域1 妇女与贫困",
+      "prev_hash": "50a9d95e",
+      "current_hash": "4e73449b",
+      "full_sha256": "4e73449b7bacfcf89e3f7074bc59029771addb42072f5f6e1e43ccefd9f7cc6f"
+    },
+    {
+      "index": 612,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-025-2561f0ca",
+      "term": "北京宣言-领域2 妇女教育与培训",
+      "prev_hash": "4e73449b",
+      "current_hash": "2561f0ca",
+      "full_sha256": "2561f0ca9a2fc9197cb551316fd3ab82cd79dc33b6375c275e7a84041360551d"
+    },
+    {
+      "index": 613,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-026-6e2e1391",
+      "term": "北京宣言-领域3 妇女与健康",
+      "prev_hash": "2561f0ca",
+      "current_hash": "6e2e1391",
+      "full_sha256": "6e2e1391d5a1fa6c62f971de10e0dd910c3d0be96459412c8eaef12d0db8bf65"
+    },
+    {
+      "index": 614,
+      "code": "Gzz-E-GZZP-ANCHOR-20260826234001-027-67f6cfe1",
+      "term": "北京宣言-领域4 对妇女暴力行为",
+      "prev_hash": "6e2e1391",
+      "current_hash": "67f6cfe1",
+      "full_sha256": "67f6cfe18dad6cbaca884cdaeb54326cfebd8260c90c332de84058922d131ebf"
+    }
+  ]
+}
