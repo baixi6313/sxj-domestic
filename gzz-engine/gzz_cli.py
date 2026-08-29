@@ -40,8 +40,8 @@ def print_usage():
 
 
 def _hash_chain_required():
-    print("[!] 验证模块 hash_chain.py 为内部持有（蜜罐审计拦截项），公共仓库不含配方。")
-    print("    如需验证请联系维护方获取内部版本。")
+    print("[!] 未找到验证模块 hash_chain.py，请确认已获取完整仓库（含 gzz-engine/ 目录）。")
+    print("    或从 https://github.com/baixi6313/sxj-domestic 重新克隆完整仓库。")
 
 try:
     import hash_chain  # noqa: F401
