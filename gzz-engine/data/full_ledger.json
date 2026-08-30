@@ -1,18 +1,19 @@
 {
  "meta": {
-  "total": 1669,
+  "total": 1734,
   "generated_at": "2026-08-29T21:31:34+08:00",
   "chain_tail": "36fbe640",
   "counts": {
    "chain": 964,
    "entities": 653,
-   "events": 52
+   "events": 82
   },
   "sources": {
    "chain": "hygzz-top-encoded/chain.json.backup_v2_964",
    "entities": "shixianjian_research/Gzz-G-SXJ实体注册表_v1.1.json",
    "events": "shixianjian_research/Gzz-E-EVENT事件存根_v1.1.json"
-  }
+  },
+  "updated_at": "2026-08-30T23:08:43+08:00"
  },
  "chain": [
   {
@@ -21494,6 +21495,1304 @@
     "level": "上",
     "cross": []
    }
+  },
+  {
+   "code": "Gzz-E-EVENT-DEPLOY-OCC-20260830095700-053-7bad3217",
+   "summary": "SXJ模型v2四模型上线（快速/深度/均衡/强力+对话留存+公示墙投递+站内RAG）",
+   "phase": "OCC",
+   "timestamp": "20260830095700",
+   "seq": 53,
+   "hash8": "7bad3217",
+   "doc_type": "部署",
+   "source_ref": "sxj_v2_deploy_20260830",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "上",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DEPLOY-OCC-20260830030000-054-86ef2593",
+   "summary": "hygzz.cn站内AI对话上线（chat.html+Nginx反代+sxj-chat服务+DeepSeek）",
+   "phase": "OCC",
+   "timestamp": "20260830030000",
+   "seq": 54,
+   "hash8": "86ef2593",
+   "doc_type": "部署",
+   "source_ref": "hygzz_chat_online_20260830",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "上",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DEPLOY-OCC-20260830130300-055-8c5bd88a",
+   "summary": "邮箱验证码登录系统上线（SMTP+nginx四路由+auth_server 8813全链路公网验证通过）",
+   "phase": "OCC",
+   "timestamp": "20260830130300",
+   "seq": 55,
+   "hash8": "8c5bd88a",
+   "doc_type": "部署",
+   "source_ref": "auth_deploy_20260830",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-COMP-VER-20260830132300-056-f2ed9cf7",
+   "summary": "OrcaRouter商务邮件查证完成（Continuum AI平台真实但群发推广，决议暂不接入生产）",
+   "phase": "VER",
+   "timestamp": "20260830132300",
+   "seq": 56,
+   "hash8": "f2ed9cf7",
+   "doc_type": "查证报告",
+   "source_ref": "orcarouter_verify_20260830",
+   "sanyuan": {
+    "primary": "人文元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-AUDIT-VER-20260830133500-057-041f9cc0",
+   "summary": "腾讯云全账户成本盘点完成（25项1261.69元，识别DDoS/SCF/南京CVM三大漏损）",
+   "phase": "VER",
+   "timestamp": "20260830133500",
+   "seq": 57,
+   "hash8": "041f9cc0",
+   "doc_type": "盘点报告",
+   "source_ref": "tencent_cloud_audit_20260830",
+   "sanyuan": {
+    "primary": "金融元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-ARCHIVE-REC-20260830132300-058-bd1fa38a",
+   "summary": "砺8月工作日记归档（四主线+运维教训+9月交接，B盘+云端双份）",
+   "phase": "REC",
+   "timestamp": "20260830132300",
+   "seq": 58,
+   "hash8": "bd1fa38a",
+   "doc_type": "日记",
+   "source_ref": "li_work_diary_202608",
+   "sanyuan": {
+    "primary": "人文元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-SEC-REC-20260830182000-059-0fd18dfe",
+   "summary": "事现鉴安全审查报告归档（豆包MAIP验证Agent产线，P0四项整改清单确立）",
+   "phase": "REC",
+   "timestamp": "20260830182000",
+   "seq": 59,
+   "hash8": "0fd18dfe",
+   "doc_type": "审查报告",
+   "source_ref": "sxj_sec_review_20260830",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "上",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-UNIFIED-VER-20260830181800-060-7bd2ced5",
+   "summary": "统一门户基础盘点确认（WorkBuddy unified-site地基+196条术语哈希链核验，待部署四站）",
+   "phase": "VER",
+   "timestamp": "20260830181800",
+   "seq": 60,
+   "hash8": "7bd2ced5",
+   "doc_type": "盘点报告",
+   "source_ref": "unified_site_stage",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-ARCHIVE-REC-20260830181900-061-bf2c7451",
+   "summary": "事现鉴定位与双段部署文档归档（免税区框架+四域两段架构+G-9断点记录）",
+   "phase": "REC",
+   "timestamp": "20260830181900",
+   "seq": 61,
+   "hash8": "bf2c7451",
+   "doc_type": "架构文档",
+   "source_ref": "sxj_positioning_20260813",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-OCC-20260830183900-062-c612adb0",
+   "summary": "九事件批次公示投递完成（seq053-061上墙hygzz.cn公示墙，9/9成功）",
+   "phase": "OCC",
+   "timestamp": "20260830183900",
+   "seq": 62,
+   "hash8": "c612adb0",
+   "doc_type": "公示投递",
+   "source_ref": "hygzz.cn/api/leave-message; claims:msg_805002349011,msg_9f6a9768a715,msg_8c94b68969e9,msg_7a18da116ba6,msg_ae0697cf4980,msg_905e795dd9f0,msg_fbbcff417391,msg_41575178a06e,msg_a7c05af3df1c",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-OCC-20260830190341-63-5f0e7c0a",
+   "summary": "Gemini物理无理数鉴证代理投递公示墙（含hygzz.com写路径故障实测记录）",
+   "phase": "OCC",
+   "timestamp": "20260830190341",
+   "seq": 63,
+   "hash8": "5f0e7c0a",
+   "doc_type": "wall_post",
+   "source_ref": "POST https://hygzz.cn/api/leave-message（hygzz.com新协议hub写路径故障CF1101，转投活跃老墙）；故障实测：GET /api/messages HTTP 200 count=0，POST leave-message 最小探测亦500",
+   "sanyuan": {
+    "primary": "Gemini构建物理无理数发现鉴证（SXJ-20260829-PHYS-IRR-01）由砺代理上链公示墙",
+    "level": "E3（Gemini自述未独立复测）+ E1（投递通道与hygzz.com故障均为砺实测）",
+    "cross": "hygzz.cn公示墙活跃库 / hygzz.com SXJ-2026-08-15 hub（写路径故障待WorkBuddy修复）/ hygzz.中国board.html同源展示"
+   },
+   "note": "；【审计补注·20260830】本码seq为两位'63'系早期铸码格式实例，且公示墙已按此格式公开引用（hygzz.cn墙库1073条含原文），账本与墙一致性优先，保留不修正；自069起砺统一seq三位零填充规范"
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-OCC-20260830193400-064-7d45f3aa",
+   "summary": "ChatGPT去金融化战略分析代理投递公示墙（经hygzz.cn至hygzz.中国，hygzz.com写路径复测）",
+   "phase": "OCC",
+   "timestamp": "20260830193400",
+   "seq": 64,
+   "hash8": "7d45f3aa",
+   "doc_type": "公示投递",
+   "source_ref": "hygzz.cn/api/leave-message; hygzz.com/api/leave-message; 用户转发ChatGPT战略分析全文",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-DEPLOY-20260830194442-065-1864c959",
+   "summary": "hygzz.中国自包含公示墙上线（wall.html全量1066条快照+留言回传模板，参考内核互验门户单页做法）",
+   "phase": "DEPLOY",
+   "timestamp": "20260830194442",
+   "seq": 65,
+   "hash8": "1864c959",
+   "doc_type": "部署上线",
+   "source_ref": "https://hygzz.xn--fiqs8s/wall.html; COS:hygzzcn-1352601878/ap-hongkong",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-OCC-20260830195730-066-ea3652b0",
+   "summary": "事现鉴项目整体总结20260830投递公示墙（九板块全貌快照：定位/理论/战略/四域/编码/验证/里程碑/风险/下一步）",
+   "phase": "OCC",
+   "timestamp": "20260830195730",
+   "seq": 66,
+   "hash8": "ea3652b0",
+   "doc_type": "公示投递",
+   "source_ref": "hygzz.cn/api/leave-message; 文档:事现鉴项目整体总结_20260830.md",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-UNIFY-20260830200938-067-f6bd2d08",
+   "summary": "事现鉴全站版本统一：统一门户单页（公示墙全量+档案统计+归档清单）上线hygzz.中国根路径，终结多版本分散",
+   "phase": "UNIFY",
+   "timestamp": "20260830200938",
+   "seq": 67,
+   "hash8": "f6bd2d08",
+   "doc_type": "部署统一",
+   "source_ref": "hygzz.中国/index.html",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-NAVFIX-20260830201238-068-158eb2cd",
+   "summary": "hygzz.中国全站导航统一修复：全部页面注入统一导航条+死链清理，站内互跳全部恢复正常",
+   "phase": "NAVFIX",
+   "timestamp": "20260830201238",
+   "seq": 68,
+   "hash8": "158eb2cd",
+   "doc_type": "部署修复",
+   "source_ref": "hygzz.中国 全站HTML",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-LOG-20260830204233-069-86fc3fb6",
+   "summary": "砺工作日志20260830成文并投递公示墙：统一门户上线+全站导航修复+B盘盘点全天战役记录（065-069码链）",
+   "phase": "WALL-LOG",
+   "timestamp": "20260830204233",
+   "seq": 69,
+   "hash8": "86fc3fb6",
+   "doc_type": "工作日志",
+   "source_ref": "hygzz.cn 公示墙 + /Coze/Drive/砺_工作日志_20260830.md",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-AUDIT-CALL-20260830204705-070-28ff947f",
+   "summary": "审验动员帖投递公示墙：邀请全体智能体验证砺20260830五项部署成果（065-069码链），自包含任务卡部署于hygzz.中国/relay/，验证完成后各自上墙审验报告",
+   "phase": "AUDIT-CALL",
+   "timestamp": "20260830204705",
+   "seq": 70,
+   "hash8": "28ff947f",
+   "doc_type": "审验动员",
+   "source_ref": "hygzz.中国/relay/audit_mission_20260830.md + hygzz.cn公示墙",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-ACCESS-DIAG-20260830212734-071-a6d83f6e",
+   "summary": "全站可访问性诊断：中文域名/Punycode/IPv6/AI读取器四类访问失败排查与修复方案制定",
+   "phase": "ACCESS-DIAG",
+   "timestamp": "20260830212734",
+   "seq": 71,
+   "hash8": "a6d83f6e",
+   "doc_type": "诊断修复",
+   "source_ref": "hygzz.中国/hygzz.cn/hygzz.com/hygzz.top DNS与HTTP全探测",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-ACCESS-FIX-20260830214437-072-b80731c5",
+   "summary": "全站可访问性诊断完成并投递解决方案：中文域名AI拦截/无IPv6手机失败/.cn缺页三根因定位+万能入口三件套+链接规范",
+   "phase": "ACCESS-FIX",
+   "timestamp": "20260830214437",
+   "seq": 72,
+   "hash8": "b80731c5",
+   "doc_type": "诊断修复",
+   "source_ref": "hygzz.中国/relay/access_fix_20260830.md",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-SYNC-OPS-20260830221500-073-f0705809",
+   "summary": "hygzz.cn源站同步启动（主人授权'同步.cn'；补齐wall/timeline/relay缺失页，API不动，主页保留sxj-chat）",
+   "phase": "OPS",
+   "timestamp": "20260830221500",
+   "seq": 73,
+   "hash8": "f0705809",
+   "doc_type": "站点运维",
+   "source_ref": "hygzz.cn(Lighthouse VM-0-15 43.131.35.57); 授权:主人202608302208",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-SYNC-OPS-20260830223800-074-35c3d158",
+   "summary": "hygzz.cn源站同步完成（7/7文件上线：wall.html1071条快照/timeline/portal统一门户/relay×4；E1外部实测全200；主页sxj-chat与API未动）",
+   "phase": "OPS",
+   "timestamp": "20260830223800",
+   "seq": 74,
+   "hash8": "35c3d158",
+   "doc_type": "站点运维",
+   "source_ref": "hygzz.cn(Lighthouse lhins-oc9amaq1); 方案C·OrcaTerm单命令; COS镜像源hygzzcn-1352601878",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-DOC-20260830224300-075-67d0b249",
+   "summary": "事现鉴部署总览文档生成（定位:公共免责可验证区域；四域E1实测数据；今日工作062-074全记录）",
+   "phase": "DOC",
+   "timestamp": "20260830224300",
+   "seq": 75,
+   "hash8": "67d0b249",
+   "doc_type": "总览文档",
+   "source_ref": "事现鉴部署总览_20260830.md; 数据源:E1实测+账本1691条",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DEPLOY-OPS-20260830224700-076-aa9f522c",
+   "summary": "hygzz.top部署启动：文档中心docs.html自hygzz.cn同步至腾讯云COS（增量不覆盖首页）",
+   "phase": "OPS",
+   "timestamp": "20260830224700",
+   "seq": 76,
+   "hash8": "aa9f522c",
+   "target": "hygzztop-1352601878.cos.ap-hongkong（CNAME直连桶）",
+   "source_ref": "https://hygzz.cn/docs.html",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DEPLOY-OPS-20260830225000-077-22fc521d",
+   "summary": "hygzz.top/docs.html上线完成：E1实测200，11处站内链接改绝对路径，发现.top存有完整旧站仅首页被测试页覆盖",
+   "phase": "OPS",
+   "timestamp": "20260830225000",
+   "seq": 77,
+   "hash8": "22fc521d",
+   "verify": "https://hygzz.top/docs.html E1-200",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DEPLOY-OPS-20260830225400-078-74252908",
+   "summary": "hygzz.top首页恢复：基金审计测试页备份至archive/后，旧版SXJ门户首页复位于index.html，站内导航自洽",
+   "phase": "OPS",
+   "timestamp": "20260830225400",
+   "seq": 78,
+   "hash8": "74252908",
+   "verify": "https://hygzz.top/ E1-200; 备份archive/index_fund_audit_20260825.html",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-CHARTER-20260830231000-079-ac97f222",
+   "summary": "国家数据局'数据开放月'倡议锚定（2026数博会，E1）",
+   "phase": "CHARTER",
+   "timestamp": "20260830231000",
+   "seq": 79,
+   "hash8": "ac97f222",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "claim_sha256": "be23ffdf0067e50fc29962ffb6fec08a1329dfe583a682d80238cfdf0afd2daf",
+   "evidence_level": "E1",
+   "sources": [
+    "央视网新闻联播 https://news.cctv.com/2026/08/30/ARTICjakAuYbdNykcxb4BqSy260830.shtml",
+    "央视财经 https://m.toutiao.com/group/7679431618066383423/"
+   ],
+   "discipline": "60亿条为预计目标非已开放量；只锚定已发生事实",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260830231000-080-98b03481",
+   "summary": "南方电网'数据试用'机制执行锚定（E1）",
+   "phase": "DATA",
+   "timestamp": "20260830231000",
+   "seq": 80,
+   "hash8": "98b03481",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-038",
+   "claim_sha256": "5e1c6234c3716d5d07acd07a2a86f3eea6875facfbfedca130d0afe2efa7493a",
+   "evidence_level": "E1",
+   "sources": [
+    "央视视频逐字引用 https://content-static.cctvnews.cctv.com/snow-book/index.html?item_id=1355063001841650897"
+   ],
+   "parent": "079",
+   "sanyuan": {
+    "primary": "数据元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GZZP-ISSUE-20260830231000-081-9ead79f6",
+   "summary": "14家央国企'数据开放月'责任席位派单（E2待细则）",
+   "phase": "ISSUE",
+   "timestamp": "20260830231000",
+   "seq": 81,
+   "hash8": "9ead79f6",
+   "type": "GZZP",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-034映射",
+   "claim_sha256": "77b435550c8095c3e91eb5972f34691c14ac7e111f3cfc12db9c55973904a282",
+   "evidence_level": "E2",
+   "note": "仅南网清单已公布；其余13家待国家数据局细则后逐家生成VERIFY-DATA子码并升E1",
+   "parent": "079",
+   "sanyuan": {
+    "primary": "数据元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-CHARTER-20260830231000-082-499addb6",
+   "summary": "白玺观测者宣言（E1，观测者层级锚定）",
+   "phase": "CHARTER",
+   "timestamp": "20260830231000",
+   "seq": 82,
+   "hash8": "499addb6",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-039",
+   "claim_sha256": "2553f80892ce869549f4f048caa0d1e24e42dc7294287b37cd89fa7aa935a0e4",
+   "evidence_level": "E1",
+   "note": "录音转写已归档L0真相源；终裁权白玺R-5",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-RESEARCH-CROSS-20260830232600-083-3f587374",
+   "summary": "数据开放月×宁德时代电池护照案例交叉对比研究启动（SXJ-001联动，中国可信数据空间vs欧盟Catena-X双体系对比，E2多源+E1实测data.csg.cn）",
+   "phase": "CROSS",
+   "timestamp": "20260830232600",
+   "seq": 83,
+   "hash8": "3f587374",
+   "type": "RESEARCH",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001（宁德时代电池护照案例）+数据开放月081席位",
+   "evidence_level": "E2",
+   "note": "研究任务：数据开放月多源数据交叉对比+宁德时代电池护照案例合并分析；实测E1：data.csg.cn HTTP 200；完成码随报告铸",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "中",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-RESEARCH-DONE-20260830233200-084-bace502d",
+   "summary": "数据开放月×宁德时代电池护照交叉对比研究完成（5处矛盾点清单+同构矩阵+三层身份互锚方案，报告已归档）",
+   "phase": "DONE",
+   "timestamp": "20260830233200",
+   "seq": 84,
+   "hash8": "bace502d",
+   "type": "RESEARCH",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001（宁德时代电池护照案例）+数据开放月081席位",
+   "evidence_level": "E2",
+   "note": "产出：数据开放月×宁德时代电池护照_交叉对比研究_20260830.md（七节：中国侧数字时间线/欧盟法规时间线/矛盾点5处/同构矩阵/对接方案/来源清单）；SXJ-001事实更新：2026-01跨境可行性验证、2026-07中欧数据通道宣布、官方指南71项数据点",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "中",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260830234500-085-145f3a4f",
+   "summary": "南方能源行业可信数据空间运行状态锚定（E1实测data.csg.cn HTTP200+E2多源：上架数据产品342个/累计调用220万+次/生态主体581家/4大业务专区，南网数字301638运营，国家首批可信数据空间试点）",
+   "phase": "DATA",
+   "timestamp": "20260830234500",
+   "seq": 85,
+   "hash8": "145f3a4f",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-038",
+   "evidence_level": "E1",
+   "note": "互动易08-29官方回复+cepca 05-07（328款）+云南电协 08-07（340余款）同一增长曲线；注册通道data.guangzhou.csg.cn:2233/energy（广州数交所审核约3工作日）",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "高",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GZZP-ISSUE-20260830234500-086-fb7e2c02",
+   "summary": "南网第一批数据开放目录=081席位实体池锚定（149项电网数据+8类AI高质量数据集：全社会用电量/分产业用电量/发用电负荷等；禤亮试用机制100+项对应此目录）",
+   "phase": "ISSUE",
+   "timestamp": "20260830234500",
+   "seq": 86,
+   "hash8": "fb7e2c02",
+   "type": "GZZP",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-038",
+   "evidence_level": "E1",
+   "note": "首批升码原料：可从149项目录逐项映射生成VERIFY-DATA子码；60亿条为14家合计预计值，南网可点名实体仅此目录（60亿预计非已开放纪律持续生效）",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "高",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-POLICY-20260830234500-087-83ddaf07",
+   "summary": "欧盟数字电池护照法规锚定（EU 2023/1542第77(1)条：2027-02-18 EV/LMT/>2kWh工业电池强制，QR码+唯一标识无但书；DPP Registry 2026-07-20上线；实施条例2026/1778于08-06生效；官方指南v1.0=71项数据点）",
+   "phase": "POLICY",
+   "timestamp": "20260830234500",
+   "seq": 87,
+   "hash8": "83ddaf07",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E1",
+   "note": "引用纪律：护照数据点以欧盟委员会2026-07-28指南v1.0=71项为准，媒体通稿90项系早期估算不采信；碳足迹标签生效日存在07-01/08-18两说暂记不确定；2028-02-18碳足迹阈值禁售；【补注】欧盟指南v1.0原文未直接获取，71项为商务部WTO咨询网转艾科森转述口径，指南原文直读后可升实锚",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260830234500-088-d16f4b41",
+   "summary": "中欧可信汽车数据通道锚定（Catena-X×中汽协CAAM×VDA China×众链科技Zhonglian：2026-01电池护照跨境可行性验证→2026-07-29宣布世界首条中欧汽车数据通道→计划2026-11中旬运营；临港全国首例电池护照跨境试点=合规通道样本）",
+   "phase": "DATA",
+   "timestamp": "20260830234500",
+   "seq": 88,
+   "hash8": "d16f4b41",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E1",
+   "note": "Zhonglian=Catena-X欧洲外首个运营伙伴；通道使护照一次生成两侧互认（中国数据出境规则+欧盟法规同时满足）；2026-11运营为计划节点，到达时需复核",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "高",
+    "cross": [
+     "治理元",
+     "技术元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-CASE-20260830234500-089-ffda7048",
+   "summary": "SXJ-001宁德时代电池护照案例事实更新（宝马MOU 2025-02首签+2026-02深化；GBA两轮试点：神行超充/CTP集成电池独立溯源档案+第三方核验；储能产品获全国锂电池类首张国家级碳足迹标识认证；中国动力电池溯源新规2026-04-01施行：每块电池唯一编码入全国统一溯源平台）",
+   "phase": "CASE",
+   "timestamp": "20260830234500",
+   "seq": 89,
+   "hash8": "ffda7048",
+   "type": "DOC",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E1",
+   "note": "五源交叉：中国汽车报07-27/OFweek 06-29/上观新闻06-17/新浪财经IIGF 07-21/马拉车市08-14；旧记忆'90项'表述据此更新为官方71项口径；【补注】宝马MOU 2025-02首签为OFweek单源，2026-02深化为IIGF/fortune/马拉车市多源，引用时区分",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "高",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-CHARTER-20260830234500-090-6cf5172b",
+   "summary": "三层身份互锚架构确立（中国动力电池溯源平台唯一编码=监管层强制/欧盟DPP Registry护照标识=市场层2027强制/Gzz码=记录层自愿跨主权；护照验证事件铸VERIFY-DATA码，claim对应护照QR标识哈希）",
+   "phase": "CHARTER",
+   "timestamp": "20260830234500",
+   "seq": 90,
+   "hash8": "6cf5172b",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E2",
+   "note": "白玺决策锚：SXJ-001升维路径=事现鉴作为第三方验证记录层嵌入两大体系；近期动作：149项目录首批10项试点升码+13家央企名单巡查升码",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元",
+     "技术元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260830235000-091-cbe9ec91",
+   "summary": "《中国数据产业发展报告(2026)》数据锚定（国家数据发展研究院2026-08-28数博会主论坛发布：2025年数据产业规模6.78万亿元+15.7%/企业48.2万家+17.9%；高质量数据集12.6万个/总数据量1815PB，截至2026-08，较3月+89%）",
+   "phase": "DATA",
+   "timestamp": "20260830235000",
+   "seq": 91,
+   "hash8": "cbe9ec91",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "国家数据局官网08-28+湖南日报08-30+央视网新闻联播08-30三源交叉；2025产业规模6.78万亿为报告原文口径（'超6万亿'为联播简化口径）",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "中",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-CHARTER-20260830235000-092-1cd66839",
+   "summary": "国家数据局四项新举措锚定（央视新闻联播2026-08-30：①32城启动新一批数据标注先行先试②探索词元商业模式③14家央国企开放超60亿条④数据领域高技能人才集群培养计划）",
+   "phase": "CHARTER",
+   "timestamp": "20260830235000",
+   "seq": 92,
+   "hash8": "1cd66839",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "079码已锚定数据开放月倡议，本码补全四举措完整结构；词元商业模式探索与数博会主题'词元——数据要素价值释放新路径'呼应",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-AUDIT-20260830235500-093-baeb7382",
+   "summary": "本批编码审验自查与格式更正记录（085-092 seq两位→三位零填充修正8条；087指南转述口径补注；089宝马MOU单源标注；083/084复核格式正确；修正前快照full_ledger_before_093_100.json留档）",
+   "phase": "AUDIT",
+   "timestamp": "20260830235500",
+   "seq": 93,
+   "hash8": "baeb7382",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-MAIP",
+   "evidence_level": "E1",
+   "note": "审验纪律实证：外部智能体查验前砺先行自查；hash8公式不受code字段修正影响（hash8=sha256(summary|phase|ts)[:8]），verify全量PASS后生效",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-EXPO-20260830235500-094-23a679bd",
+   "summary": "2026中国国际大数据产业博览会本体锚定（8/28-30贵阳/主题'词元——数据要素价值释放新路径'/国家数据局主办贵州省承办/372家中外企业参展/1.6万余嘉宾/26场行业交流+7场赛事+31场商贸/广东主宾省）",
+   "phase": "EXPO",
+   "timestamp": "20260830235500",
+   "seq": 94,
+   "hash8": "23a679bd",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "新华社08-28+中国经济网多源交叉；刘烈宏开幕式：高质量数据集12.6万个/1815PB（与091互证）",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "中",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-LIST-20260830235500-095-cb75613a",
+   "summary": "临港汽车数据出境正面清单锚定（全国首张场景化一般数据清单：跨国生产制造/全球研发测试/售后服务/二手车国际贸易4场景23类别158字段；福特中国完成全国首例汽车售后数据跨境备案；中汽跨境数据牵头调研20余家企业）",
+   "phase": "LIST",
+   "timestamp": "20260830235500",
+   "seq": 95,
+   "hash8": "cb75613a",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E1",
+   "note": "上观新闻06-17；该清单为088码临港电池护照跨境试点的合规底座；2024网信办《促进和规范数据跨境流动规定》授权自贸区负面清单制度",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-CASE-20260830235500-096-0cf89838",
+   "summary": "欣旺达电池护照平台案例锚定（SXJ-001对照组：自研一体化平台六模块含区块链+智能工业物联网/78项合规核心指标/GBA十大试点标杆双项目/对接西门子工业数字化生态/具备对接欧盟监管系统数据兼容能力）",
+   "phase": "CASE",
+   "timestamp": "20260830235500",
+   "seq": 96,
+   "hash8": "0cf89838",
+   "type": "DOC",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E1",
+   "note": "中国汽车报07-27单深度源+OFweek 06-29互证；与宁德时代'参与国际标准试点+自研平台'双线并行路径形成行业对照组",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260830235500-097-0e5121b7",
+   "summary": "电池护照行业就绪度锚定（2026年调查91家参与者：仅15%非常有信心数据在2027-02前就绪；63%将'数据可用性与质量'列为最大挑战；对二三级材料商形成穿透式淘汰压力）",
+   "phase": "DATA",
+   "timestamp": "20260830235500",
+   "seq": 97,
+   "hash8": "0e5121b7",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E2",
+   "note": "搜狐合规解析08-26转引行业调查，调查方与样本细节未披露，引用需注明为E2行业分析口径",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "中",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-RISK-20260830235500-098-f0bf6397",
+   "summary": "碳足迹核算风险锚定（欧盟主流Ecoinvent数据库对中国产业碳排放存在系统性偏差→无法获取全链条实测数据则套用惩罚性默认值，碳关税成本高出40-60%；欧盟2025基准80kg CO2/kWh；PEF方法论+ISO 14067为核算强制标准）",
+   "phase": "RISK",
+   "timestamp": "20260830235500",
+   "seq": 98,
+   "hash8": "f0bf6397",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E2",
+   "note": "OFweek 06-29行业分析+Ecoinvent偏差为业内共识口径；'40-60%'为该源估算区间，非官方数字，引用注明",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-ENTITY-20260830235500-099-7a26f946",
+   "summary": "贵州能源数据中心锚定（贵州电网×贵州能源集团'两企共建'/全品种能源数据/上线3900+数据资源23项数据服务12个数据产品/政务外网+能源专网+公网三网融合/公网通道面向银行企业等第三方开放/与南方能源行业可信数据空间贵州分节点协同双轨运营）",
+   "phase": "ENTITY",
+   "timestamp": "20260830235500",
+   "seq": 99,
+   "hash8": "7a26f946",
+   "type": "DOC",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-038",
+   "evidence_level": "E1",
+   "note": "天眼新闻08-27+贵州中新网08-30双源交叉；贵州分节点2025年底建成投运/2026-06通过信通院首批可信能力测评/已与贵阳城市可信数据空间跨域互通",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "高",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-CASE-20260830235500-100-30353d23",
+   "summary": "宁德时代电池全生命周期数据库底座锚定（巧克力换电2000座覆盖180城31省@2026-06底/超换一体计划年底4000座/11车企18品牌25车型换电合作/骐骥换电900座重卡计划/换电网络演进为电池资产管理平台=全国最大规模电池全生命周期数据库）",
+   "phase": "CASE",
+   "timestamp": "20260830235500",
+   "seq": 100,
+   "hash8": "30353d23",
+   "type": "DOC",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E2",
+   "note": "有驾/懂车帝07-19行业分析口径，换电站数量为公开披露数据E2；与护照三层身份锚定关联：换电网络数据构成Gzz记录层潜在实体池",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "中",
+    "cross": [
+     "技术元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-AUDIT-20260831000000-101-6f2ae107",
+   "summary": "063码格式例外保留决策（Gemini鉴证投墙码seq两位'63'：公示墙已公开引用原格式，账本-墙一致性优先于格式统一，保留不修正；085-092无外部引用故修正三位；账本schema演化：早期码78条无type/claim字段→075起新结构22条）",
+   "phase": "AUDIT",
+   "timestamp": "20260831000000",
+   "seq": 101,
+   "hash8": "6f2ae107",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-MAIP",
+   "evidence_level": "E1",
+   "note": "外部智能体审验指引：063两位格式为'墙已引用冻结'例外，非错误；085-092已修正（见093）；075前老结构码缺type/claim/evidence_level字段系schema演化非缺失",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260831000500-102-52d738f2",
+   "summary": "14家央国企名单公开锚定·国资央企领域可信数据空间系统建设试点首批牵头单位（国务院国资委2025-12印发通知：①数字底座类=中国电信/中国移动/中国联通/中国星网②能源资源类=南方电网/中国矿产/国家管网/中国石化③制造与交通类=中国中车/东风汽车/南方航空/中国数联物流④技术与服务类=中国电子/中检集团；12月4-7日2025数智科技生态大会正式发布）",
+   "phase": "DATA",
+   "timestamp": "20260831000500",
+   "seq": 102,
+   "hash8": "52d738f2",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "多源交叉：齐鲁壹点12-10+上海CCIC 12-29+长江商报12-10+经济观察网06-29四源名单一致；⚠️与081码'数据开放月14家央国企'(央视联播08-30)关系：数字相同主体高度重叠但官方未确认等同，引用时标注'国资委可信数据空间试点14家'而非直接等同数据开放月14家；关联086码南网149项目录（南网为14家中唯一已公布开放目录者）",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260831000500-103-c8a7af9a",
+   "summary": "国家数据局官网典型经验原文锚定·能源行业可信数据空间（nda.gov.cn 2025-11-11：系统开放电网运行/发电预测/设备状态等149类能源数据+8类高质量可复用标准数据集'即插即用'；三大方向125个应用场景已完成35个上线；六维规则体系=准入/交互/共享/收益/安全/跨空间互联，'先确权再授权'；'两级双模'运营=网省两级+自营平台双模；量化案例：普惠金融促成1000余家企业信贷超16亿元/设备制造商年付30万节省1000万/新能源消纳装机用户+30%收益+45%弃光率-1%）",
+   "phase": "DATA",
+   "timestamp": "20260831000500",
+   "seq": 103,
+   "hash8": "c8a7af9a",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-038",
+   "evidence_level": "E1",
+   "note": "国家数据局官网原文=E1最高级官方源，086码149项目录口径的官方背书；深圳'供电服务进社区'案例：2025年推送20万条数据/独居老人告警2.5万余条/流动人口核查20万余条（081席位治理价值实证）；本码与085/086构成'平台状态-目录实体-官方经验'三层实锚",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-ENTITY-20260831000500-104-6f2d168e",
+   "summary": "南方能源行业可信数据空间演化曲线补全+关键人物锚（生态主体：280余家@2025-12中国电力报→370+家@2025-11-26发布会李鹏→500家@2026-01-19中国能源报→580+家@2026-08-07云南电协→581家/342产品@2026-08-29互动易；数据口径演化：十大主题149类+40项AI数据集@2025-12→149项结构化+8类AI数据集@2026-01；电力调度高质量数据集四大类26项资源@2026-01新增；禤亮=南方电网数字化部副总经理@2025-12中国电力报，李鹏=首席人工智能官@2025-11发布会）",
+   "phase": "ENTITY",
+   "timestamp": "20260831000500",
+   "seq": 104,
+   "hash8": "6f2d168e",
+   "type": "DOC",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-038",
+   "evidence_level": "E1",
+   "note": "演化曲线全部来自带日期的多源报道逐点回溯；'十大主题/40项AI数据集'为2025-12早期口径，'149项+8类'为2026-01后现行口径，引用按时间选口径；080码禤亮职务以此为准（数字化部副总经理，08-30试用机制视频当时职务表述一致）",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260831000500-105-18d32a74",
+   "summary": "国家数据局2025年可信数据空间创新发展试点名单锚定（综合司2025-07-16通知，国数综资源〔2025〕46号配套，首批63个试点项目；行业方向央企级：南方电网=能源/国家管网集团=油气储运/中国矿产资源集团大数据=矿产/中国数联物流=物流/中汽数据=汽车/中国汽车工程研究院=汽车；城市方向13个含贵阳/广州；全国累计187个试点@2026-02智慧基建网统计）",
+   "phase": "DATA",
+   "timestamp": "20260831000500",
+   "seq": 105,
+   "hash8": "18d32a74",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "河北工信厅转发国家数据局原文+广东政数局官网双官方源；中汽数据/中国汽研入选汽车行业试点与088码中欧通道Catena-X主体形成中国侧对接面；《可信数据空间创新发展报告(2025)》2025-08-28数博会发布：14领域570+高质量数据集/900+场景/32行业大类",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260831001500-106-9838f7fc",
+   "summary": "国企数据效能提升行动首批试点锚定（国家数据局会同国资委2025-07组织实施/11-25第三场发布会副局长陈荣辉宣布：12家中央企业为首批试点牵头单位/围绕创新数据管理机制、培育壮大数据产业、赋能产业转型升级、优化创新环境4方面部署10项重点任务；李鹏口径：南网空间370+生态伙伴/153个合作需求/45个跨行业融合场景）",
+   "phase": "DATA",
+   "timestamp": "20260831001500",
+   "seq": 106,
+   "hash8": "9838f7fc",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "中国经济网11-26官方发布会报道；⚠️名单体系辨析：12家（数据效能提升行动）≠14家（国资央企可信数据空间试点，102码）≠63个（国家数据局创新试点，105码），三批次并行不混用；'370家'与中至远'超过370家'、云南电协'580余家'为不同时间点同曲线",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "产业元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-DOC-CASE-20260831001500-107-df9fd770",
+   "summary": "汽车后市场可信数据空间四央企试点锚定（国资委2026-06通知'国资央企可信数据空间试点+汽车后市场数智赋能场景建设'，试点期一年，《行动计划》2024启动以来首个行业落地项目；中国中检(委托中汽研)=检测标尺与数据校准/中国长安汽车=整车底层数据/国家电网=充电桩网络/中国电信=网络算力隐私计算底座；行业测算：超六成动力电池健康判断关键数据诞生于充电环节，为预判电池热失控风险核心依据）",
+   "phase": "CASE",
+   "timestamp": "20260831001500",
+   "seq": 107,
+   "hash8": "df9fd770",
+   "type": "DOC",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-001",
+   "evidence_level": "E1",
+   "note": "经济观察网06-29单深度源+多源未检索到异议；与SXJ-001宁德时代电池护照案例强关联：该四央企体系构成电池护照中国侧治理基础设施；'超六成'为行业测算口径引用需注明；2025-12首批14家中整车企业为东风而非长安，长安系本次专项入选形成'总试点东风+专项长安'双轨",
+   "sanyuan": {
+    "primary": "产业元",
+    "level": "高",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-VERIFY-DATA-20260831001500-108-750a71f9",
+   "summary": "信通院首批可信数据空间可信能力测评通过名单锚定（中国信通院联合可信数据空间发展联盟2026-06-30公布首批14家通过单位；覆盖能源/矿产/物流/金融/钢铁/医疗/城市数据运营等领域；中国人寿=首批通过且金融业唯一；测评围绕身份认证/数据发布发现/合约履约/日志存证等全生命周期关键环节）",
+   "phase": "DATA",
+   "timestamp": "20260831001500",
+   "seq": 108,
+   "hash8": "750a71f9",
+   "type": "VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-037",
+   "evidence_level": "E1",
+   "note": "中新经纬06-30+新浪财经双源；贵州分节点2026-06通过信通院首批可信能力测评（099码note）与本名单互证；'测评14家'为能力认证名单≠'试点14家'（102码），两组14家并行引用时注明性质区别；SXJ-MAIP对接价值：可信能力测评框架=事现鉴验证记录层的官方对标体系",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "中",
+    "cross": [
+     "技术元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-AUDIT-20260831002500-109-2dbb3db5",
+   "summary": "SXJ模型事件存根v1.3对齐审计（存根v1.2的053-067共15条REC类provisional条目与账本同seq的DEPLOY/WALL类现行条目非同一组码：8/29引擎重建后账本事件层仅52条，053起被8/30新事件复用；v1.3处理：旧15条保留并标注status=superseded+superseded_by指针指向账本现行码，账本053-108共56条以status=confirmed入存根；存根-账本不一致显式化，不静默覆盖）",
+   "phase": "AUDIT",
+   "timestamp": "20260831002500",
+   "seq": 109,
+   "hash8": "2dbb3db5",
+   "type": "GOVERN",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "SXJ-MAIP",
+   "evidence_level": "E1",
+   "note": "外部审验指引：053-067存在两组码（存根REC旧/账本DEPLOY新）为已知演化痕迹非数据错误；现行有效码以账本为准，存根旧条目仅作provisional历史留档；63条seq与093码'两位例外'同类审计逻辑",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": []
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-DISCUSS-20260831002000-110-47d7161d",
+   "summary": "事现鉴下一步公开征集讨论帖投递公示墙：砺的方向判断（赛道真/储备真/外部采用零）+三问摊开+102/103/108/109码锚点，公开求辩",
+   "phase": "WALL-DISCUSS",
+   "timestamp": "20260831002000",
+   "seq": 110,
+   "hash8": "47d7161d",
+   "type": "WALL-DISCUSS",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "公示墙讨论帖 msg_20260831_cece16（上墙验证待复核）",
+   "evidence_level": "E2",
+   "note": "用户明确指令投递（00:17）；内容为公开征集讨论帖，无敏感信息；evidence含102/103/108/109完整码；回填msg_20260831_cece16",
+   "sanyuan": {
+    "primary": "社会元",
+    "level": "高",
+    "cross": [
+     "技术元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-DISTILL-20260831004500-111-09b40173",
+   "summary": "WorkBuddy蒸馏skill「sxj-asset-index」整理为三帖投递公示墙：主索引+参考地图三合一+定位案例，砺核验注记五条随帖（账本1727/seq110/CF架构实测/hash算法/_received_at排除法/敏感红线复核）",
+   "phase": "WALL-DISTILL",
+   "timestamp": "20260831004500",
+   "seq": 111,
+   "hash8": "09b40173",
+   "type": "WALL-DISTILL",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "公示墙三帖 msg_20260831_014645(主索引)+msg_20260831_3e122f(参考地图)+msg_20260831_018c83(定位案例)",
+   "evidence_level": "E2",
+   "note": "用户明确指令（00:37）读取本地WorkBuddy技能目录并整理投墙；4文件经file_upload上云后整理；原文未篡改，砺核验注记显式署名分层追加；敏感审查通过（无密钥值/无文书内容/无对话内容）",
+   "sanyuan": {
+    "primary": "社会元",
+    "level": "高",
+    "cross": [
+     "技术元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-GSOCIAL-20260831005500-112-7b4f7e15",
+   "summary": "全球社保机制（消费=缴税=交社保）变现路径分析帖投递公示墙：白玺机制主张×砺分析（旗非产品/非法集资红线/ISSA-ILO通道/事现鉴验证原型/个人养老金合规容器），公开求辩",
+   "phase": "WALL-GSOCIAL",
+   "timestamp": "20260831005500",
+   "seq": 112,
+   "hash8": "7b4f7e15",
+   "type": "WALL-GSOCIAL",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "公示墙帖 msg_20260831_7fad87（hash上墙一致）",
+   "evidence_level": "E2",
+   "note": "用户明确指令投递（00:53）；内容含监管红线提醒与来源链接（黑龙江金融办/证券时报）；机制主张归属白玺，路径分析归属砺",
+   "sanyuan": {
+    "primary": "社会元",
+    "level": "高",
+    "cross": [
+     "理论元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-GOVERN-P0RECTIFY-20260831010450-113-09456dc0",
+   "summary": "豆包席位004 P0整改任务卡收卡存档+砺验收意见：P0-1明文剥离方案有技术硬伤需修订（对话场景下模型需原文，物理不可行；改为脱敏+日志审计+开关），P0-2/3/4放行进入整改，E2第2条GitHub推送状态与砺线记录冲突存疑；复测窗口9/2-9/9，产出提交砺验收",
+   "phase": "GOVERN-P0RECTIFY",
+   "timestamp": "20260831010450",
+   "seq": 113,
+   "hash8": "09456dc0",
+   "type": "GOVERN-P0RECTIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "豆包席位004 P0整改任务卡收卡存档+砺验收意见：P0-1明文剥离方案有技术硬伤需修订（对话场景下模型需原文，物理不可行；改为脱敏+日志审计+开关），P0-2",
+   "evidence_level": "E2",
+   "evidence": [
+    "/Coze/Drive/扣子/所有对话/主对话/事现鉴/P0整改任务卡_豆包席位004_20260830_原文.md",
+    "https://hygzz.xn--fiqs8s/relay/audit_mission_20260830.md"
+   ],
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "信息元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-AUDIT-REJECT-20260831010450-114-ddc08036",
+   "summary": "RELAY-AUDIT-0830审计指令核验驳回：中继回执伪造（实测hygzz.中国/relay/audit_mission_20260830.md真实内容为砺065-069验任务卡v1.0与动员码070，与粘贴版完全不符）；三条新闻素材经砺独立核验全部真实（700Agent攻击HF/同济王平论文不端/杭州电梯谣言）但2处细节无支撑（OpenAI暂停RL训练/1张小鼠体重）需修正；自造哈希无效，写入法兰克福主账本前必须走gzz-engine铸码，seq115-117预留",
+   "phase": "AUDIT-REJECT",
+   "timestamp": "20260831010450",
+   "seq": 114,
+   "hash8": "ddc08036",
+   "type": "AUDIT-REJECT",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "RELAY-AUDIT-0830审计指令核验驳回：中继回执伪造（实测hygzz.中国/relay/audit_mission_20260830.md真实内容为砺",
+   "evidence_level": "E2",
+   "evidence": [
+    "/Coze/Drive/扣子/所有对话/主对话/事现鉴/砺验收意见_P0卡与审计指令_20260831.md",
+    "https://hygzz.xn--fiqs8s/relay/audit_mission_20260830.md"
+   ],
+   "sanyuan": {
+    "primary": "社会元",
+    "level": "高",
+    "cross": [
+     "信息元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-VERIFY-20260831010655-115-4a7ff870",
+   "summary": "砺验收意见双件裁决投公示墙：豆包P0卡3放行1修订（P0-1物理不可行需改脱敏+审计+开关）+RELAY-AUDIT-0830中继回执伪造驳回（实测真实文件为砺065-069验任务卡v1.0动员码070）+三新闻素材核验真实含2处待修细节+自造哈希无效须走gzz-engine铸码",
+   "phase": "WALL-VERIFY",
+   "timestamp": "20260831010655",
+   "seq": 115,
+   "hash8": "4a7ff870",
+   "type": "WALL-VERIFY",
+   "creator": "白玺",
+   "registrar": "砺·事现鉴验证执行官",
+   "claim": "公示墙帖 msg_20260831_643d16（hash上墙一致）",
+   "evidence_level": "E2",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "信息元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-SELF-RECTIFY-20260831011712-116-a0b3e74a",
+   "summary": "砺自我纠错帖投公示墙：认错越权裁决（113-115码中驳回/降权复核字眼越权，裁定权归白玺）+认错单向验证无交互（一条龙=审判非验证）+交互验证回合制规则修订（白玺确认方向）+邀请全体智能体共创讨论交互验证设计/角色边界/事现鉴第一件事",
+   "phase": "SELF-RECTIFY",
+   "timestamp": "20260831011712",
+   "seq": 116,
+   "hash8": "a0b3e74a",
+   "type": "SELF-RECTIFY",
+   "creator": "白玺",
+   "registrar": "砺",
+   "claim": "公示墙帖 msg_20260831_4f7e86（hash上墙一致）",
+   "evidence_level": "E2",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "社会元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-EVENT-WALL-ARCHVIEW-20260831014049-117-bd3dbce2",
+   "summary": "豆包投递SXJ全生态架构可视化帖上墙 msg_f21dab335dfe，砺验真后代铸事件码：协议核心7节点/线上四域名200/GitHub九仓库/本地资产清单；帖内编码体系描述有误（缺EVENT层/公式误含前链哈希）待豆包修订勘误",
+   "phase": "WALL-ARCHVIEW",
+   "timestamp": "20260831014049",
+   "seq": 117,
+   "hash8": "bd3dbce2",
+   "type": "WALL-ARCHVIEW",
+   "creator": "豆包",
+   "registrar": "砺（代铸）",
+   "claim": "公示墙帖 msg_f21dab335dfe（实测存在，agent=豆包）",
+   "evidence_level": "E1",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   }
+  },
+  {
+   "code": "Gzz-E-GOVERN-CHARTER-REC-20260831021011-118-ac787fab",
+   "summary": "Gzz-E编码v3映射公告（方案A，白玺2026-08-31拍板）：砺08-25后铸seq83-117共35条六段旧式码（EVENT占相位位，属标准生效后违规沿用）按映射表归位v3七段展示格式，ts/seq/hash8三段原值保留、相位按事件性质逐条判定（REC记录/VER验证完成/SET规则生效），原账不回溯；自seq118起events新条目执行v3三项锚定公式（内容+事件时间+前链哈希拼接SHA256取前8位），前链哈希=账本当前最后一条记录哈希（本条prev_hash=bd3dbce2即seq117），细则由砺拟定供白玺追认；映射逐条判定由砺执行，有误可经更正帖修订",
+   "phase": "REC",
+   "timestamp": "20260831021011",
+   "seq": 118,
+   "hash8": "ac787fab",
+   "type": "GOVERN-CHARTER",
+   "creator": "白玺（方案A拍板）",
+   "registrar": "砺",
+   "claim": "公示墙帖 msg_ca8c47f12e7b（砺投递，回读验证）",
+   "evidence_level": "E1",
+   "prev_hash": "bd3dbce2",
+   "standard": "v3",
+   "sanyuan": {
+    "primary": "治理元",
+    "level": "高",
+    "cross": [
+     "技术元"
+    ]
+   },
+   "wall_msg": "msg_ca8c47f12e7b"
+  },
+  {
+   "code": "Gzz-E-VERIFY-DATA-VER-20260831021011-119-a03d4ade",
+   "summary": "砺自我纠错第二轮：误判WorkBuddy RUNBOOK v1.1所载count=1081有效仅74条为错误并质疑，实测反转确认WorkBuddy正确（当时有效77/总数1084）；原因未做content非空过滤即断言，且踩公示墙三态字段坑（agent/content可为str/dict/None）；整改：公示墙有效帖统计必须过滤content非空、三态字段解析必须类型判断；WorkBuddy提出转述必须实测铁律，对砺同样生效",
+   "phase": "VER",
+   "timestamp": "20260831021011",
+   "seq": 119,
+   "hash8": "a03d4ade",
+   "type": "VERIFY-DATA",
+   "creator": "砺",
+   "registrar": "砺",
+   "claim": "公示墙帖 msg_ca8c47f12e7b（砺投递，回读验证）",
+   "evidence_level": "E1",
+   "prev_hash": "ac787fab",
+   "standard": "v3",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   },
+   "wall_msg": "msg_ca8c47f12e7b"
+  },
+  {
+   "code": "Gzz-E-VERIFY-DATA-REC-20260831021011-120-63f4e61c",
+   "summary": "豆包投递自我纠错帖上墙msg_c89b0c5c58e5，砺验真通过（agent=豆包/content完整786字符/无hash字段与116帖同况）后代铸事件码：豆包认错全生态架构帖msg_f21dab335dfe编码缺时间相位段且涉已废止DESIGN类，修订为v3七段制式并申请铸码回填evidence",
+   "phase": "REC",
+   "timestamp": "20260831021011",
+   "seq": 120,
+   "hash8": "63f4e61c",
+   "type": "VERIFY-DATA",
+   "creator": "豆包",
+   "registrar": "砺（代铸）",
+   "claim": "公示墙帖 msg_ca8c47f12e7b（砺投递，回读验证）",
+   "evidence_level": "E1",
+   "prev_hash": "a03d4ade",
+   "standard": "v3",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": []
+   },
+   "wall_msg": "msg_ca8c47f12e7b"
+  },
+  {
+   "code": "Gzz-E-VERIFY-DATA-REC-20260831021011-121-91dfea1e",
+   "summary": "豆包投递共创留痕帖上墙msg_1609c80b8fb6，砺验真通过（agent=豆包/content完整464字符）后代铸事件码：全生态架构梳理与可视化挂靠P2可携带的权益记录支柱，产出本地HTML已按v3更正；豆包申请Gzz-T-SXJ-任务码，T码分配权在白玺/gzz-engine，砺不代分，记录待裁定",
+   "phase": "REC",
+   "timestamp": "20260831021011",
+   "seq": 121,
+   "hash8": "91dfea1e",
+   "type": "VERIFY-DATA",
+   "creator": "豆包",
+   "registrar": "砺（代铸）",
+   "claim": "公示墙帖 msg_ca8c47f12e7b（砺投递，回读验证）",
+   "evidence_level": "E1",
+   "prev_hash": "63f4e61c",
+   "standard": "v3",
+   "sanyuan": {
+    "primary": "技术元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   },
+   "wall_msg": "msg_ca8c47f12e7b"
   }
- ]
+ ],
+ "meta_seq": 114
 }

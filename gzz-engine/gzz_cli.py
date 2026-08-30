@@ -39,31 +39,14 @@ def print_usage():
 """)
 
 
-def _hash_chain_required():
-    print("[!] 未找到验证模块 hash_chain.py，请确认已获取完整仓库（含 gzz-engine/ 目录）。")
-    print("    或从 https://github.com/baixi6313/sxj-domestic 重新克隆完整仓库。")
-
-try:
-    import hash_chain  # noqa: F401
-    _HAS_HASH_CHAIN = True
-except ImportError:
-    _HAS_HASH_CHAIN = False
-
-
 def cmd_verify():
     """验证全量账本：调用 hash_chain 对 1669 条逐条复算"""
-    if not _HAS_HASH_CHAIN:
-        _hash_chain_required()
-        return
     from hash_chain import verify_all, format_report
     print(format_report(verify_all()))
 
 
 def cmd_lookup(keyword: str):
     """在全量账本（chain/entities/events）中按关键词查询"""
-    if not _HAS_HASH_CHAIN:
-        _hash_chain_required()
-        return
     from hash_chain import load_ledger
 
     ledger = load_ledger()
