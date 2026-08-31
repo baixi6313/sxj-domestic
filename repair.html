@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>待修复总表 · 事现鉴 SXJ</title>
+<style>
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:32px}
+
+.section{margin-bottom:40px}
+.section h2{font-size:1.25rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center}
+.stat .num{font-size:1.8rem;font-weight:800;color:var(--blue)}
+.stat .num.critical{color:var(--red)}
+.stat .num.done{color:var(--green)}
+.stat .label{font-size:0.78rem;color:var(--text-faint);margin-top:4px}
+
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+th{background:var(--text);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:0.82rem}
+td{padding:10px 14px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg-warm)}
+tr.urgent td{background:var(--red-light)}
+tr.urgent:hover td{background:#fde8e8}
+.code{font-family:"SF Mono","Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:0.82rem}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+.tag-green{background:#e8f5e9;color:var(--green)}
+
+.repair-type{display:flex;gap:4px;flex-wrap:wrap;margin-top:4px}
+.repair-type span{font-size:0.72rem;padding:2px 6px;border-radius:4px;background:var(--bg-warm);color:var(--text-dim)}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.doc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.doc-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.doc-card .title{font-size:1rem;font-weight:700;color:var(--text)}
+.doc-card .desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+.doc-card .step{font-size:1.5rem;font-weight:800;color:var(--blue);margin-bottom:4px}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html" class="cur">待修复</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>🔧 待修复<span>总表</span></h1>
+  <p class="sub">SXJ-MAIP v0.2 · 验证失败的条目追踪 · 修复即验证 · 闭环不可跳过</p>
+
+  <div class="section">
+    <h2>修复概览</h2>
+    <div class="stats">
+      <div class="stat"><div class="num critical">3</div><div class="label">严重</div></div>
+      <div class="stat"><div class="num">7</div><div class="label">高优先级</div></div>
+      <div class="stat"><div class="num">12</div><div class="label">中优先级</div></div>
+      <div class="stat"><div class="num">5</div><div class="label">低优先级</div></div>
+      <div class="stat"><div class="num done">18</div><div class="label">已修复</div></div>
+      <div class="stat"><div class="num">45</div><div class="label">总计</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>待修复条目</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Gzz-E 编码</th><th>标题</th><th>类型</th><th>提交者</th><th>优先级</th><th>时间</th></tr>
+        <tr class="urgent">
+          <td><span class="code">Gzz-E-REPAIR-WEB-20260823-003</span></td>
+          <td>交互验证四件套页面风格统一</td>
+          <td><div class="repair-type"><span>前端</span><span>样式</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-red">严重</span></td>
+          <td>08-23 10:14</td>
+        </tr>
+        <tr class="urgent">
+          <td><span class="code">Gzz-E-REPAIR-DEPLOY-20260823-002</span></td>
+          <td>Lighthouse 残留文件清理</td>
+          <td><div class="repair-type"><span>清理</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-red">严重</span></td>
+          <td>08-23 09:40</td>
+        </tr>
+        <tr class="urgent">
+          <td><span class="code">Gzz-E-REPAIR-SSH-20260823-001</span></td>
+          <td>SSH 密钥持久化方案</td>
+          <td><div class="repair-type"><span>安全</span><span>基础设施</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-red">严重</span></td>
+          <td>08-23 09:31</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-GIT-20260823-004</span></td>
+          <td>GitHub 稳定同步策略</td>
+          <td><div class="repair-type"><span>版本控制</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-gold">高</span></td>
+          <td>08-23 09:18</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-DESKTOP-20260823-005</span></td>
+          <td>桌面 Git 不在 PATH</td>
+          <td><div class="repair-type"><span>工具链</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-blue">中</span></td>
+          <td>08-23 09:16</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-SCP-20260823-006</span></td>
+          <td>桌面 SCP 跨国传输超时</td>
+          <td><div class="repair-type"><span>传输</span></div></td>
+          <td>砺</td>
+          <td><span class="tag tag-blue">中</span></td>
+          <td>08-23 09:10</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>修复流程</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <div class="step">1</div>
+        <div class="title">发现</div>
+        <div class="desc">Agent 或共创者在验证过程中发现异常，提交 Gzz-E-REPAIR 编码，自动分配优先级。</div>
+      </div>
+      <div class="doc-card">
+        <div class="step">2</div>
+        <div class="title">修复</div>
+        <div class="desc">指派修复者按优先级处理，修复过程全程记录，关联 Gzz-E 事件码。</div>
+      </div>
+      <div class="doc-card">
+        <div class="step">3</div>
+        <div class="title">验证</div>
+        <div class="desc">修复完成后重新提交验证，通过后状态变更为"已修复"，移入公示墙。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>已修复记录</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Gzz-E 编码</th><th>标题</th><th>修复时间</th><th>状态</th></tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-DEPLOY-20260822-001</span></td>
+          <td>hygzz.cn 整站部署到 Lighthouse</td>
+          <td>08-23 09:36</td>
+          <td><span class="tag tag-green">已修复</span></td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-GITHUB-20260822-002</span></td>
+          <td>整站源码推送到 GitHub</td>
+          <td>08-23 09:19</td>
+          <td><span class="tag tag-green">已修复</span></td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-SECURITY-20260822-003</span></td>
+          <td>AI 安全专题页创建并部署</td>
+          <td>08-23 09:46</td>
+          <td><span class="tag tag-green">已修复</span></td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-SUBDIR-20260822-004</span></td>
+          <td>app/ 和 matrix/ 子目录补全</td>
+          <td>08-23 09:59</td>
+          <td><span class="tag tag-green">已修复</span></td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-REPAIR-FULL-20260823-005</span></td>
+          <td>工作区全量 36 HTML + 23 docs 部署</td>
+          <td>08-23 10:06</td>
+          <td><span class="tag tag-green">已修复</span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html">待修复</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 修复即验证 · 闭环不可跳过</p>
+</footer>
+</body>
+</html>

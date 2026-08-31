@@ -5,5 +5,11 @@ node_modules/
 cc_live.html
 home_live.html
 *_live.html
-lv_check.htmlcos_upload.py
+lv_check.html
 cos_upload.py
+cos_upload.py
+
+# 临时与自打包文件不入库
+.tmp/
+repo.tar.gz
+gzz-engine/data/full_ledger.backup_*.json

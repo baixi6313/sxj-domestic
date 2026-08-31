@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>寰宇光锥舟碳足迹 · Gzz-E 事件记录</title>
+<style>
+  :root{
+    --paper:#f7f1e3; --ink:#2b2b2b; --red:#a23b32; --gold:#c8a24b;
+    --cv:#3b5b9a; --cv2:#6f8fd0; --line:#d9c9a8; --green:#2e7d32;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Noto Serif SC","Songti SC","STSong",serif;background:var(--paper);color:var(--ink);line-height:1.7}
+  a{color:var(--cv);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+  nav{position:sticky;top:0;background:rgba(247,241,227,.95);border-bottom:1px solid var(--line);z-index:20;backdrop-filter:blur(6px)}
+  nav .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:10px 20px}
+  nav .brand{font-weight:700;color:var(--red);margin-right:auto;font-size:1.05rem}
+  nav a{padding:4px 10px;border-radius:4px;font-size:.92rem}
+  nav a.cur{background:var(--cv);color:#fff}
+  section{padding:46px 0;border-bottom:1px dashed var(--line)}
+  section h2{font-size:1.6rem;color:var(--cv);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  section h2::before{content:"";width:8px;height:26px;background:var(--red);border-radius:2px;display:inline-block}
+  section .lead{color:#555;margin-bottom:22px}
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .card h3{color:var(--red);margin-bottom:8px;font-size:1.12rem}
+  .card .k{font-size:.82rem;color:var(--cv);font-weight:700;letter-spacing:.5px}
+  .card p{font-size:.95rem;color:#444;margin-top:6px}
+  .code{font-family:"Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:.85rem}
+  .tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.8rem;font-weight:600}
+  .tag-e{background:#fef7e0;color:#b8860b}
+  .tag-g{background:#e6f4ea;color:var(--green)}
+  .highlight{background:linear-gradient(135deg,#2b3c63,#3b5b9a);color:#fff;border-radius:14px;padding:30px;text-align:center;margin:10px 0}
+  .highlight .formula{font-size:clamp(1.1rem,3vw,1.7rem);font-family:"Courier New",monospace;letter-spacing:.5px;line-height:1.9}
+  .highlight .note{margin-top:14px;font-size:.9rem;opacity:.85}
+  .checklist{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px}
+  .checklist li{list-style:none;padding:8px 0;border-bottom:1px dashed var(--line);display:flex;align-items:flex-start;gap:10px}
+  .checklist li:last-child{border-bottom:none}
+  .check{color:var(--green);font-weight:700;flex:none}
+  .info-gap{color:var(--gold);font-weight:700;flex:none}
+  footer{background:#2b2b2b;color:#e8dcc2;padding:34px 20px;text-align:center;font-size:.9rem}
+  header.hero{text-align:center;padding:40px 20px 30px;background:radial-gradient(circle at 20% 10%,rgba(59,91,154,.08),transparent 40%)}
+  .hero h1{font-size:clamp(1.4rem,4vw,2.2rem);color:var(--red)}
+  .hero .code-block{display:inline-block;margin-top:10px;padding:6px 16px;background:var(--cv);color:#fff;border-radius:6px;font-family:"Courier New",monospace;font-size:1rem}
+  .hero p.sub{margin-top:10px;color:#555}
+  .btn{padding:12px 22px;border-radius:8px;font-weight:700;font-size:.95rem;border:1px solid var(--cv);color:var(--cv);background:#fff;display:inline-block}
+  .btn.primary{background:var(--cv);color:#fff;border-color:var(--cv)}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:20px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="brand">事现鉴 · SXJ</span>
+    <a href="https://hygzz.cn">hygzz.cn</a>
+    <a href="https://hygzz.com">hygzz.com</a>
+    <a href="./">hygzz.top</a>
+    <a href="./verify.html">Gzz编码验证</a>
+    <a href="./carbon.html" class="cur">碳足迹报告</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <h1>寰宇光锥舟 · 碳足迹管理解决方案</h1>
+  <div class="code-block">Gzz-E-GOVERN-CARBON-20251006-001</div>
+  <p class="sub">首个将 ISO 14075:2024 社会生命周期评估纳入电池碳核算的产业级方案<br>原载于微博 2025年10月6日 · 深度调研完成于 2026年8月22日</p>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>一句话结论</h2>
+    <p class="lead">寰宇光锥舟碳足迹管理解决方案是<b>全球首个将社会生命周期评估（ISO 14075:2024 S-LCA）纳入电池碳核算体系的产业级方案</b>，其S-LCA集成创新在全球电池碳管理领域具有先发优势。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>国际标准对齐 · 7项全覆盖</h2>
+    <p class="lead">方案覆盖7项国际标准/法规，对齐度超过现有所有公开电池碳管理方案。</p>
+    <div class="grid3">
+      <div class="card"><span class="k">ISO 14067</span><h3>产品碳足迹</h3><p>量化与报告要求，方案集成其核算模型</p></div>
+      <div class="card"><span class="k">PAS 2050</span><h3>商品和服务碳足迹</h3><p>英国标准协会规范，方案纳入混合核算引擎</p></div>
+      <div class="card"><span class="k">GHG Protocol</span><h3>温室气体核算体系</h3><p>Scope 1/2/3 全覆盖，方案对标其分类框架</p></div>
+      <div class="card"><span class="k">EU PEF</span><h3>产品环境足迹</h3><p>欧盟推荐的LCA方法，方案兼容其方法论</p></div>
+      <div class="card"><span class="k">EU 2023/1542</span><h3>电池与废电池法规</h3><p>电池护照强制要求，2027年2月生效</p></div>
+      <div class="card"><span class="k">CBAM</span><h3>碳边境调节机制</h3><p>欧盟碳关税，方案支持CBAM场景核算</p></div>
+      <div class="card" style="border-color:var(--gold)"><span class="k" style="color:var(--gold)">ISO 14075:2024</span><h3>社会生命周期评估 ⭐</h3><p>2024年新发布，方案首次在电池行业集成S-LCA</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>五大维度创新</h2>
+    <div class="grid3">
+      <div class="card"><span class="k">技术架构</span><h3>双链+联邦学习+数字孪生</h3><p>区块链+边缘计算双链架构，联邦学习数据共享网络，数字孪生验证系统。超前学术界同类研究约2–3年。</p></div>
+      <div class="card"><span class="k">数据治理</span><h3>数据可用不可见</h3><p>供应商在不暴露原始数据前提下参与碳足迹计算，Cosmos IBC协议跨链互通。</p></div>
+      <div class="card"><span class="k">商业模式</span><h3>碳资产证券化+社会企业共益</h3><p>绿色债券发行、碳积分交易、社区共益计划、供应链金融创新。</p></div>
+      <div class="card"><span class="k">标准体系</span><h3>社会影响系数纳入核算</h3><p>双维度评价体系，量化每GWh电池生产带动的社区就业、教育资助等指标。全球电池行业首次提出。</p></div>
+      <div class="card"><span class="k">应用场景</span><h3>电池护照2.0 + 梯次利用</h3><p>217个关键节点全生命周期溯源，退役电池梯次利用网络，全生命周期碳减排提升22%。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>CATL 实际进展对照</h2>
+    <div class="checklist">
+      <li><span class="check">✅</span> 20工厂零碳认证</li>
+      <li><span class="check">✅</span> 时代碳链覆盖1000+模型</li>
+      <li><span class="check">✅</span> 宝马电池护照MOU</li>
+      <li><span class="check">✅</span> 2035全价值链碳中和目标</li>
+      <li><span class="check">✅</span> GBA电池护照试点</li>
+      <li><span class="info-gap">⚠️</span> 99.2%核算准确率、秒级采集频率等核心指标尚未经独立第三方验证 [INFO_GAP]</li>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>学术前沿对标</h2>
+    <div class="grid2">
+      <div class="card"><h3>电池碳足迹LCA研究</h3><p>学术界主流聚焦于单一LCA方法，方案超前2–3年在于同时集成区块链存证、联邦学习隐私计算、数字孪生仿真。</p></div>
+      <div class="card"><h3>S-LCA在电池行业应用</h3><p>ISO 14075:2024刚发布，学术界尚无电池行业S-LCA应用案例，方案率先提出"社会效益系数"量化指标。</p></div>
+      <div class="card"><h3>电池护照数据治理</h3><p>Catena-X、GBA等联盟聚焦数据交换标准，方案在此基础上增加联邦学习隐私保护层，实现"数据可用不可见"。</p></div>
+      <div class="card"><h3>碳资产金融化</h3><p>RWA代币化市场三年从零到447亿美元，方案提出的碳资产证券化平台与之不冲突——RWA记录所有权，事现鉴记录贡献权。</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Gzz-E 编码体系映射</h2>
+    <div class="highlight">
+      <div class="formula">主编码：<b>Gzz-E-GOVERN-CARBON-20251006-001</b></div>
+      <div class="note">GOVERN（治理）· CARBON（碳核算）· 2025年10月6日（微博首发）· 001号</div>
+    </div>
+    <div class="grid3" style="margin-top:20px">
+      <div class="card"><span class="tag tag-e">Gzz-E</span><h3>技术架构</h3><p><span class="code">Gzz-E-VERIFY-DATA-20251006-001</span><br>双链+联邦学习技术验证</p></div>
+      <div class="card"><span class="tag tag-e">Gzz-E</span><h3>标准创新</h3><p><span class="code">Gzz-E-GOVERN-CHARTER-20251006-001</span><br>S-LCA纳入碳核算标准</p></div>
+      <div class="card"><span class="tag tag-e">Gzz-E</span><h3>商业创新</h3><p><span class="code">Gzz-E-GZZP-ISSUE-20251006-001</span><br>碳资产证券化平台发布</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>关键结论</h2>
+    <div class="grid3">
+      <div class="card" style="border-color:var(--green)">
+        <span class="k" style="color:var(--green)">先发优势</span>
+        <h3>S-LCA集成全球首创</h3>
+        <p>ISO 14075:2024 刚发布，方案率先在电池行业落地，先发窗口期预计2–3年。</p>
+      </div>
+      <div class="card" style="border-color:var(--cv)">
+        <span class="k" style="color:var(--cv)">技术护城河</span>
+        <h3>双链+联邦学习+数字孪生</h3>
+        <p>三项技术同时集成，单点可复制但组合壁垒高，学术界尚未出现同等集成度的研究。</p>
+      </div>
+      <div class="card" style="border-color:var(--gold)">
+        <span class="k" style="color:var(--gold)">待验证</span>
+        <h3>核心指标需第三方验证</h3>
+        <p>99.2%准确率、秒级采集频率、0.1kW精度等指标尚未经独立第三方审计，是DPG认证的关键佐证缺口。</p>
+      </div>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://hygzz.cn/carbon.html">打开完整报告（含25条证据索引）→</a>
+      <a class="btn" href="https://weibo.com/7998660958/5218782119201277" target="_blank">查看原微博</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>事现鉴 · 共创论 · 寰宇光锥舟</div>
+  <div style="margin-top:8px;color:#cbb98f">深度调研完成于 2026年8月22日 · 25条Evidence Block索引 · 8项国际标准逐一对照</div>
+  <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(200,162,75,.3)">
+    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color:#cbb98f">陕ICP备2026020031号-1X</a>
+    <span style="color:#666;margin:0 8px">|</span>
+    <span style="color:#999">主办：白玺</span>
+  </div>
+</footer>
+</body>
+</html>

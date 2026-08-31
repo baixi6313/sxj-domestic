@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>事现鉴 · 资产分布多维度分析</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "黑体", system-ui, sans-serif;
+  background: #E8F4FD;
+  color: #1A1A1A;
+  line-height: 1.6;
+}
+
+/* ===== 顶部标题栏 ===== */
+.top-bar {
+  background: #1B3A5C;
+  color: #fff;
+  padding: 18px 28px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.top-bar .tag {
+  background: #E74C3C;
+  padding: 3px 10px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.top-bar h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.top-bar .sub {
+  font-size: 0.82rem;
+  opacity: 0.85;
+  margin-left: 4px;
+}
+
+/* ===== 主区域 ===== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 12px;
+}
+
+/* 树形图容器 */
+.tree-section {
+  background: #fff;
+  border-radius: 10px;
+  padding: 32px 20px 24px;
+  border: 1px solid #D0E8F5;
+  margin-bottom: 20px;
+}
+.tree-section h2 {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #1B3A5C;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.tree-hint {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 8px;
+}
+
+/* SVG 节点 hover */
+svg a { cursor: pointer; }
+svg a:hover rect { filter: brightness(0.95); }
+
+/* ===== 详情卡片区 ===== */
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.detail-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #D0E8F5;
+  padding: 24px;
+  scroll-margin-top: 20px;
+}
+.detail-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1B3A5C;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #E8F4FD;
+}
+.detail-card .dim-label {
+  display: inline-block;
+  background: #1B3A5C;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.detail-card table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+.detail-card thead th {
+  background: #F0F4F8;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid #D0E8F5;
+  font-weight: 600;
+  font-size: 0.78rem;
+  color: #1B3A5C;
+}
+.detail-card tbody td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E8F4FD;
+  vertical-align: top;
+}
+.detail-card .num {
+  font-family: "SF Mono","Consolas","Menlo",monospace;
+  font-weight: 700;
+  text-align: right;
+}
+.detail-card .back-top {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.78rem;
+  color: #2978B5;
+  text-decoration: none;
+}
+.detail-card .back-top:hover { text-decoration: underline; }
+
+/* ===== 底部结论栏 ===== */
+.bottom-bar {
+  background: #1B3A5C;
+  color: #fff;
+  padding: 20px 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.bottom-bar .summary { flex: 1; min-width: 280px; }
+.bottom-bar .summary h3 {
+  font-size: 0.95rem; font-weight: 700;
+  margin-bottom: 8px; padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.bottom-bar .summary p {
+  font-size: 0.8rem; opacity: 0.9; line-height: 1.8;
+}
+.bottom-bar .summary .hl { color: #F5A623; font-weight: 700; }
+.bottom-bar .meta {
+  font-size: 0.75rem; opacity: 0.7;
+  min-width: 200px; text-align: right; line-height: 1.8;
+}
+.bottom-bar .meta a { color: #8BB8E0; text-decoration: none; }
+.bottom-bar .meta a:hover { text-decoration: underline; }
+
+/* 响应式 */
+@media (max-width: 780px) {
+  .tree-section { padding: 16px 8px 12px; }
+  .top-bar { padding: 14px 16px; }
+  .top-bar h1 { font-size: 1rem; }
+  .bottom-bar { flex-direction: column; }
+  .bottom-bar .meta { text-align: left; }
+  .detail-card { padding: 16px; }
+}
+@media print {
+  body { background: #fff; }
+  .top-bar, .bottom-bar { background: #1B3A5C !important; -webkit-print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- 顶部 -->
+<div class="top-bar">
+  <span class="tag">千问扫描</span>
+  <h1>事现鉴 · 资产分布多维度分析</h1>
+  <span class="sub">2026-08-23 全盘扫描结果</span>
+</div>
+
+<!-- 树形图 -->
+<main>
+  <div class="tree-section" id="tree">
+    <h2>三 维 树 形 分 布 图</h2>
+
+    <svg class="tree-svg" viewBox="0 0 1050 560" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+          <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+        </filter>
+      </defs>
+
+      <!-- 背景装饰 -->
+      <circle cx="525" cy="90" r="55" fill="#E8F5E9" opacity="0.5"/>
+      <circle cx="200" cy="320" r="35" fill="#E8F5E9" opacity="0.4"/>
+      <circle cx="850" cy="320" r="35" fill="#E8F5E9" opacity="0.4"/>
+
+      <!-- 树干 -->
+      <rect x="508" y="70" width="34" height="70" rx="6" fill="#2E7D32"/>
+      <rect x="503" y="120" width="44" height="14" rx="7" fill="#388E3C"/>
+      <text x="525" y="108" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">事现鉴</text>
+      <text x="525" y="124" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">资产分布</text>
+
+      <!-- 分支 -->
+      <path d="M 525 135 Q 400 145 250 175" stroke="#2E7D32" stroke-width="3.5" fill="none"/>
+      <path d="M 250 175 Q 160 195 100 215" stroke="#2E7D32" stroke-width="3" fill="none"/>
+      <path d="M 525 135 Q 650 145 800 175" stroke="#2E7D32" stroke-width="3.5" fill="none"/>
+      <path d="M 800 175 Q 890 195 950 215" stroke="#2E7D32" stroke-width="3" fill="none"/>
+      <path d="M 525 135 Q 525 210 525 270" stroke="#2E7D32" stroke-width="3.5" fill="none"/>
+      <path d="M 525 270 Q 380 290 280 350" stroke="#2E7D32" stroke-width="2.5" fill="none"/>
+      <path d="M 525 270 Q 670 290 770 350" stroke="#2E7D32" stroke-width="2.5" fill="none"/>
+      <path d="M 525 270 Q 525 330 525 370" stroke="#2E7D32" stroke-width="2.5" fill="none"/>
+
+      <!-- 叶子 -->
+      <ellipse cx="290" cy="162" rx="10" ry="5" fill="#4CAF50" transform="rotate(-30 290 162)"/>
+      <ellipse cx="190" cy="188" rx="9" ry="4.5" fill="#66BB6A" transform="rotate(-20 190 188)"/>
+      <ellipse cx="760" cy="162" rx="10" ry="5" fill="#4CAF50" transform="rotate(30 760 162)"/>
+      <ellipse cx="860" cy="188" rx="9" ry="4.5" fill="#66BB6A" transform="rotate(20 860 188)"/>
+      <ellipse cx="440" cy="290" rx="9" ry="4.5" fill="#4CAF50" transform="rotate(-40 440 290)"/>
+      <ellipse cx="610" cy="290" rx="9" ry="4.5" fill="#4CAF50" transform="rotate(40 610 290)"/>
+
+      <!-- 维度标签 -->
+      <rect x="215" y="140" width="72" height="22" rx="11" fill="#1B3A5C"/>
+      <text x="251" y="156" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">维度一</text>
+      <rect x="755" y="140" width="72" height="22" rx="11" fill="#1B3A5C"/>
+      <text x="791" y="156" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">维度二</text>
+      <rect x="488" y="232" width="72" height="22" rx="11" fill="#1B3A5C"/>
+      <text x="525" y="248" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">维度三</text>
+
+      <!-- 节点：维度一 -->
+      <a href="#dim1">
+        <g filter="url(#shadow)">
+          <rect x="10" y="215" width="155" height="52" rx="8" fill="#fff" stroke="#E74C3C" stroke-width="2.5"/>
+          <text x="87" y="237" text-anchor="middle" fill="#E74C3C" font-size="9" font-weight="700">GitHub baixi6313</text>
+          <text x="87" y="257" text-anchor="middle" fill="#1A1A1A" font-size="15" font-weight="700">11 个文件</text>
+          <rect x="10" y="215" width="155" height="20" rx="8" fill="#E74C3C"/>
+          <text x="87" y="229" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">文件最多</text>
+        </g>
+      </a>
+      <a href="#dim1">
+        <g filter="url(#shadow)">
+          <rect x="20" y="285" width="135" height="48" rx="8" fill="#F1F8E9" stroke="#4CAF50" stroke-width="2"/>
+          <text x="87" y="307" text-anchor="middle" fill="#2E7D32" font-size="9" font-weight="700">官网四域</text>
+          <text x="87" y="325" text-anchor="middle" fill="#1A1A1A" font-size="14" font-weight="700">7 个文件</text>
+        </g>
+      </a>
+
+      <!-- 节点：维度二 -->
+      <a href="#dim2">
+        <g filter="url(#shadow)">
+          <rect x="880" y="215" width="160" height="52" rx="8" fill="#fff" stroke="#E74C3C" stroke-width="2.5"/>
+          <text x="960" y="237" text-anchor="middle" fill="#E74C3C" font-size="9" font-weight="700">sxj-top</text>
+          <text x="960" y="257" text-anchor="middle" fill="#1A1A1A" font-size="15" font-weight="700">109 节点</text>
+          <rect x="880" y="215" width="160" height="20" rx="8" fill="#E74C3C"/>
+          <text x="960" y="229" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">概念树最厚</text>
+        </g>
+      </a>
+      <a href="#dim2">
+        <g filter="url(#shadow)">
+          <rect x="890" y="285" width="150" height="48" rx="8" fill="#F1F8E9" stroke="#4CAF50" stroke-width="2"/>
+          <text x="965" y="307" text-anchor="middle" fill="#2E7D32" font-size="9" font-weight="700">cn / domestic / android</text>
+          <text x="965" y="325" text-anchor="middle" fill="#1A1A1A" font-size="14" font-weight="700">知识树 86 节点</text>
+        </g>
+      </a>
+
+      <!-- 节点：维度三 -->
+      <a href="#dim3"><g filter="url(#shadow)">
+        <rect x="160" y="350" width="155" height="48" rx="8" fill="#F1F8E9" stroke="#4CAF50" stroke-width="2"/>
+        <text x="237" y="372" text-anchor="middle" fill="#2E7D32" font-size="9" font-weight="700">sxj-domestic</text>
+        <text x="237" y="390" text-anchor="middle" fill="#1A1A1A" font-size="14" font-weight="700">双树完整 ✅</text>
+      </g></a>
+      <a href="#dim3"><g filter="url(#shadow)">
+        <rect x="330" y="350" width="155" height="48" rx="8" fill="#F1F8E9" stroke="#4CAF50" stroke-width="2"/>
+        <text x="407" y="372" text-anchor="middle" fill="#2E7D32" font-size="9" font-weight="700">sxj-android-app</text>
+        <text x="407" y="390" text-anchor="middle" fill="#1A1A1A" font-size="14" font-weight="700">双树完整 ✅</text>
+      </g></a>
+      <a href="#dim3"><g filter="url(#shadow)">
+        <rect x="460" y="370" width="130" height="48" rx="8" fill="#fff" stroke="#1B5E20" stroke-width="2"/>
+        <text x="525" y="392" text-anchor="middle" fill="#1B5E20" font-size="9" font-weight="700">hygzz.cn</text>
+        <text x="525" y="410" text-anchor="middle" fill="#1A1A1A" font-size="14" font-weight="700">双树完整 ✅</text>
+      </g></a>
+      <a href="#dim3"><g filter="url(#shadow)">
+        <rect x="615" y="350" width="155" height="48" rx="8" fill="#FCE4EC" stroke="#E91E63" stroke-width="2"/>
+        <text x="692" y="372" text-anchor="middle" fill="#C2185B" font-size="9" font-weight="700">hygzz.com</text>
+        <text x="692" y="390" text-anchor="middle" fill="#1A1A1A" font-size="14" font-weight="700">知识树缺 4 ⚠️</text>
+      </g></a>
+      <a href="#dim3"><g filter="url(#shadow)">
+        <rect x="780" y="350" width="130" height="48" rx="8" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="1.5"/>
+        <text x="845" y="372" text-anchor="middle" fill="#757575" font-size="9" font-weight="700">hygzz.top</text>
+        <text x="845" y="390" text-anchor="middle" fill="#9E9E9E" font-size="14" font-weight="700">无树 ❌</text>
+      </g></a>
+      <a href="#dim3"><g filter="url(#shadow)">
+        <rect x="920" y="350" width="120" height="48" rx="8" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="1.5"/>
+        <text x="980" y="372" text-anchor="middle" fill="#757575" font-size="9" font-weight="700">hygzz.中国</text>
+        <text x="980" y="390" text-anchor="middle" fill="#9E9E9E" font-size="14" font-weight="700">无树 ❌</text>
+      </g></a>
+
+      <!-- 图例 -->
+      <rect x="30" y="460" width="12" height="12" rx="2" fill="#fff" stroke="#E74C3C" stroke-width="2"/>
+      <text x="48" y="471" fill="#555" font-size="10">最高记录</text>
+      <rect x="130" y="460" width="12" height="12" rx="2" fill="#F1F8E9" stroke="#4CAF50" stroke-width="2"/>
+      <text x="148" y="471" fill="#555" font-size="10">完整 / 达标</text>
+      <rect x="240" y="460" width="12" height="12" rx="2" fill="#FCE4EC" stroke="#E91E63" stroke-width="2"/>
+      <text x="258" y="471" fill="#555" font-size="10">有缺失</text>
+      <rect x="320" y="460" width="12" height="12" rx="2" fill="#F5F5F5" stroke="#9E9E9E" stroke-width="1.5"/>
+      <text x="338" y="471" fill="#555" font-size="10">无树</text>
+      <text x="960" y="470" text-anchor="end" fill="#999" font-size="9">点击节点查看详情 ↓</text>
+    </svg>
+    <p class="tree-hint">点击树图节点跳转至下方详情</p>
+  </div>
+
+  <!-- 详情卡片 -->
+  <div class="details">
+    <div class="detail-card" id="dim1">
+      <h3><span class="dim-label">维度一</span> 按文件个数</h3>
+      <table>
+        <thead><tr><th>来源</th><th>子目录</th><th class="num">文件数</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GitHub baixi6313</strong></td><td>android / domestic / international / top</td><td class="num">11</td><td>4 个仓库合计</td></tr>
+          <tr><td>官网四域</td><td>cn / com</td><td class="num">7</td><td>china / top 域为 0</td></tr>
+        </tbody>
+      </table>
+      <a class="back-top" href="#tree">↑ 回到树图</a>
+    </div>
+
+    <div class="detail-card" id="dim2">
+      <h3><span class="dim-label">维度二</span> 按单份内容厚度（节点数）</h3>
+      <table>
+        <thead><tr><th>类型</th><th>最高记录</th><th class="num">节点数</th><th>并列来源</th></tr></thead>
+        <tbody>
+          <tr><td><strong>概念树</strong></td><td>sxj-top · concept_tree.html</td><td class="num">109</td><td>—（唯一破 109）</td></tr>
+          <tr><td><strong>知识树</strong></td><td>hygzz.cn / sxj-domestic / sxj-android-app</td><td class="num">86</td><td>三者并列</td></tr>
+          <tr><td>知识树（次高）</td><td>hygzz.com / sxj-international</td><td class="num">82</td><td>少 4 个节点</td></tr>
+        </tbody>
+      </table>
+      <a class="back-top" href="#tree">↑ 回到树图</a>
+    </div>
+
+    <div class="detail-card" id="dim3">
+      <h3><span class="dim-label">维度三</span> 按一套最完整（双树齐备 + 节点全）</h3>
+      <table>
+        <thead><tr><th>来源</th><th class="num">概念树</th><th class="num">知识树</th><th>完整度</th></tr></thead>
+        <tbody>
+          <tr><td><strong>sxj-domestic</strong></td><td class="num">108</td><td class="num">86</td><td>✅ 双树完整</td></tr>
+          <tr><td><strong>sxj-android-app</strong></td><td class="num">108</td><td class="num">86</td><td>✅ 双树完整</td></tr>
+          <tr><td>hygzz.cn</td><td class="num">108</td><td class="num">86</td><td>✅ 双树完整</td></tr>
+          <tr><td>hygzz.com</td><td class="num">108</td><td class="num">82</td><td>⚠️ 知识树缺 4 节点</td></tr>
+          <tr><td>hygzz.top</td><td class="num" style="color:#999">—</td><td class="num" style="color:#999">—</td><td>❌ 无树</td></tr>
+          <tr><td>hygzz.中国</td><td class="num" style="color:#999">—</td><td class="num" style="color:#999">—</td><td>❌ 无树</td></tr>
+        </tbody>
+      </table>
+      <a class="back-top" href="#tree">↑ 回到树图</a>
+    </div>
+  </div>
+</main>
+
+<!-- 底部 -->
+<div class="bottom-bar">
+  <div class="summary">
+    <h3>📋 结论速查</h3>
+    <p>
+      文件最多 → <span class="hl">GitHub baixi6313</span>（11 个）<br>
+      概念树最厚 → <span class="hl">sxj-top</span>（109 节点）<br>
+      知识树最厚 → <span class="hl">cn / domestic / android</span>（86 节点）<br>
+      双树最完整 → <span class="hl">sxj-domestic / sxj-android-app</span>
+    </p>
+  </div>
+  <div class="meta">
+    项目仓库：<a href="https://github.com/baixi6313" target="_blank" rel="noopener noreferrer">GitHub baixi6313</a><br>
+    官网：<a href="https://hygzz.cn" target="_blank" rel="noopener noreferrer">hygzz.cn</a> · <a href="https://hygzz.com" target="_blank" rel="noopener noreferrer">hygzz.com</a><br>
+    分析日期：2026-08-23
+  </div>
+</div>
+
+</body>
+</html>

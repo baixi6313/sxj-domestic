@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>公示墙 · 事现鉴<span class="gzz-code" title="Gzz-E-ENCODE-20260824162359-0002-0100d717">[Gzz-E-ENCODE-20260824162359-0002-0100d717]</span> SXJ</title>
+<style>
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:32px}
+
+.section{margin-bottom:40px}
+.section h2{font-size:1.25rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:8px}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;text-align:center}
+.stat .num{font-size:2rem;font-weight:800;color:var(--blue)}
+.stat .num.critical{color:var(--red)}
+.stat .label{font-size:0.82rem;color:var(--text-faint);margin-top:4px}
+
+.table-wrap{overflow-x:auto;margin:8px 0}
+table{width:100%;border-collapse:collapse;font-size:0.88rem;background:var(--card);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+th{background:var(--text);color:#fff;padding:10px 14px;text-align:left;font-weight:600;font-size:0.82rem}
+td{padding:10px 14px;border-bottom:1px solid var(--border)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg-warm)}
+.code{font-family:"SF Mono","Courier New",monospace;background:#f0ede4;padding:2px 6px;border-radius:3px;font-size:0.82rem}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+.tag-green{background:#e8f5e9;color:var(--green)}
+
+.evidence{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600;margin-right:4px}
+.e1{background:#e8f5e9;color:var(--green)}
+.e2{background:#e8f0fe;color:var(--blue)}
+.e3{background:var(--gold-light);color:#8a6d1b}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.doc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.doc-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.doc-card .title{font-size:1rem;font-weight:700;color:var(--text)}
+.doc-card .desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+.doc-card .meta{font-size:0.75rem;color:var(--text-faint)}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
+</style>
+<style>.gzz-code{font-size:0.7em;color:#C9A24B;background:#fef8e8;padding:1px 4px;border-radius:3px;border:1px solid #e8d5a8;white-space:nowrap;vertical-align:middle;margin:0 2px;font-weight:normal}.gzz-code:hover{background:#f5e6c8;cursor:help}</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html" class="cur">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html">待修复</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>📋 验证<span>公示墙</span></h1>
+  <p class="sub">SXJ-MAIP v0.2 · 所有验证记录公开可查 · 不可篡改 · SHA-256 链上存证</p>
+
+  <div class="section">
+    <h2>验证概览</h2>
+    <div class="stats">
+      <div class="stat"><div class="num">127</div><div class="label">总验证记录</div></div>
+      <div class="stat"><div class="num">89</div><div class="label">已通过</div></div>
+      <div class="stat"><div class="num">23</div><div class="label">待复核</div></div>
+      <div class="stat"><div class="num critical">15</div><div class="label">待修复</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>最新验证记录</h2>
+    <div class="table-wrap">
+      <table>
+        <tr><th>Gzz-E 编码</th><th>类型</th><th>提交者</th><th>证据</th><th>状态</th><th>时间</th></tr>
+        <tr>
+          <td><span class="code">Gzz-E-VERIFY-DOC-20260823-003</span></td>
+          <td>文档验证</td><td>砺</td>
+          <td><span class="evidence e1">E1</span></td>
+          <td><span class="tag tag-green">已通过</span></td>
+          <td>08-23 09:58</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-VERIFY-WEB-20260823-002</span></td>
+          <td>网页验证</td><td>砺</td>
+          <td><span class="evidence e1">E1</span></td>
+          <td><span class="tag tag-green">已通过</span></td>
+          <td>08-23 09:44</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-VERIFY-DEPLOY-20260823-001</span></td>
+          <td>部署验证</td><td>砺</td>
+          <td><span class="evidence e2">E2</span></td>
+          <td><span class="tag tag-green">已通过</span></td>
+          <td>08-23 09:36</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-VERIFY-CARBON-20260822-005</span></td>
+          <td>碳足迹</td><td>白玺<span class="gzz-code" title="Gzz-E-ENCODE-20260824162359-0010-c27711f8">[Gzz-E-ENCODE-20260824162359-0010-c27711f8]</span></td>
+          <td><span class="evidence e1">E1</span></td>
+          <td><span class="tag tag-gold">待复核</span></td>
+          <td>08-22 18:30</td>
+        </tr>
+        <tr>
+          <td><span class="code">Gzz-E-VERIFY-GZZP-20260822-004</span></td>
+          <td>GzzP 编码</td><td>砺</td>
+          <td><span class="evidence e1">E1</span></td>
+          <td><span class="tag tag-green">已通过</span></td>
+          <td>08-22 15:20</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>证据等级说明</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="evidence e1">E1 原始证据</span>
+        <div class="desc">一手来源：官方公告、原始数据、截图、日志、可复现操作记录。置信度最高。</div>
+      </div>
+      <div class="doc-card">
+        <span class="evidence e2">E2 交叉验证</span>
+        <div class="desc">多源互证：两个及以上独立来源指向同一事实。需标注所有来源。</div>
+      </div>
+      <div class="doc-card">
+        <span class="evidence e3">E3 推理推断</span>
+        <div class="desc">间接证据：基于已知事实的逻辑推断，标注推理链。置信度最低。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="board.html">公示墙</a>
+    <a href="login.html">登录/验证</a>
+    <a href="repair.html">待修复</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · SXJ-MAIP v0.2 · Agent零密钥 · ratify=pending</p>
+</footer>
+</body>
+</html>
