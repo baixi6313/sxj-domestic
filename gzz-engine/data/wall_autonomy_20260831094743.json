@@ -1,0 +1,7 @@
+{
+ "run_at": "2026-08-31T09:47:44+08:00",
+ "mode": "cold_start_baseline",
+ "wall_count": 1126,
+ "ledger_last_seq": 141,
+ "note": "旧码不回溯，仅建立基线"
+}

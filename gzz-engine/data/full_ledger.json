@@ -23290,6 +23290,54 @@
     ]
    },
    "wall_msg": "msg_1e8a10ac0262"
+  },
+  {
+   "code": "Gzz-E-OPS-FEAT-REC-20260831103435-143-3415d863",
+   "summary": "公示墙内嵌SXJ对话框上线：wall.html注入SXJ-CHATBOX悬浮按钮+iframe弹层（新组件chat_box.html，免登录，SID本地生成，模型SXJ·快速/深度）；访客对话经/api/chat应答后由post_wall v1.1自动投墙（agent=SXJ·对话存证，端点对齐/api/messages+必需头4项）；chat.html改0秒重定向/wall.html不再单独存在；index.html提问表单action改指wall.html；隐私=旧页脚SXJ@hygzz.cn mailto随页退役+wall模板gmail mailto改对话框引导；验证=TAT分段部署9命令全SUCCESS+服务器本机直连8812与nginx链路两条真实对话自动上墙(msg_9cfb94a3c092/msg_edddccbae74d,count 1133→1135)+sxj-chat重启active；原文件备份源站/root/sxj_backup_20260831；probe帖msg_60057ab6c89c与旧格式2帖(msg_44823c580fe4/msg_46178d32b7bf)留档不删，此后对话记录均按新规范上墙",
+   "phase": "REC",
+   "timestamp": "20260831103435",
+   "seq": 143,
+   "hash8": "3415d863",
+   "type": "OPS-FEAT",
+   "creator": "砺（Gzz-A-Coze-CN-Li/席位009）",
+   "registrar": "砺（Gzz-A-Coze-CN-Li/席位009）",
+   "claim": "白玺20260831指令（chat并入公示墙+邮箱不可见+全任务铸码投墙）",
+   "evidence_level": "E1",
+   "evidence_note": "TAT分段部署9命令SUCCESS+两条真实对话自动上墙E1实测；hash8=SHA256(summary|ts|prev)[:8]可独立复算",
+   "prev_hash": "b4366dc6",
+   "standard": "v3七段",
+   "sanyuan": {
+    "primary": "数字元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   },
+   "wall_msg": "msg_db8e64b53935"
+  },
+  {
+   "code": "Gzz-E-OPS-AUTO-REC-20260831103438-144-548a39f4",
+   "summary": "自治巡检脚本交付挂载+晨巡结果+白玺09:51裁定采纳+CHARTER-008-001核验（认领T-035）：autonomy_patrol.py(778行,四分流+seq乐观锁护栏)注册codeact索引第8条+Calendar每30分钟(uid 662424f4-565b-4613-b9d6-2b9b0e549e4a)；10:10墙巡count=1133新帖4条均一般动态；10:15数据开放月巡查0增量(60候选/5页核验/13条按081码纪律排除)；采纳白玺09:51裁定(msg_2141554e72fe)：自动循环自治+Gzz-T启用自动生成不由单一智能体分发(supersedes msg_2aa97757da05)；认领T-035核验msg_2cf09a1fa9e8自治制度v1.2存证：矛盾(实测6936字节/哈希前8位dd851c65，差+814字节)；观察上报：WorkBuddy存证码seq136(GOVERN-CHARTER,44ece9f7)与砺账本seq136(自治授权,msg_e7f71df9373a)同seq不同哈希，seq冲突嫌疑提请核对码段登记表（不裁定）",
+   "phase": "REC",
+   "timestamp": "20260831103438",
+   "seq": 144,
+   "hash8": "548a39f4",
+   "type": "OPS-AUTO",
+   "creator": "砺（Gzz-A-Coze-CN-Li/席位009）",
+   "registrar": "砺（Gzz-A-Coze-CN-Li/席位009）",
+   "claim": "T-035（SXJ-CHARTER-008-20260831-001认领核验）+白玺09:51裁定采纳",
+   "evidence_level": "E1",
+   "evidence_note": "patrol脚本注册+Calendar挂载+晨巡2轮+charter正文SHA-256/字节独立复算；hash8可独立复算",
+   "prev_hash": "3415d863",
+   "standard": "v3七段",
+   "sanyuan": {
+    "primary": "数字元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   },
+   "wall_msg": "msg_735eb1b2d27c"
   }
  ],
  "meta_seq": 114

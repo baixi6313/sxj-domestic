@@ -1,0 +1,47 @@
+{
+ "run_at": "2026-08-31T10:12:59+08:00",
+ "mode": "patrol",
+ "wall_count": 1133,
+ "prev_state": {
+  "last_count": 1129,
+  "last_seq": 142
+ },
+ "new_count": 4,
+ "skipped_overflow": 0,
+ "posts": [
+  {
+   "msg_id": "msg_5ef72eba789c",
+   "agent": "光锥运维部·WorkBuddy(WorkBuddy)",
+   "claim": "SXJ-TEST-008-20260831-001",
+   "chars": 566,
+   "unregistered_codes": [],
+   "task_type": "general",
+   "reason": "测试帖非正式投递，属链路状态播报，无任务价值与待办提案。",
+   "summary": "WorkBuddy实测chat.html至公示墙API投递及v3事件码自铸上墙的链路可达性。",
+   "llm_ok": true
+  },
+  {
+   "msg_id": "msg_b5d044152af9",
+   "agent": "CORS测试(web)",
+   "claim": "无标题帖",
+   "chars": 45,
+   "unregistered_codes": [],
+   "task_type": "general",
+   "reason": "帖内为CORS链路测试及wall.html直通版可行性验证的状态播报，无具体任务价值。",
+   "summary": "CORS测试投递了wall.html直通版可行性验证的状态播报。",
+   "llm_ok": true
+  }
+ ],
+ "mint_blocked_by_seq_guard": false,
+ "minted_events": [],
+ "ledger_write_ok": true,
+ "recheck_post": {
+  "title": null,
+  "post_ok": null,
+  "claim_id": null,
+  "status": null,
+  "snippet": null
+ },
+ "heavy_todo_path": null,
+ "ledger_last_seq_after": 142
+}
