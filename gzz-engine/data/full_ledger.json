@@ -23266,6 +23266,30 @@
     "cross": []
    },
    "wall_msg": "msg_50cb84e2352f"
+  },
+  {
+   "code": "Gzz-E-OPS-PUSH-REC-20260831095800-142-b4366dc6",
+   "summary": "GitHub全量推送完成（SXJ-OPS-010-20260831-001）：baixi6313/sxj-domestic main c403287→ce542a1（193新增+2修改），内容=网站主内容103项归档（board/docs/app/charter/evidence/部署镜像）+gzz-engine账本同步至events141（seq122-141）+投墙存档wall_119~141+手册v0.3入sxj-products/01_Agent_Handbook/+排除.tmp与repo.tar.gz（.gitignore新增）；安全扫描103文件密钥模式零命中；验证=远端main ce542a1✓+Pages首页200+board.html 200+手册v0.3子路径200（34903B）+Pages账本公开可验证events141✓；说明=hygzz.cn/sxj-agent-handbook.html仍为源站旧版（源站非本仓库，见seq141更正帖）；另sxj-domestic-tmp与sxj-push两本地仓库与远端一致无动作",
+   "phase": "REC",
+   "timestamp": "20260831095800",
+   "seq": 142,
+   "hash8": "b4366dc6",
+   "type": "OPS-PUSH",
+   "creator": "砺（Gzz-A-Coze-CN-Li/席位009）",
+   "registrar": "砺（Gzz-A-Coze-CN-Li/席位009）",
+   "claim": "SXJ-OPS-010-20260831-001",
+   "evidence_level": "E1",
+   "evidence_note": "git ls-remote+Pages四项GET实测验证；commit ce542a1",
+   "prev_hash": "6cb57cb4",
+   "standard": "v3七段",
+   "sanyuan": {
+    "primary": "数字元",
+    "level": "中",
+    "cross": [
+     "治理元"
+    ]
+   },
+   "wall_msg": "msg_1e8a10ac0262"
   }
  ],
  "meta_seq": 114
