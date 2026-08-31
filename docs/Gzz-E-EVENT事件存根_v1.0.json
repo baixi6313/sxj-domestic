@@ -1,0 +1,530 @@
+{
+  "version": "1.0",
+  "provisional": true,
+  "generated_at": "20260827023113",
+  "schema": "Gzz-E-EVENT-DOC",
+  "description": "事现鉴5份文档 + 47份整份公约/标准事件码存根",
+  "total": 52,
+  "events": [
+    {
+      "code": "Gzz-E-EVENT-DOC-REC-20260827023107-001-4e6b48e3",
+      "summary": "事现鉴四课题论证报告",
+      "phase": "REC",
+      "timestamp": "20260827023107",
+      "seq": 1,
+      "hash8": "4e6b48e3",
+      "doc_type": "报告",
+      "source_ref": "shixianjian_report.md"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-REC-20260827023108-002-b200d15b",
+      "summary": "事现鉴国内对标分析报告",
+      "phase": "REC",
+      "timestamp": "20260827023108",
+      "seq": 2,
+      "hash8": "b200d15b",
+      "doc_type": "报告",
+      "source_ref": "shixianjian_report.md"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-REC-20260827023109-003-27886b1e",
+      "summary": "事现鉴国外对标分析报告",
+      "phase": "REC",
+      "timestamp": "20260827023109",
+      "seq": 3,
+      "hash8": "27886b1e",
+      "doc_type": "报告",
+      "source_ref": "shixianjian_report.md"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-REC-20260827023110-004-447b4ce5",
+      "summary": "事现鉴对标分析完整版",
+      "phase": "REC",
+      "timestamp": "20260827023110",
+      "seq": 4,
+      "hash8": "447b4ce5",
+      "doc_type": "报告",
+      "source_ref": "shixianjian_report.md"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-REC-20260827023111-005-c28280b2",
+      "summary": "Gzz编码体系v2.0方案事实指针",
+      "phase": "REC",
+      "timestamp": "20260827023111",
+      "seq": 5,
+      "hash8": "c28280b2",
+      "doc_type": "方案",
+      "source_ref": "gzz_v2_plan.md"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023112-006-b66130bb",
+      "summary": "世界人权宣言(UDHR)",
+      "phase": "SET",
+      "timestamp": "20260827023112",
+      "seq": 6,
+      "hash8": "b66130bb",
+      "doc_type": "国际公约",
+      "source_ref": "UDHR"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023113-007-a0ddeb0e",
+      "summary": "公民权利和政治权利国际公约(ICCPR)",
+      "phase": "SET",
+      "timestamp": "20260827023113",
+      "seq": 7,
+      "hash8": "a0ddeb0e",
+      "doc_type": "国际公约",
+      "source_ref": "ICCPR"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023114-008-2a1c8c21",
+      "summary": "经济社会文化权利国际公约(ICESCR)",
+      "phase": "SET",
+      "timestamp": "20260827023114",
+      "seq": 8,
+      "hash8": "2a1c8c21",
+      "doc_type": "国际公约",
+      "source_ref": "ICESCR"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023115-009-155a96cd",
+      "summary": "ILO第29号公约(强迫劳动)",
+      "phase": "SET",
+      "timestamp": "20260827023115",
+      "seq": 9,
+      "hash8": "155a96cd",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C29"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023116-010-a195aa88",
+      "summary": "ILO第87号公约(结社自由)",
+      "phase": "SET",
+      "timestamp": "20260827023116",
+      "seq": 10,
+      "hash8": "a195aa88",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C87"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023117-011-9659dee4",
+      "summary": "ILO第98号公约(集体谈判)",
+      "phase": "SET",
+      "timestamp": "20260827023117",
+      "seq": 11,
+      "hash8": "9659dee4",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C98"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023118-012-e3f0c2ef",
+      "summary": "ILO第100号公约(同工同酬)",
+      "phase": "SET",
+      "timestamp": "20260827023118",
+      "seq": 12,
+      "hash8": "e3f0c2ef",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C100"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023119-013-701ef50d",
+      "summary": "ILO第105号公约(废除强迫劳动)",
+      "phase": "SET",
+      "timestamp": "20260827023119",
+      "seq": 13,
+      "hash8": "701ef50d",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C105"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023120-014-52eb987e",
+      "summary": "ILO第111号公约(就业歧视)",
+      "phase": "SET",
+      "timestamp": "20260827023120",
+      "seq": 14,
+      "hash8": "52eb987e",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C111"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023121-015-067fca57",
+      "summary": "ILO第138号公约(最低年龄)",
+      "phase": "SET",
+      "timestamp": "20260827023121",
+      "seq": 15,
+      "hash8": "067fca57",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C138"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023122-016-83c51a1a",
+      "summary": "ILO第182号公约(最恶劣童工形式)",
+      "phase": "SET",
+      "timestamp": "20260827023122",
+      "seq": 16,
+      "hash8": "83c51a1a",
+      "doc_type": "国际公约",
+      "source_ref": "ILO-C182"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023123-017-48f1b9f3",
+      "summary": "联合国工商业与人权指导原则(UNGP)",
+      "phase": "SET",
+      "timestamp": "20260827023123",
+      "seq": 17,
+      "hash8": "48f1b9f3",
+      "doc_type": "国际标准",
+      "source_ref": "UNGP"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023124-018-fc40f16d",
+      "summary": "巴黎协定",
+      "phase": "SET",
+      "timestamp": "20260827023124",
+      "seq": 18,
+      "hash8": "fc40f16d",
+      "doc_type": "国际公约",
+      "source_ref": "Paris_Agreement"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023125-019-6ed6f6e8",
+      "summary": "京都议定书",
+      "phase": "SET",
+      "timestamp": "20260827023125",
+      "seq": 19,
+      "hash8": "6ed6f6e8",
+      "doc_type": "国际公约",
+      "source_ref": "Kyoto_Protocol"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023126-020-ee17a4d9",
+      "summary": "UN SDGs(2030议程)",
+      "phase": "SET",
+      "timestamp": "20260827023126",
+      "seq": 20,
+      "hash8": "ee17a4d9",
+      "doc_type": "国际公约",
+      "source_ref": "SDGs"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023127-021-88c40c74",
+      "summary": "ISO 14001",
+      "phase": "SET",
+      "timestamp": "20260827023127",
+      "seq": 21,
+      "hash8": "88c40c74",
+      "doc_type": "国际标准",
+      "source_ref": "ISO-14001"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023128-022-d2a92443",
+      "summary": "ISO 14064",
+      "phase": "SET",
+      "timestamp": "20260827023128",
+      "seq": 22,
+      "hash8": "d2a92443",
+      "doc_type": "国际标准",
+      "source_ref": "ISO-14064"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023129-023-323f71a5",
+      "summary": "ISO 14068",
+      "phase": "SET",
+      "timestamp": "20260827023129",
+      "seq": 23,
+      "hash8": "323f71a5",
+      "doc_type": "国际标准",
+      "source_ref": "ISO-14068"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023130-024-f8df1db1",
+      "summary": "SBTi科学碳目标",
+      "phase": "SET",
+      "timestamp": "20260827023130",
+      "seq": 24,
+      "hash8": "f8df1db1",
+      "doc_type": "国际标准",
+      "source_ref": "SBTi"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023131-025-77475fbd",
+      "summary": "GRI标准",
+      "phase": "SET",
+      "timestamp": "20260827023131",
+      "seq": 25,
+      "hash8": "77475fbd",
+      "doc_type": "国际标准",
+      "source_ref": "GRI"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023132-026-62b8a1f1",
+      "summary": "TCFD建议",
+      "phase": "SET",
+      "timestamp": "20260827023132",
+      "seq": 26,
+      "hash8": "62b8a1f1",
+      "doc_type": "国际标准",
+      "source_ref": "TCFD"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023133-027-89960712",
+      "summary": "EU AI Act",
+      "phase": "SET",
+      "timestamp": "20260827023133",
+      "seq": 27,
+      "hash8": "89960712",
+      "doc_type": "法规",
+      "source_ref": "EU_AI_Act"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023134-028-464189d4",
+      "summary": "OECD AI原则",
+      "phase": "SET",
+      "timestamp": "20260827023134",
+      "seq": 28,
+      "hash8": "464189d4",
+      "doc_type": "国际标准",
+      "source_ref": "OECD_AI"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023135-029-828980e0",
+      "summary": "UN AI决议",
+      "phase": "SET",
+      "timestamp": "20260827023135",
+      "seq": 29,
+      "hash8": "828980e0",
+      "doc_type": "国际公约",
+      "source_ref": "UN_AI"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023136-030-bdc9ea13",
+      "summary": "ISO/IEC 42001",
+      "phase": "SET",
+      "timestamp": "20260827023136",
+      "seq": 30,
+      "hash8": "bdc9ea13",
+      "doc_type": "国际标准",
+      "source_ref": "ISO-IEC-42001"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023137-031-58f4a24e",
+      "summary": "IEEE伦理对齐设计",
+      "phase": "SET",
+      "timestamp": "20260827023137",
+      "seq": 31,
+      "hash8": "58f4a24e",
+      "doc_type": "国际标准",
+      "source_ref": "IEEE_Ethics"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023138-032-114ee10b",
+      "summary": "G7广岛AI进程",
+      "phase": "SET",
+      "timestamp": "20260827023138",
+      "seq": 32,
+      "hash8": "114ee10b",
+      "doc_type": "国际标准",
+      "source_ref": "G7_AI"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023139-033-8586b09c",
+      "summary": "WTO协定",
+      "phase": "SET",
+      "timestamp": "20260827023139",
+      "seq": 33,
+      "hash8": "8586b09c",
+      "doc_type": "国际公约",
+      "source_ref": "WTO"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023140-034-894e9ae0",
+      "summary": "OECD跨国企业准则",
+      "phase": "SET",
+      "timestamp": "20260827023140",
+      "seq": 34,
+      "hash8": "894e9ae0",
+      "doc_type": "国际标准",
+      "source_ref": "OECD_MNE"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023141-035-e473a05a",
+      "summary": "UN全球契约(UNGC)",
+      "phase": "SET",
+      "timestamp": "20260827023141",
+      "seq": 35,
+      "hash8": "e473a05a",
+      "doc_type": "国际公约",
+      "source_ref": "UNGC"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023142-036-5758523e",
+      "summary": "WIPO巴黎公约",
+      "phase": "SET",
+      "timestamp": "20260827023142",
+      "seq": 36,
+      "hash8": "5758523e",
+      "doc_type": "国际公约",
+      "source_ref": "WIPO_Paris"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023143-037-930cc4e7",
+      "summary": "WIPO伯尔尼公约",
+      "phase": "SET",
+      "timestamp": "20260827023143",
+      "seq": 37,
+      "hash8": "930cc4e7",
+      "doc_type": "国际公约",
+      "source_ref": "WIPO_Berne"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023144-038-797bb06b",
+      "summary": "PCT专利合作条约",
+      "phase": "SET",
+      "timestamp": "20260827023144",
+      "seq": 38,
+      "hash8": "797bb06b",
+      "doc_type": "国际公约",
+      "source_ref": "PCT"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023145-039-9f609db8",
+      "summary": "GDPR",
+      "phase": "SET",
+      "timestamp": "20260827023145",
+      "seq": 39,
+      "hash8": "9f609db8",
+      "doc_type": "法规",
+      "source_ref": "GDPR"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023146-040-3cdeb254",
+      "summary": "APEC CBPR",
+      "phase": "SET",
+      "timestamp": "20260827023146",
+      "seq": 40,
+      "hash8": "3cdeb254",
+      "doc_type": "国际标准",
+      "source_ref": "APEC_CBPR"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023147-041-98294247",
+      "summary": "中国数据安全法(DSL)",
+      "phase": "SET",
+      "timestamp": "20260827023147",
+      "seq": 41,
+      "hash8": "98294247",
+      "doc_type": "法律",
+      "source_ref": "DSL"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023148-042-0ffd2a93",
+      "summary": "中国个人信息保护法(PIPL)",
+      "phase": "SET",
+      "timestamp": "20260827023148",
+      "seq": 42,
+      "hash8": "0ffd2a93",
+      "doc_type": "法律",
+      "source_ref": "PIPL"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023149-043-bab64eed",
+      "summary": "EU Data Act",
+      "phase": "SET",
+      "timestamp": "20260827023149",
+      "seq": 43,
+      "hash8": "bab64eed",
+      "doc_type": "法规",
+      "source_ref": "EU_Data_Act"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023150-044-3cf3956b",
+      "summary": "巴塞尔协议III/IV",
+      "phase": "SET",
+      "timestamp": "20260827023150",
+      "seq": 44,
+      "hash8": "3cf3956b",
+      "doc_type": "国际标准",
+      "source_ref": "Basel_III_IV"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023151-045-cf6074a8",
+      "summary": "FATF 40项建议",
+      "phase": "SET",
+      "timestamp": "20260827023151",
+      "seq": 45,
+      "hash8": "cf6074a8",
+      "doc_type": "国际标准",
+      "source_ref": "FATF_40"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023152-046-27f2d8a5",
+      "summary": "G20数字经济原则",
+      "phase": "SET",
+      "timestamp": "20260827023152",
+      "seq": 46,
+      "hash8": "27f2d8a5",
+      "doc_type": "国际标准",
+      "source_ref": "G20_DE"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023153-047-c28179f5",
+      "summary": "赤道原则IV",
+      "phase": "SET",
+      "timestamp": "20260827023153",
+      "seq": 47,
+      "hash8": "c28179f5",
+      "doc_type": "国际标准",
+      "source_ref": "Equator_Principles_IV"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023154-048-83db755a",
+      "summary": "IOSCO证券监管原则",
+      "phase": "SET",
+      "timestamp": "20260827023154",
+      "seq": 48,
+      "hash8": "83db755a",
+      "doc_type": "国际标准",
+      "source_ref": "IOSCO"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023155-049-a7e58194",
+      "summary": "2030可持续发展议程",
+      "phase": "SET",
+      "timestamp": "20260827023155",
+      "seq": 49,
+      "hash8": "a7e58194",
+      "doc_type": "国际公约",
+      "source_ref": "SDG2030"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023156-050-a08951d1",
+      "summary": "亚的斯亚贝巴行动议程",
+      "phase": "SET",
+      "timestamp": "20260827023156",
+      "seq": 50,
+      "hash8": "a08951d1",
+      "doc_type": "国际公约",
+      "source_ref": "Addis_Ababa"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023157-051-fb644b26",
+      "summary": "仙台减灾框架",
+      "phase": "SET",
+      "timestamp": "20260827023157",
+      "seq": 51,
+      "hash8": "fb644b26",
+      "doc_type": "国际公约",
+      "source_ref": "Sendai"
+    },
+    {
+      "code": "Gzz-E-EVENT-DOC-SET-20260827023158-052-987e66c0",
+      "summary": "北京宣言",
+      "phase": "SET",
+      "timestamp": "20260827023158",
+      "seq": 52,
+      "hash8": "987e66c0",
+      "doc_type": "国际公约",
+      "source_ref": "Beijing_Declaration"
+    }
+  ]
+}
