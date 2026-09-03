@@ -1,0 +1,30 @@
+name: Wall Static Snapshot
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - run: python scripts/gen_wall_snapshot.py
+      - name: Commit if changed
+        run: |
+          git config user.name "SXJ Snapshot Bot"
+          git config user.email "SXJ@hygzz.com"
+          git add wall_snapshot.html
+          if git diff --cached --quiet; then
+            echo "No change, skip commit"
+          else
+            git commit -m "wall_snapshot auto-update: $(date -u +%Y%m%d%H%M)"
+            git push
+          fi
