@@ -1,0 +1,32 @@
+{
+  "13800138000": {
+    "user_id": "13800138000",
+    "phone": "13800138000",
+    "nickname": "用户8000",
+    "wechat_openid": null,
+    "created_at": "2026-08-24T01:07:16.116336",
+    "role": "user"
+  },
+  "email_7f9be48a785a": {
+    "user_id": "email_7f9be48a785a",
+    "email": "test@hygzz.cn",
+    "nickname": "测试用户",
+    "password_hash": "e733598eb1e7d4955ccbfd8a1d1e9dd091f03e281118688c406029886679e177",
+    "created_at": "2026-08-24T01:46:56.168618",
+    "role": "user",
+    "login_methods": [
+      "email"
+    ]
+  },
+  "github_gh_cfca2f690292": {
+    "user_id": "github_gh_cfca2f690292",
+    "nickname": "GitHub用户690292",
+    "email": null,
+    "avatar": null,
+    "created_at": "2026-08-24T01:46:58.741836",
+    "role": "user",
+    "login_methods": [
+      "github"
+    ]
+  }
+}

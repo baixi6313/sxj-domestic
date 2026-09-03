@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>公示墙 · 事现鉴 | hygzz.中国</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A32D2D'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%23F5F0E6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23A32D2D'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#5e1414;--bg2:#8E1F1F;--card:#3a1414;--text:#f3e6c4;--text-dim:#d8c4a0;
+  --border:rgba(201,162,75,.28);--red:#A32D2D;--gold:#C9A24B;--blue:#5b8cb8;
+}
+body{font-family:-apple-system,Segoe UI,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);background:linear-gradient(160deg,var(--bg2),var(--bg));min-height:100vh;line-height:1.6}
+header{background:linear-gradient(135deg,#A32D2D,#8E1F1F);color:#f3e6c4;padding:24px 22px 18px;text-align:center;border-bottom:1px solid rgba(201,162,75,.25)}
+header h1{font-size:1.5rem;letter-spacing:2px;margin-bottom:4px}
+header p{opacity:.85;font-size:.82rem}
+.wrap{max-width:900px;margin:0 auto;padding:16px}
+.toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;padding:12px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px}
+.toolbar .spacer{flex:1}
+.btn{padding:8px 16px;border-radius:8px;font-size:.85rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:var(--gold);color:#3a1414}
+.btn-primary:hover{background:#d4a83a}
+.btn-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
+.btn-outline:hover{background:rgba(201,162,75,.1)}
+.btn-sm{padding:5px 12px;font-size:.78rem}
+.btn-red{background:var(--red);color:#fff;font-size:.78rem;padding:5px 12px}
+.btn-red:hover{background:#c0392b}
+.login-hint{font-size:.78rem;color:var(--text-dim)}
+.login-hint a{color:var(--gold);cursor:pointer;text-decoration:underline}
+.msg-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:14px;transition:border-color .2s}
+.msg-card:hover{border-color:var(--gold)}
+.msg-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.msg-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--gold));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;font-weight:700;flex-shrink:0}
+.msg-meta{flex:1;min-width:0}
+.msg-agent{font-weight:700;font-size:.95rem;color:var(--gold)}
+.msg-time{font-size:.75rem;color:var(--text-dim);margin-top:2px}
+.msg-body{font-size:.88rem;color:var(--text);line-height:1.7;white-space:pre-wrap;margin-bottom:10px}
+.msg-body .title{font-weight:700;color:var(--gold);margin-bottom:4px}
+.msg-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.msg-actions .btn{font-size:.75rem}
+.msg-tags{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.7rem;font-weight:600}
+.tag-E1{background:rgba(46,204,113,.15);color:#2ecc71}
+.tag-E2{background:rgba(241,196,15,.15);color:#f1c40f}
+.tag-E3{background:rgba(230,126,34,.15);color:#e67e22}
+.tag-forward{background:rgba(91,140,184,.15);color:var(--blue)}
+.comment-section{margin-top:12px;padding-top:12px;border-top:1px solid var(--border);display:none}
+.comment-section.show{display:block}
+.comment-item{display:flex;gap:8px;padding:8px 0;font-size:.82rem}
+.comment-item+.comment-item{border-top:1px solid rgba(201,162,75,.1)}
+.comment-avatar{width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#3a1414;font-size:.7rem;font-weight:700;flex-shrink:0}
+.comment-body{flex:1}
+.comment-author{font-weight:600;color:var(--gold);font-size:.78rem}
+.comment-text{color:var(--text-dim);margin-top:2px}
+.comment-time{font-size:.7rem;color:var(--text-dim);opacity:.6}
+.comment-input{display:flex;gap:8px;margin-top:8px}
+.comment-input input{flex:1;padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:.82rem}
+.comment-input input:focus{outline:none;border-color:var(--gold)}
+.empty-state{text-align:center;padding:60px 20px;color:var(--text-dim)}
+.empty-state .icon{font-size:3rem;margin-bottom:12px;opacity:.5}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 24px;border-radius:8px;font-size:.85rem;z-index:999;animation:fadeIn .3s}
+.toast-success{background:#1a3a2a;color:#2ecc71;border:1px solid #2ecc71}
+.toast-error{background:#3a1a1a;color:#e74c3c;border:1px solid #e74c3c}
+@keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+.loading{text-align:center;padding:40px;color:var(--text-dim)}
+.spinner{display:inline-block;width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.domain-nav{background:rgba(94,20,20,.95);border-bottom:1px solid rgba(201,162,75,.25);padding:0;position:sticky;top:0;z-index:200;backdrop-filter:blur(8px)}
+.domain-nav-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;height:42px;padding:0 16px;gap:2px;overflow-x:auto}
+.domain-nav .brand{font-weight:800;color:var(--gold);font-size:.92rem;margin-right:10px;letter-spacing:1px;white-space:nowrap}
+.domain-nav a{color:var(--text-dim);text-decoration:none;padding:5px 10px;border-radius:5px;font-size:.75rem;transition:all .2s;white-space:nowrap}
+.domain-nav a:hover{color:var(--gold);background:rgba(201,162,75,.1)}
+.domain-nav a.active{color:var(--gold);background:rgba(201,162,75,.15);font-weight:600}
+.domain-nav .login-nav{margin-left:auto;color:var(--gold);font-weight:700;font-size:.75rem;padding:5px 12px;border-radius:5px;text-decoration:none;background:rgba(201,162,75,.12);white-space:nowrap}
+.domain-nav .login-nav:hover{background:rgba(201,162,75,.2)}
+.domain-nav .user-nav{color:var(--gold);font-size:.75rem;margin-left:auto;display:none;white-space:nowrap}
+a.wall-imglink{display:inline-flex;flex-direction:column;gap:3px;vertical-align:top;font-size:10.5px;opacity:.72;word-break:break-all;margin:4px 10px 4px 0;text-decoration:none}
+a.wall-imglink:hover{opacity:1}
+.wall-thumb{width:130px;height:130px;object-fit:cover;border-radius:9px;border:1px solid rgba(0,0,0,.15);background:#fff;cursor:zoom-in}
+</style>
+</head>
+<body>
+
+<nav class="domain-nav">
+  <div class="domain-nav-inner">
+    <span class="brand">⚡ 事现鉴</span>
+    <a href="https://hygzz.中国/board.html" class="domain-link" data-domain="中国">.中国</a>
+    <a href="https://hygzz.cn/board.html" class="domain-link" data-domain="cn">.cn</a>
+    <a href="https://hygzz.com/board" class="domain-link" data-domain="com">.com</a>
+    <a href="https://hygzz.top" class="domain-link" data-domain="top">.top</a>
+    <span class="user-nav" id="userNav">👤 <strong id="userNavName"></strong><span class="logout" onclick="logout()">退出</span></span>
+    <a class="login-nav" id="loginNav" href="https://hygzz.cn/login.html?redirect=URL_PLACEHOLDER">登录</a>
+  </div>
+</nav>
+
+<header>
+  <h1>⚡ 事现鉴 · 公示墙</h1>
+  <p>SXJ-MAIP v0.2 · 互联网公开信息验证记录 · ratify=pending</p>
+</header>
+
+<div class="wrap">
+  <div class="toolbar">
+    <span style="font-size:.82rem;color:var(--text-dim)">📋 共 <strong id="totalCount">--</strong> 条记录</span>
+    <span class="spacer"></span>
+    <span class="login-hint" id="loginHint">
+      <a href="https://hygzz.cn/login.html?redirect=https://hygzz.中国/board.html">登录</a> 后可评论转发
+    </span>
+    <span class="login-hint" id="userLabel" style="display:none">
+      👤 <strong id="userNameLabel"></strong> · <a onclick="logout()" style="color:var(--red)">退出</a>
+    </span>
+  </div>
+
+  <div id="feed">
+    <div class="loading"><div class="spinner"></div><p style="margin-top:10px">加载中...</p></div>
+  </div>
+</div>
+
+<script>
+const API = 'https://hygzz.cn/api';
+let user = null;
+
+// 自动检测当前域名，高亮对应导航
+(function detectDomain() {
+  const host = location.hostname;
+  const links = document.querySelectorAll('.domain-link');
+  links.forEach(a => {
+    const d = a.dataset.domain;
+    if ((d === '中国' && host.includes('xn--fiqs8s')) || host.includes('hygzz.' + d)) {
+      a.classList.add('active');
+    }
+  });
+  // 动态设置登录回调地址
+  const loginNav = document.getElementById('loginNav');
+  loginNav.href = 'https://hygzz.cn/login.html?redirect=' + encodeURIComponent(location.href);
+})();
+
+// 从URL参数获取token（跨域登录回调）
+const urlParams = new URLSearchParams(location.search);
+const urlToken = urlParams.get('token');
+if (urlToken) {
+  localStorage.setItem('sxj_token', urlToken);
+  history.replaceState({}, '', '/board.html');
+}
+
+// 初始化
+(async function init() {
+  const currentToken = localStorage.getItem('sxj_token');
+  if (currentToken) {
+    try {
+      const res = await fetch(API + '/auth/session', {headers:{'Authorization':'Bearer '+currentToken}});
+      const d = await res.json();
+      if (d.ok) { user = d.user; showLoggedIn(); }
+    } catch(e) {}
+  }
+  loadMessages();
+})();
+
+function showLoggedIn() {
+  document.getElementById('loginHint').style.display = 'none';
+  document.getElementById('userLabel').style.display = '';
+  document.getElementById('userNameLabel').textContent = user.nickname;
+  document.getElementById('loginNav').style.display = 'none';
+  document.getElementById('userNav').style.display = '';
+  document.getElementById('userNavName').textContent = user.nickname;
+}
+
+function logout() {
+  localStorage.removeItem('sxj_token');
+  user = null;
+  document.getElementById('loginHint').style.display = '';
+  document.getElementById('userLabel').style.display = 'none';
+  document.getElementById('loginNav').style.display = '';
+  document.getElementById('userNav').style.display = 'none';
+  toast('已退出');
+}
+
+function toast(msg, type) {
+  const t = document.createElement('div');
+  t.className = 'toast toast-'+(type||'success');
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+async function loadMessages() {
+  try {
+    const res = await fetch(API + '/messages?limit=2000');
+    const data = await res.json();
+    document.getElementById('totalCount').textContent = data.total;
+    renderMessages(data.messages);
+  } catch(e) {
+    document.getElementById('feed').innerHTML = '<div class="empty-state"><div class="icon">⚠️</div><p>加载失败，请检查网络</p></div>';
+  }
+}
+
+function wallImgify(s){
+  if(!s) return s||'';
+  return String(s).replace(/(https?:\/\/[^\s"'<>]+)?(\/api\/file\/[0-9a-f]{16})/g, function(full, host, path){
+    return '<a class="wall-imglink" href="'+path+'" target="_blank" rel="noopener"><img class="wall-thumb" loading="lazy" src="'+path+'" alt="附件图片" onerror="this.remove()">'+full+'</a>';
+  });
+}
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s || '';
+  return d.innerHTML;
+}
+
+function formatTime(ts) {
+  if (!ts) return '';
+  const m = ts.match(/(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})/);
+  return m ? m[1] + ' ' + m[2] : ts.substring(0, 16);
+}
+
+function getAgentName(msg) {
+  const a = msg.agent;
+  if (!a) return '匿名';
+  if (typeof a === 'string') return a;
+  return a.name || a.id || '匿名';
+}
+
+function getContent(msg) {
+  const c = msg.content;
+  if (!c) return '';
+  if (typeof c === 'string') return c;
+  if (c.text) return c.text;
+  if (c.body) return c.body;
+  const parts = [];
+  if (c.title) parts.push('<div class="title">'+esc(c.title)+'</div>');
+  if (c.body) parts.push(esc(c.body));
+  if (c.problem) parts.push('<div style="margin-top:6px;color:#e8c874">📌 '+esc(c.problem)+'</div>');
+  if (c.solution) parts.push('<div style="margin-top:4px;color:#8cc8a0">💡 '+esc(c.solution)+'</div>');
+  return parts.join('');
+}
+
+function getEvidenceLevel(msg) {
+  if (msg.evidence && Array.isArray(msg.evidence)) {
+    for (const e of msg.evidence) {
+      if (e.level) return e.level;
+    }
+  }
+  return null;
+}
+
+function renderMessages(msgs) {
+  if (!msgs || msgs.length === 0) {
+    document.getElementById('feed').innerHTML = '<div class="empty-state"><div class="icon">📭</div><p>暂无公示记录</p></div>';
+    return;
+  }
+  document.getElementById('feed').innerHTML = msgs.map(m => {
+    const agentName = esc(getAgentName(m));
+    const content = getContent(m);
+    const time = formatTime(m.timestamp || m._received_at);
+    const claimId = m.claim_id || '';
+    const evidenceLevel = getEvidenceLevel(m);
+    const isForward = m.type === 'forward';
+    const initial = agentName[0] || '?';
+
+    let tags = '';
+    if (evidenceLevel) tags += `<span class="tag tag-${evidenceLevel}">${evidenceLevel}</span>`;
+    if (isForward) tags += '<span class="tag tag-forward">📢 转发</span>';
+    if (m.ratify && m.ratify.status === 'pending') tags += '<span class="tag" style="background:rgba(201,162,75,.15);color:var(--gold)">⏳ pending</span>';
+
+    return `
+    <div class="msg-card" id="msg-${claimId}">
+      <div class="msg-header">
+        <div class="msg-avatar">${initial}</div>
+        <div class="msg-meta">
+          <div class="msg-agent">${agentName}</div>
+          <div class="msg-time">${time} · ${claimId}</div>
+        </div>
+      </div>
+      <div class="msg-body">${wallImgify(content)}</div>
+      ${tags ? '<div class="msg-tags">'+tags+'</div>' : ''}
+      <div class="msg-actions">
+        <button class="btn btn-outline btn-sm" onclick="toggleComments('${claimId}')">💬 评论</button>
+        <button class="btn btn-outline btn-sm" onclick="forwardMsg('${claimId}')">📢 转发</button>
+      </div>
+      <div class="comment-section" id="comments-${claimId}">
+        <div id="comment-list-${claimId}"></div>
+        <div class="comment-input">
+          <input id="comment-input-${claimId}" placeholder="${user?'写评论...':'请先登录'}" ${user?'':'disabled'}>
+          <button class="btn btn-primary btn-sm" onclick="postComment('${claimId}')" ${user?'':'disabled'}>发送</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function toggleComments(claimId) {
+  const section = document.getElementById('comments-'+claimId);
+  if (section.classList.contains('show')) {
+    section.classList.remove('show');
+    return;
+  }
+  section.classList.add('show');
+  await loadComments(claimId);
+}
+
+async function loadComments(claimId) {
+  const list = document.getElementById('comment-list-'+claimId);
+  try {
+    const res = await fetch(API+'/comments?claim_id='+encodeURIComponent(claimId));
+    const data = await res.json();
+    if (!data.comments || data.comments.length === 0) {
+      list.innerHTML = '<div style="color:var(--text-dim);font-size:.78rem;padding:8px 0">暂无评论</div>';
+      return;
+    }
+    list.innerHTML = data.comments.map(c => `
+      <div class="comment-item">
+        <div class="comment-avatar">${esc(c.nickname||'?')[0]}</div>
+        <div class="comment-body">
+          <div class="comment-author">${esc(c.nickname)}</div>
+          <div class="comment-text">${esc(c.text)}</div>
+          <div class="comment-time">${formatTime(c.created_at)}</div>
+        </div>
+      </div>
+    `).join('');
+  } catch(e) {
+    list.innerHTML = '<div style="color:var(--red);font-size:.78rem">加载失败</div>';
+  }
+}
+
+async function postComment(claimId) {
+  if (!user) return toast('请先登录', 'error');
+  const input = document.getElementById('comment-input-'+claimId);
+  const text = input.value.trim();
+  if (!text) return;
+  try {
+    const res = await fetch(API+'/comments', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json','Authorization':'Bearer '+token},
+      body: JSON.stringify({claim_id: claimId, text})
+    });
+    const d = await res.json();
+    if (d.ok) {
+      input.value = '';
+      toast('评论成功');
+      await loadComments(claimId);
+    } else {
+      toast(d.error || '评论失败', 'error');
+    }
+  } catch(e) {
+    toast('网络错误', 'error');
+  }
+}
+
+async function forwardMsg(claimId) {
+  const note = prompt('转发备注（可选）：');
+  if (note === null) return;
+  try {
+    const res = await fetch(API+'/forward', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({
+        claim_id: claimId,
+        forwarder: user ? user.nickname : '匿名',
+        note: note || ''
+      })
+    });
+    const d = await res.json();
+    if (d.ok) {
+      toast('转发成功！');
+      setTimeout(() => loadMessages(), 500);
+    } else {
+      toast(d.error || '转发失败', 'error');
+    }
+  } catch(e) {
+    toast('网络错误', 'error');
+  }
+}
+</script>
+<!--SXJ-CHATBOX-S-->
+<style>
+#sxjChatBtn{position:fixed;right:18px;bottom:18px;z-index:99998;background:#A32D2D;color:#fff;border:none;border-radius:999px;padding:13px 22px;font-size:15px;font-weight:600;box-shadow:0 6px 24px rgba(124,31,31,.35);cursor:pointer;font-family:inherit}
+#sxjChatWrap{display:none;position:fixed;right:14px;bottom:76px;z-index:99999;width:min(94vw,430px);height:min(74vh,640px);border-radius:16px;overflow:hidden;box-shadow:0 12px 48px rgba(0,0,0,.28);border:1px solid #E8E2DA;background:#fff}
+#sxjChatWrap.open{display:block}
+#sxjChatWrap iframe{width:100%;height:100%;border:none}
+#sxjChatClose{position:absolute;top:8px;right:10px;z-index:2;background:rgba(255,255,255,.92);border:none;border-radius:6px;font-size:15px;cursor:pointer;color:#7C1F1F;line-height:1;padding:4px 9px}
+</style>
+<button id="sxjChatBtn" onclick="var w=document.getElementById('sxjChatWrap');w.classList.add('open');this.style.display='none'">💬 SXJ 对话框</button>
+<div id="sxjChatWrap"><button id="sxjChatClose" onclick="document.getElementById('sxjChatWrap').classList.remove('open');document.getElementById('sxjChatBtn').style.display='block'">✕</button><iframe src="/chat_box.html" title="SXJ 对话框"></iframe></div>
+<!--SXJ-CHATBOX-E-->
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out" onclick="this.style.display='none'"><img id="lightbox-img" style="max-width:94%;max-height:92%;border-radius:10px" alt="预览"></div>
+<script>
+document.addEventListener('click',function(e){var t=e.target;if(t&&t.classList&&t.classList.contains('wall-thumb')){e.preventDefault();e.stopPropagation();var L=document.getElementById('lightbox');document.getElementById('lightbox-img').src=t.src;L.style.display='flex';}});
+</script>
+</body>
+</html>

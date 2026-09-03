@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事现鉴 · SXJ 模型 | 事实记录与验证助手</title>
+<meta name="description" content="事现鉴站内 AI 对话，由 SXJ 模型驱动（多模型架构）。询问事现鉴协议、Gzz 编码、贡献征信、验证桌与公示墙的一切。">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://hygzz.cn/chat.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A32D2D'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%23fff'/%3E%3Ctext x='16' y='21' font-size='12' text-anchor='middle' fill='%23A32D2D' font-family='serif' font-weight='bold'%3E鉴%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --red:#A32D2D; --red-dark:#7C1F1F; --bg:#F7F5F2; --panel:#FFFFFF;
+  --ink:#2B2B2B; --ink-soft:#6B6B6B; --line:#E8E2DA; --user:#A32D2D; --user-ink:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  background:var(--bg); color:var(--ink); display:flex; flex-direction:column;
+}
+header{
+  background:linear-gradient(135deg,var(--red-dark),var(--red));
+  color:#fff; padding:14px 20px; display:flex; align-items:center; gap:12px;
+  box-shadow:0 2px 12px rgba(124,31,31,.25); flex-shrink:0;
+}
+.logo{width:38px;height:38px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;
+  font-family:serif;font-weight:bold;color:var(--red);font-size:20px;flex-shrink:0}
+.ht h1{font-size:17px;font-weight:600;letter-spacing:.5px}
+.ht p{font-size:12px;opacity:.85;margin-top:2px}
+.ht p .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7CE38B;margin:0 4px 0 2px;vertical-align:1px}
+.tools{margin-left:auto;display:flex;gap:8px;align-items:center}
+select,.btn{
+  border:none;border-radius:8px;padding:7px 12px;font-size:13px;cursor:pointer;
+  background:rgba(255,255,255,.16);color:#fff;transition:.2s;
+}
+select option{color:#333}
+.btn:hover,select:hover{background:rgba(255,255,255,.3)}
+
+#chat{flex:1;overflow-y:auto;padding:24px 16px;scroll-behavior:smooth}
+.wrap{max-width:820px;margin:0 auto}
+.msg{display:flex;margin-bottom:18px;gap:10px}
+.msg .avatar{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:15px;font-weight:bold;font-family:serif}
+.msg.ai .avatar{background:var(--red);color:#fff}
+.msg.user{flex-direction:row-reverse}
+.msg.user .avatar{background:#3D3D3D;color:#fff;font-size:13px}
+.bubble{max-width:76%;padding:12px 16px;border-radius:14px;font-size:14.5px;line-height:1.75;word-break:break-word}
+.msg.ai .bubble{background:var(--panel);border:1px solid var(--line);border-top-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.msg.user .bubble{background:var(--user);color:var(--user-ink);border-top-right-radius:4px}
+.bubble p{margin:6px 0}
+.bubble p:first-child{margin-top:0}.bubble p:last-child{margin-bottom:0}
+.bubble code{background:rgba(163,45,45,.08);color:var(--red-dark);padding:1px 5px;border-radius:4px;font-size:13px;font-family:Consolas,Menlo,monospace}
+.bubble pre{background:#2B2B2B;color:#E8E2DA;padding:12px;border-radius:8px;overflow-x:auto;margin:8px 0;font-size:12.5px;line-height:1.6}
+.bubble pre code{background:none;color:inherit;padding:0}
+.bubble strong{font-weight:700}
+.bubble .cursor{display:inline-block;width:8px;height:16px;background:var(--red);vertical-align:-2px;animation:blink .9s infinite}
+@keyframes blink{50%{opacity:0}}
+.err{background:#FDECEC;border:1px solid #F2B8B8;color:#8C1F1F}
+
+.hello{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;max-width:820px;margin:0 auto 18px}
+.hello h2{font-size:16px;color:var(--red-dark);margin-bottom:8px}
+.hello p{font-size:13.5px;color:var(--ink-soft);line-height:1.8}
+.hello .notice{margin-top:10px;padding:8px 12px;background:rgba(163,45,45,.05);border-left:3px solid var(--red);font-size:12.5px;color:var(--ink-soft);line-height:1.7}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{border:1px solid var(--red);color:var(--red);background:#fff;border-radius:20px;padding:6px 14px;font-size:12.5px;cursor:pointer;transition:.2s}
+.chip:hover{background:var(--red);color:#fff}
+
+.hist-panel{position:fixed;top:64px;right:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  box-shadow:0 8px 30px rgba(0,0,0,.18);width:290px;max-height:62vh;overflow-y:auto;z-index:50;display:none}
+.hist-panel.open{display:block}
+.hist-head{padding:10px 14px;font-size:12.5px;color:var(--ink-soft);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.hist-head .new{color:var(--red);cursor:pointer;font-weight:600}
+.hist-item{padding:10px 14px;border-bottom:1px solid var(--line);cursor:pointer;font-size:13px}
+.hist-item:hover{background:rgba(163,45,45,.05)}
+.hist-item.cur{background:rgba(163,45,45,.08)}
+.hist-item .t{font-weight:600;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hist-item .m{font-size:11px;color:var(--ink-soft);margin-top:2px}
+.hist-empty{padding:22px 14px;font-size:12.5px;color:var(--ink-soft);text-align:center}
+
+footer{flex-shrink:0;padding:12px 16px 16px;background:linear-gradient(transparent,var(--bg) 30%)}
+.inputbar{max-width:820px;margin:0 auto;display:flex;gap:10px;align-items:flex-end}
+.inputbar textarea{
+  flex:1;resize:none;border:1.5px solid var(--line);border-radius:12px;padding:11px 14px;
+  font-size:14.5px;font-family:inherit;line-height:1.5;max-height:140px;outline:none;background:var(--panel);transition:border .2s;
+}
+.inputbar textarea:focus{border-color:var(--red)}
+.send{
+  background:var(--red);color:#fff;border:none;border-radius:12px;padding:11px 22px;
+  font-size:14.5px;cursor:pointer;flex-shrink:0;transition:.2s;font-weight:600;
+}
+.send:hover{background:var(--red-dark)}
+.send:disabled{background:#C9B8B8;cursor:not-allowed}
+.foot-note{max-width:820px;margin:8px auto 0;text-align:center;font-size:11.5px;color:#A9A29A}
+.foot-note a{color:var(--red);text-decoration:none}
+@media(max-width:600px){
+  .ht h1{font-size:15px}.ht p{font-size:11px}
+  .bubble{max-width:86%}
+  .tools select{max-width:110px}
+  .hist-panel{left:14px;right:14px;width:auto}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">鉴</div>
+  <div class="ht">
+    <h1>事现鉴 · SXJ 模型</h1>
+    <p><span class="dot"></span>SXJ 模型驱动 · 事实记录与验证助手</p>
+  </div>
+  <div class="tools">
+    <select id="model" title="选择模型">
+      <option value="deepseek-v4-flash">SXJ · 快速</option>
+      <option value="deepseek-v4-pro">SXJ · 深度</option>
+    </select>
+    <button class="btn" id="hist" title="历史会话">历史</button>
+    <button class="btn" id="clear" title="开始新会话（旧会话保留在历史中）">新会话</button>
+  </div>
+</header>
+
+<div class="hist-panel" id="histPanel">
+  <div class="hist-head"><span>历史会话（存于本浏览器）</span><span class="new" id="histNew">＋新会话</span></div>
+  <div id="histList"></div>
+</div>
+
+<main id="chat">
+  <div class="wrap" id="wrap">
+    <div class="hello" id="hello">
+      <h2>你好，我是事现鉴的站内 AI 助手</h2>
+      <p>我的回答由 SXJ 模型生成，涉及事实请以 hygzz.cn 公示墙与 GitHub 公开记录为准。我可以和你聊事现鉴协议、Gzz 编码体系、贡献征信、共济值、验证桌与公示墙，也可以回答一般问题。</p>
+      <div class="notice">📌 依据事现鉴「事实记录 · 只增不删」原则，本页对话将同步至公示墙公开留档。请勿输入个人隐私或敏感信息。</div>
+      <div class="chips">
+        <span class="chip">什么是事现鉴？</span>
+        <span class="chip">Gzz 编码怎么验证？</span>
+        <span class="chip">贡献征信和银行征信的区别？</span>
+        <span class="chip">什么是共济值？</span>
+        <span class="chip">公示墙的记录能改吗？</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="inputbar">
+    <textarea id="input" rows="1" placeholder="输入你的问题…（Enter 发送，Shift+Enter 换行）"></textarea>
+    <button class="send" id="send">发送</button>
+  </div>
+  <div class="foot-note">内容由 AI 生成，可能存在偏差 · <a href="/" >SXJ 模型</a> · 多模型架构 · <a href="/">hygzz.cn 首页</a> · <a href="mailto:SXJ@hygzz.cn">SXJ@hygzz.cn</a></div>
+</footer>
+
+<script>
+(function(){
+  var chatEl=document.getElementById('chat'),wrap=document.getElementById('wrap'),
+      input=document.getElementById('input'),sendBtn=document.getElementById('send'),
+      clearBtn=document.getElementById('clear'),histBtn=document.getElementById('hist'),
+      histPanel=document.getElementById('histPanel'),histList=document.getElementById('histList'),
+      histNew=document.getElementById('histNew'),modelSel=document.getElementById('model'),
+      helloEl=document.getElementById('hello');
+  var history=[];   // 当前会话消息 {role, content}
+  var busy=false;
+  var SID=localStorage.getItem('sxj_cur_sid');
+
+  function newSid(){var s='s'+Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+    localStorage.setItem('sxj_cur_sid',s);return s}
+  if(!SID)SID=newSid();
+
+  function md(t){
+    var s=t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    s=s.replace(/```([\s\S]*?)```/g,function(_,c){return '<pre><code>'+c.replace(/^\n+|\n+$/g,'')+'</code></pre>'});
+    s=s.replace(/`([^`\n]+)`/g,'<code>$1</code>');
+    s=s.replace(/\*\*([^*\n]+)\*\*/g,'<strong>$1</strong>');
+    s=s.replace(/\n/g,'<br>');
+    return s;
+  }
+  function scroll(){chatEl.scrollTop=chatEl.scrollHeight}
+  function addMsg(role,text,cls){
+    var div=document.createElement('div');div.className='msg '+(role==='user'?'user':'ai');
+    div.innerHTML='<div class="avatar">'+(role==='user'?'访':'鉴')+'</div><div class="bubble'+(cls?' '+cls:'')+'">'+text+'</div>';
+    wrap.appendChild(div);scroll();return div.querySelector('.bubble');
+  }
+  function saveSession(){
+    try{
+      localStorage.setItem('sxj_log_'+SID,JSON.stringify(history.slice(-100)));
+      if(history.length&&!localStorage.getItem('sxj_meta_'+SID)){
+        var t='';for(var i=0;i<history.length;i++){if(history[i].role==='user'){t=history[i].content;break}}
+        localStorage.setItem('sxj_meta_'+SID,JSON.stringify({title:(t||'会话').slice(0,26),ts:Date.now()}));
+      }
+    }catch(e){}
+  }
+  function loadSession(sid){
+    try{history=JSON.parse(localStorage.getItem('sxj_log_'+sid)||'[]')||[]}
+    catch(e){history=[]}
+    Array.prototype.forEach.call(wrap.querySelectorAll('.msg'),function(n){n.remove()});
+    history.forEach(function(m){addMsg(m.role,md(m.content))});
+    helloEl.style.display=history.length?'none':'';
+    renderHist();
+  }
+  function renderHist(){
+    var items=[];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(k&&k.indexOf('sxj_log_')===0){
+        var sid=k.slice(8),meta=null;
+        try{meta=JSON.parse(localStorage.getItem('sxj_meta_'+sid)||'null')}catch(e){}
+        items.push({sid:sid,ts:(meta&&meta.ts)||0,title:(meta&&meta.title)||'（无标题会话）'});
+      }
+    }
+    items.sort(function(a,b){return b.ts-a.ts});
+    histList.innerHTML='';
+    if(!items.length){histList.innerHTML='<div class="hist-empty">暂无历史会话</div>';return}
+    items.forEach(function(it){
+      var d=document.createElement('div');
+      d.className='hist-item'+(it.sid===SID?' cur':'');
+      var dt=it.ts?new Date(it.ts):null;
+      d.innerHTML='<div class="t"></div><div class="m">'+(dt?dt.toLocaleString('zh-CN'):'')+'</div>';
+      d.querySelector('.t').textContent=it.title;
+      d.onclick=function(){SID=it.sid;localStorage.setItem('sxj_cur_sid',SID);loadSession(SID);histPanel.classList.remove('open')};
+      histList.appendChild(d);
+    });
+  }
+
+  function loadModels(){
+    fetch('/api/models').then(function(r){return r.json()}).then(function(j){
+      var ms=(j&&j.models||[]).filter(function(m){return m.ready});
+      if(!ms.length)return;
+      modelSel.innerHTML='';
+      ms.forEach(function(m){
+        var o=document.createElement('option');
+        o.value=m.id;o.textContent=m.label;o.title=m.sub||'';
+        modelSel.appendChild(o);
+      });
+    }).catch(function(){});
+  }
+
+  async function stream(body,el){
+    var res=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(!res.ok){
+      var e=null;try{e=await res.json()}catch(_){}
+      throw new Error((e&&e.error)||('HTTP '+res.status));
+    }
+    var reader=res.body.getReader(),dec=new TextDecoder(),buf='',full='',cur=null;
+    while(true){
+      var r=await reader.read();if(r.done)break;
+      buf+=dec.decode(r.value,{stream:true});
+      var lines=buf.split('\n');buf=lines.pop();
+      for(var i=0;i<lines.length;i++){
+        var line=lines[i].trim();
+        if(line.indexOf('data:')!==0)continue;
+        var d=line.slice(5).trim();
+        if(d==='[DONE]')continue;
+        try{
+          var j=JSON.parse(d),delta=j.choices&&j.choices[0]&&j.choices[0].delta&&j.choices[0].delta.content;
+          if(delta){
+            if(!cur){cur=document.createElement('div');cur.className='msg ai';
+              cur.innerHTML='<div class="avatar">鉴</div><div class="bubble"><span class="cursor"></span></div>';
+              wrap.appendChild(cur);el=cur.querySelector('.bubble');full='';}
+            full+=delta;el.innerHTML=md(full)+'<span class="cursor"></span>';scroll();
+          }
+        }catch(_){}
+      }
+    }
+    if(cur){el.innerHTML=md(full)}
+    return full;
+  }
+
+  /*SXJ-Q-S*/(function(){var q=new URLSearchParams(location.search).get("q");if(q){setTimeout(function(){input.value=q;sendBtn.click()},800)}})();/*SXJ-Q-E*/
+  async function ask(text){
+    if(busy||!text)return;
+    busy=true;sendBtn.disabled=true;
+    helloEl.style.display='none';
+    addMsg('user',md(text));
+    history.push({role:'user',content:text});saveSession();
+    var placeholder=addMsg('ai','<span class="cursor"></span>');
+    var err=null,reply='';
+    try{reply=await stream({messages:history,model:modelSel.value,stream:true,session:SID},placeholder)}
+    catch(e){err=e}
+    if(err){
+      placeholder.classList.add('err');
+      placeholder.innerHTML='⚠️ '+err.message+'<br><small>如持续出现，请联系站点管理员检查服务器 sxj-chat 服务状态（systemctl status sxj-chat）。</small>';
+      history.pop();
+    }else if(reply){
+      history.push({role:'assistant',content:reply});
+    }
+    saveSession();renderHist();
+    busy=false;sendBtn.disabled=false;input.focus();
+  }
+
+  sendBtn.onclick=function(){var t=input.value.trim();input.value='';input.style.height='auto';ask(t)};
+  input.addEventListener('keydown',function(e){
+    if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendBtn.click()}
+  });
+  input.addEventListener('input',function(){input.style.height='auto';input.style.height=Math.min(input.scrollHeight,140)+'px'});
+  clearBtn.onclick=function(){SID=newSid();history=[];loadSession(SID)};
+  histBtn.onclick=function(){renderHist();histPanel.classList.toggle('open')};
+  histNew.onclick=function(){SID=newSid();history=[];loadSession(SID);histPanel.classList.remove('open')};
+  document.addEventListener('click',function(e){
+    if(!histPanel.contains(e.target)&&e.target!==histBtn&&!histBtn.contains(e.target))histPanel.classList.remove('open');
+  });
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'),function(c){
+    c.onclick=function(){ask(c.textContent)};
+  });
+
+  loadSession(SID);
+  loadModels();
+})();
+</script>
+</body>
+</html>

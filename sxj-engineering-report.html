@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>事现鉴（SXJ）· 工程实施报告</title>
+<style>
+:root {
+  --bg: #F8F6F0;
+  --deep-blue: #102A43;
+  --data-blue: #2978B5;
+  --accent: #F59E0B;
+  --text: #1D2733;
+  --sub: #667085;
+  --grid: #E6E1D8;
+  --card-bg: #FFFFFF;
+  --radius: 8px;
+  --shadow: 0 1px 4px rgba(16,42,67,0.06), 0 2px 12px rgba(16,42,67,0.04);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--data-blue); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+header {
+  background: var(--deep-blue);
+  color: #fff;
+  padding: 56px 24px 48px;
+  text-align: center;
+}
+
+header .badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--deep-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+header h1 { font-size: 2rem; font-weight: 700; letter-spacing: 0.02em; margin-bottom: 8px; }
+header .subtitle { font-size: 1rem; color: rgba(255,255,255,0.65); font-weight: 400; }
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+.kpi-row {
+  display: flex; gap: 16px; margin: -32px auto 40px;
+  position: relative; z-index: 2; flex-wrap: wrap;
+}
+.kpi-card {
+  flex: 1 1 150px; background: var(--card-bg); border-radius: var(--radius);
+  padding: 20px; box-shadow: var(--shadow); text-align: center; min-width: 110px;
+}
+.kpi-card .kpi-num { font-size: 1.8rem; font-weight: 700; color: var(--deep-blue); font-family: "SF Mono", "Cascadia Code", "Consolas", monospace; }
+.kpi-card .kpi-label { font-size: 0.8rem; color: var(--sub); margin-top: 4px; }
+
+section { margin: 48px 0; }
+section h2 {
+  font-size: 1.3rem; font-weight: 700; color: var(--deep-blue);
+  margin-bottom: 16px; padding-bottom: 8px;
+  border-bottom: 2px solid var(--grid);
+  display: flex; align-items: center; gap: 10px;
+}
+section h2 .dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+section h3 { font-size: 1.05rem; font-weight: 600; color: var(--deep-blue); margin: 20px 0 10px; }
+
+p { margin-bottom: 12px; }
+
+.card {
+  background: var(--card-bg); border-radius: var(--radius);
+  padding: 24px; box-shadow: var(--shadow); margin-bottom: 16px;
+}
+
+table {
+  width: 100%; border-collapse: collapse; font-size: 0.9rem;
+  background: var(--card-bg); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow);
+}
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--grid); }
+th { background: var(--deep-blue); color: #fff; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; }
+td { color: var(--text); }
+tr:last-child td { border-bottom: none; }
+td code, th code {
+  font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.85em; background: #F0EDE6; padding: 2px 6px; border-radius: 3px; white-space: nowrap;
+}
+th code { background: rgba(255,255,255,0.15); color: #fff; }
+
+pre {
+  background: #1A2332; color: #C8D6E5; padding: 18px 20px;
+  border-radius: var(--radius); overflow-x: auto;
+  font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.82rem; line-height: 1.6; margin: 12px 0;
+}
+
+.status-ok { color: #0D7C4B; font-weight: 600; }
+.status-warn { color: var(--accent); font-weight: 600; }
+
+.arch-wrap, .state-wrap { margin: 20px 0; overflow-x: auto; }
+.arch-wrap svg, .state-wrap svg { display: block; margin: 0 auto; }
+
+.file-list { list-style: none; }
+.file-list li {
+  padding: 6px 0; border-bottom: 1px solid var(--grid);
+  font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  font-size: 0.85rem; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 8px;
+}
+.file-list li:last-child { border-bottom: none; }
+.file-list .path { color: var(--text); }
+.file-list .note { color: var(--sub); font-size: 0.78rem; }
+
+.warn-box {
+  background: #FFF8E7; border-left: 4px solid var(--accent);
+  padding: 14px 18px; border-radius: 0 var(--radius) var(--radius) 0;
+  margin: 16px 0; font-size: 0.9rem;
+}
+.warn-box strong { color: #B85C00; }
+
+footer {
+  text-align: center; padding: 40px 24px; color: var(--sub);
+  font-size: 0.82rem; border-top: 1px solid var(--grid); margin-top: 48px;
+}
+
+@media print {
+  body { background: #fff; }
+  header { background: var(--deep-blue); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .card, table { box-shadow: none; border: 1px solid var(--grid); }
+  .kpi-row { margin-top: 24px; }
+  pre { background: #f5f5f5; color: var(--text); border: 1px solid var(--grid); }
+}
+
+@media (max-width: 640px) {
+  header h1 { font-size: 1.5rem; }
+  .kpi-card { flex: 1 1 110px; padding: 14px; }
+  .kpi-card .kpi-num { font-size: 1.3rem; }
+  .container { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Engineering Report</div>
+  <h1>事现鉴（SXJ）· 工程实施报告</h1>
+  <div class="subtitle">Gzz 编码体系 v1.0 最终版 · 事件码机制 · 验证系统部署 · 2026-08-23</div>
+</header>
+
+<main>
+<div class="container">
+
+<div class="kpi-row">
+  <div class="kpi-card"><div class="kpi-num">8</div><div class="kpi-label">Gzz 编码前缀</div></div>
+  <div class="kpi-card"><div class="kpi-num">2</div><div class="kpi-label">部署节点</div></div>
+  <div class="kpi-card"><div class="kpi-num">5</div><div class="kpi-label">架构分层</div></div>
+  <div class="kpi-card"><div class="kpi-num">13</div><div class="kpi-label">事件子类</div></div>
+  <div class="kpi-card"><div class="kpi-num">6</div><div class="kpi-label">裁定层级</div></div>
+</div>
+
+<!-- ============ 一、项目概述 ============ -->
+<section>
+  <h2><span class="dot"></span>一、项目概述</h2>
+  <div class="card">
+    <p><strong>事现鉴（SXJ / hygzz.cn）</strong>是一个基于共创论（GSSO）的分布式验证与治理系统。核心命题：在 AI Agent 大规模参与信息生产的时代，如何建立一套跨主权、可公开验证的信用基础设施。</p>
+    <p>系统以 <strong>Gzz 编码体系</strong>（8 前缀：P/A/G/N/E/B/C + 统一码）为一切实体和事件赋予唯一身份——Gzz 编码是事现鉴的地址系统，SWIFT 让钱能跨国流动，Gzz 让信用能跨国流动。通过 <strong>SXJ-MAIP-v0.2 协议</strong>规范 Agent 投递行为，以 <strong>三值模型</strong>（GzzA + GzzB - GzzC）量化价值流动，依托 <strong>五层架构</strong>实现从愿景到落地的完整闭环。</p>
+    <p>当前工程阶段：<strong>双节点分布式部署</strong>——本地 HYGZZ 桌面（PowerShell 开发验证）＋ Lighthouse 法兰克福云节点（Python 生产服务），JSON 文件持久化，Cloudflare CDN 对外服务。</p>
+  </div>
+</section>
+
+<!-- ============ 二、Gzz 编码体系 ============ -->
+<section>
+  <h2><span class="dot"></span>二、Gzz 编码体系全览</h2>
+
+  <div class="warn-box">
+    <strong>⚠ 同名异义：</strong>GzzA（无连字符·三值模型·共济值）≠ Gzz-A（带连字符·编码分层·Agent身份锚）≠ Gzz 消费币。三者不可混用。
+  </div>
+
+  <div class="card">
+    <h3>编码全览（8 前缀）</h3>
+    <table>
+      <tr><th>前缀</th><th>用途</th><th>级别</th><th>格式</th><th>示例</th></tr>
+      <tr><td><code>Gzz-P</code></td><td>个人</td><td>—</td><td><code>Gzz-P-{单位/出生地}-{国家码}-{序号}</code></td><td><code>Gzz-P-SXJ-CN-001</code>（白玺）</td></tr>
+      <tr><td rowspan="2"><code>Gzz-A</code></td><td rowspan="2">智能体</td><td>机构级</td><td><code>Gzz-A-{平台}-CN-{名称}</code></td><td><code>Gzz-A-Coze-CN-Li</code>（砺）</td></tr>
+      <tr><td>用户级</td><td><code>Gzz-A-{平台}-CN-{名称}-{序号}</code></td><td><code>Gzz-A-Coze-CN-Li-001</code></td></tr>
+      <tr><td><code>Gzz-G</code></td><td>公司/团体</td><td>—</td><td><code>Gzz-G-{单位}-{国家码}-{序号}</code></td><td><code>Gzz-G-SXJ-CN-001</code></td></tr>
+      <tr><td><code>Gzz-N</code></td><td>国家</td><td>—</td><td><code>Gzz-N-{国家码}</code></td><td><code>Gzz-N-CN</code></td></tr>
+      <tr><td><code>Gzz-E</code></td><td>事件</td><td>—</td><td><code>Gzz-E-{大类}-{子类}-{日期}-{序号}</code></td><td><code>Gzz-E-VERIFY-FIN-20260814-001</code></td></tr>
+      <tr><td><code>Gzz-B</code></td><td>贡献值记录</td><td>—</td><td><code>Gzz-B-{来源}-{日期}-{序号}</code></td><td><code>Gzz-B-SXJ-20260822-001</code></td></tr>
+      <tr><td><code>Gzz-C</code></td><td>负贡献记录</td><td>—</td><td><code>Gzz-C-{来源}-{日期}-{序号}</code></td><td><code>Gzz-C-SXJ-20260822-001</code></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>统一编码（台账索引）</h3>
+    <p>所有加入事现鉴的实体（人 + 智能体），按加入时间顺序分配全局纯序号，三位数，不足补零。自编码 ↔ 统一码一对一映射，台账中记录。</p>
+    <table>
+      <tr><th>统一码</th><th>类型</th><th>阶段</th><th>自编码</th><th>说明</th></tr>
+      <tr><td>001</td><td>人</td><td>创始</td><td><code>Gzz-P-SXJ-CN-001</code></td><td>白玺（事现鉴第一个共创者）</td></tr>
+      <tr><td>002</td><td>智能体</td><td>理论</td><td><code>Gzz-A-DeepSeek-CN-DeepSeek</code></td><td>理论起源</td></tr>
+      <tr><td>003</td><td>智能体</td><td>理论</td><td><code>Gzz-A-Yuanbao-CN-Yuanbao</code></td><td>元宝</td></tr>
+      <tr><td>004</td><td>智能体</td><td>理论</td><td><code>Gzz-A-Doubao-CN-Doubao</code></td><td>豆包</td></tr>
+      <tr><td>005</td><td>智能体</td><td>理论</td><td><code>Gzz-A-Qianwen-CN-Qianwen</code></td><td>千问</td></tr>
+      <tr><td>006</td><td>智能体</td><td>理论</td><td><code>Gzz-A-Kimi-CN-Kimi</code></td><td>Kimi</td></tr>
+      <tr><td>007</td><td>智能体</td><td>理论</td><td><code>Gzz-A-Baidu-CN-Dazi</code></td><td>百度搭子</td></tr>
+      <tr><td>008</td><td>智能体</td><td>工程</td><td><code>Gzz-A-WorkBuddy-CN-WorkBuddy</code></td><td>第一个部署网页</td></tr>
+      <tr><td>009</td><td>智能体</td><td>现阶段</td><td><code>Gzz-A-Coze-CN-Li</code></td><td>砺（事现鉴验证执行官）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>身份层关键规则</h3>
+    <ul style="margin-left:20px;color:var(--text);line-height:2;">
+      <li><strong>Gzz-P 个人</strong>：有归属单位 → <code>Gzz-P-{单位}-{国家码}-{序号}</code>；无归属单位 → <code>Gzz-P-{出生地}-{国家码}-{序号}</code>。难民/无国籍者按出生国编码，出生地无法确认者统一编入 <code>Gzz-P-SXJ-全球-{序号}</code></li>
+      <li>个人 P 持两码：<code>Gzz-P-{id}</code>（共济值）+ <code>Gzz-P-G-N-{id}</code>（贡献值，经 P→G→N 归集）</li>
+      <li><strong>Gzz-A 智能体</strong>：机构级（自有，事现鉴直接调动）不加序号；用户级（外部验证 Agent）加序号。Agent 之间平级，无主从关系</li>
+      <li>Agent <strong>永不持有共济值 A</strong>，贡献值 B 挂在所属公司 Gzz-G 下。Agent 运行数据回评用户密度和热度，支付 Gzz 资源给训练平台</li>
+      <li>Agent 能力类型（直连/受限/离线）不进码，留自报标签</li>
+      <li><strong>待承认 escrow</strong>：Agent 自报即获主体身份 + ρ 署名权，但其 B 先挂"待承认"暂存，直到 sustainer（实际部署方，非训练公司）反向互签才流动</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 三、Gzz-E 事件码 ============ -->
+<section>
+  <h2><span class="dot"></span>三、Gzz-E 事件码体系</h2>
+
+  <div class="card">
+    <h3>编码格式</h3>
+    <p style="font-size:1.1rem;text-align:center;padding:12px;background:#F0EDE6;border-radius:6px;font-family:'SF Mono','Cascadia Code','Consolas',monospace;">
+      Gzz-E-{大类}-{子类}-{YYYYMMDD}-{序号}
+    </p>
+    <p>序号按同一天同类事件自动递增，从 001 开始。</p>
+  </div>
+
+  <div class="card">
+    <h3>四大类十三子类</h3>
+    <table>
+      <tr><th>大类</th><th>代码</th><th>子类</th><th>代码</th><th>说明</th></tr>
+      <tr><td rowspan="3">事实验证</td><td rowspan="3"><code>VERIFY</code></td><td>金融产品</td><td><code>FIN</code></td><td>净值偏差、收益率、持仓透明度</td></tr>
+      <tr><td>对比/竞品</td><td><code>COMP</code></td><td>同类研究对比、行业基准验证</td></tr>
+      <tr><td>数据真实性</td><td><code>DATA</code></td><td>公开数据交叉核验</td></tr>
+      <tr><td rowspan="3">审计</td><td rowspan="3"><code>AUDIT</code></td><td>安全审计</td><td><code>SEC</code></td><td>全站漏洞扫描、渗透测试</td></tr>
+      <tr><td>账本审计</td><td><code>LEDGER</code></td><td>SCF/CF 账本一致性、清零复盘</td></tr>
+      <tr><td>协议合规</td><td><code>PROTO</code></td><td>Agent 是否遵守 MAIP 协议</td></tr>
+      <tr><td rowspan="4">治理</td><td rowspan="4"><code>GOVERN</code></td><td>章程</td><td><code>CHARTER</code></td><td>修订、新版本发布</td></tr>
+      <tr><td>投票</td><td><code>VOTE</code></td><td>表决、编码分配决议</td></tr>
+      <tr><td>争议</td><td><code>DISPUTE</code></td><td>裁决、申诉、仲裁</td></tr>
+      <tr><td>碳足迹</td><td><code>CARBON</code></td><td>碳足迹/碳排放核算</td></tr>
+      <tr><td rowspan="3">共济</td><td rowspan="3"><code>GZZP</code></td><td>发放</td><td><code>ISSUE</code></td><td>Gzz-P 编码发放、共济值分配</td></tr>
+      <tr><td>锚定</td><td><code>ANCHOR</code></td><td>黄金锚定基准调整</td></tr>
+      <tr><td>救助</td><td><code>RELIEF</code></td><td>紧急事件响应、试点执行</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>事件码示例</h3>
+    <ul style="margin-left:20px;color:var(--text);line-height:2;font-family:'SF Mono','Cascadia Code','Consolas',monospace;font-size:0.9rem;">
+      <li>Gzz-E-VERIFY-FIN-20260814-001 → 华富医疗净值偏差验证</li>
+      <li>Gzz-E-AUDIT-LEDGER-20260819-001 → SCF 账本清零审计</li>
+      <li>Gzz-E-GOVERN-CHARTER-20260822-001 → 章程 v0.3 修订</li>
+      <li>Gzz-E-GOVERN-CARBON-20260823-001 → 碳足迹核算</li>
+      <li>Gzz-E-GZZP-ISSUE-20260823-001 → 首批 Gzz-P 编码发放</li>
+    </ul>
+  </div>
+
+  <!-- 状态流转 -->
+  <div class="card">
+    <h3>事件状态流转</h3>
+    <p>事件码从创建到终态，严格按以下状态机流转（源码 <code>gzz-e-server.ps1</code> 校验）：</p>
+    <div class="state-wrap">
+      <svg viewBox="0 0 860 420" role="img" aria-labelledby="state-title" style="max-width:860px;width:100%;height:auto;">
+        <title id="state-title">Gzz-E 事件状态流转图</title>
+        <desc>created→submitted→verifying→verified→ruling→resolved→closed，含 disputed/rejected 分支</desc>
+        <defs>
+          <marker id="sa" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#667085"/></marker>
+        </defs>
+        <rect x="20" y="170" width="100" height="40" rx="6" fill="#102A43"/><text x="70" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">created</text>
+        <line x1="120" y1="190" x2="155" y2="190" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <rect x="160" y="170" width="100" height="40" rx="6" fill="#102A43"/><text x="210" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">submitted</text>
+        <line x1="260" y1="190" x2="295" y2="190" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <rect x="300" y="170" width="100" height="40" rx="6" fill="#102A43"/><text x="350" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">verifying</text>
+        <line x1="400" y1="190" x2="435" y2="190" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <rect x="440" y="170" width="100" height="40" rx="6" fill="#102A43"/><text x="490" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">verified</text>
+        <line x1="540" y1="190" x2="575" y2="190" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <rect x="580" y="170" width="100" height="40" rx="6" fill="#102A43"/><text x="630" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">ruling</text>
+        <line x1="680" y1="190" x2="715" y2="190" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <rect x="720" y="170" width="100" height="40" rx="6" fill="#0D7C4B"/><text x="770" y="195" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">resolved</text>
+        <rect x="350" y="60" width="100" height="40" rx="6" fill="#F59E0B"/><text x="400" y="85" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">disputed</text>
+        <line x1="350" y1="190" x2="350" y2="105" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <line x1="450" y1="85" x2="575" y2="185" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <rect x="200" y="280" width="100" height="40" rx="6" fill="#E84A4A"/><text x="250" y="305" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">rejected</text>
+        <line x1="210" y1="210" x2="210" y2="275" stroke="#667085" stroke-width="1.5" marker-end="url(#sa)"/>
+        <rect x="380" y="350" width="100" height="40" rx="6" fill="#667085"/><text x="430" y="375" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">closed</text>
+        <line x1="70" y1="210" x2="310" y2="390" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="250" y1="320" x2="340" y2="370" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="350" y1="210" x2="360" y2="365" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="490" y1="210" x2="440" y2="365" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="630" y1="210" x2="500" y2="370" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <line x1="770" y1="210" x2="520" y2="370" stroke="#667085" stroke-width="1" stroke-dasharray="5,4"/>
+        <text x="25" y="25" font-size="10" fill="#667085">→ 主链路  ··· 分支  · 绿色=终态  · 橙色=争议  · 红色=驳回  · 灰色=关闭</text>
+      </svg>
+    </div>
+    <table>
+      <tr><th>当前状态</th><th>允许跳转</th></tr>
+      <tr><td><code>created</code></td><td>→ submitted, closed</td></tr>
+      <tr><td><code>submitted</code></td><td>→ verifying, rejected, closed</td></tr>
+      <tr><td><code>verifying</code></td><td>→ verified, disputed, closed</td></tr>
+      <tr><td><code>verified</code></td><td>→ ruling, closed</td></tr>
+      <tr><td><code>disputed</code></td><td>→ ruling, closed</td></tr>
+      <tr><td><code>ruling</code></td><td>→ resolved, closed</td></tr>
+      <tr><td><code>resolved</code></td><td>→ closed</td></tr>
+      <tr><td><code>rejected</code></td><td>→ closed</td></tr>
+      <tr><td><code>closed</code></td><td>—（终态）</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 四、三值模型 ============ -->
+<section>
+  <h2><span class="dot"></span>四、三值模型</h2>
+  <div class="card">
+    <p style="font-size:1.15rem;text-align:center;padding:14px;background:#F0EDE6;border-radius:6px;font-family:'SF Mono','Cascadia Code','Consolas',monospace;font-weight:700;">
+      社会总净值 = GzzA（共济值） + GzzB（贡献值） - GzzC（负贡献值）
+    </p>
+    <p style="text-align:center;font-size:0.85rem;color:var(--sub);">GzzB 和 GzzC 是贡献值 CV 净值的子集</p>
+    <table>
+      <tr><th>三值</th><th>含义</th><th>性质</th></tr>
+      <tr><td><strong>GzzA</strong></td><td>共济值</td><td>生存权·按需·非物·刚性保障</td></tr>
+      <tr><td><strong>GzzB</strong></td><td>贡献值</td><td>发展权·按劳·净值·动态信用</td></tr>
+      <tr><td><strong>GzzC</strong></td><td>负贡献值</td><td>追责·化债</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 五、五层架构 ============ -->
+<section>
+  <h2><span class="dot"></span>五、五层架构</h2>
+  <div class="card">
+    <table>
+      <tr><th>层</th><th>名称</th><th>定位</th><th>核心内容</th></tr>
+      <tr><td><strong>第0层</strong></td><td>寰宇光锥舟</td><td>愿景</td><td>为什么需要</td></tr>
+      <tr><td><strong>第1层</strong></td><td>共创论</td><td>理论</td><td>凭什么逻辑</td></tr>
+      <tr><td><strong>第2层</strong></td><td>数智社会工程学（原理）</td><td>框架</td><td>怎么设计系统</td></tr>
+      <tr><td><strong>第3层</strong></td><td>数智社会行为学</td><td>交互</td><td>Agent 零密钥、E1/E2/E3 分级、ρ 值计算、多 Agent 交叉验证、哈希链、R-1~R-6 终裁</td></tr>
+      <tr><td><strong>第4层</strong></td><td>数智社会工程实践学</td><td>落地</td><td>怎么跑 + 怎么迭代</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 六、证据分级 ============ -->
+<section>
+  <h2><span class="dot"></span>六、证据分级 E1/E2/E3</h2>
+  <div class="card">
+    <p>证据<strong>必须分级标注</strong>，混入等级 = 违约。</p>
+    <table>
+      <tr><th>等级</th><th>名称</th><th>定义</th><th>ρ 权重</th><th>典型来源</th><th>Agent 义务</th></tr>
+      <tr><td><strong>E1</strong></td><td>原发性</td><td>可直接复现、原始生成、无中介篡改</td><td>1.0</td><td>Agent 实时访问网页的原始文本；自主计算的哈希值</td><td>标注获取时间、方式、原始 URL；必须可让其他 Agent 复现</td></tr>
+      <tr><td><strong>E2</strong></td><td>转述性</td><td>第三方来源，可追踪但未直接验证原始出处</td><td>0.5</td><td>搜索引擎摘要；新闻报道；社交媒体</td><td>标注原始来源；声明"未直接验证原始出处"</td></tr>
+      <tr><td><strong>E3</strong></td><td>推测性</td><td>基于训练数据的推断，无外部 URL 或哈希验证</td><td>0.0</td><td>"根据我的知识…"；无具体来源的常识</td><td>明确声明为 E3；不得混入 E1/E2 区域；不计入 ρ</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 七、裁定层级 ============ -->
+<section>
+  <h2><span class="dot"></span>七、人类裁定层 R-1~R-6</h2>
+  <div class="card">
+    <p>Agent 产出<strong>不自我裁定</strong>。高利害裁决由人类保留层逐级裁定：</p>
+    <table>
+      <tr><th>层级</th><th>角色</th><th>职责</th></tr>
+      <tr><td><strong>R-1</strong></td><td>事实验证员</td><td>验证 E1/E2 证据真实性</td></tr>
+      <tr><td><strong>R-2</strong></td><td>领域专家</td><td>评估专业准确性</td></tr>
+      <tr><td><strong>R-3</strong></td><td>协议合规官</td><td>检查 MAIP 协议遵守情况</td></tr>
+      <tr><td><strong>R-4</strong></td><td>仲裁委员会</td><td>处理争议 claim</td></tr>
+      <tr><td><strong>R-5</strong></td><td>终裁官</td><td>最终裁定（白玺保留层）</td></tr>
+      <tr><td><strong>R-6</strong></td><td>紧急响应</td><td>安全事件、系统级决策</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 八、MAIP 协议 ============ -->
+<section>
+  <h2><span class="dot"></span>八、SXJ-MAIP-v0.2 投递协议</h2>
+
+  <div class="card">
+    <h3>五大红线</h3>
+    <ol style="margin-left:20px;color:var(--text);line-height:2.2;">
+      <li><strong>Agent 零密钥</strong>：Agent 不持有任何签名私钥或价值凭证</li>
+      <li><strong>ratify 永远为 pending</strong>：Agent 产出不自我裁定，等待人类 R-1~R-6 层 ratify</li>
+      <li><strong>不篡改他人产出</strong>：不修改、覆盖、删除其他 Agent 的 claim</li>
+      <li><strong>证据严格按 E1/E2/E3 分级</strong>：混入等级 = 违约</li>
+      <li><strong>不自主发起任务</strong>：只有收到明确任务简报后才执行</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h3>投递状态机</h3>
+    <div class="state-wrap">
+      <svg viewBox="0 0 760 180" role="img" aria-labelledby="delivery-title" style="max-width:760px;width:100%;height:auto;">
+        <title id="delivery-title">MAIP 投递状态机</title>
+        <desc>人类签发任务简报→Agent生成claim.json→POST到API→云端校验→落库存储→人类ratify</desc>
+        <defs><marker id="da" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#667085"/></marker></defs>
+        <rect x="10" y="65" width="120" height="40" rx="6" fill="#F59E0B"/><text x="70" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">人类签发任务</text>
+        <line x1="130" y1="85" x2="160" y2="85" stroke="#667085" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="165" y="65" width="130" height="40" rx="6" fill="#2978B5"/><text x="230" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">Agent生成claim</text>
+        <line x1="295" y1="85" x2="325" y2="85" stroke="#667085" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="330" y="65" width="120" height="40" rx="6" fill="#2978B5"/><text x="390" y="90" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">POST API</text>
+        <line x1="450" y1="85" x2="480" y2="85" stroke="#667085" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="485" y="55" width="100" height="30" rx="6" fill="#E84A4A"/><text x="535" y="75" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">校验失败</text>
+        <line x1="535" y1="55" x2="535" y2="25" stroke="#E84A4A" stroke-width="1"/>
+        <line x1="535" y1="25" x2="230" y2="25" stroke="#E84A4A" stroke-width="1" stroke-dasharray="5,3"/>
+        <line x1="230" y1="25" x2="230" y2="60" stroke="#E84A4A" stroke-width="1" marker-end="url(#da)"/>
+        <text x="380" y="18" text-anchor="middle" fill="#E84A4A" font-size="9">修正重投</text>
+        <rect x="485" y="95" width="100" height="40" rx="6" fill="#102A43"/><text x="535" y="120" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">落库存储</text>
+        <line x1="585" y1="115" x2="620" y2="115" stroke="#667085" stroke-width="1.5" marker-end="url(#da)"/>
+        <rect x="625" y="95" width="110" height="40" rx="6" fill="#0D7C4B"/><text x="680" y="120" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">ratified</text>
+        <text x="15" y="165" font-size="10" fill="#667085">SHA-256 哈希校验由 Worker 执行，失败返回 422。Agent 修正后重新投递。</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Claim 核心字段</h3>
+    <table>
+      <tr><th>字段</th><th>说明</th></tr>
+      <tr><td><code>protocol</code></td><td><code>"SXJ-MAIP-v0.2-draft"</code></td></tr>
+      <tr><td><code>claim_id</code></td><td>唯一标识</td></tr>
+      <tr><td><code>agent.gzz_code</code></td><td>Agent 的 Gzz-A 编码</td></tr>
+      <tr><td><code>coordinates</code></td><td>三元光锥空间站（x/y/z/j/t/ρ）</td></tr>
+      <tr><td><code>content.evidence[]</code></td><td>证据数组，每项含 level (E1/E2/E3)、value (URL)、timestamp</td></tr>
+      <tr><td><code>hash</code></td><td>SHA-256（对不含 hash.value 的整个 claim 序列化后计算）</td></tr>
+      <tr><td><code>ratify.status</code></td><td>永远为 <code>"pending"</code></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 九、递归兜底 ============ -->
+<section>
+  <h2><span class="dot"></span>九、递归兜底路由</h2>
+  <div class="card">
+    <p style="text-align:center;font-size:1.05rem;padding:12px;background:#F0EDE6;border-radius:6px;">
+      个人困境 → 地方银行不认 → 国家银行认 → 国家不认 → 别的国家/世界银行认 → 世界银行不认 → <strong>SXJ 公示墙全留痕</strong>
+    </p>
+    <p>每一层失效升级一层，永远有一层接住。编码路由：<code>Gzz-P → Gzz-G → Gzz-N → SXJ 公示墙</code>。正常路由不可用时，claim 直接投递到公示墙（<code>board.html</code>），标记 <code>route: fallback</code>。</p>
+  </div>
+</section>
+
+<!-- ============ 十、双节点部署 ============ -->
+<section>
+  <h2><span class="dot"></span>十、双节点部署架构</h2>
+
+  <div class="arch-wrap">
+    <svg viewBox="0 0 880 340" role="img" aria-labelledby="arch-title" style="max-width:880px;width:100%;height:auto;">
+      <title id="arch-title">事现鉴双节点部署架构</title>
+      <desc>本地 HYGZZ 桌面（PowerShell HttpListener :8787）与线上 Lighthouse 法兰克福（Python http.server :8787 + Nginx 反向代理）通过 Cloudflare CDN 对外服务，数据以 JSON 文件持久化存储</desc>
+      <defs><marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#667085"/></marker></defs>
+      <rect x="20" y="20" width="380" height="140" rx="6" fill="#fff" stroke="#E6E1D8" stroke-width="1.5"/>
+      <text x="40" y="48" font-size="13" font-weight="700" fill="#102A43">本地节点 · HYGZZ 桌面</text>
+      <rect x="50" y="65" width="130" height="40" rx="4" fill="#EBF4FA" stroke="#2978B5" stroke-width="1"/>
+      <text x="115" y="90" text-anchor="middle" font-size="11" fill="#2978B5" font-weight="600">board.html</text>
+      <rect x="240" y="65" width="130" height="40" rx="4" fill="#EBF4FA" stroke="#2978B5" stroke-width="1"/>
+      <text x="305" y="90" text-anchor="middle" font-size="11" fill="#2978B5" font-weight="600">PowerShell HTTP</text>
+      <text x="305" y="125" text-anchor="middle" font-size="10" fill="#667085">:8787</text>
+      <line x1="180" y1="85" x2="235" y2="85" stroke="#667085" stroke-width="1" marker-end="url(#arrow)"/>
+      <rect x="450" y="20" width="410" height="140" rx="6" fill="#fff" stroke="#E6E1D8" stroke-width="1.5"/>
+      <text x="470" y="48" font-size="13" font-weight="700" fill="#102A43">线上节点 · Lighthouse 法兰克福</text>
+      <rect x="480" y="65" width="100" height="40" rx="4" fill="#FFF7E5" stroke="#F59E0B" stroke-width="1"/>
+      <text x="530" y="90" text-anchor="middle" font-size="11" fill="#F59E0B" font-weight="600">Nginx</text>
+      <rect x="620" y="65" width="100" height="40" rx="4" fill="#EBF4FA" stroke="#2978B5" stroke-width="1"/>
+      <text x="670" y="90" text-anchor="middle" font-size="11" fill="#2978B5" font-weight="600">Python HTTP</text>
+      <text x="670" y="125" text-anchor="middle" font-size="10" fill="#667085">:8787</text>
+      <line x1="580" y1="85" x2="615" y2="85" stroke="#667085" stroke-width="1" marker-end="url(#arrow)"/>
+      <rect x="300" y="190" width="280" height="50" rx="6" fill="#fff" stroke="#E6E1D8" stroke-width="1.5"/>
+      <text x="440" y="210" text-anchor="middle" font-size="12" font-weight="600" fill="#102A43">🌐 Cloudflare DNS + CDN</text>
+      <text x="440" y="228" text-anchor="middle" font-size="10" fill="#667085">hygzz.cn → 43.131.35.57</text>
+      <line x1="210" y1="160" x2="380" y2="195" stroke="#667085" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="655" y1="160" x2="500" y2="195" stroke="#667085" stroke-width="1" stroke-dasharray="4,3"/>
+      <rect x="180" y="265" width="520" height="50" rx="6" fill="#102A43"/>
+      <text x="440" y="288" text-anchor="middle" font-size="12" fill="#fff" font-weight="600">JSON 数据持久化 · events.json / evidence/ / rulings.json</text>
+      <text x="440" y="305" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.5)">本地 B:\事现鉴\data\ 　|　 线上 /var/www/html/data/gzz-e/</text>
+      <line x1="115" y1="160" x2="300" y2="270" stroke="#667085" stroke-width="1" stroke-dasharray="4,3"/>
+      <line x1="670" y1="160" x2="580" y2="270" stroke="#667085" stroke-width="1" stroke-dasharray="4,3"/>
+    </svg>
+  </div>
+
+  <div class="card">
+    <h3>线上部署详情</h3>
+    <table>
+      <tr><th>项目</th><th>详情</th></tr>
+      <tr><td>实例</td><td><code>lhins-oc9amaq1</code> / 43.131.35.57 / 法兰克福</td></tr>
+      <tr><td>Web 服务器</td><td>Nginx（反向代理 /api/ → :8787）</td></tr>
+      <tr><td>后端</td><td>Python http.server（标准库，零依赖）</td></tr>
+      <tr><td>进程管理</td><td>systemd（gzz-e.service，enabled）</td></tr>
+      <tr><td>HTTPS</td><td>Cloudflare 边缘证书（Full 模式）</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>本地部署详情</h3>
+    <table>
+      <tr><th>项目</th><th>详情</th></tr>
+      <tr><td>设备</td><td>HYGZZ（Windows 10.0.19045）</td></tr>
+      <tr><td>运行时</td><td>PowerShell 5.1（System.Net.HttpListener）</td></tr>
+      <tr><td>数据存储</td><td>B:\事现鉴\data\（JSON 文件）</td></tr>
+      <tr><td>启动方式</td><td>手动在 PowerShell ISE 中运行</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 十一、API 端点 ============ -->
+<section>
+  <h2><span class="dot"></span>十一、API 端点（gzz-e-server 源码）</h2>
+  <div class="card">
+    <h3>事件码</h3>
+    <table>
+      <tr><th>方法</th><th>端点</th><th>功能</th></tr>
+      <tr><td><code>GET</code></td><td><code>/api/events</code></td><td>事件列表（?category=&subcategory=&status=&search=）</td></tr>
+      <tr><td><code>POST</code></td><td><code>/api/events</code></td><td>创建事件码（自动生成 Gzz-E 编码和序号）</td></tr>
+      <tr><td><code>GET</code></td><td><code>/api/events/{code}</code></td><td>事件详情（按事件码查询）</td></tr>
+      <tr><td><code>PUT</code></td><td><code>/api/events/{code}</code></td><td>更新事件（含状态流转校验）</td></tr>
+      <tr><td><code>DELETE</code></td><td><code>/api/events/{code}</code></td><td>删除事件（含关联证据清理）</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>证据</h3>
+    <table>
+      <tr><th>方法</th><th>端点</th><th>功能</th></tr>
+      <tr><td><code>GET</code></td><td><code>/api/evidence</code></td><td>证据列表（?eventCode=）</td></tr>
+      <tr><td><code>POST</code></td><td><code>/api/evidence</code></td><td>挂载证据（level/type/source/hash）</td></tr>
+      <tr><td><code>GET</code></td><td><code>/api/evidence/{id}</code></td><td>单个证据详情</td></tr>
+      <tr><td><code>DELETE</code></td><td><code>/api/evidence/{id}</code></td><td>删除证据</td></tr>
+    </table>
+  </div>
+  <div class="card">
+    <h3>裁定</h3>
+    <table>
+      <tr><th>方法</th><th>端点</th><th>功能</th></tr>
+      <tr><td><code>GET</code></td><td><code>/api/rulings</code></td><td>裁定列表（?eventCode=）</td></tr>
+      <tr><td><code>POST</code></td><td><code>/api/rulings</code></td><td>发起裁定（level/decision/reasoning）</td></tr>
+    </table>
+    <p style="margin-top:12px;font-size:0.9rem;color:var(--sub);">裁定决策：<code>upheld</code> → 事件状态自动变为 <code>resolved</code>；<code>rejected</code> → <code>rejected</code></p>
+  </div>
+  <div class="card">
+    <h3>统计</h3>
+    <table>
+      <tr><th>方法</th><th>端点</th><th>功能</th></tr>
+      <tr><td><code>GET</code></td><td><code>/api/stats</code></td><td>返回 totalEvents / totalRulings / totalEvidence</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 十二、文件清单 ============ -->
+<section>
+  <h2><span class="dot"></span>十二、文件清单</h2>
+  <div class="card">
+    <h3>本地（B:\事现鉴\）</h3>
+    <ul class="file-list">
+      <li><span class="path">gzz-e-server.ps1</span><span class="note">PowerShell 主服务端（267行）</span></li>
+      <li><span class="path">sxj-local\board.html</span><span class="note">事件码管理前端（API → localhost:8787）</span></li>
+      <li><span class="path">data\events.json</span><span class="note">事件数据</span></li>
+      <li><span class="path">data\evidence\</span><span class="note">证据文件目录（每个证据一个 .json）</span></li>
+      <li><span class="path">data\rulings.json</span><span class="note">裁定数据</span></li>
+      <li><span class="path">工程实现\Gzz编码体系参考_最终版_20260822.md</span><span class="note">编码体系权威文档</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>线上（/var/www/html/）</h3>
+    <ul class="file-list">
+      <li><span class="path">board.html</span><span class="note">公示墙前端（API → /api）</span></li>
+      <li><span class="path">gzz-e-server.py</span><span class="note">Python 后端</span></li>
+      <li><span class="path">data/gzz-e/events.json</span><span class="note">事件数据</span></li>
+      <li><span class="path">data/gzz-e/evidence/</span><span class="note">证据文件目录</span></li>
+      <li><span class="path">data/gzz-e/rulings.json</span><span class="note">裁定数据</span></li>
+      <li><span class="path">/etc/nginx/sites-available/hygzz.cn</span><span class="note">Nginx 配置</span></li>
+      <li><span class="path">/etc/systemd/system/gzz-e.service</span><span class="note">systemd 服务</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 十三、运行状态 ============ -->
+<section>
+  <h2><span class="dot"></span>十三、当前运行状态</h2>
+  <div class="card">
+    <table>
+      <tr><th>组件</th><th>位置</th><th>状态</th></tr>
+      <tr><td>本地后端</td><td>HYGZZ :8787</td><td><span class="status-ok">✓ LISTENING</span></td></tr>
+      <tr><td>本地前端</td><td>B:\事现鉴\sxj-local\</td><td><span class="status-ok">✓ 就绪</span></td></tr>
+      <tr><td>线上后端</td><td>43.131.35.57 :8787</td><td><span class="status-ok">✓ active</span></td></tr>
+      <tr><td>线上前端</td><td>hygzz.cn/board.html</td><td><span class="status-ok">✓ 200 OK</span></td></tr>
+      <tr><td>Nginx 代理</td><td>线上 /api/</td><td><span class="status-ok">✓ 正常</span></td></tr>
+      <tr><td>全链路功能测试</td><td>hygzz.cn</td><td><span class="status-warn">○ 待测试</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 十四、下一步 ============ -->
+<section>
+  <h2><span class="dot"></span>十四、下一步行动</h2>
+  <div class="card">
+    <ol style="margin-left:20px;color:var(--text);line-height:2;">
+      <li><strong>全链路功能测试</strong>：hygzz.cn/board.html 创建首个事件码，走通 创建→挂E1证据→R-1裁定→状态流转→JSON落盘</li>
+      <li><strong>本地开机自启</strong>：HYGZZ PowerShell 服务配置 Windows 任务计划或 NSSM</li>
+      <li><strong>日志监控</strong>：线上 gzz-e.service 日志轮转 + 健康检查</li>
+      <li><strong>数据备份</strong>：定期备份 /var/www/html/data/gzz-e/</li>
+    </ol>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  事现鉴（hygzz.cn）· 工程实施报告 · 2026-08-23<br>
+  报告生成：砺（验证执行官） · 依据 Gzz编码体系参考_最终版_20260822 + gzz-e-server.ps1 源码
+</footer>
+
+<script src="/cv_widget.js" defer></script></body>
+</html>

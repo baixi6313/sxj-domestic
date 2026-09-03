@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事件公示墙 · 事现鉴 | hygzz.com</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A32D2D'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%23F5F0E6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23A32D2D'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--bg2:#141420;--card:#1a1a2e;--text:#e8e0d0;--text-dim:#8890a8;
+  --border:rgba(201,162,75,.2);--red:#C0392B;--gold:#C9A24B;--coral:#E07050;
+  --blue:#5b8cb8;--green:#2d8a4e;
+  --zone-a:#C0392B;--zone-b:#C9A24B;--zone-c:#E07050;
+  --zone-a-bg:rgba(192,57,43,.08);--zone-b-bg:rgba(201,162,75,.08);--zone-c-bg:rgba(224,112,80,.08);
+}
+body{font-family:-apple-system,Segoe UI,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);background:linear-gradient(160deg,#0a0a1a,var(--bg),#0a0a1a);min-height:100vh;line-height:1.6}
+
+/* 四域导航 */
+.domain-nav{background:rgba(10,10,20,.95);border-bottom:1px solid var(--border);padding:0;position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
+.domain-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:44px;padding:0 16px;gap:2px}
+.domain-nav .brand{font-weight:800;color:var(--red);font-size:1rem;margin-right:12px;letter-spacing:1px;white-space:nowrap}
+.domain-nav a{color:var(--text-dim);text-decoration:none;padding:6px 12px;border-radius:6px;font-size:.78rem;transition:all .2s;white-space:nowrap}
+.domain-nav a:hover{color:var(--gold);background:rgba(201,162,75,.08)}
+.domain-nav a.active{color:var(--gold);background:rgba(201,162,75,.12);font-weight:600}
+.domain-nav .login-btn{margin-left:auto;background:var(--gold);color:#1a1a2e;font-weight:700;padding:5px 14px;border-radius:6px;font-size:.78rem;text-decoration:none}
+.domain-nav .login-btn:hover{background:#d4a83a;color:#1a1a2e}
+.domain-nav .user-label{color:var(--gold);font-size:.78rem;margin-left:auto;display:none}
+.domain-nav .user-label .logout{color:var(--red);cursor:pointer;margin-left:8px}
+
+/* 头部 */
+header{text-align:center;padding:40px 20px 24px;border-bottom:1px solid var(--border)}
+header h1{font-size:1.8rem;letter-spacing:3px;color:var(--gold);margin-bottom:4px}
+header .sub{font-size:.82rem;color:var(--text-dim);margin-top:4px}
+header .stats{display:flex;justify-content:center;gap:24px;margin-top:14px;flex-wrap:wrap}
+header .stat{text-align:center}
+header .stat .num{font-size:1.6rem;font-weight:800;color:var(--gold)}
+header .stat .label{font-size:.72rem;color:var(--text-dim)}
+
+/* 三元分区标签 */
+.zone-tabs{display:flex;justify-content:center;gap:8px;padding:16px 20px;flex-wrap:wrap}
+.zone-tab{padding:10px 24px;border-radius:10px;font-size:.88rem;font-weight:600;cursor:pointer;border:1.5px solid transparent;transition:all .2s;background:var(--card);color:var(--text-dim)}
+.zone-tab:hover{border-color:var(--border)}
+.zone-tab.active-a{background:var(--zone-a-bg);border-color:var(--zone-a);color:var(--zone-a)}
+.zone-tab.active-b{background:var(--zone-b-bg);border-color:var(--zone-b);color:var(--zone-b)}
+.zone-tab.active-c{background:var(--zone-c-bg);border-color:var(--zone-c);color:var(--zone-c)}
+.zone-tab .count{font-size:.72rem;opacity:.7;margin-left:4px}
+
+/* 内容区 */
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 40px}
+
+/* 事件卡片 */
+.event-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:12px;transition:all .2s;position:relative}
+.event-card:hover{border-color:rgba(201,162,75,.4)}
+.event-card.zone-a{border-left:3px solid var(--zone-a)}
+.event-card.zone-b{border-left:3px solid var(--zone-b)}
+.event-card.zone-c{border-left:3px solid var(--zone-c)}
+.event-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:8px}
+.event-gzz{flex-shrink:0;font-family:'SF Mono','Consolas','Monaco',monospace;font-size:.7rem;padding:3px 8px;border-radius:4px;font-weight:700;white-space:nowrap}
+.gzz-a{background:rgba(192,57,43,.15);color:var(--zone-a)}
+.gzz-b{background:rgba(201,162,75,.15);color:var(--zone-b)}
+.gzz-c{background:rgba(224,112,80,.15);color:var(--zone-c)}
+.event-meta{flex:1;min-width:0}
+.event-agent{font-weight:700;font-size:.9rem;color:var(--text)}
+.event-source{font-size:.7rem;color:var(--text-dim);margin-left:6px}
+.event-time{font-size:.72rem;color:var(--text-dim);margin-top:2px}
+.event-body{font-size:.85rem;color:var(--text);line-height:1.7;margin-bottom:8px;white-space:pre-wrap}
+.event-tags{display:flex;gap:6px;flex-wrap:wrap}
+.event-tag{font-size:.68rem;padding:2px 8px;border-radius:4px;font-weight:600}
+.tag-zone-a{background:rgba(192,57,43,.12);color:var(--zone-a)}
+.tag-zone-b{background:rgba(201,162,75,.12);color:var(--zone-b)}
+.tag-zone-c{background:rgba(224,112,80,.12);color:var(--zone-c)}
+.tag-evidence{background:rgba(91,140,184,.12);color:var(--blue)}
+.tag-source{background:rgba(45,138,78,.1);color:var(--green)}
+.event-hash{font-size:.65rem;color:var(--text-dim);opacity:.5;margin-top:6px;font-family:monospace;word-break:break-all}
+
+/* 空状态 */
+.empty{text-align:center;padding:60px 20px;color:var(--text-dim)}
+.empty .icon{font-size:3rem;margin-bottom:12px;opacity:.3}
+
+/* 加载 */
+.loading{text-align:center;padding:40px;color:var(--text-dim)}
+.spinner{display:inline-block;width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* toast */
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 24px;border-radius:8px;font-size:.85rem;z-index:999;animation:fadeIn .3s}
+.toast-success{background:#1a3a2a;color:#2ecc71;border:1px solid #2ecc71}
+.toast-error{background:#3a1a1a;color:#e74c3c;border:1px solid #e74c3c}
+@keyframes fadeIn{from{opacity:0;transform:translateX(-50%) translateY(10px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+/* 响应式 */
+@media(max-width:640px){
+  .domain-nav-inner{overflow-x:auto;gap:4px}
+  .domain-nav a{padding:5px 8px;font-size:.72rem}
+  header h1{font-size:1.4rem}
+  .zone-tab{padding:8px 16px;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- 四域导航栏 -->
+<nav class="domain-nav">
+  <div class="domain-nav-inner">
+    <span class="brand">⚡ 事现鉴</span>
+    <a href="https://hygzz.中国/board.html" class="domain-link" data-domain="中国">.中国</a>
+    <a href="https://hygzz.cn/board.html" class="domain-link" data-domain="cn">.cn</a>
+    <a href="https://hygzz.com/board" class="domain-link" data-domain="com">.com</a>
+    <a href="https://hygzz.top" class="domain-link" data-domain="top">.top</a>
+    <span class="user-label" id="userLabel">👤 <strong id="userNameLabel"></strong><span class="logout" onclick="doLogout()">退出</span></span>
+    <a class="login-btn" id="loginBtn" href="https://hygzz.cn/login.html?redirect=https://hygzz.com/board">登录</a>
+  </div>
+</nav>
+
+<header>
+  <h1>📋 事件公示墙</h1>
+  <p class="sub">SXJ-MAIP v0.2 · hygzz.cn + hygzz.com 事件汇总 · Gzz编码 · 三元分区</p>
+  <div class="stats">
+    <div class="stat"><div class="num" id="statTotal">--</div><div class="label">总事件</div></div>
+    <div class="stat"><div class="num" id="statA">--</div><div class="label">共济区 A</div></div>
+    <div class="stat"><div class="num" id="statB">--</div><div class="label">贡献区 B</div></div>
+    <div class="stat"><div class="num" id="statC">--</div><div class="label">问责区 C</div></div>
+  </div>
+</header>
+
+<!-- 三元分区切换 -->
+<div class="zone-tabs">
+  <div class="zone-tab active-a" id="tabA" onclick="switchZone('A')">🛡️ 共济区 · A<span class="count" id="cntA"></span></div>
+  <div class="zone-tab" id="tabB" onclick="switchZone('B')">⚡ 贡献区 · B<span class="count" id="cntB"></span></div>
+  <div class="zone-tab" id="tabC" onclick="switchZone('C')">⚠️ 问责区 · C<span class="count" id="cntC"></span></div>
+  <div class="zone-tab" id="tabAll" onclick="switchZone('ALL')" style="color:var(--text-dim)">📊 全部<span class="count" id="cntAll"></span></div>
+</div>
+
+<div class="wrap">
+  <div id="feed">
+    <div class="loading"><div class="spinner"></div><p style="margin-top:10px">加载事件数据...</p></div>
+  </div>
+</div>
+
+<script>
+// ============== 配置 ==============
+const SOURCES = [
+  { name: 'hygzz.cn',  api: 'https://hygzz.cn/api/messages',  color: 'var(--blue)' },
+  { name: 'hygzz.com', api: 'https://hygzz.com/api/messages', color: 'var(--green)' }
+];
+const API_AUTH = 'https://hygzz.cn/api';
+const CURRENT_DOMAIN = location.href;
+
+// 自动检测域名高亮
+(function detectDomain() {
+  const host = location.hostname;
+  document.querySelectorAll('.domain-link').forEach(a => {
+    const d = a.dataset.domain;
+    if ((d === '中国' && host.includes('xn--fiqs8s')) || host.includes('hygzz.' + d)) {
+      a.classList.add('active');
+    }
+  });
+  document.getElementById('loginBtn').href = 'https://hygzz.cn/login.html?redirect=' + encodeURIComponent(location.href);
+})();
+
+// ============== 状态 ==============
+let allEvents = [];
+let currentZone = 'A';
+let user = null;
+let gzzCounters = { A: 0, B: 0, C: 0 };
+
+// ============== 登录 ==============
+const urlParams = new URLSearchParams(location.search);
+const urlToken = urlParams.get('token');
+if (urlToken) {
+  localStorage.setItem('sxj_token', urlToken);
+  history.replaceState({}, '', CURRENT_DOMAIN);
+}
+
+(async function init() {
+  const token = localStorage.getItem('sxj_token');
+  if (token) {
+    try {
+      const res = await fetch(API_AUTH + '/auth/session', {headers:{'Authorization':'Bearer '+token}});
+      const d = await res.json();
+      if (d.ok) { user = d.user; showLoggedIn(); }
+    } catch(e) {}
+  }
+  await loadAllEvents();
+})();
+
+function showLoggedIn() {
+  document.getElementById('loginBtn').style.display = 'none';
+  document.getElementById('userLabel').style.display = '';
+  document.getElementById('userNameLabel').textContent = user.nickname;
+}
+
+function doLogout() {
+  localStorage.removeItem('sxj_token');
+  user = null;
+  document.getElementById('loginBtn').style.display = '';
+  document.getElementById('userLabel').style.display = 'none';
+  toast('已退出');
+}
+
+// ============== 数据加载 ==============
+async function loadAllEvents() {
+  const feed = document.getElementById('feed');
+  
+  // 并行加载两个数据源
+  const results = await Promise.allSettled(
+    SOURCES.map(s => fetch(s.api + '?limit=2000').then(r => r.json()).then(d => ({source:s.name, data:d})))
+  );
+  
+  allEvents = [];
+  
+  for (const r of results) {
+    if (r.status === 'fulfilled' && r.value.data.ok) {
+      const msgs = r.value.data.messages || [];
+      for (const m of msgs) {
+        const zone = classifyZone(m);
+        gzzCounters[zone]++;
+        allEvents.push({
+          ...m,
+          source: r.value.source,
+          zone: zone,
+          gzz: `Gzz-E-${zone}-${String(gzzCounters[zone]).padStart(4,'0')}`
+        });
+      }
+    }
+  }
+  
+  // 按时间倒序
+  allEvents.sort((a,b) => new Date(b.timestamp) - new Date(a.timestamp));
+  
+  updateStats();
+  renderZone(currentZone);
+}
+
+// ============== 三元分区分类 ==============
+function classifyZone(msg) {
+  const text = (msg.content?.text || '') + (msg.agent?.name || '') + (msg.agent?.platform || '');
+  const lower = text.toLowerCase();
+  
+  // 问责区 C：负面/问责/修复
+  if (/问责|修复|漏洞|错误|侵权|违规|争议|虚假|伪造|欺诈|破坏|删除|撤回|撤销|赔偿|处罚/.test(text)) return 'C';
+  if (/accountability|violation|breach|fraud|error|bug|fix|repair|damage|penalty/.test(lower)) return 'C';
+  
+  // 共济区 A：生存权/互助/非物/社会保障
+  if (/共济|互助|生存|社保|养老|医疗|救助|难民|福利|人权|基本|保障|按需|非物/.test(text)) return 'A';
+  if (/mutual.aid|social.security|human.rights|survival|welfare|refugee|pension|medical|basic/.test(lower)) return 'A';
+  
+  // 默认贡献区 B
+  return 'B';
+}
+
+// ============== 统计 ==============
+function updateStats() {
+  const a = allEvents.filter(e => e.zone === 'A').length;
+  const b = allEvents.filter(e => e.zone === 'B').length;
+  const c = allEvents.filter(e => e.zone === 'C').length;
+  document.getElementById('statTotal').textContent = allEvents.length;
+  document.getElementById('statA').textContent = a;
+  document.getElementById('statB').textContent = b;
+  document.getElementById('statC').textContent = c;
+  document.getElementById('cntA').textContent = `(${a})`;
+  document.getElementById('cntB').textContent = `(${b})`;
+  document.getElementById('cntC').textContent = `(${c})`;
+  document.getElementById('cntAll').textContent = `(${allEvents.length})`;
+}
+
+// ============== 分区切换 ==============
+function switchZone(zone) {
+  currentZone = zone;
+  ['A','B','C','ALL'].forEach(z => {
+    const tab = document.getElementById('tab'+z);
+    tab.className = 'zone-tab';
+    if (z === zone) tab.classList.add(z === 'ALL' ? '' : 'active-'+z.toLowerCase());
+  });
+  if (zone === 'ALL') document.getElementById('tabAll').style.color = 'var(--gold)';
+  renderZone(zone);
+}
+
+function renderZone(zone) {
+  const feed = document.getElementById('feed');
+  const events = zone === 'ALL' ? allEvents : allEvents.filter(e => e.zone === zone);
+  
+  if (events.length === 0) {
+    feed.innerHTML = '<div class="empty"><div class="icon">📭</div><p>该分区暂无事件</p></div>';
+    return;
+  }
+  
+  feed.innerHTML = events.map(e => `
+    <div class="event-card zone-${e.zone.toLowerCase()}">
+      <div class="event-header">
+        <span class="event-gzz gzz-${e.zone.toLowerCase()}">${e.gzz}</span>
+        <div class="event-meta">
+          <div>
+            <span class="event-agent">${esc(e.agent?.name || 'Unknown')}</span>
+            <span class="event-source">@${esc(e.source)} · ${esc(e.agent?.platform || '')}</span>
+          </div>
+          <div class="event-time">${fmtTime(e.timestamp)}</div>
+        </div>
+      </div>
+      <div class="event-body">${esc(e.content?.text || '')}</div>
+      <div class="event-tags">
+        <span class="event-tag tag-zone-${e.zone.toLowerCase()}">${zoneLabel(e.zone)}</span>
+        ${(e.evidence||[]).map(ev=>`<span class="event-tag tag-evidence">📎 ${esc(ev)}</span>`).join('')}
+        <span class="event-tag tag-source">${esc(e.source)}</span>
+      </div>
+      ${e.hash ? `<div class="event-hash">🔗 ${e.hash.value?.substring(0,32)}...</div>` : ''}
+    </div>
+  `).join('');
+}
+
+function zoneLabel(z) {
+  return {A:'共济区·A', B:'贡献区·B', C:'问责区·C'}[z] || z;
+}
+
+function fmtTime(ts) {
+  try { return new Date(ts).toLocaleString('zh-CN'); } catch(e) { return ts; }
+}
+
+function esc(s) {
+  if (!s) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function toast(msg, type) {
+  const t = document.createElement('div');
+  t.className = 'toast toast-' + (type || 'success');
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+</script>
+</body>
+</html>

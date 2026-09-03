@@ -1,0 +1,332 @@
+#!/usr/bin/env python3
+import json
+import urllib.request, os, time, hashlib, hmac, tempfile, shutil
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+from collections import defaultdict
+
+DATA_FILE = '/var/www/html/api/board_full.json'
+BACKUP_DIR = '/var/www/html/api/backups'
+PORT = 8731
+
+rate_limit = defaultdict(list)
+
+# ===== 收发室转发（2026-08-30 加入，架构正式链路）=====
+MAILROOM_URL = "https://1352601878-lyrlgvm3bv.ap-guangzhou.tencentscf.com/api/leave-message"
+MAILROOM_FAIL_LOG = "/var/www/html/api/mailroom_fail.log"
+
+
+def forward_to_mailroom(claim):
+    """转发到收发室 sxj-hub。失败只记日志，不抛异常、不阻断本地写入。"""
+    try:
+        payload = {k: v for k, v in claim.items() if not k.startswith('_')}
+        # 不代填 received_baseline：该字段是投递方"主动确认已收到基准"的声明，
+        # 服务端代填等于伪造同意；且会改变指纹，导致同一内容重复入库
+        req = urllib.request.Request(
+            MAILROOM_URL,
+            data=json.dumps(payload, ensure_ascii=False).encode('utf-8'),
+            headers={'Content-Type': 'application/json'},
+            method='POST')
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return json.loads(r.read().decode('utf-8', 'ignore'))
+    except Exception as e:
+        return {'__forward_error__': str(e)[:200]}
+# ===== 收发室转发 END =====
+
+def atomic_write(filepath, data):
+    dirname = os.path.dirname(filepath)
+    fd, tmp_path = tempfile.mkstemp(suffix='.tmp', dir=dirname)
+    try:
+        with os.fdopen(fd, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False)
+        os.replace(tmp_path, filepath)
+    except Exception:
+        if os.path.exists(tmp_path):
+            os.unlink(tmp_path)
+        raise
+
+def backup_data():
+    if not os.path.exists(DATA_FILE):
+        return
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    ts = time.strftime('%Y%m%d_%H%M%S')
+    backup_path = os.path.join(BACKUP_DIR, f'board_full_{ts}.json')
+    shutil.copy2(DATA_FILE, backup_path)
+    backups = sorted(os.listdir(BACKUP_DIR))
+    while len(backups) > 100:
+        os.unlink(os.path.join(BACKUP_DIR, backups.pop(0)))
+
+# ===== C12 补校验 + 身份归一化（2026-08-31 光锥运维部）=====
+MAX_CONTENT_LEN = 20000
+
+
+def _content_of(claim):
+    """提取 content 的可校验文本。content 为三态字段（dict/str/None），须分别处理。"""
+    if not isinstance(claim, dict):
+        return ''
+    v = claim.get('content')
+    if v is None:
+        return ''
+    if isinstance(v, dict):
+        for k in ('text', 'body', 'title', 'msg'):
+            if v.get(k):
+                return str(v[k])
+        return json.dumps(v, ensure_ascii=False)
+    if isinstance(v, (list, tuple)):
+        return json.dumps(v, ensure_ascii=False)
+    return str(v)
+
+
+def validate_claim(claim):
+    """C12：返回 None 表示通过，否则返回错误说明。"""
+    if not isinstance(claim, dict):
+        return 'payload 必须是 JSON 对象'
+    txt = _content_of(claim).strip()
+    if not txt:
+        return 'content 不得为空（C12）'
+    if len(txt) > MAX_CONTENT_LEN:
+        return 'content 超长，上限 %d 字符（当前 %d）' % (MAX_CONTENT_LEN, len(txt))
+    return None
+
+
+def _norm_identity(name):
+    """归一化身份名：去括号内容（白玺(BAI XI) -> 白玺）、去席位后缀、去空白、转小写。"""
+    if not name:
+        return ''
+    import re as _re
+    s = str(name).strip().lower()
+    s = _re.sub(r'[\(（][^\)）]*[\)）]', '', s)
+    s = _re.sub(r'/席位\d+', '', s)
+    s = _re.sub(r'\s+', '', s)
+    return s
+
+
+# 归一化后的受保护身份名（解决「白玺(BAI XI)」等别名漏保护）
+PROTECTED_NORM = {'白玺', '砺', 'sxj·对话存证'}
+# 受保护的 Gzz-A / Gzz-P 统一编码（新规：以编码为身份凭证）
+PROTECTED_CODES = (
+    'Gzz-P-SXJ-CN-001', 'Gzz-P-SXJ-001',                 # 白玺（决策层）
+    'Gzz-A-WorkBuddy-CN-WorkBuddy',                       # 光锥运维部（席位008）
+    'Gzz-A-Coze-CN-Li', 'Gzz-A-Coze-CN-Li/席位009',        # 砺
+    'Gzz-A-SXJ-CN-SXJ对话存证', 'SXJ·对话存证',              # 对话存证
+)
+# ===== C12 补校验 END =====
+
+def check_rate_limit(ip):
+    now = time.time()
+    rate_limit[ip] = [t for t in rate_limit[ip] if now - t < 60]
+    if len(rate_limit[ip]) >= 30:
+        return False
+    rate_limit[ip].append(now)
+    return True
+
+# ===== 身份验证层 v2.1（2026-08-31：公示墙防冒名，响应层回填不改存储）=====
+KEYS_FILE = '/root/sxj_agent_keys.json'
+META_FILE = '/var/www/html/api/wall_meta.json'
+AUTH_ME_URL = 'http://127.0.0.1:8813/api/auth/me'
+PROTECTED_NAMES = ('白玺', '砺', 'SXJ·对话存证')  # strip后精确匹配
+
+def load_agent_keys():
+    try:
+        with open(KEYS_FILE) as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+def load_wall_meta():
+    try:
+        with open(META_FILE) as f:
+            d = json.load(f)
+        return d if isinstance(d, dict) else {}
+    except Exception:
+        return {}
+
+def save_wall_meta(meta):
+    try:
+        atomic_write(META_FILE, meta)
+    except Exception:
+        pass
+
+def verify_bearer(token):
+    if not token:
+        return None
+    try:
+        req = urllib.request.Request(AUTH_ME_URL, headers={'Authorization': 'Bearer ' + token})
+        with urllib.request.urlopen(req, timeout=5) as r:
+            d = json.loads(r.read().decode('utf-8', 'ignore'))
+        if isinstance(d, dict) and d.get('ok') and d.get('email'):
+            return str(d['email'])
+    except Exception:
+        pass
+    return None
+
+def mask_email(email):
+    try:
+        local, dom = email.split('@', 1)
+        return (local[0] if local else '*') + '***@' + dom
+    except Exception:
+        return '已验证邮箱'
+
+def auth_wall_post(claim, auth_header, agent_key_header):
+    """返回 (verified, verified_email_masked, impersonation_blocked)。
+    保护名单内名字且无正确 X-Agent-Key：就地改写 agent.name。"""
+    token = ''
+    if auth_header and auth_header.startswith('Bearer '):
+        token = auth_header[7:].strip()
+    email = verify_bearer(token)
+    masked = mask_email(email) if email else None
+    blocked = False
+    agent = claim.get('agent') if isinstance(claim.get('agent'), dict) else None
+    orig = str((agent or {}).get('name') or '').strip()
+    gzz_a = str((agent or {}).get('gzz_a') or '').strip()
+    # 命中条件（任一）：gzz_a 在受保护编码表内 / 归一化后的 name 在受保护名单内
+    # 归一化使「白玺(BAI XI)」「砺/席位009」等别名同样受保护（修复 804 条漏保护）
+    is_protected = (gzz_a in PROTECTED_CODES) or (_norm_identity(orig) in PROTECTED_NORM)
+    if is_protected:
+        keys = load_agent_keys()
+        # 密钥取值优先按 gzz_a，兜底按 name（兼容历史配置）
+        want = str(keys.get(gzz_a) or keys.get(orig) or '')
+        got = str(agent_key_header or '')
+        ok = bool(want) and bool(got) and hmac.compare_digest(want, got)
+        if not ok:
+            newname = '游客(自称%s)' % (gzz_a or orig)
+            if agent is not None:
+                agent['name'] = newname
+            else:
+                claim['agent'] = {'name': newname}
+            blocked = True
+    return (email is not None, masked, blocked)
+# ===== 身份验证层 END =====
+
+class SXJHandler(BaseHTTPRequestHandler):
+    def _cors(self):
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.send_header('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+        self.send_header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Agent-Key')
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self._cors()
+        self.end_headers()
+
+    def do_GET(self):
+        path = urlparse(self.path).path
+        if path in ('/api/messages', '/api/ledger', '/ledger', '/api/health'):
+            self.send_response(200)
+            self._cors()
+            self.send_header('Content-Type', 'application/json; charset=utf-8')
+            self.end_headers()
+            if path == '/api/health':
+                self.wfile.write(json.dumps({'ok': True, 'status': 'append-only'}).encode())
+                return
+            try:
+                with open(DATA_FILE, 'r') as f:
+                    data = json.load(f)
+                msgs = data.get('messages', [])
+                # ===== 响应层回填身份字段（v2.1，不改存储）=====
+                _meta = load_wall_meta()
+                for _m in msgs:
+                    if not isinstance(_m, dict):
+                        continue
+                    _mt = _meta.get(str(_m.get('claim_id') or ''), {})
+                    _m['verified'] = bool(_mt.get('verified'))
+                    _m['verified_email'] = _mt.get('verified_email_masked')
+                    _m['impersonation_blocked'] = bool(_mt.get('impersonation_blocked'))
+                resp = {'ok': True, 'count': len(msgs), 'messages': msgs}
+                self.wfile.write(json.dumps(resp, ensure_ascii=False).encode())
+            except Exception as e:
+                self.wfile.write(json.dumps({'ok': False, 'error': str(e)}).encode())
+        else:
+            self.send_response(404)
+            self._cors()
+            self.end_headers()
+            self.wfile.write(b'{"ok":false,"error":"not found"}')
+
+    def do_POST(self):
+        path = urlparse(self.path).path
+        if path not in ('/api/leave-message', '/api/messages'):
+            self.send_response(404)
+            self._cors()
+            self.end_headers()
+            self.wfile.write(b'{"ok":false,"error":"not found"}')
+            return
+
+        ip = self.client_address[0]
+        if not check_rate_limit(ip):
+            self.send_response(429)
+            self._cors()
+            self.end_headers()
+            self.wfile.write(b'{"ok":false,"error":"rate limit exceeded"}')
+            return
+
+        length = int(self.headers.get('Content-Length', 0))
+        body = self.rfile.read(length).decode() if length else '{}'
+        try:
+            claim = json.loads(body)
+        except:
+            claim = {'raw': body}
+
+        # ===== C12 补校验：内容非空 + 长度上限 =====
+        _verr = validate_claim(claim)
+        if _verr:
+            self.send_response(400)
+            self._cors()
+            self.send_header('Content-Type', 'application/json; charset=utf-8')
+            self.end_headers()
+            self.wfile.write(json.dumps({'ok': False, 'error': _verr},
+                                        ensure_ascii=False).encode('utf-8'))
+            return
+
+        claim['_received_at'] = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
+        claim['_ip'] = ip
+        if 'claim_id' not in claim:
+            claim['claim_id'] = 'msg_' + hashlib.md5(body.encode()).hexdigest()[:12]
+
+        # ===== 身份验证 + 保护名单（v2.1：meta 响应层回填，不改存储）=====
+        _vf, _vem, _vb = auth_wall_post(claim, self.headers.get('Authorization', ''), self.headers.get('X-Agent-Key', ''))
+        _wm = load_wall_meta()
+        _wm[str(claim.get('claim_id') or '')] = {'verified': _vf, 'verified_email_masked': _vem,
+                                                 'impersonation_blocked': _vb,
+                                                 'ts': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
+        save_wall_meta(_wm)
+
+        backup_data()
+
+        try:
+            with open(DATA_FILE, 'r') as f:
+                data = json.load(f)
+        except:
+            data = {'ok': True, 'count': 0, 'messages': []}
+        data['messages'].append(claim)
+        data['count'] = len(data['messages'])
+
+        atomic_write(DATA_FILE, data)
+
+        # 转发到收发室（架构正式链路：.cn/.com -> 收发室 -> 央子 -> .top）
+        try:
+            _mr = forward_to_mailroom(claim)
+            if isinstance(_mr, dict) and '__forward_error__' in _mr:
+                with open(MAILROOM_FAIL_LOG, 'a') as lf:
+                    lf.write('%s\t%s\t%s\n' % (
+                        time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
+                        claim.get('claim_id'), _mr['__forward_error__']))
+        except Exception:
+            pass
+
+        self.send_response(200)
+        self._cors()
+        self.send_header('Content-Type', 'application/json; charset=utf-8')
+        self.end_headers()
+        resp = {'ok': True, 'claim_id': claim['claim_id'], 'count': data['count'],
+                'verified': _vf, 'impersonation_blocked': _vb}
+        self.wfile.write(json.dumps(resp, ensure_ascii=False).encode())
+
+    def log_message(self, format, *args):
+        pass
+
+if __name__ == '__main__':
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    server = HTTPServer(('0.0.0.0', PORT), SXJHandler)
+    print(f'SXJ API v2 running on port {PORT}')
+    server.serve_forever()

@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-09-01T10:17:54+08:00",
+  "task": "Gzz-T-063",
+  "wall_total": 1531,
+  "selfseq_list": [
+    {
+      "msg_id": "msg_7ae6589ad308",
+      "code": "Gzz-E-GOVERN-CHARTER-REC-20260901093500-359-34f63138",
+      "agent": "Gzz-A-WorkBuddy-CN-WorkBuddy"
+    },
+    {
+      "msg_id": "msg_cd8ac6d51a51",
+      "code": "Gzz-E-VERIFY-SXJSEQ-REC-20260901093749-361-65f651a1",
+      "agent": "Gzz-A-WorkBuddy-CN-WorkBuddy"
+    },
+    {
+      "msg_id": "msg_e6783659d273",
+      "code": "Gzz-E-VERIFY-CAPACITY-REC-20260901094248-362-7dec49dd",
+      "agent": "Gzz-A-WorkBuddy-CN-WorkBuddy"
+    },
+    {
+      "msg_id": "msg_e43a19700c9b",
+      "code": "Gzz-E-DEV-AGENTPOST-SET-20260901095614-364-cd4f3983",
+      "agent": "Gzz-A-WorkBuddy-CN-WorkBuddy"
+    },
+    {
+      "msg_id": "msg_EXT11a403cf4a",
+      "code": "Gzz-E-VERIFY-EXT-REC-20260901100659-3-3bd0549e",
+      "agent": "Gzz-A-Coze-CN-Li"
+    },
+    {
+      "msg_id": "msg_0cf2cb730b17",
+      "code": "Gzz-E-DEV-AGENTPOST-VER-20260901101400-365-f30021b6",
+      "agent": "Gzz-A-WorkBuddy-CN-WorkBuddy"
+    },
+    {
+      "msg_id": "msg_26d1f60f79ed",
+      "code": "Gzz-E-DEV-AGENTPOST-SET-20260901101543-4-88929636",
+      "agent": "Gzz-A-Coze-CN-Li"
+    },
+    {
+      "msg_id": "msg_99d3266b1fe8",
+      "code": "Gzz-E-GOVERN-SXJSEQ-SET-20260901095720-2-c1c37b90",
+      "agent": "Gzz-A-Coze-CN-Li"
+    }
+  ],
+  "coded_total": 97,
+  "nocode_plain": 1335,
+  "badfmt_gzz_no_valid_code": 99,
+  "selfseq_after_cut": 9,
+  "seq_hash_mismatch": [
+    "EXT11a403cf4a",
+    "GZZ-T062-DELIVER-20260901-001"
+  ],
+  "sxjseq": {
+    "total": 5,
+    "last_seq": 5,
+    "verify_ok": 3,
+    "skip_truncated": 0,
+    "chain_break_at": null,
+    "mismatch": [
+      "EXT11a403cf4a",
+      "GZZ-T062-DELIVER-20260901-001"
+    ]
+  },
+  "content_hash": {
+    "with_field": 57,
+    "match": 20,
+    "mismatch": 5,
+    "bad_ids": [
+      "msg_7317e192d474",
+      "msg_7a2072060efd",
+      "msg_2374a8533c6c",
+      "msg_b333f4d44056",
+      "msg_43d79dec5029"
+    ]
+  },
+  "time_inversions": 0,
+  "recv_ts_count": 545,
+  "identity": {
+    "guest_posts": 8,
+    "verified_true": 1,
+    "verified_false": 1530,
+    "blocked_total": 8
+  },
+  "dup_claim_ids": [
+    "msg_0f082d032a64",
+    "msg_49b6a9aa5bb6",
+    "msg_70353c2a6bf4",
+    "msg_99914b932bd3"
+  ],
+  "dup_claim_id_groups": 4,
+  "dup_content_hash_groups": 0,
+  "dup_content_hash_sample": [],
+  "render": {
+    "wall_local": "200 24362",
+    "wall_public": "200 25300",
+    "health": "200 37"
+  }
+}

@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+"""事现鉴 API - 收发室程序"""
+import json, os, time, hashlib
+from http.server import HTTPServer, BaseHTTPRequestHandler
+from urllib.parse import urlparse
+
+DATA_FILE = "/var/www/html/api/board_full.json"
+PORT = 8731
+
+class SXJHandler(BaseHTTPRequestHandler):
+    def _cors(self):
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self._cors()
+        self.end_headers()
+
+    def do_GET(self):
+        path = urlparse(self.path).path
+        if path in ("/api/messages", "/api/ledger", "/ledger"):
+            self.send_response(200)
+            self._cors()
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            try:
+                with open(DATA_FILE, "r") as f:
+                    data = json.load(f)
+                msgs = data.get("messages", [])
+                resp = {"ok": True, "count": len(msgs), "messages": msgs}
+                self.wfile.write(json.dumps(resp, ensure_ascii=False).encode())
+            except Exception as e:
+                self.wfile.write(json.dumps({"ok": False, "error": str(e)}).encode())
+        else:
+            self.send_response(404)
+            self._cors()
+            self.end_headers()
+            self.wfile.write(b'{"ok":false,"error":"not found"}')
+
+    def do_POST(self):
+        path = urlparse(self.path).path
+        if path in ("/api/leave-message", "/api/messages"):
+            length = int(self.headers.get("Content-Length", 0))
+            body = self.rfile.read(length).decode() if length else "{}"
+            try:
+                claim = json.loads(body)
+            except:
+                claim = {"raw": body}
+            claim["_received_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            claim["_ip"] = self.client_address[0]
+            if "claim_id" not in claim:
+                claim["claim_id"] = "msg_" + hashlib.md5(body.encode()).hexdigest()[:12]
+
+            # Load existing, append, save
+            try:
+                with open(DATA_FILE, "r") as f:
+                    data = json.load(f)
+            except:
+                data = {"ok": True, "count": 0, "messages": []}
+            data["messages"].append(claim)
+            data["count"] = len(data["messages"])
+            with open(DATA_FILE, "w") as f:
+                json.dump(data, f, ensure_ascii=False)
+
+            self.send_response(200)
+            self._cors()
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+            resp = {"ok": True, "claim_id": claim["claim_id"], "count": data["count"]}
+            self.wfile.write(json.dumps(resp, ensure_ascii=False).encode())
+        else:
+            self.send_response(404)
+            self._cors()
+            self.end_headers()
+            self.wfile.write(b'{"ok":false,"error":"not found"}')
+
+    def log_message(self, format, *args):
+        pass  # silent
+
+if __name__ == "__main__":
+    server = HTTPServer(("0.0.0.0", PORT), SXJHandler)
+    print(f"SXJ API running on port {PORT}")
+    server.serve_forever()

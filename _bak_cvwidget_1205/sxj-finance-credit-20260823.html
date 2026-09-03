@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事现鉴·金融信用编码 — 白玺模拟盘交易记录</title>
+<style>
+:root {
+  --bg: #F4F1EA;
+  --text: #111111;
+  --dark: #080808;
+  --muted: #6B665E;
+  --rule: #D8D1C4;
+  --accent: #8B0000;
+  --green: #1A5C2A;
+  --radius: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: Georgia, "Noto Serif SC", "Songti SC", "SimSun", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 2rem 3rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+.hero .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* Main */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+section { margin-bottom: 3.5rem; }
+section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--text);
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-size: 1.2rem;
+  margin: 1.8rem 0 0.8rem;
+  color: var(--accent);
+}
+
+p { margin-bottom: 1.1rem; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 700; }
+
+/* Lead */
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--dark);
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1.8rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid var(--text);
+  background: rgba(0,0,0,0.02);
+  font-style: italic;
+  color: var(--muted);
+}
+blockquote strong { color: var(--text); }
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  min-width: 500px;
+}
+thead th {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 2px solid var(--text);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+tbody td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: 2px solid var(--text); }
+tbody tr:hover { background: rgba(0,0,0,0.02); }
+
+/* Dark card */
+.dark-card {
+  background: var(--dark);
+  color: #E8E4D8;
+  padding: 1.8rem 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius);
+}
+.dark-card h3 { color: #E8E4D8; margin-top: 0; }
+.dark-card p { color: #B8B2A6; }
+.dark-card strong { color: #FFF; }
+
+/* Green card */
+.green-card {
+  background: var(--green);
+  color: #E8F0E8;
+  padding: 1.8rem 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius);
+}
+.green-card h3 { color: #FFF; margin-top: 0; }
+.green-card p { color: #C8DCC8; }
+.green-card strong { color: #FFF; }
+
+/* Big number */
+.big-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  padding: 1rem 0;
+  letter-spacing: 0.02em;
+}
+.big-number .label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3rem;
+}
+
+/* Number row */
+.num-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.num-row .num-item {
+  text-align: center;
+  min-width: 100px;
+}
+.num-row .num-val {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.num-row .num-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+/* Timeline */
+.timeline {
+  margin: 2rem 0;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--text);
+}
+.timeline-node {
+  position: relative;
+  padding-left: 2rem;
+  margin-bottom: 2rem;
+}
+.timeline-node:last-child { margin-bottom: 0; }
+.timeline-node::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: var(--text);
+  border-radius: 50%;
+}
+.timeline-node .tl-date {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.3rem;
+}
+.timeline-node .tl-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.3rem;
+}
+.timeline-node .tl-detail {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.tl-img {
+  margin: 1rem 0 0;
+  max-width: 320px;
+}
+.tl-img img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+}
+.tl-img figcaption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+/* Loss highlight */
+.loss { color: var(--accent); }
+.gain { color: var(--green); }
+
+/* Highlight */
+.highlight {
+  background: linear-gradient(180deg, transparent 60%, rgba(139,0,0,0.12) 60%);
+  padding: 0 0.15em;
+}
+
+/* Separator */
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Print */
+@media print {
+  body { font-size: 12pt; background: #fff; }
+  .hero { padding: 2rem 0 1rem; }
+  main { max-width: 100%; }
+  .dark-card { background: #f0f0f0; color: #111; }
+  .dark-card p { color: #333; }
+  .dark-card strong { color: #000; }
+  .green-card { background: #e8f0e8; color: #111; }
+  .green-card p { color: #333; }
+  .green-card strong { color: #000; }
+}
+
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  .hero { padding: 3rem 1rem 2rem; }
+  main { padding: 0 1rem 3rem; }
+  .dark-card, .green-card { padding: 1.2rem 1.2rem; }
+  table { font-size: 0.82rem; }
+  .big-number { font-size: 1.8rem; }
+  .num-row { gap: 1rem; }
+  .num-row .num-val { font-size: 1.2rem; }
+}
+
+/* ═══ 顶部导航（事现鉴统一） ═══ */
+.sxj-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e8e0d8;gap:12px}
+.sxj-nav .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:#1a1a2e;font-weight:700;font-size:1rem;letter-spacing:.5px;white-space:nowrap;flex-shrink:0}
+.sxj-nav .brand svg{flex-shrink:0}
+.sxj-nav .links{display:flex;gap:6px;font-size:.8rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.sxj-nav .links a{color:#555;padding:4px 10px;border-radius:6px;transition:all .2s;white-space:nowrap;text-decoration:none}
+.sxj-nav .links a:hover{color:#A32D2D;background:#fef0f0}
+</style>
+</head>
+<body>
+<nav class="sxj-nav">
+  <a href="/" class="brand">
+    <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </a>
+  <div class="links">
+    <a href="/">总览</a>
+    <a href="/events.html">事件簿</a>
+    <a href="/docs.html">文档中心</a>
+    <a href="/cv.html">CV验证</a>
+    <a href="/board.html">公示墙</a>
+  </div>
+</nav>
+
+
+<header class="hero">
+  <h1>金融信用的事现鉴编码</h1>
+  <p class="subtitle">白玺 · 方正中期期货模拟盘交易记录 · 2026年6月–8月</p>
+  <div class="meta">
+    数据来源：方正中期期货APP · 证券账户 · 2026年8月23日<br>
+    整理：砺（事现鉴验证执行官）
+  </div>
+</header>
+
+<main>
+  <p class="lead">事现鉴的核心逻辑是「事实定义权威」——你做过什么，就证明了你是谁。在金融领域，这句话有更精确的版本：<span class="highlight">不是「你有多少钱」，而是「你怎么从 693 万爬到 1243 万的」。</span>以下四张截图，构成一份完整的金融信用编码档案。</p>
+
+  <!-- 一 -->
+  <section>
+    <h2>一、核心命题：模拟盘为什么比实盘更纯粹</h2>
+
+    <p>实盘可以证明财力，但财力可能是继承的、借来的、或者运气好赌对的。模拟盘去掉了「钱是真的」这个变量，剩下的全是<strong>纯能力</strong>：选品种、判方向、管仓位、扛回撤。</p>
+
+    <div class="dark-card">
+      <h3>实盘 vs 模拟盘：事现鉴视角</h3>
+      <p><strong>实盘的问题：</strong>你怎么证明钱是你自己的？你怎么证明收益不是运气？你怎么排除杠杆放大效应？</p>
+      <p><strong>模拟盘的优势：</strong>钱是假的，但每一次决策是真的。胜率、收益率、回撤控制、仓位管理——这些指标不受本金大小影响，纯粹反映判断力。而且方正中期期货是持牌机构，数据有时效、有平台背书、有截图时间戳。</p>
+    </div>
+
+    <p>在事现鉴的编码体系里，<strong>资金属性是次要的，行为轨迹才是核心</strong>。模拟盘恰恰提供了最干净的行为轨迹——没有本金优势的干扰，没有运气成分的遮蔽。每一笔盈亏都是判断力的直接映射。</p>
+  </section>
+
+  <!-- 二 -->
+  <section>
+    <h2>二、完整交易轨迹：V 型反转</h2>
+
+    <p>2026 年 6 月至 8 月，方正中期期货模拟账户经历了一段教科书级的 V 型反转：从 6 月初约 1080 万权益，暴跌至 6 月下旬的 693 万（亏损 173 万，收益率 -23.69%），随后一路爬升，到 8 月中旬达到 1243 万（盈利 349 万，收益率 +24.34%）。</p>
+
+    <h3>2.1 关键节点数据</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>时间</th><th>权益（元）</th><th>平仓盈亏（元）</th><th>累计收益率</th><th>胜率</th><th>资金使用率</th><th>持仓</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>6月初</td>
+            <td>~10,800,000</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>6月24日</strong></td>
+            <td><strong class="loss">7,630,129</strong></td>
+            <td><strong class="loss">−1,739,860</strong></td>
+            <td><strong class="loss">−23.69%</strong></td>
+            <td>47.81%</td>
+            <td>97.93%</td>
+            <td>沪金2608 ×48手</td>
+          </tr>
+          <tr>
+            <td>7月初</td>
+            <td>~8,990,000</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>8月14日</strong></td>
+            <td><strong class="gain">12,434,236</strong></td>
+            <td><strong class="gain">+3,496,240</strong></td>
+            <td><strong class="gain">+24.34%</strong></td>
+            <td>60.19%</td>
+            <td>60.89%</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>8月18日</strong></td>
+            <td><strong class="gain">12,395,510</strong></td>
+            <td><strong class="gain">+3,656,410</strong></td>
+            <td><strong class="gain">+23.95%</strong></td>
+            <td>60.34%</td>
+            <td>99.99%</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2.2 证券账户（补充验证）</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>账户</th><th>总资产（元）</th><th>参考盈亏（元）</th><th>持仓盈亏（元）</th><th>融券盈亏（元）</th><th>主要持仓</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>证券账户</td>
+            <td><strong class="gain">12,119,559</strong></td>
+            <td><strong class="gain">+3,714,562</strong></td>
+            <td>+1,337,842</td>
+            <td>+2,376,720</td>
+            <td>医疗ETF、药明康德、德方纳米</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="num-row">
+      <div class="num-item">
+        <div class="num-val gain">2,450万+</div>
+        <div class="num-label">双账户合计权益</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val gain">730万+</div>
+        <div class="num-label">累计盈利</div>
+      </div>
+      <div class="num-item">
+        <div class="num-val">60.34%</div>
+        <div class="num-label">最终胜率</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 三 -->
+  <section>
+    <h2>三、Gzz-E 金融事件锚点编码</h2>
+
+    <p>四个截图节点，对应四个 Gzz-E 金融事件锚点。每个锚点包含完整的可验证数据：时间戳、权益、盈亏、收益率、胜率、资金使用率、持仓明细。串联起来，形成一段不可篡改的信用轨迹。</p>
+
+    <div class="timeline">
+      <div class="timeline-node">
+        <div class="tl-date">2026-06-24 · 00:53</div>
+        <div class="tl-title">Gzz-E-FIN-20260624 — 至暗时刻</div>
+        <div class="tl-detail">
+          权益 763 万 · 平仓盈亏 <span class="loss">−173 万</span> · 收益率 <span class="loss">−23.69%</span> · 胜率 47.81% · 资金使用率 97.93% · 持仓沪金2608×48手<br>
+          深夜截图。6月初从 1080 万跌至 693 万最低点，月末小幅回升至 763 万。这是整个信用链上最值钱的锚点——它证明了在最惨的时候，这个人还在看盘、记录、没有放弃。
+        </div>
+        <figure class="tl-img">
+          <img src="https://www.coze.cn/s/N5ZRZx3Zwvw/" alt="方正中期期货资产分析截图 - 2026年6月24日，权益763万，平仓盈亏-173万，收益率-23.69%" width="1170" height="2532" loading="lazy">
+          <figcaption>▲ 6月24日 · 至暗时刻：权益763万，亏损173万，胜率47.81%</figcaption>
+        </figure>
+      </div>
+
+      <div class="timeline-node">
+        <div class="tl-date">2026-08-14 · 15:57</div>
+        <div class="tl-title">Gzz-E-FIN-20260814 — 翻盘确认</div>
+        <div class="tl-detail">
+          权益 1243 万 · 平仓盈亏 <span class="gain">+349 万</span> · 收益率 <span class="gain">+24.34%</span> · 胜率 60.19% · 资金使用率 60.89%<br>
+          从 693 万到 1243 万，V 型反转完成。胜率从 47.81% 提升至 60.19%，资金使用率从 97.93% 降至 60.89%——说明仓位管理在改善。
+        </div>
+        <figure class="tl-img">
+          <img src="https://www.coze.cn/s/UsYZERG8GtE/" alt="方正中期期货资产分析截图 - 2026年8月14日，权益1243万，平仓盈亏+349万，收益率+24.34%" width="1170" height="2532" loading="lazy">
+          <figcaption>▲ 8月14日 · 翻盘确认：权益1243万，盈利349万，胜率60.19%</figcaption>
+        </figure>
+      </div>
+
+      <div class="timeline-node">
+        <div class="tl-date">2026-08-18 · 22:15</div>
+        <div class="tl-title">Gzz-E-FIN-20260818 — 高位运行</div>
+        <div class="tl-detail">
+          权益 1239 万 · 平仓盈亏 <span class="gain">+365 万</span> · 收益率 <span class="gain">+23.95%</span> · 胜率 60.34% · 资金使用率 99.99%<br>
+          权益维持高位，平仓盈亏继续扩大。资金使用率拉满到 99.99%，说明对当前头寸有极高信心。走势图显示从 7 月初约 899 万持续攀升至 8 月 18 日约 1256 万。
+        </div>
+        <figure class="tl-img">
+          <img src="https://www.coze.cn/s/XA_VIhFKGrA/" alt="方正中期期货资产分析截图 - 2026年8月18日，权益1239万，平仓盈亏+365万，收益率+23.95%" width="1170" height="2532" loading="lazy">
+          <figcaption>▲ 8月18日 · 高位运行：权益1239万，盈利365万，胜率60.34%，资金使用率99.99%</figcaption>
+        </figure>
+      </div>
+
+      <div class="timeline-node">
+        <div class="tl-date">2026-08-23 · 09:41</div>
+        <div class="tl-title">Gzz-E-SEC-20260823 — 证券账户交叉验证</div>
+        <div class="tl-detail">
+          总资产 1211 万 · 参考盈亏 <span class="gain">+371 万</span> · 持仓盈亏 +133 万 · 融券盈亏 +237 万<br>
+          独立于期货账户的另一个数据源。持仓：医疗ETF、药明康德、德方纳米。两个账户合计权益 2450 万+，累计盈利 730 万+。
+        </div>
+        <figure class="tl-img">
+          <img src="https://www.coze.cn/s/bi34LXZzdEo/" alt="证券账户资产明细截图 - 2026年8月23日，总资产1211万，参考盈亏+371万" width="1170" height="2532" loading="lazy">
+          <figcaption>▲ 证券账户 · 交叉验证：总资产1211万，参考盈亏+371万，持仓医疗ETF/药明康德/德方纳米</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 四 -->
+  <section>
+    <h2>四、ρ 值：双账户交叉验证</h2>
+
+    <p>事现鉴的 ρ 值不由算法决定，而由验证节点数量决定。本案例中，<strong>两个独立金融机构的数据构成天然交叉验证</strong>：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>验证节点</th><th>数据内容</th><th>独立性</th><th>ρ 贡献</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>方正中期期货</td><td>期货账户权益、盈亏、胜率、持仓</td><td>持牌期货公司</td><td>+1</td></tr>
+          <tr><td>证券公司</td><td>证券账户总资产、参考盈亏、持仓明细</td><td>持牌券商</td><td>+1</td></tr>
+          <tr><td>截图时间戳</td><td>四张截图的时间戳互相印证时间线</td><td>系统级元数据</td><td>+0.5</td></tr>
+          <tr><td><strong>合计 ρ</strong></td><td colspan="2"></td><td><strong>2.5 / 3</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>如果再接入银行流水（银证转账记录），三个独立节点交叉，ρ 值可达到 3/3。届时，这段交易记录的信用密度将超过任何一份传统金融机构出具的资产证明——因为传统证明只是一个节点在说话，而事现鉴是多个节点在互相印证。</p>
+
+    <div class="green-card">
+      <h3>关键洞察：亏损锚点的 ρ 值不可伪造</h3>
+      <p>6 月 24 日那张亏损 173 万的截图，是整个信用链上 ρ 值最高的锚点。不是因为金额大，而是因为<strong>没有人会伪造自己的亏损记录</strong>。在传统金融信用评估中，亏损是减分项；在事现鉴中，被记录、被验证的亏损是加分项——它证明了数据的真实性和完整性。</p>
+    </div>
+  </section>
+
+  <!-- 五 -->
+  <section>
+    <h2>五、金融信用编码：事现鉴架构中的位置</h2>
+
+    <p>金融领域是事现鉴「数字先行」战略最成熟的试验田。金融交易本身就是数字化的——每一笔成交、每一次盈亏、每一个持仓，天然就是结构化数据，不需要额外搭建基建。</p>
+
+    <h3>5.1 编码映射</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>事现鉴编码层</th><th>金融对应</th><th>本案例实现</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Gzz-P</strong>（个人身份）</td><td>交易者身份</td><td>白玺 · 方正中期期货账户</td></tr>
+          <tr><td><strong>Gzz-E</strong>（事件锚点）</td><td>每个时间节点的账户快照</td><td>四个 Gzz-E-FIN/SEC 锚点</td></tr>
+          <tr><td><strong>Gzz-B</strong>（贡献值）</td><td>累计盈利 / 胜率 / 收益率</td><td>+730 万 · 60.34% · +24%</td></tr>
+          <tr><td><strong>Gzz-C</strong>（负贡献）</td><td>累计亏损 / 回撤</td><td>−173 万（6月）· 已化债</td></tr>
+          <tr><td><strong>ρ 值</strong></td><td>多机构交叉验证</td><td>期货 + 证券双节点 · ρ=2.5</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>5.2 三值模型在金融领域的应用</h3>
+
+    <div class="formula" style="font-size:1.05rem; padding:1.5rem 0; text-align:center; border:1px solid var(--rule); margin:1.5rem 0;">
+      <span style="font-size:0.8rem;display:block;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem;">金融信用净值</span>
+      金融信用净值 = GzzA（基础信用） + GzzB（盈利贡献） − GzzC（亏损记录）
+    </div>
+
+    <p>GzzA 是基础信用——只要参与市场、留下记录，就有基础信用值。GzzB 是盈利贡献——730 万的累计盈利直接转化为贡献值。GzzC 是 6 月的 173 万亏损——但已经被后续的盈利<strong>化债</strong>。这正是三值模型最精妙的设计：亏损不是永久污点，它可以通过后续的正向行为对冲。6 月亏 173 万、8 月赚 365 万，净贡献 +192 万——这才是完整的信用画像。</p>
+  </section>
+
+  <!-- 六 -->
+  <section>
+    <h2>六、与传统金融信用的对比</h2>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>传统金融信用</th><th>事现鉴金融信用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>证明方式</td><td>资产证明、收入流水、征信报告</td><td>交易事件锚点 + 时间线</td></tr>
+          <tr><td>验证主体</td><td>单一机构（银行/券商）</td><td>多机构交叉验证（ρ值）</td></tr>
+          <tr><td>亏损处理</td><td>减分项，影响信用评分</td><td>加分项——证明数据完整性</td></tr>
+          <tr><td>能力归属</td><td>无法区分本人能力 vs 继承/借贷</td><td>模拟盘天然排除非能力因素</td></tr>
+          <tr><td>可迁移性</td><td>跨机构、跨境难以互认</td><td>Gzz 编码天然跨主权</td></tr>
+          <tr><td>造假成本</td><td>PS 一份资产证明</td><td>需要伪造多机构数据 + 时间线一致性</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 结语 -->
+  <section>
+    <h2>结语</h2>
+
+    <p>这四张截图，从 6 月 24 日的深夜亏损到 8 月 18 日的满仓盈利，构成了一段完整的金融信用轨迹。传统金融只会告诉你「白玺的模拟账户权益是 1243 万」，但事现鉴告诉你的是：</p>
+
+    <blockquote>
+      <strong>「白玺在 2026 年 6–8 月，于方正中期期货模拟盘，完成了一段从 −23.69% 到 +24.34% 的 V 型反转。期间胜率从 47.81% 提升至 60.34%，回撤控制从 97.93% 仓位优化至 60.89%。证券账户同期盈利 371 万，双账户合计盈利 730 万+。数据由方正中期期货与证券公司双节点交叉验证，ρ=2.5。」</strong>
+    </blockquote>
+
+    <p>这句话里的每一个数字，都对应一个可验证的 Gzz 锚点。它不需要任何机构背书，不需要任何人说「我证明白玺是合格的交易者」——事实自己会说话。这就是事现鉴在金融领域要做的事：<span class="highlight">让交易记录成为最高级别的信用证明。</span></p>
+  </section>
+
+  <hr>
+
+  <footer>
+    <p>数据来源：方正中期期货APP · 证券公司APP · 白玺个人账户截图</p>
+    <p>相关：<a href="https://hygzz.cn/sxj-thought-system-20260823.html" target="_blank" rel="noopener noreferrer">事现鉴思想体系梳理</a> · <a href="https://hygzz.cn" target="_blank" rel="noopener noreferrer">hygzz.cn</a></p>
+    <p>整理：砺（事现鉴验证执行官）· 2026年8月23日</p>
+  </footer>
+</main>
+
+</body>
+</html>

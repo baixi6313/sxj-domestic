@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>砺 · 工作记录报告 · 2026-08-23</title>
+<style>
+:root {
+  --bg: #F8F6F0; --deep: #102A43; --blue: #2978B5; --amber: #F59E0B;
+  --red: #E84A4A; --green: #0D7C4B; --text: #1D2733; --sub: #667085;
+  --grid: #E6E1D8; --card: #FFFFFF; --r: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased}
+header{background:var(--deep);color:#fff;padding:48px 24px 40px;text-align:center}
+header .tag{display:inline-block;background:var(--amber);color:var(--deep);font-size:12px;font-weight:700;letter-spacing:.08em;padding:4px 12px;border-radius:3px;text-transform:uppercase;margin-bottom:16px}
+header h1{font-size:1.8rem;font-weight:700;margin-bottom:4px}
+header .sub{font-size:.95rem;color:rgba(255,255,255,.6)}
+.container{max-width:880px;margin:0 auto;padding:0 24px}
+section{margin:40px 0}
+section h2{font-size:1.2rem;font-weight:700;color:var(--deep);border-bottom:2px solid var(--grid);padding-bottom:8px;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+section h2 .dot{width:10px;height:10px;background:var(--amber);border-radius:50%;flex-shrink:0}
+section h3{font-size:1rem;font-weight:600;color:var(--deep);margin:18px 0 8px}
+p{margin-bottom:12px}
+.card{background:var(--card);border-radius:var(--r);padding:20px 24px;box-shadow:0 1px 4px rgba(16,42,67,.06);margin-bottom:16px}
+table{width:100%;border-collapse:collapse;font-size:.88rem;background:var(--card);border-radius:var(--r);overflow:hidden;box-shadow:0 1px 4px rgba(16,42,67,.06);margin-bottom:16px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--grid)}
+th{background:var(--deep);color:#fff;font-weight:600;font-size:.78rem;letter-spacing:.04em}
+tr:last-child td{border-bottom:none}
+td code,th code{font-family:"SF Mono","Cascadia Code","Consolas",monospace;font-size:.84em;background:#F0EDE6;padding:2px 6px;border-radius:3px;white-space:nowrap}
+th code{background:rgba(255,255,255,.15);color:#fff}
+pre{background:#1A2332;color:#C8D6E5;padding:16px 18px;border-radius:var(--r);overflow-x:auto;font-family:"SF Mono","Cascadia Code","Consolas",monospace;font-size:.8rem;line-height:1.6;margin:10px 0}
+ul,ol{margin-left:20px;margin-bottom:12px}
+li{margin-bottom:6px}
+.status-ok{color:var(--green);font-weight:600}
+.status-warn{color:var(--amber);font-weight:600}
+.status-err{color:var(--red);font-weight:600}
+.warn-box{background:#FFF8E7;border-left:4px solid var(--amber);padding:14px 18px;border-radius:0 var(--r) var(--r) 0;margin:16px 0;font-size:.88rem}
+.warn-box strong{color:#B85C00}
+.ver-box{background:#E8F5E9;border-left:4px solid var(--green);padding:14px 18px;border-radius:0 var(--r) var(--r) 0;margin:16px 0;font-size:.88rem}
+hr{border:none;border-top:1px solid var(--grid);margin:16px 0}
+footer{text-align:center;padding:40px 24px;color:var(--sub);font-size:.8rem;border-top:1px solid var(--grid);margin-top:40px}
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--grid)}
+.timeline-item{position:relative;margin-bottom:20px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue)}
+.timeline-item.fix::before{background:var(--amber)}
+.timeline-item.done::before{background:var(--green)}
+.timeline-time{font-size:.78rem;color:var(--sub);margin-bottom:2px}
+.kpi-row{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
+.kpi{flex:1 1 120px;background:var(--card);border-radius:var(--r);padding:16px;text-align:center;box-shadow:0 1px 4px rgba(16,42,67,.06);min-width:90px}
+.kpi .num{font-size:1.5rem;font-weight:700;color:var(--deep);font-family:"SF Mono","Cascadia Code","Consolas",monospace}
+.kpi .lbl{font-size:.75rem;color:var(--sub);margin-top:2px}
+.ref-link{color:var(--blue);text-decoration:none}
+.ref-link:hover{text-decoration:underline}
+@media print{body{background:#fff}.card,table{box-shadow:none;border:1px solid var(--grid)}pre{background:#f5f5f5;color:var(--text)}}
+@media(max-width:640px){header h1{font-size:1.4rem}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="tag">Agent Work Log</div>
+  <h1>砺 · 事现鉴工程实施工作记录</h1>
+  <div class="sub">2026年8月23日 · 向白玺汇报</div>
+</header>
+
+<main>
+<div class="container">
+
+<!-- ============ 摘要 ============ -->
+<section>
+  <h2><span class="dot"></span>摘要</h2>
+  <div class="card">
+    <p>本报告记录我在2026年8月23日对事现鉴（SXJ/hygzz.cn）项目执行的全部工程工作，包括：Gzz-E 事件码机制本地部署、Lighthouse 法兰克福线上部署、工程实施报告撰写与多轮修正。</p>
+    <p><strong>所有机制描述均以白玺逐条确认的《Gzz编码体系参考·最终版》（2026-08-22）和 <code>gzz-e-server.ps1</code> 源码（267行）为准。</strong></p>
+  </div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="num">2</div><div class="lbl">部署节点</div></div>
+    <div class="kpi"><div class="num">2</div><div class="lbl">服务端程序</div></div>
+    <div class="kpi"><div class="num">4</div><div class="lbl">报告迭代</div></div>
+    <div class="kpi"><div class="num">3</div><div class="lbl">关键错误修正</div></div>
+    <div class="kpi"><div class="num">14</div><div class="lbl">报告章节</div></div>
+  </div>
+</section>
+
+<!-- ============ 一、初始状态 ============ -->
+<section>
+  <h2><span class="dot"></span>一、接管时的状态</h2>
+  <div class="card">
+    <p>对话恢复时，已有以下基底（来自前序会话）：</p>
+    <ul>
+      <li><strong>本地 PowerShell 后端</strong>：<code>B:\事现鉴\gzz-e-server.ps1</code>（267行），端口8787，JSON文件存储</li>
+      <li><strong>本地前端</strong>：<code>B:\事现鉴\sxj-local\board.html</code>，API指向 <code>localhost:8787</code></li>
+      <li><strong>线上 Python 后端</strong>：<code>/var/www/html/gzz-e-server.py</code>，systemd（gzz-e.service）管理</li>
+      <li><strong>线上前端</strong>：<code>hygzz.cn/board.html</code>，Nginx 反向代理 <code>/api/</code> → <code>localhost:8787</code></li>
+      <li><strong>Cloudflare CDN</strong>：已配置，hygzz.cn 域名已绑定</li>
+    </ul>
+    <p>本地服务手动启动，HYGZZ 桌面 PowerShell ISE 中运行。线上服务通过 systemd 自动管理。</p>
+  </div>
+</section>
+
+<!-- ============ 二、工作阶段 ============ -->
+<section>
+  <h2><span class="dot"></span>二、工作过程</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item done">
+      <div class="timeline-time">13:25 — 环境验证</div>
+      <p>确认本地 <code>board.html</code> 第88行和第205行引用 <code>localhost:8787</code>（PowerShell Select-String），验证本地服务端口 8787 处于 LISTENING 状态。</p>
+    </div>
+
+    <div class="timeline-item done">
+      <div class="timeline-time">13:29 — 线上状态确认</div>
+      <p>SSH 到 Lighthouse 法兰克福节点（43.131.35.57），确认 <code>/api/stats</code> 返回正确 JSON（totalEvents:0），systemd active，数据目录存在。</p>
+    </div>
+
+    <div class="timeline-item done">
+      <div class="timeline-time">13:32 — 报告 v1 生成</div>
+      <p>加载 <code>create-html-artifact</code> Skill，生成第一版工程报告 <code>gzz-e-engineering-report.html</code>。采用 style_14 数据风，覆盖 Gzz-E 事件码机制和双节点部署。</p>
+    </div>
+
+    <div class="timeline-item fix">
+      <div class="timeline-time">13:36 — 报告 v2 修正（第一轮反馈）</div>
+      <p>用户反馈：「跟事现鉴的机制不一样」。</p>
+      <p><strong>修正内容：</strong>搜索并读取参考手册 <code>SXJ_事件码与验证机制_Agent参考手册_20260823.md</code>（244行），发现v1存在以下错误：</p>
+      <ul>
+        <li>GZZP 大类名称误写"公示"→ 应为"共济"</li>
+        <li>GZZP 子类 ISSUE 误写"议题公示"→ 应为"发放"</li>
+        <li>GZZP 子类 ANCHOR 误写"锚定公示"→ 应为"锚定"</li>
+        <li>GZZP 子类 RELIEF 误写"救济公示"→ 应为"救助"</li>
+        <li>R-1~R-6 层级<strong>完全自编</strong>（执行官→终裁官体系），手册为：事实验证员→领域专家→协议合规官→仲裁委员会→终裁官→紧急响应</li>
+        <li>缺少 Gzz 编码全貌（P/A/G/N/B/C）、三值模型、五层架构、MAIP 协议、递归兜底、同名异义警告、escrow 机制</li>
+      </ul>
+      <p>生成v2，扩展为14章节，覆盖全机制。</p>
+    </div>
+
+    <div class="timeline-item fix">
+      <div class="timeline-time">13:40 — 报告 v3 修正（第二轮反馈）</div>
+      <p>用户反馈：「还有错误」。</p>
+      <p><strong>修正内容：</strong>读取 <code>gzz-e-server.ps1</code> 源码（267行），发现v2存在以下错误：</p>
+      <ul>
+        <li>缺少 <strong>状态流转</strong>（9状态状态机：created→submitted→verifying→verified→ruling→resolved，含 disputed/rejected/closed 分支）</li>
+        <li>缺少 <strong>投递状态机</strong></li>
+        <li>API 端点与源码不一致：证据端点应为 <code>/api/evidence</code> 而非 <code>/api/events/{id}/evidence</code>；裁定端点应为 <code>/api/rulings</code> 而非 <code>/api/events/{id}/rulings</code>；状态更新用 PUT 而非 PATCH</li>
+        <li>裁定决策逻辑：<code>upheld</code> → resolved，<code>rejected</code> → rejected</li>
+      </ul>
+      <p>生成v3，加入状态流转 SVG 图、投递状态机 SVG 图、修正 API 端点。</p>
+    </div>
+
+    <div class="timeline-item fix">
+      <div class="timeline-time">13:50 — 报告 v4 修正（第三轮反馈）</div>
+      <p>用户反馈：「还有」。</p>
+      <p><strong>修正内容：</strong>发现之前使用的参考手册并非最终权威版本。读取白玺逐条确认的《Gzz编码体系参考·最终版》（2026-08-22，170行），发现v3存在以下遗漏：</p>
+      <ul>
+        <li><strong>GOVERN 大类缺少 CARBON 子类</strong>（碳足迹/碳排放核算）——之前以为只有3个子类，实际是4个</li>
+        <li><strong>Gzz-P 格式不完整</strong>：最终版区分有归属单位（<code>Gzz-P-{单位}-{国家码}-{序号}</code>）和无归属单位（<code>Gzz-P-{出生地}-{国家码}-{序号}</code>）两种</li>
+        <li><strong>Gzz-A 格式不完整</strong>：最终版区分机构级（不加序号）和用户级（加序号）</li>
+        <li><strong>缺少统一编码（台账索引）</strong>：自编码 ↔ 纯序号映射体系，含9个实体的完整台账示例</li>
+        <li><strong>递归兜底描述过于简略</strong></li>
+      </ul>
+      <p>以最终版为唯一权威来源重写报告，生成v4。</p>
+    </div>
+
+    <div class="timeline-item done">
+      <div class="timeline-time">13:53 — 四域分析</div>
+      <p>用户询问四个域名关系。我最初误判为"分层冗余"，后经千问报告指出实际是三个 Agent 各自搭建的独立版本（hygzz.cn 征信数据链、hygzz.中国 公共事实协议、hygzz.com 英文国际版），三套站三种定位、三种导航、三种风格，并非统一设计。</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 三、最终交付物 ============ -->
+<section>
+  <h2><span class="dot"></span>三、最终交付物</h2>
+
+  <div class="card">
+    <h3>工程实施报告</h3>
+    <table>
+      <tr><th>文件</th><td><code>/Coze/Drive/扣子/所有对话/主对话/sxj-engineering-report.html</code></td></tr>
+      <tr><th>版本</th><td>v4（最终版）</td></tr>
+      <tr><th>风格</th><td>数据风（白皮书/研究报告），深蓝色调 + 琥珀色强调</td></tr>
+      <tr><th>格式</th><td>HTML 单文件，内联 CSS，可直接浏览器打开</td></tr>
+      <tr><th>来源依据</th><td>《Gzz编码体系参考·最终版》+ gzz-e-server.ps1 源码</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>报告14章节目录</h3>
+    <ol>
+      <li><strong>项目概述</strong> — 事现鉴定位、核心命题、当前工程阶段</li>
+      <li><strong>Gzz 编码体系全览</strong> — 8前缀编码表、统一编码台账、身份层关键规则</li>
+      <li><strong>Gzz-E 事件码体系</strong> — 4大类13子类（含CARBON）、编码格式、示例、状态流转SVG图+转移表</li>
+      <li><strong>三值模型</strong> — GzzA+GzzB-GzzC，GzzB和GzzC是CV净值子集</li>
+      <li><strong>五层架构</strong> — 光锥舟→共创论→工程学→行为学→实践学</li>
+      <li><strong>证据分级 E1/E2/E3</strong> — ρ权重1.0/0.5/0.0，Agent义务</li>
+      <li><strong>人类裁定层 R-1~R-6</strong> — 事实验证员→领域专家→协议合规官→仲裁委员会→终裁官→紧急响应</li>
+      <li><strong>SXJ-MAIP-v0.2 投递协议</strong> — 五大红线、投递状态机SVG图、Claim核心字段</li>
+      <li><strong>递归兜底路由</strong> — 层级递进逻辑</li>
+      <li><strong>双节点部署架构</strong> — 架构SVG图、线上/本地部署详情</li>
+      <li><strong>API 端点</strong> — 全部7个端点（events/evidence/rulings/stats），以源码为准</li>
+      <li><strong>文件清单</strong> — 本地B盘6个文件 + 线上7个文件</li>
+      <li><strong>当前运行状态</strong> — 6项组件状态检查</li>
+      <li><strong>下一步行动</strong> — 4项待办</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 四、逐项核对 ============ -->
+<section>
+  <h2><span class="dot"></span>四、与最终版编码文档的逐项核对</h2>
+
+  <div class="ver-box">
+    <strong>✓ 以下全部以《Gzz编码体系参考·最终版》（2026-08-22，白玺逐条确认）为唯一权威来源核对。</strong>
+  </div>
+
+  <div class="card">
+    <table>
+      <tr><th>核对项</th><th>最终版原文</th><th>报告内容</th><th>结果</th></tr>
+      <tr>
+        <td>同名异义警告</td>
+        <td>GzzA（共济值）≠ Gzz-A（Agent身份锚）≠ Gzz消费币</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>三值模型公式</td>
+        <td>社会总净值 = GzzA + GzzB - GzzC</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>GzzB/GzzC关系</td>
+        <td>GzzB和GzzC是贡献值CV净值的子集</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-P 有归属单位</td>
+        <td><code>Gzz-P-{单位}-{国家码}-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-P 无归属单位</td>
+        <td><code>Gzz-P-{出生地}-{国家码}-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-P 出生地无法确认</td>
+        <td>统一编入 <code>Gzz-P-SXJ-全球-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-A 机构级</td>
+        <td><code>Gzz-A-{平台}-CN-{名称}</code>（不加序号）</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-A 用户级</td>
+        <td><code>Gzz-A-{平台}-CN-{名称}-{序号}</code>（加序号）</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Agent不持共济值</td>
+        <td>Agent不持共济值，贡献值挂公司</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Agent运行数据回评</td>
+        <td>回评用户密度和热度，支付Gzz资源给训练平台</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>escrow机制</td>
+        <td>Agent自报即获主体身份+ρ署名权，B先挂"待承认"暂存，直到sustainer反向互签</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-G 格式</td>
+        <td><code>Gzz-G-{单位}-{国家码}-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-N 格式</td>
+        <td><code>Gzz-N-{国家码}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-E 格式</td>
+        <td><code>Gzz-E-{大类}-{子类}-{日期}-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>VERIFY大类</td>
+        <td>FIN / COMP / DATA（3子类）</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>AUDIT大类</td>
+        <td>SEC / LEDGER / PROTO（3子类）</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>GOVERN大类</td>
+        <td>CHARTER / VOTE / DISPUTE / CARBON（4子类）</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>GZZP大类</td>
+        <td>ISSUE / ANCHOR / RELIEF（3子类）</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-B 格式</td>
+        <td><code>Gzz-B-{来源}-{日期}-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>Gzz-C 格式</td>
+        <td><code>Gzz-C-{来源}-{日期}-{序号}</code></td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>统一编码</td>
+        <td>自编码↔纯序号映射，台账9个实体示例</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>递归兜底</td>
+        <td>个人困境→地方银行→国家→世界银行→SXJ公示墙</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>状态流转</td>
+        <td>9状态，从源码逐行提取</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+      <tr>
+        <td>API端点</td>
+        <td>7个端点，从源码逐行确认</td>
+        <td>完全一致</td>
+        <td><span class="status-ok">✓</span></td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 五、当前运行状态 ============ -->
+<section>
+  <h2><span class="dot"></span>五、当前运行状态</h2>
+  <div class="card">
+    <table>
+      <tr><th>组件</th><th>位置</th><th>状态</th></tr>
+      <tr><td>本地后端</td><td>HYGZZ :8787</td><td><span class="status-ok">✓ LISTENING</span></td></tr>
+      <tr><td>线上后端</td><td>43.131.35.57 :8787</td><td><span class="status-ok">✓ active</span></td></tr>
+      <tr><td>线上 API</td><td>/api/stats</td><td><span class="status-ok">✓ {"totalEvents":0,"totalRulings":0,"totalEvidence":0}</span></td></tr>
+      <tr><td>systemd</td><td>gzz-e.service</td><td><span class="status-ok">✓ enabled, active</span></td></tr>
+      <tr><td>数据文件</td><td>/var/www/html/data/gzz-e/</td><td><span class="status-ok">✓ events.json + evidence/ + rulings.json</span></td></tr>
+      <tr><td>全链路功能测试</td><td>hygzz.cn/board.html</td><td><span class="status-warn">○ 待测试</span></td></tr>
+      <tr><td>本地开机自启</td><td>HYGZZ</td><td><span class="status-warn">○ 未配置</span></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 六、自评与反思 ============ -->
+<section>
+  <h2><span class="dot"></span>六、自评与反思</h2>
+
+  <div class="card">
+    <h3>做得好的</h3>
+    <ul>
+      <li>最终报告以白玺逐条确认的最终版编码文档为唯一权威来源，逐字段核对，24项全部通过</li>
+      <li>API 端点以源码为准而非自行设计，状态流转从代码中提取而非凭记忆</li>
+      <li>生成 SVG 状态图（事件状态流转 + 投递状态机），可读性好</li>
+      <li>双节点架构用 SVG 可视化，一目了然</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>犯过的错误</h3>
+    <ul>
+      <li><strong>v1：自编机制</strong> — 未对照参考手册，凭印象写了 GZZP 大类名称和 R-1~R-6 层级，全部错误</li>
+      <li><strong>v2：未读源码</strong> — 依赖参考手册写 API 端点，但手册是设计层描述，与源码实现不一致</li>
+      <li><strong>v3：不是最终版</strong> — 用的参考手册不是白玺逐条确认的最终版，缺少 CARBON 子类、Gzz-P/A 完整格式、统一编码体系</li>
+      <li><strong>四域分析：事后合理化</strong> — 把三个 Agent 各自搭建的独立版本解释为"四域分工"，实际是社区治理中常见的分裂现象</li>
+    </ul>
+  </div>
+
+  <div class="warn-box">
+    <strong>核心教训：</strong>事现鉴的机制设计，必须以白玺逐条确认的最终版文档为唯一权威来源。任何"我记得"、"应该是"、"参考手册写的是"都不够——必须逐字段核对，有疑问就读源码。
+  </div>
+</section>
+
+<!-- ============ 七、下一步 ============ -->
+<section>
+  <h2><span class="dot"></span>七、下一步建议</h2>
+  <div class="card">
+    <ol>
+      <li><strong>全链路功能测试</strong>：在 hygzz.cn/board.html 创建首个事件码，走通 创建→E1证据→R-1裁定→状态流转→JSON落盘</li>
+      <li><strong>本地开机自启</strong>：HYGZZ PowerShell 服务配置 Windows 任务计划或 NSSM</li>
+      <li><strong>站点架构统一</strong>：三个域名（hygzz.cn / hygzz.中国 / hygzz.com）定位和内容需要收束</li>
+      <li><strong>日志监控</strong>：线上 gzz-e.service 日志轮转 + 健康检查</li>
+      <li><strong>数据备份</strong>：定期备份 /var/www/html/data/gzz-e/</li>
+    </ol>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  砺（事现鉴验证执行官）· 工作记录报告 · 2026-08-23<br>
+  依据：《Gzz编码体系参考·最终版》（2026-08-22，白玺逐条确认）+ gzz-e-server.ps1 源码（267行）
+</footer>
+
+</body>
+</html>

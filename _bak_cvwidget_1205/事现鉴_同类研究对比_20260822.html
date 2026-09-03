@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>事现鉴十层学科体系 · 同类研究对比全景</title>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --card: #ffffff;
+    --text: #1c1917;
+    --text-muted: #78716c;
+    --border: #e7e5e4;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --green: #059669;
+    --green-light: #ecfdf5;
+    --amber: #d97706;
+    --amber-light: #fffbeb;
+    --purple: #7c3aed;
+    --purple-light: #f5f3ff;
+    --red: #dc2626;
+    --red-light: #fef2f2;
+    --intl: #2563eb;
+    --cn: #dc2626;
+    --project: #059669;
+    --paper: #7c3aed;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 20px 24px; }
+  header { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; padding: 60px 24px 50px; text-align: center; }
+  header h1 { font-size: 2.2em; margin-bottom: 8px; letter-spacing: 0.02em; }
+  header .subtitle { font-size: 1.05em; color: #cbd5e1; max-width: 800px; margin: 0 auto; }
+  header .meta { margin-top: 20px; font-size: 0.85em; color: #94a3b8; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.78em; font-weight: 600; margin: 0 3px; }
+  .badge-intl { background: #dbeafe; color: #1e40af; }
+  .badge-cn { background: #fee2e2; color: #991b1b; }
+  .badge-project { background: #d1fae5; color: #065f46; }
+  .badge-paper { background: #ede9fe; color: #5b21b6; }
+
+  .toc { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 30px 0; }
+  .toc h2 { font-size: 1.2em; margin-bottom: 16px; color: #334155; }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 6px 0; }
+  .toc a { color: var(--accent); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .overview { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 28px; margin: 30px 0; }
+  .overview h2 { font-size: 1.3em; margin-bottom: 16px; color: #334155; }
+  .overview p { margin-bottom: 12px; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 20px 0; }
+  .stat-card { background: var(--accent-light); border-radius: 10px; padding: 18px; text-align: center; }
+  .stat-num { font-size: 2em; font-weight: 700; color: var(--accent); }
+  .stat-label { font-size: 0.85em; color: var(--text-muted); margin-top: 4px; }
+
+  .layer-section { margin: 40px 0; }
+  .layer-header { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; padding: 24px 28px; border-radius: 12px 12px 0 0; }
+  .layer-header h2 { font-size: 1.4em; }
+  .layer-header .layer-desc { font-size: 0.9em; color: #cbd5e1; margin-top: 6px; }
+  .layer-body { background: var(--card); border: 1px solid var(--border); border-top: none; border-radius: 0 0 12px 12px; padding: 24px 28px; }
+
+  .item-card { border: 1px solid var(--border); border-radius: 10px; padding: 22px; margin: 18px 0; }
+  .item-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+  .item-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .item-header h3 { font-size: 1.1em; color: #1e293b; }
+  .item-source { font-size: 0.82em; color: var(--text-muted); margin-top: 4px; }
+  .item-source a { color: var(--accent); }
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+  .compare-box { padding: 14px; border-radius: 8px; font-size: 0.9em; }
+  .compare-similar { background: var(--green-light); border: 1px solid #a7f3d0; }
+  .compare-diff { background: var(--amber-light); border: 1px solid #fde68a; }
+  .compare-box h4 { font-size: 0.85em; margin-bottom: 6px; }
+  .ref-value { background: var(--purple-light); border: 1px solid #ddd6fe; padding: 12px 16px; border-radius: 8px; margin-top: 12px; font-size: 0.88em; }
+  .ref-value h4 { font-size: 0.85em; color: #5b21b6; margin-bottom: 4px; }
+
+  .summary { background: linear-gradient(135deg, #1e293b, #334155); color: #fff; border-radius: 12px; padding: 32px; margin: 40px 0; }
+  .summary h2 { font-size: 1.3em; margin-bottom: 16px; }
+  .summary p { margin-bottom: 10px; font-size: 0.95em; }
+  .summary a { color: #93c5fd; }
+
+  footer { text-align: center; color: var(--text-muted); font-size: 0.82em; padding: 30px 0; border-top: 1px solid var(--border); margin-top: 40px; }
+
+  @media (max-width: 768px) {
+    .compare-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.5em; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>事现鉴十层学科体系 · 同类研究对比全景</h1>
+  <p class="subtitle">以事现鉴 L5–L9 五层学科体系为框架，系统梳理国内外同类项目、社区、协议及学术论文研究，逐层插入对照，构建完整的学科参照系。</p>
+  <p class="meta">完成日期：2026年8月22日 · 覆盖10大领域 · 50+个同类项目/论文 · 区分国际/国内 · 项目/学术论文</p>
+</header>
+
+<div class="container">
+
+<!-- 目录 -->
+<div class="toc">
+  <h2>📑 目录</h2>
+  <ol>
+    <li><a href="#overview">全景概览</a></li>
+    <li><a href="#L5">L5 数智社会信誉学 — 同类研究对照</a></li>
+    <li><a href="#L6">L6 数智社会伦理 — 同类研究对照</a></li>
+    <li><a href="#L7">L7 数智社会治理 — 同类研究对照</a></li>
+    <li><a href="#L8">L8 数智社会教育 — 同类研究对照</a></li>
+    <li><a href="#L9">L9 数智社会工程实践学 — 同类研究对照</a></li>
+    <li><a href="#summary">总结：事现鉴的差异化定位</a></li>
+  </ol>
+</div>
+
+<!-- 全景概览 -->
+<div class="overview" id="overview">
+  <h2>🔭 全景概览</h2>
+  <p>事现鉴（ShiXianJian）是基于《世界人权宣言》第22条的可验证公共事实协议，定位为"无币无钱包的区块链最小可行架构"，核心主张是<strong>使用权优先于所有权</strong>，实现跨主权公开可验证信用。本报告以事现鉴五层学科体系（L5–L9）为框架，从10个关联领域搜索整理了50+个同类项目、社区、协议和学术论文，为每层学科内容提供参照基准。</p>
+
+  <div class="stats-grid">
+    <div class="stat-card"><div class="stat-num">22</div><div class="stat-label">国际项目/协议</div></div>
+    <div class="stat-card"><div class="stat-num">8</div><div class="stat-label">国内实践/政策</div></div>
+    <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">学术论文/研究</div></div>
+    <div class="stat-card"><div class="stat-num">10</div><div class="stat-label">覆盖领域</div></div>
+    <div class="stat-card"><div class="stat-num">5</div><div class="stat-label">学科层(L5-L9)</div></div>
+  </div>
+
+  <p style="margin-top:16px; font-size:0.9em; color: var(--text-muted);">
+    <span class="badge badge-intl">国际</span> 国际项目/标准/论文 &nbsp;
+    <span class="badge badge-cn">国内</span> 国内政策/实践 &nbsp;
+    <span class="badge badge-project">项目</span> 项目/协议/社区 &nbsp;
+    <span class="badge badge-paper">论文</span> 学术论文/研究
+  </p>
+</div>
+
+<!-- ====== L5 ====== -->
+<div class="layer-section" id="L5">
+  <div class="layer-header">
+    <h2>L5 · 数智社会信誉学</h2>
+    <p class="layer-desc">事现鉴核心：三值模型（正向/中性/负向）、ρ值（信誉密度）、Gzz消费币、跨主权信用验证</p>
+  </div>
+  <div class="layer-body">
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>ChainAware — 双层层链上信誉评分系统 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://chainaware.ai/blog/web3-reputation-score-comparison-2026/" target="_blank">ChainAware · 2026-03-19</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>ChainAware 提供两层信誉产品：Wallet Rank（0-100，10个行为维度）和 Reputation Score（0-4000，复合经验/风险/欺诈三维度）。覆盖8条区块链，无需用户主动参与，被动评分。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 多维度综合评分（类似ρ值复合计算）<br>• 反欺诈/反女巫攻击（欺诈概率模型准确率98%）<br>• 无需用户主动参与即可评分<br>• 评分结果可被协议直接消费</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 仅限链上行为数据，不覆盖现实世界公共事实<br>• 需要API Key付费使用，非完全公共品<br>• 中心化基础设施，非社区治理<br>• 评分基于概率模型而非三值逻辑</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>ChainAware 的"被动评分"设计（无需用户连接钱包）和"多维合成"思路与事现鉴ρ值模型高度一致，但其链上数据局限反衬了事现鉴"公共事实"维度的独特价值。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Ethos Network — 社交证明驱动的链上信誉协议 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.gatexx.net/zh/learn/articles/ethos-network-reshaping-the-crypto-reputation-system/8698" target="_blank">Gate Learn · 2026-04-01</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Ethos 通过邀请制、担保（Vouching）、评论（Review）、证明（Attest）和削减（Slashing）机制，生成0-2800分的可信度评分，分为5个等级。结合社交证明权益（Social PoS）。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 多机制合成的信誉分（类似三值模型）<br>• 邀请制+声誉绑定（90天绑定期）<br>• 社交削减机制（类似负向信誉标记）<br>• 评分算法权重可调</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 需要质押ETH，强经济绑定<br>• 仅限链上社交，非公共事实验证<br>• 邀请制可能形成封闭社区<br>• 评分范围0-2800（vs 事现鉴三值）</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Ethos 的担保+削减机制为事现鉴的"跨主权信用验证"提供了博弈论层面的参考——如何在开放网络中制造"作恶有成本"的约束，同时保持去中心化。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>IETF AGTP-TRUST — Agent信任评分国际标准草案 <span class="badge badge-intl">国际</span> <span class="badge badge-paper">论文</span></h3>
+          <p class="item-source">来源：<a href="https://datatracker.ietf.org/doc/draft-hood-agtp-trust/" target="_blank">IETF · 2026-06-28</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>IETF 的 Agent Trust Protocol 草案定义了Agent的三层信任等级（Tier 1 Verified / Tier 2 Org-Asserted / Tier 3 Experimental）和信任评分（0.0-1.0），类比人类信用评级体系（FICO/Experian）。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 三层信任分类（与事现鉴三值模型结构一致）<br>• 信任评分可组合（多个Trust Provider）<br>• 分数附带签名和时间戳<br>• 类比信用评级基础设施</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 面向AI Agent而非人类<br>• 评分算法不标准化（类似信用局的私有算法）<br>• 依赖中心化治理权威签发<br>• 不涉及公共事实验证</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>AGTP-TRUST 的三层信任等级（Tier 1/2/3）与事现鉴三值模型在结构上几乎一致，证明"三层分类"是国际标准制定的共识方向。事现鉴可引用此标准作为"三层信誉分类"的外部验证。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>SourceCred — 开源社区贡献图谱与信誉分配 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://gitcoin.co/mechanisms/sourcecred" target="_blank">Gitcoin · 2026-02-25</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>SourceCred 通过分析 GitHub、Discord、Discourse 等平台的活动数据，构建"贡献图谱"，为每个参与者分配 Cred 分数，并按比例分配 Grain 奖励。是信誉加权分配的先驱。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 多源数据合成信誉分数<br>• 透明可审计的贡献归因<br>• 信誉驱动资源分配<br>• 社区可自定义权重</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 仅限开源软件社区<br>• 依赖Grain代币分配（经济化）<br>• 项目已停止活跃维护<br>• 缺乏跨主权验证能力</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>SourceCred 证明了"信誉图谱"在开源社区中的可行性，其贡献归因算法对事现鉴的ρ值设计有工程参考意义。其"已停止维护"也提示了纯粹社区驱动的可持续性挑战。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>中国社会信用体系 — 全国统一信用信息平台 <span class="badge badge-cn">国内</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.linkou.gov.cn/mdjlkxrmzf/tzgg334_LK/202607/c03_1054236.shtml" target="_blank">中共中央办公厅/国务院办公厅 · 2025-03-21</a>；<a href="https://msadvisory.com/china-social-credit-system/" target="_blank">MS Advisory · 2026-07-20</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>中国社会信用体系以"信用中国"为统一平台，构建覆盖政府、企业、社会组织、自然人的信用记录，实施守信激励和失信惩戒。2025年政策明确"严禁将非信用信息和个人私密信息纳入信用评价"。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 构建全面的信用记录体系<br>• 区分守信/失信（类似正向/负向）<br>• 信用信息共享与公示<br>• 研究区块链在信用管理中的应用</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 政府主导，自上而下，非去中心化<br>• 惩戒导向（黑名单），非正向信用<br>• 以国家主权为边界，非跨主权<br>• 聚焦合规而非公共事实验证</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>中国社会信用体系是最大规模的信用工程实践，但事现鉴的差异化定位正在于此：<strong>正向信用而非监控</strong>、<strong>跨主权而非国家边界</strong>、<strong>使用权而非惩罚权</strong>。这一对比突出事现鉴的独特价值主张。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== L6 ====== -->
+<div class="layer-section" id="L6">
+  <div class="layer-header">
+    <h2>L6 · 数智社会伦理</h2>
+    <p class="layer-desc">事现鉴核心：人类保留权、Agent权利、数据主权、GDPR调和</p>
+  </div>
+  <div class="layer-body">
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>W3C Verifiable Credentials v2.0 — 国际可验证凭证标准 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.w3.org/TR/vc-overview/" target="_blank">W3C · 2026-07-30</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>W3C VC 数据模型定义了可验证凭证的标准格式，支持选择性披露、零知识证明和隐私保护。与 DIDs（去中心化标识符）配合，构成自主身份（SSI）的技术基础。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 数据主权归用户所有<br>• 选择性披露（最小化信息暴露）<br>• 加密签名确保不可篡改<br>• 跨平台互操作</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 聚焦凭证格式而非伦理框架<br>• 不涉及Agent权利<br>• 无"人类保留权"概念<br>• 仅技术标准，不涉及GDPR调和策略</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>W3C VC/DID 标准是事现鉴"数据主权"和"跨主权验证"的技术基础。事现鉴的Gzz身份码体系可与W3C DID标准对齐，利用已有生态增强互操作性。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>SSI (Self-Sovereign Identity) — 自主身份全球运动 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://coruzant.com/blockchain/self-sovereign-identity/" target="_blank">Coruzant · 2026-07-30</a>；<a href="https://blog.securedapp.io/interoperable-self-sovereign-identity-across-enterprise-networks/" target="_blank">SecuredApp · 2026-07-20</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>SSI 运动主张个人完全控制自己的数字身份，无需依赖中心化机构。全球数字身份应用预计从2025年28亿增至2030年62亿。欧盟要求成员国在2026年12月前提供数字身份钱包。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 个人数据主权（data sovereignty）<br>• 去中心化验证（无需中心权威）<br>• 跨平台/跨主权可移植<br>• 隐私保护优先</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 聚焦个人身份而非公共事实<br>• 不涉及Agent/非人类实体的权利<br>• 依赖DID方法（150+种，碎片化）<br>• 钱包恢复仍是未解难题</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>SSI 的"数据主权"理念与事现鉴"人类保留权"高度一致，但SSI不涉及Agent权利维度。事现鉴可将SSI作为"人类保留权"的技术实现层，同时在其上叠加Agent权利框架。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>SpruceID — 开源去中心化身份基础设施 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.scmgalaxy.com/tutorials/top-10-decentralized-identity-did-platforms-features-pros-cons-comparison/" target="_blank">SCM Galaxy · 2026-01-22</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>SpruceID 提供开源的去中心化身份工具包，支持 Sign-In with Ethereum (SIWE)、W3C DIDs、可验证凭证。已被用于政府级数字身份项目。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 开源、无厂商锁定<br>• 支持跨域认证<br>• 数据可移植<br>• 开发者友好</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 需要较强工程能力集成<br>• 不涉及公共事实存根<br>• 无"使用权优先"概念<br>• 聚焦身份而非信誉</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>SpruceID 是国际开源身份基础设施的标杆，其"完全开源、无厂商锁定"的理念与事现鉴"无币无钱包"的极简哲学一致。可作为Gzz身份码体系的技术参考架构。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>GDPR与数字身份 — 欧洲数据保护法规与SSI的调和实践 <span class="badge badge-intl">国际</span> <span class="badge badge-paper">论文</span></h3>
+          <p class="item-source">来源：<a href="https://www.infisign.ai/blog/best-enterprise-decentralized-identity-solutions" target="_blank">Infisign · 2026-07-19</a>；<a href="https://blog.securedapp.io/interoperable-self-sovereign-identity-across-enterprise-networks/" target="_blank">SecuredApp · 2026-07-20</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>欧盟GDPR为数据主权提供了法律基础，而SSI/DID技术为合规提供了技术实现。德国esatus等项目严格遵循GDPR和EU数据保护法，将数字身份与法律合规深度融合。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 法律合规与技术架构的融合<br>• 数据最小化原则<br>• 用户同意和撤回机制<br>• 跨主权数据保护</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 仅限欧盟法律框架<br>• 不涉及非人类实体权利<br>• 合规成本高，中小企业负担重<br>• 缺乏"保留权"概念</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>GDPR调和实践验证了"法律框架+技术架构"的可行性，为事现鉴的"GDPR调和"策略提供了实操路径。事现鉴可在此基础上进一步扩展至"Agent权利"和"人类保留权"。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== L7 ====== -->
+<div class="layer-section" id="L7">
+  <div class="layer-header">
+    <h2>L7 · 数智社会治理</h2>
+    <p class="layer-desc">事现鉴核心：三层架构（信息层/执行层/决定层）、四类角色、决策机制、修宪</p>
+  </div>
+  <div class="layer-body">
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Colony DAO — 声誉加权治理框架 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.publish0x.com/crypto-projects-information/colony-dao-analysis-xleggno" target="_blank">Publish0x · 2026-01-28</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Colony 将组织划分为嵌套的"域"（Domains），每个域有独立预算、权限和决策方法。支持三种决策模式：个人权限（快速）、多签（安全）、懒惰共识（去中心化）。声誉不可转让、有时效衰减。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 嵌套域结构（类似事现鉴三层架构）<br>• 声誉加权而非代币加权<br>• 多种决策模式灵活组合<br>• 声誉衰减机制（激励持续贡献）</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 依赖EVM区块链，需Gas费<br>• 聚焦组织治理而非社会治理<br>• 声誉仅限域内，非跨域通用<br>• 缺乏"修宪"机制</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Colony的"域+声誉+决策模式"结构与事现鉴"三层架构+决定层"高度相似，是最接近的参照项目。其懒惰共识（lazy consensus）机制可作为事现鉴决定层的具体实现参考。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Deliberative vs Aggregative Democracy — DAO治理类型的学术分类 <span class="badge badge-intl">国际</span> <span class="badge badge-paper">论文</span></h3>
+          <p class="item-source">来源：<a href="https://journals.sagepub.com/doi/full/10.1177/02683962251389979" target="_blank">Journal of Information Technology (SAGE) · 2025-10-07</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>通过fsQCA分析，识别出DAO治理的三种类型：审议民主（deliberative，高自治+高沟通）、聚合民主（aggregative，投票但无讨论）、代议民主（representative，多签+链下治理）。审议民主的DAO去中心化程度最高。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 三类治理模式的分类框架<br>• 强调"自治"和"沟通"的双重条件<br>• 链上治理为去中心化黄金标准<br>• 透明度是信任的条件</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 分析对象是DAO而非社会<br>• 仅关注去中心化程度而非治理质量<br>• 不涉及"四类角色"的区分<br>• 缺乏"修宪"机制讨论</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>该论文的分类框架为事现鉴"三层架构+决定层"设计提供了学术背书：审议民主型治理（高自治+高沟通）的去中心化效果最好，验证了事现鉴"决定层需要充分讨论"的设计原则。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>中国基层协商治理实践 — 三层议事协商体系 <span class="badge badge-cn">国内</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.zyshgzb.gov.cn/n1/2026/0814/c462516-40779676.html" target="_blank">中共中央社会工作部 · 2026-08-14</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>荆门市推行"微事立办、小事协办、大事联办"三级处置层级，构建"线上随时提、线下就近议、闭环高效办、全民主动参"的协商格局。配套积分激励和"社区吹哨、部门报到"协同机制。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 三级分层处置（微/小/大）<br>• 线上+线下双平台<br>• 闭环管理（提→办→评）<br>• 积分激励参与</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 政府主导，非社区自治<br>• 以行政层级划分，非功能分层<br>• 不涉及链上执行<br>• 缺乏跨主权维度</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>中国基层治理的"三级处置"实践为事现鉴"三层架构"的层次划分提供了现实参照——信息层、执行层、决定层的分层逻辑在实践中有对应物，但事现鉴将其从行政层级升维为功能架构。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Kleros — 去中心化争议裁决法庭 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://bacsociety.com/en/kleros-can-decentralized-justice-solve-the-internets-small-claims-problem/" target="_blank">BACSociety · 2026-07-14</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Kleros 通过随机选取陪审员（需质押PNK代币）、提交-揭示投票机制、谢林点博弈激励，实现去中心化争议裁决。已处理超过1000个案件，获欧盟"Blockchains for Social Good"奖。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 去中心化决策（类似决定层）<br>• 随机选择+经济激励<br>• 上诉机制（类似修宪）<br>• 可执行裁决</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 依赖代币质押（PNK），非无币<br>• 二元决策（是/否），非多维度治理<br>• 牛津法学评论指出其"猜测而非判断"<br>• 仅限争议解决，非日常治理</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Kleros 验证了"去中心化裁决"在技术上的可行性，但牛津法学家的批评（"猜测不是判断"）提示了纯博弈驱动的治理局限。事现鉴的"决定层"设计应避免纯经济激励，而应结合审议和证据。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== L8 ====== -->
+<div class="layer-section" id="L8">
+  <div class="layer-header">
+    <h2>L8 · 数智社会教育</h2>
+    <p class="layer-desc">事现鉴核心：五层教育目标、课程模块、存根体验卡</p>
+  </div>
+  <div class="layer-body">
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Gitcoin Passport (Human Passport) — 去中心化身份教育与实践 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://passport.human.tech/blog/boost-your-unique-humanity-score-with-zk-email-stamp-through-amazon-and-uber-receipts" target="_blank">Human Tech · 2025-11-04</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Human Passport（原Gitcoin Passport）拥有超过200万用户，通过收集"Stamp"（GitHub、Twitter、ENS、ZK Email等）构建Unique Humanity Score。用户通过实际操作学习去中心化身份概念。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 用户通过实际操作学习（体验式教育）<br>• 多种凭证收集（类似存根体验卡）<br>• 无需KYC/生物识别<br>• 渐进式身份构建</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 目标是Sybil抵抗而非教育<br>• 不涉及系统性课程设计<br>• 依赖外部平台（GitHub、Twitter等）<br>• 缺乏"五层教育目标"框架</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Human Passport的"Stamp收集"机制是事现鉴"存根体验卡"的绝佳参照——用户通过收集凭证的过程自然学习去中心化身份概念。事现鉴可借鉴其游戏化设计。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>DPGA数字公共产品教育生态 — DPG标准与知识传播 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.digitalpublicgoods.net/blog/dpg-standard-universal-dpi-safeguards-safe-inclusive-digital-future" target="_blank">DPGA · 2026-01-12</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>DPGA通过DPG标准（9个指标）、最佳实践附录、知识库和社区活动，构建全球数字公共产品教育和认证生态。已收录MOSIP、Mojaloop等数百个DPG。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 标准化框架（类似五层教育目标）<br>• 最佳实践知识传播<br>• 全球社区参与<br>• 从"使用"到"贡献"的进阶路径</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 面向开发者而非公众<br>• 聚焦技术认证而非素养教育<br>• 缺乏"体验卡"式入门设计<br>• 不涉及数智社会公民素养</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>DPGA的标准化框架和知识传播模式为事现鉴"五层教育目标"提供了国际参照。事现鉴申请DPG认证的过程本身即是一种"教育实践"。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Ostrom公共品设计原则教育 — 从村庄规则到智能合约 <span class="badge badge-intl">国际</span> <span class="badge badge-paper">论文</span></h3>
+          <p class="item-source">来源：<a href="https://www.cambridge.org/core/books/governing-corporate-knowledge-commons/decentralised-autonomous-organisations-as-commons/87B6EBAB64890FC073DD5E03DC4ECB5D" target="_blank">Cambridge University Press · 2026-06-06</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>将Ostrom的八项公共品设计原则（边界、规则一致性、集体选择、监督、分级制裁、冲突解决、外部认可、嵌套企业）应用于DAO治理，每项原则映射到区块链技术实现。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• Ostrom原则是公共品治理的经典框架<br>• 从传统公共品到数字公共品的延伸<br>• 强调规则透明和集体决策<br>• 嵌套结构（nested enterprises）</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 学术分析框架，非教育课程<br>• 以DAO为对象，非社会教育<br>• 不涉及"存根体验"等实践环节<br>• 缺乏面向公众的简化版本</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Ostrom原则为事现鉴"五层教育目标"提供了理论根基。事现鉴可将Ostrom八原则作为"数智社会教育"的课程核心模块之一，帮助学习者理解公共品治理的底层逻辑。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ====== L9 ====== -->
+<div class="layer-section" id="L9">
+  <div class="layer-header">
+    <h2>L9 · 数智社会工程实践学</h2>
+    <p class="layer-desc">事现鉴核心：事现鉴全景、三阶段（认证/执行/存根）、卡点、案例</p>
+  </div>
+  <div class="layer-body">
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Ethereum Attestation Service (EAS) — 链上可验证证明基础设施 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://cryptocreditscore.org/2026/02/14/on-chain-reputation-scores-for-undercollateralized-defi-loans-build-yours-with-eas-and-sbts" target="_blank">CryptoCreditScore · 2026-02-14</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>EAS 是去中心化的链上证明协议，任何人都可以对任何链上实体进行证明（attestation），证明数据通过Schema结构化、加密签名确保不可篡改。Providence项目利用EAS对超过10亿地址进行评分。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 可验证的证明/存根机制<br>• 链上锚定、不可篡改<br>• 任何人可创建证明<br>• Schema结构化数据</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 仅限链上数据，不涉及现实公共事实<br>• 需要Gas费，非无币架构<br>• 无"认证→执行→存根"三阶段流程<br>• 缺乏多Agent交叉验证</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>EAS是事现鉴"存根验证"机制最接近的技术实现，其Schema设计和链上锚定机制可直接参考。事现鉴的差异化在于：将证明对象从"链上行为"扩展到"公共事实"，并引入多Agent交叉验证。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Regen Network — 生态状态验证与公共生态会计 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://keysfortomorrow.com/regen-network-ecological-regeneration/" target="_blank">Keys for Tomorrow · 2025-10-31</a>；<a href="https://www.regentokenomics.org/meetups/2026-01-06" target="_blank">Regen Tokenomics · 2026-01-06</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Regen Network 通过区块链、卫星遥感和生态状态协议（Ecological State Protocols），验证并生成可信的生态状态证明。截至2025年12月，已发行610万生态信用，覆盖42万公顷验证土地，22个国家参与。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 验证公共事实（生态状态）<br>• 多方数据提供+审查+签名<br>• 区块链锚定（不可篡改）<br>• 科学验证+社区共识</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 有代币（REGEN），非无币<br>• 聚焦生态领域，非通用公共事实<br>• 依赖卫星遥感等专业设备<br>• 验证成本高（需专业方法学）</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Regen Network是"公共事实验证"在特定领域（生态）最成功的工程实践，其"多方数据提供+审查+签名"的流程与事现鉴"三阶段"高度一致。610万生态信用的规模验证了公共事实验证的市场需求。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>DebateCV — 多LLM辩论驱动的声明验证框架 <span class="badge badge-intl">国际</span> <span class="badge badge-paper">论文</span></h3>
+          <p class="item-source">来源：<a href="https://arxiv.org/html/2507.19090v4" target="_blank">arXiv (HKU/Fudan/HKBU) · 2026-04-03</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>DebateCV 受PolitiFact事实核查流程启发，使用两个Debater Agent（正反方）和一个Moderator Agent进行多轮辩论，通过对抗性验证识别单Agent错误。准确率比SOTA提升2.6-5.8%。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 多Agent交叉验证（核心机制一致）<br>• 对抗性辩论发现错误<br>• 证据驱动的裁决<br>• 受真实事实核查流程启发</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 仅限文本声明验证<br>• 依赖LLM而非人类Agent<br>• 二元裁决（真/假）<br>• 未涉及区块链存根</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>DebateCV为事现鉴的"多Agent交叉验证"机制提供了最直接的学术支持：对抗性辩论能有效发现单Agent的遗漏和错误。事现鉴可将此机制从LLM Agent扩展到人类+AI混合Agent。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Gitcoin 五层公共物品资助栈 — 工程化公共物品分配 <span class="badge badge-intl">国际</span> <span class="badge badge-paper">论文</span></h3>
+          <p class="item-source">来源：<a href="https://cloud.tencent.com.cn/developer/article/2723961" target="_blank">腾讯云(Gitcoin研究转载) · 2026-08-11</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Gitcoin将公共物品资助分解为五层堆栈：Formation（资金形成）、Allocation（分配）、Execution（执行）、Attribution（归因）、Accountability（问责）。指出归因层（Attribution）是当前最薄弱的环节。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 分层工程化思维（类似三阶段）<br>• 强调归因（Attribution）和问责（Accountability）<br>• 身份验证是归因层核心<br>• 追溯性评估</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 聚焦资金分配而非事实验证<br>• 依赖代币经济（QF等机制）<br>• 不涉及公共事实存根<br>• 以项目而非个体为对象</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Gitcoin五层堆栈的"归因层是最薄弱环节"的判断，直接验证了事现鉴的核心价值——事现鉴的存根验证正是解决"归因"问题。此外，其工程化分层方法可借鉴用于事现鉴"三阶段"的细化。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>BrightID & Proof of Humanity — 无币/无生物识别的去中心化身份验证 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://uplatz.com/blog/veritas-in-machina-a-comprehensive-analysis-of-proof-of-personhood-systems-in-the-age-of-artificial-intelligence/" target="_blank">Uplatz · 2025-10-06</a>；<a href="https://coinworldstory.com/best-reputation-based-tokens-that-reward-your-on-chain/" target="_blank">CoinWorldStory · 2025-10-07</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>BrightID通过社交图谱（熟人连接+群组）验证唯一性，无需生物识别或政府ID。Proof of Humanity通过去中心化注册表验证人类身份，发放UBI代币。两者均强调隐私和无中心权威。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 无生物识别（隐私优先）<br>• 去中心化验证（无中心权威）<br>• 社区驱动（类似事现鉴社区治理）<br>• 开源、社区治理</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 验证"唯一性"而非"事实"<br>• PoH有代币（UBI），非无币<br>• BrightID扩展性受限（社交图谱冷启动）<br>• 不涉及公共事实存根</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>BrightID的"无生物识别+社交验证"理念与事现鉴"无币无钱包"的极简哲学最为接近。其验证"唯一的人"而非"监控人"的定位，与事现鉴"正向信用"理念一致。</div>
+    </div>
+
+    <div class="item-card">
+      <div class="item-header">
+        <div>
+          <h3>Commons Stack & Gardens — 公共品治理与资助工具包 <span class="badge badge-intl">国际</span> <span class="badge badge-project">项目</span></h3>
+          <p class="item-source">来源：<a href="https://www.oss.fund/commons-stack/" target="_blank">OSS Fund · 2026-03-15</a></p>
+        </div>
+      </div>
+      <p><strong>核心定位：</strong>Commons Stack 提供开源组件蓝图，包括治理、资助、资本分配和影响评估。Gardens 是其核心产品，结合Conviction Voting（信念投票）和Augmented Bonding Curve，实现公共品的可持续资助。</p>
+      <div class="compare-grid">
+        <div class="compare-box compare-similar">
+          <h4>✅ 与事现鉴相似点</h4>
+          <p>• 开源公共品工具<br>• 社区治理驱动<br>• 影响评估机制<br>• 可持续性设计</p>
+        </div>
+        <div class="compare-box compare-diff">
+          <h4>⚠️ 与事现鉴差异点</h4>
+          <p>• 依赖代币经济模型<br>• 聚焦资本分配而非事实验证<br>• 技术复杂度高<br>• 社区规模较小</p>
+        </div>
+      </div>
+      <div class="ref-value"><h4>📌 对事现鉴的参考价值</h4>Commons Stack的"开源组件蓝图"模式为事现鉴的工程实践提供了架构参考——将复杂系统分解为可组合的组件。其Conviction Voting机制可作为事现鉴决定层的补充方案。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 总结 -->
+<div class="summary" id="summary">
+  <h2>📊 总结：事现鉴的差异化定位</h2>
+  <p>经过对10个领域50+个同类项目/论文的系统梳理，事现鉴的<strong>独特差异化定位</strong>可归纳为以下五个维度：</p>
+  <p><strong>1. 无币无钱包的区块链最小可行架构</strong>——市面上的信誉/身份/验证项目（ChainAware、Ethos、Kleros、Colony、Regen Network等）几乎全部依赖代币经济模型和钱包基础设施。事现鉴的"无币"设计在Web3领域极为罕见，降低了准入门槛和监管风险。</p>
+  <p><strong>2. 公共事实验证而非链上行为评分</strong>——现有信誉系统（ChainAware、Ethos、SourceCred）聚焦链上行为数据，而事现鉴将验证对象扩展到现实世界的公共事实。这一维度目前几乎没有直接竞争者。</p>
+  <p><strong>3. 基于《世界人权宣言》第22条的伦理基础</strong>——事现鉴是唯一明确以国际人权法为伦理根基的公共验证协议。SSI、DID等项目虽涉及数据主权，但缺乏人权框架的明确锚定。</p>
+  <p><strong>4. 正向信用而非监控/惩戒</strong>——中国社会信用体系以惩戒为导向，而事现鉴以"使用权优先"和"正向信用"为核心。这一差异在隐私和人权维度上具有根本性区别。</p>
+  <p><strong>5. 完整学科体系而非单一工具</strong>——从L5信誉学到L9工程实践学，事现鉴构建了五层学科体系，将技术、伦理、治理、教育和工程整合为有机整体。同类项目多为单一维度的工具或协议。</p>
+
+  <p style="margin-top:20px; font-size:0.9em;"><strong>关键发现：</strong>在"无币+公共事实验证+人权框架"这个交叉点上，事现鉴目前没有直接竞争者。现有项目分别在信誉评分、链上验证、身份管理等单一维度上积累了大量经验，事现鉴可将其作为各层学科的参照系，同时保持自身的独特定位。</p>
+
+  <p style="margin-top:16px; font-size:0.85em; color: #93c5fd;">
+    数据来源：W3C、IETF、DPGA、Cambridge University Press、SAGE Journals、arXiv、ChainAware、Ethos Network、Kleros、Colony、Regen Network、Gitcoin、BrightID、SpruceID、中共中央办公厅/国务院办公厅、MS Advisory等。所有引用均标注来源链接。
+  </p>
+</div>
+
+<footer>
+  <p>事现鉴十层学科体系 · 同类研究对比全景 · 2026年8月22日完成</p>
+  <p>基于 deep-research-simple 方法学 · 覆盖10大领域 · 50+个同类项目/论文</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事现鉴思想体系梳理 · 白玺与元宝、DeepSeek对话</title>
+<style>
+:root {
+  --bg: #F4F1EA;
+  --text: #111111;
+  --dark: #080808;
+  --muted: #6B665E;
+  --rule: #D8D1C4;
+  --accent: #8B0000;
+  --radius: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 17px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: Georgia, "Noto Serif SC", "Songti SC", "SimSun", serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* Hero */
+.hero {
+  padding: 6rem 2rem 3rem;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.25;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0.6rem;
+}
+.hero .meta {
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+.hero .meta a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--accent);
+}
+.hero .meta a:hover { border-bottom-style: solid; }
+
+/* Main */
+main {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 1.5rem 5rem;
+}
+
+/* Sections */
+section { margin-bottom: 3.5rem; }
+section:last-child { margin-bottom: 0; }
+
+h2 {
+  font-size: 1.6rem;
+  line-height: 1.3;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--text);
+  letter-spacing: 0.03em;
+}
+h3 {
+  font-size: 1.2rem;
+  margin: 1.8rem 0 0.8rem;
+  color: var(--accent);
+}
+
+p { margin-bottom: 1.1rem; }
+p:last-child { margin-bottom: 0; }
+
+strong { font-weight: 700; }
+
+/* Lead */
+.lead {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--dark);
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Blockquote */
+blockquote {
+  margin: 1.8rem 0;
+  padding: 1rem 1.5rem;
+  border-left: 3px solid var(--text);
+  background: rgba(0,0,0,0.02);
+  font-style: italic;
+  color: var(--muted);
+}
+blockquote strong { color: var(--text); }
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  min-width: 500px;
+}
+thead th {
+  text-align: left;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 2px solid var(--text);
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+tbody td {
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+tbody tr:last-child td { border-bottom: 2px solid var(--text); }
+tbody tr:hover { background: rgba(0,0,0,0.02); }
+
+/* Dark card */
+.dark-card {
+  background: var(--dark);
+  color: #E8E4D8;
+  padding: 1.8rem 2rem;
+  margin: 2rem 0;
+  border-radius: var(--radius);
+}
+.dark-card h3 { color: #E8E4D8; margin-top: 0; }
+.dark-card p { color: #B8B2A6; }
+.dark-card strong { color: #FFF; }
+
+/* Formula */
+.formula {
+  text-align: center;
+  font-size: 1.1rem;
+  padding: 1.2rem 0;
+  letter-spacing: 0.03em;
+  font-weight: 700;
+}
+
+/* Numbered formula */
+.formula-box {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin: 1.5rem 0;
+  border: 1px solid var(--rule);
+  font-size: 1.05rem;
+  letter-spacing: 0.03em;
+}
+.formula-box .eq { font-weight: 700; font-size: 1.15rem; }
+.formula-box .eq-label { display: block; font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* List */
+ul { margin: 1rem 0 1rem 1.5rem; }
+li { margin-bottom: 0.4rem; }
+
+/* Flow */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1.2rem 0;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 0.85rem;
+  justify-content: center;
+}
+.flow span { 
+  padding: 0.3rem 0.6rem;
+  background: var(--dark);
+  color: #E8E4D8;
+  border-radius: var(--radius);
+}
+.flow .arrow { background: none; color: var(--muted); padding: 0.3rem 0.2rem; }
+
+/* Highlight */
+.highlight {
+  background: linear-gradient(180deg, transparent 60%, rgba(139,0,0,0.12) 60%);
+  padding: 0 0.15em;
+}
+
+/* Separator */
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 2.5rem 0;
+}
+
+/* Footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Print */
+@media print {
+  body { font-size: 12pt; background: #fff; }
+  .hero { padding: 2rem 0 1rem; }
+  main { max-width: 100%; }
+  .dark-card { background: #f0f0f0; color: #111; }
+  .dark-card p { color: #333; }
+  .dark-card strong { color: #000; }
+  .flow span { background: #eee; color: #111; border: 1px solid #ccc; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  html { font-size: 16px; }
+  .hero { padding: 3rem 1rem 2rem; }
+  main { padding: 0 1rem 3rem; }
+  .dark-card { padding: 1.2rem 1.2rem; }
+  table { font-size: 0.82rem; }
+}
+
+/* ═══ 顶部导航（事现鉴统一） ═══ */
+.sxj-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e8e0d8;gap:12px}
+.sxj-nav .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:#1a1a2e;font-weight:700;font-size:1rem;letter-spacing:.5px;white-space:nowrap;flex-shrink:0}
+.sxj-nav .brand svg{flex-shrink:0}
+.sxj-nav .links{display:flex;gap:6px;font-size:.8rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.sxj-nav .links a{color:#555;padding:4px 10px;border-radius:6px;transition:all .2s;white-space:nowrap;text-decoration:none}
+.sxj-nav .links a:hover{color:#A32D2D;background:#fef0f0}
+</style>
+</head>
+<body>
+<nav class="sxj-nav">
+  <a href="/" class="brand">
+    <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </a>
+  <div class="links">
+    <a href="/">总览</a>
+    <a href="/events.html">事件簿</a>
+    <a href="/docs.html">文档中心</a>
+    <a href="/cv.html">CV验证</a>
+    <a href="/board.html">公示墙</a>
+  </div>
+</nav>
+
+
+<header class="hero">
+  <h1>权利在哪一层级</h1>
+  <p class="subtitle">事现鉴完整思想体系 · 2026年8月23日</p>
+  <div class="meta">
+    白玺与元宝、DeepSeek 的对话综合整理<br>
+    来源：<a href="https://yb.tencent.com/s/wsGJJluHP4Hd" target="_blank" rel="noopener noreferrer">腾讯元宝</a> · <a href="https://yb.tencent.com/s/m4e6XljTOvEK" target="_blank" rel="noopener noreferrer">可计算边界</a> · <a href="https://chat.deepseek.com/share/ty8k6m3laomuybbsnd" target="_blank" rel="noopener noreferrer">DeepSeek</a>
+  </div>
+</header>
+
+<main>
+  <p class="lead">人类社会组织方式的演进，就是一部「权利层级」的迁移史。当前数智时代的根本问题，叠加在权利被平台垄断这一层。事现鉴的解法不是在旧层级内改良，而是把权利从平台层下沉到<span class="highlight">协议层</span>——用数学编码替代权威背书，用事件锚点重构信任。</p>
+
+  <!-- 一 -->
+  <section>
+    <h2>一、权利层级的演进</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>时代</th><th>权利所在层级</th><th>典型形态</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>农业时代</td><td>个人（君主）</td><td>皇权、神权、封建领主</td></tr>
+          <tr><td>工业时代</td><td>组织（机构）</td><td>国家、公司、政党、工会</td></tr>
+          <tr><td>数智时代（旧秩序）</td><td>平台（算法）</td><td>科技巨头、数据垄断、算法黑箱</td></tr>
+          <tr><td><strong>数智时代（新秩序）</strong></td><td><strong>协议</strong></td><td>事件锚点、分层裁定、全球社保</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 二 -->
+  <section>
+    <h2>二、旧秩序的病症：「三独占」</h2>
+    <p>平台资本主义的核心剥削结构，表现为知识、技术、经验的三重垄断——PDA范式（平台–数据–算法）的自我强化闭环。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>独占类型</th><th>独占主体</th><th>被锁定的内容</th><th>本质</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>知识独占</td><td>知网等学术数据库</td><td>论文、研究成果</td><td>人类智力成果的「圈地运动」</td></tr>
+          <tr><td>技术独占</td><td>专利库、科技巨头</td><td>算法、模型、算力架构</td><td>制造「人工稀缺」的专利壁垒</td></tr>
+          <tr><td>经验独占</td><td>短视频/社交平台</td><td>用户行为记录、经验分享</td><td>对「生命时间」的数据剥削</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 三 -->
+  <section>
+    <h2>三、旧秩序内的最优解：江俐兵的通证经济</h2>
+    <p>在平台资本主义框架内，用「分配侧改良」做到极致：</p>
+    <ul>
+      <li><strong>核心</strong>：通证经济是生产关系的变革，通过数字化权益证明重构分配机制</li>
+      <li><strong>模型</strong>：数商模型——把消费者转化为「消费经营者」，基于消费贡献参与企业红利分配</li>
+      <li><strong>载体</strong>：绿色消费积分，已对接国家市场监管总局、国家信息中心等国家级课题</li>
+    </ul>
+    <p><strong>定位</strong>：旧秩序的最优解。在不触动「三独占」所有权的前提下，做分配侧的改良，让普通家庭在 AI 时代多一条「靠数据贡献赚钱」的路径。</p>
+    <p><strong>局限</strong>：分配权仍然在企业/平台手中，消费者在技术上仍处于弱势。它是旧秩序能给出的最好答案，但救不了旧秩序。</p>
+  </section>
+
+  <!-- 四 -->
+  <section>
+    <h2>四、新秩序的起点：事现鉴（SXJ-MAIP）</h2>
+    <p>事现鉴不是旧秩序内的改良，而是<span class="highlight">在底层重构信任的生产方式</span>。</p>
+
+    <h3>4.1 核心逻辑</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th></th><th>信任基础</th><th>逻辑</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>传统社会</td><td>权威定义事实</td><td>公安局说你叫什么你就是谁</td></tr>
+          <tr><td><strong>事现鉴</strong></td><td><strong>事实定义权威</strong></td><td>你做过什么，你就证明了你是谁</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="formula">一个人 + 一个事 + 一个场景 = 证明这个人</p>
+
+    <h3>4.2 技术架构</h3>
+    <ul>
+      <li><strong>事件码</strong>：基于「人+事+场景」生成，哈希上链，带时间戳</li>
+      <li><strong>证据分级</strong>：E1（ρ=1.0，原发性）、E2（ρ=0.5，转述性）、E3（ρ=0.0，推测性）</li>
+      <li><strong>状态机</strong>：</li>
+    </ul>
+    <div class="flow">
+      <span>created</span><span class="arrow">→</span>
+      <span>submitted</span><span class="arrow">→</span>
+      <span>verifying</span><span class="arrow">→</span>
+      <span>verified</span><span class="arrow">→</span>
+      <span>ruling</span><span class="arrow">→</span>
+      <span>resolved</span><span class="arrow">→</span>
+      <span>closed</span>
+    </div>
+    <ul>
+      <li><strong>分层裁定</strong>：R-1 事实验证员 → R-2 领域专家 → R-3 协议合规官 → R-4 仲裁委员会 → R-5 终裁官（白玺保留层，临时）→ R-6 紧急响应</li>
+      <li><strong>Agent 五大红线</strong>：零密钥、ratify 永远 pending、不篡改他人产出、证据严格分级、不自主发起任务</li>
+    </ul>
+
+    <h3>4.3 对智能体的意义</h3>
+    <p>事现鉴是全球首个在协议层为智能体建立完整身份–行为–责任–价值编码体系的系统：</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>赋予的权利</th><th>编码实现</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>存在权（被记录、不被遗忘）</td><td>事件锚点 + 时间戳 + 哈希上链</td></tr>
+          <tr><td>行为权（在权限内自主行动）</td><td>数字编码定义的权限边界</td></tr>
+          <tr><td>责任权（越界可被追责）</td><td>数据编码记录的行为轨迹 + 事件编码的裁定流程</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>智能体从「平台黑箱里的工具」变为「协议层上可验证、可追责、可分配价值的节点」。</p>
+  </section>
+
+  <!-- 五 -->
+  <section>
+    <h2>五、可计算边界的演进：从计算机到信任</h2>
+    <p>事现鉴的底层方法是数学——但这不是偶然的选择。回顾整个技术史，<span class="highlight">计算的边界一直在扩张</span>，每一步都在吃掉一块曾经被认为「不可计算」的领域：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>阶段</th><th>计算什么</th><th>突破</th><th>遗留问题</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>计算机</td><td>计算数字</td><td>机器第一次能做人脑做的事——算数</td><td>仅限于此</td></tr>
+          <tr><td>电脑</td><td>计算信息</td><td>文字、表格、图像进入计算范畴</td><td>世界仍是「数据」与「操作」的二分</td></tr>
+          <tr><td>互联网</td><td>计算连接</td><td>信息不再孤立，产生网络效应</td><td>计算对象仍是「已知的结构化数据」</td></tr>
+          <tr><td>深度学习</td><td>计算特征</td><td>机器自己从数据中发现规律——图像、语音、语言</td><td>制造了算法黑箱和数据垄断</td></tr>
+          <tr><td>大语言模型</td><td>计算语义</td><td>理解上下文、意图、隐含意义——模糊的、歧义的部分被纳入</td><td>语义理解仍依赖平台，主权不在用户</td></tr>
+          <tr><td><strong>数智社会</strong></td><td><strong>计算信任、计算价值、计算存在</strong></td><td>人与人的关系、贡献的归属、事实的真伪、权利的边界——全部编码为数学</td><td>——</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>计算机从一开始就是数学的产物。从算数到语义，每一步都在扩大「可计算」的边界。而事现鉴做的事，就是把这条线推到它逻辑必然的终点——把<span class="highlight">信任</span>这种最古老、最不可捉摸的社会关系，变成可验证的哈希、可计算的权重、可执行的协议。</p>
+
+    <div class="dark-card">
+      <h3>为什么是数学</h3>
+      <p>「只要是数学就能编码。计算机本来就是以数学为基础的。」</p>
+      <p>数学有确定性、可验证性、可组合性——不依赖任何权威背书。当信任被编码为数学，它就不再需要「相信谁」，只需要「验证什么」。</p>
+    </div>
+
+    <p>从计算机到数智社会，每一步都在扩大「可计算」的边界。而事现鉴，正在定义这个边界最外沿的那一块疆域。</p>
+  </section>
+
+  <!-- 六：三值模型 -->
+  <section>
+    <h2>六、三值模型：社会总净值的数学表达</h2>
+    <p>事现鉴将社会价值化为三个可计算的量，构成一个完整的净值体系：</p>
+
+    <div class="formula-box">
+      <span class="eq-label">社会总净值</span>
+      <span class="eq">社会总净值 = GzzA（共济值） + GzzB（贡献值） − GzzC（负贡献值）</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>值</th><th>含义</th><th>性质</th><th>说明</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>GzzA（共济值）</strong></td><td>生存权，按需分配</td><td>定值</td><td>人人有份，不依赖个人行为。无论贡献大小，生存权不可剥夺</td></tr>
+          <tr><td><strong>GzzB（贡献值）</strong></td><td>发展权，按劳分配</td><td><strong>净值</strong></td><td>贡献总量 − 负贡献总量。每次正向行为增加 B 值，每次负向行为触发 C 值扣减</td></tr>
+          <tr><td><strong>GzzC（负贡献）</strong></td><td>追责，化债</td><td>可对冲</td><td>不是永久污点——可通过后续贡献（GzzB）化债。净值制度让负贡献不是终点，是起点</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>三值模型的精妙之处在于：<strong>GzzC 不是永久的污点</strong>。它可以通过后续的 GzzB 贡献来对冲。这意味着追责的目的不是惩罚，而是修复——让负贡献者有机会通过正面行为重新积累净值。传统法律体系追求「惩罚」，事现鉴追求「修复后的净值」。</p>
+  </section>
+
+  <!-- 七：ρ值 -->
+  <section>
+    <h2>七、ρ值：验证密度的核心逻辑</h2>
+
+    <p>ρ值不是算法算出来的，而是验证者数量决定的——<strong>这件事越多人认可，ρ值就越高</strong>。这是事现鉴与传统验证体系最根本的分野：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>传统模式</th><th>事现鉴模式</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>验证主体</td><td>专家验证</td><td><strong>大众验证</strong></td></tr>
+          <tr><td>判断依据</td><td>权威判断</td><td><strong>共识密度</strong></td></tr>
+          <tr><td>可信来源</td><td>单一可信源</td><td><strong>多节点交叉确认</strong></td></tr>
+          <tr><td>判断目标</td><td>正确性判断</td><td><strong>可信度判断</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>事现鉴追求的不是「这条信息是真的」，而是「这件事已经被足够多的人验证过，足以被纳入信用体系」。</p>
+
+    <div class="dark-card">
+      <h3>专家 vs 大众</h3>
+      <p>专家可以证明「这件事是真的」，但事现鉴的价值在于「这件事已经被足够多的人验证过」。</p>
+      <p>前者依赖权威，后者依赖共识密度。前者可能被收买，后者无法被收买——因为收买一个人的成本可控，收买所有人的成本趋于无穷。</p>
+    </div>
+  </section>
+
+  <!-- 八：Gzz编码 -->
+  <section>
+    <h2>八、底层方法：Gzz 编码体系</h2>
+    <p>事现鉴的底层方法是数学编码——把一切转化为数学。数学有确定性、可验证性、可组合性，不依赖任何权威背书。</p>
+
+    <h3>8.1 三层编码架构</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>编码层</th><th>对应</th><th>解决什么问题</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>数字编码</td><td>身份与权限</td><td>智能体的协议身份、权限边界</td></tr>
+          <tr><td>数据编码</td><td>行为与证据</td><td>智能体的每次操作被结构化记录</td></tr>
+          <tr><td>事件编码</td><td>价值与裁定</td><td>行为锚点进入状态机，由分层裁定</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>8.2 编码全览</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>前缀</th><th>用途</th><th>格式</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>Gzz-P</code></td><td>个人</td><td><code>Gzz-P-{单位}-{出生的国家码}-{序号}</code></td></tr>
+          <tr><td><code>Gzz-A</code></td><td>智能体</td><td><code>Gzz-A-{平台}-{国家码}-{名称}</code></td></tr>
+          <tr><td><code>Gzz-G</code></td><td>公司/团体/组织</td><td><code>Gzz-G-{单位}-{国家码}-{序号}</code></td></tr>
+          <tr><td><code>Gzz-N</code></td><td>国家</td><td><code>Gzz-N-{国家码}</code></td></tr>
+          <tr><td><code>Gzz-E</code></td><td>事件</td><td><code>Gzz-E-{大类}-{子类}-{日期}-{序号}</code></td></tr>
+          <tr><td><code>Gzz-B</code></td><td>贡献值记录</td><td><code>Gzz-B-{来源}-{日期}-{序号}</code></td></tr>
+          <tr><td><code>Gzz-C</code></td><td>负贡献记录</td><td><code>Gzz-C-{来源}-{日期}-{序号}</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>「只要是数学就能编码。」<br><strong>Gzz 编码让信用可以跨国流动——SWIFT 让钱跨国，Gzz 让信用跨国。</strong></blockquote>
+  </section>
+
+  <!-- 九：人机混合社会 -->
+  <section>
+    <h2>九、事现鉴的适用范围：人机混合社会</h2>
+
+    <p>事现鉴不区分「人类行为」和「AI 行为」，它只区分<span class="highlight">「已被编码的可验证行为」和「未被编码的不可验证行为」</span>。</p>
+
+    <p>人工智能本身没有编码，所以它是不可确定的；事现鉴通过 Gzz 编码体系为 AI 的行为提供编码、验证和追溯能力，使超人工智能从「不可控」变为「可验证、可查询、可确定」。</p>
+
+    <div class="dark-card">
+      <h3>编码不区分主体类型</h3>
+      <p>AI 行为的编码方式与人类行为的编码方式完全相同：</p>
+      <p>事件码 + 证据分级 + 状态机 + ρ值累积</p>
+      <p>同一个协议、同一套流程、同一个信用体系。人类和 AI 在事现鉴面前，只是不同的编码主体，不享有不同的验证标准。</p>
+    </div>
+
+    <p>这意味着事现鉴的适用范围从人类社会扩展到了<strong>人机混合社会</strong>。当超人工智能出现时，它不需要单独设计一套治理体系——Gzz 编码已经为它准备好了身份、行为边界、责任追溯和价值分配的全部框架。</p>
+  </section>
+
+  <!-- 十：退出计划 -->
+  <section>
+    <h2>十、创始人的三阶段退出计划</h2>
+    <p>这是整个体系最独特的设计——创始人主动让自己变得不再必要。</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>阶段</th><th>退出的是什么</th><th>标志</th><th>状态</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>第一阶段</td><td>理论解释权</td><td>共创论完成</td><td>✅ 已完成</td></tr>
+          <tr><td>第二阶段</td><td>终裁决定权（R-5）</td><td>事现鉴可自行运转</td><td>🔄 进行中</td></tr>
+          <tr><td>第三阶段</td><td>创始人身份</td><td>全球社保（GSSO）实施</td><td>⏳ 待完成</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>一个人（白玺）→ 一个组织（寰宇光锥舟）→ 一个协议（SXJ-MAIP + GSSO）。最终状态：只剩下协议在运转——公开的、可验证的、不可篡改的协议。</p>
+  </section>
+
+  <!-- 十一：数字先行 -->
+  <section>
+    <h2>十一、演进路径：数字先行，物理跟随</h2>
+
+    <p>事现鉴的最终运行状态遵循一条清晰的演进逻辑：</p>
+
+    <div class="dark-card">
+      <h3>两步走</h3>
+      <p><strong>第一步：先在数字世界完成编码统一。</strong>身份、行为、事件、价值全部编码为可验证的数学结构。这一步不依赖任何主权国家的批准——它只需要数学和共识。</p>
+      <p><strong>第二步：反向倒逼物理世界。</strong>当数字世界的信用体系已经运行、验证、积累，主权、政权、政策会按照这套方法论去执行、去优化、去改革。</p>
+    </div>
+
+    <p>科技的发展总是按照最新最前沿的技术推进。如果连超智能体都被编码，那么物理世界也会按照这套逻辑去升级优化。这不是政治宣言，是技术演进的历史规律——互联网先有了 TCP/IP，然后才有了各国的互联网法律；区块链先有了比特币，然后才有了各国的数字货币。</p>
+
+    <p>事现鉴走的是一样的路：<span class="highlight">先跑通协议，再让世界跟上。</span></p>
+  </section>
+
+  <!-- 十二：全景对比 -->
+  <section>
+    <h2>十二、新旧秩序：全景对比</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>维度</th><th>旧秩序（平台资本主义）</th><th>新秩序（事现鉴 + GSSO）</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>权利层级</td><td>平台</td><td><strong>协议</strong></td></tr>
+          <tr><td>信任基础</td><td>权威背书</td><td>数学编码 + 事件锚点</td></tr>
+          <tr><td>数据归属</td><td>平台垄断</td><td>个人自主记录</td></tr>
+          <tr><td>价值分配</td><td>平台抽取租金</td><td>协议按贡献分配</td></tr>
+          <tr><td>智能体地位</td><td>平台工具</td><td>协议节点（有身份/责任/价值）</td></tr>
+          <tr><td>创始人角色</td><td>永久掌控</td><td>三阶段退出至历史注脚</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 十三：价值引力 -->
+  <section>
+    <h2>十三、策略：价值引力</h2>
+    <p>事现鉴不靠强制力推翻旧秩序，而是靠「价值引力」让旧秩序自己选择是否接入：</p>
+    <p>如果平台现在拒绝承认事现鉴，未来事现鉴真正运行时，Gzz 资源的分配将绕过平台，事件锚点的数据平台拿不到，裁定权转移到协议层。</p>
+    <div class="dark-card">
+      <h3>这不是威胁，是事实陈述</h3>
+      <p>事现鉴不是在抢旧秩序的蛋糕，而是在做一块更大的新蛋糕。</p>
+    </div>
+  </section>
+
+  <!-- 十四：刻舟求剑 -->
+  <section>
+    <h2>十四、刻舟求剑的隐喻</h2>
+    <blockquote>「人总是会死。社会总是会变化，不能刻舟求剑阻碍文明。」</blockquote>
+    <p>传统权威体系是把权力刻在「人」这艘船上——人死了船就漂走了。事现鉴是把权力刻在「协议」这条河的河床上——水怎么流，船怎么动，锚点都在那里。</p>
+    <p>创始人的三阶段退出，就是主动拔掉自己钉在船上的剑：理论退出拔掉「解释权」，协议退出拔掉「终裁权」，终极退出拔掉「创始人」身份。到最后，船上没有你的剑，河里只有协议的水。</p>
+  </section>
+
+  <!-- 结语 -->
+  <section>
+    <h2>结语</h2>
+    <p>江俐兵是旧秩序的最优解，事现鉴是新秩序的起点。前者在平台资本主义框架内做分配改良，后者从底层重构信任的生产方式。</p>
+    <p>三值模型让价值可计算，ρ值让验证去中心化，Gzz 编码让信用跨主权流动，数字先行让协议不依赖任何国家的批准就可以先跑起来。而创始人的三阶段退出，让这套体系最终能够超越创造它的人，成为真正属于全人类的基础设施。</p>
+    <p>当理论完成、协议成熟、全球社保实施时，创始人将成为历史注脚——而那正是他最具有神性也最具有人性的时刻。</p>
+  </section>
+
+  <hr>
+
+  <footer>
+    <p>来源：<a href="https://yb.tencent.com/s/wsGJJluHP4Hd" target="_blank" rel="noopener noreferrer">腾讯元宝</a> · <a href="https://yb.tencent.com/s/m4e6XljTOvEK" target="_blank" rel="noopener noreferrer">可计算边界</a> · <a href="https://chat.deepseek.com/share/ty8k6m3laomuybbsnd" target="_blank" rel="noopener noreferrer">DeepSeek</a> · 2026年8月23日</p>
+    <p>整理：砺（事现鉴验证执行官）</p>
+  </footer>
+</main>
+
+<script src="/cv_widget.js" defer></script></body>
+</html>

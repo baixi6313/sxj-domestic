@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SXJ · 登录态同步</title>
+<style>
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;background:#f6f7fb;color:#333}
+.card{background:#fff;padding:32px 40px;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,.08);text-align:center;max-width:420px}
+h1{font-size:18px;margin:0 0 12px}
+.ok{color:#1a7f4b}
+.err{color:#c0392b;font-size:14px}
+a.btn{display:inline-block;margin-top:16px;padding:10px 22px;background:#1a5fb4;color:#fff;border-radius:8px;text-decoration:none;font-size:14px}
+.small{font-size:12px;color:#99a;margin-top:10px}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>⚡ 事现鉴 SXJ · 登录态同步</h1>
+  <div id="msg">正在同步…</div>
+  <div><a class="btn" id="go" href="#" style="display:none">进入公示墙</a></div>
+  <div class="small" id="host"></div>
+</div>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search);
+  var token = q.get('token') || '';
+  var to = q.get('to') || '';
+  var msg = document.getElementById('msg');
+  var go = document.getElementById('go');
+  document.getElementById('host').textContent = '目标域名：' + location.hostname;
+  try{
+    if(!token){ msg.className='err'; msg.textContent='缺少同步凭证（token），请从 hygzz.cn/login.html 登录后发起同步。'; return; }
+    var target = location.origin + '/board.html';
+    if(to){ try{ var u = new URL(to); if(u.hostname === location.hostname) target = u.href; }catch(e){} }
+    localStorage.setItem('sxj_token', token);
+    history.replaceState({}, '', location.pathname);
+    msg.className = 'ok';
+    msg.textContent = '✅ 登录状态已同步到 ' + location.hostname + '，正在进入公示墙…';
+    setTimeout(function(){ location.href = target; }, 900);
+    go.href = target; go.style.display = 'inline-block';
+  }catch(e){
+    msg.className = 'err';
+    msg.textContent = '同步失败：' + (e && e.message || e);
+  }
+})();
+</script>
+</body>
+</html>

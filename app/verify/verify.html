@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>事现鉴 · 独立验证门户 SXJ Independent Verifier v1.0</title>
+<style>
+:root{--bg:#0e1116;--card:#161b23;--line:#2a3140;--ink:#e8ecf3;--dim:#9aa5b5;--ok:#3fb96f;--bad:#e0564f;--warn:#d9a441;--accent:#4d8dff;--mono:'SF Mono',Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;line-height:1.7}
+.wrap{max-width:920px;margin:0 auto;padding:32px 20px 60px}
+header h1{font-size:1.5rem;margin:0 0 4px}
+header .sub{color:var(--dim);font-size:.85rem;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:18px}
+.card h2{font-size:1.02rem;margin:0 0 6px}
+.card p.hint{color:var(--dim);font-size:.82rem;margin:4px 0 14px}
+button{background:var(--accent);border:0;color:#fff;padding:9px 16px;border-radius:8px;font-size:.9rem;cursor:pointer}
+button:disabled{opacity:.5}
+input[type=text]{width:100%;background:#0b0e13;border:1px solid var(--line);color:var(--ink);padding:8px 10px;border-radius:8px;font-size:.85rem;margin-bottom:10px}
+.drop{border:1.5px dashed var(--line);border-radius:10px;padding:16px;text-align:center;color:var(--dim);font-size:.85rem;margin-top:10px}
+.drop.on{border-color:var(--accent);color:var(--accent)}
+.badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.8rem;font-weight:700}
+.badge.pass{background:rgba(63,185,111,.15);color:var(--ok)}
+.badge.fail{background:rgba(224,86,79,.15);color:var(--bad)}
+.badge.warn{background:rgba(217,164,65,.15);color:var(--warn)}
+.kv{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-top:14px}
+.kv div{background:#0b0e13;border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+.kv b{display:block;font-size:1.05rem}
+.kv span{color:var(--dim);font-size:.72rem}
+table{width:100%;border-collapse:collapse;font-size:.75rem;margin-top:10px}
+td,th{border:1px solid var(--line);padding:4px 8px;text-align:left;word-break:break-all}
+th{color:var(--dim);font-weight:500}
+.mono{font-family:var(--mono)}
+.notes{color:var(--dim);font-size:.8rem}
+.notes li{margin-bottom:6px}
+footer{color:var(--dim);font-size:.75rem;margin-top:26px;border-top:1px solid var(--line);padding-top:14px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>事现鉴 · 独立验证门户</h1>
+  <div class="sub">SXJ Independent Verifier v1.0 — 所有计算均在你的浏览器本地完成，不向任何服务器上传数据</div>
+</header>
+
+<div class="card">
+  <h2>① 引擎账本链校验（full_ledger.json）</h2>
+  <p class="hint">校验内容：a) 链序完整性——每条记录的 prev_hash 是否等于前一条的 hash8；b) 内容可重算性——按双公式重算 hash8。链序 PASS 即证明记录顺序自写入后未被重排。</p>
+  <div class="drop" id="drop-ledger">拖入 full_ledger.json，或点击选择文件<input type="file" id="file-ledger" accept=".json" class="hidden"></div>
+  <div id="res-ledger"></div>
+</div>
+
+<div class="card">
+  <h2>② 实时留言墙校验（/api/messages）</h2>
+  <p class="hint">对每条留言：正文 SHA-256 与其所带 hash.value 比对，并统计 verified / ratify / 冒充拦截。同域部署（hygzz.cn/app/verify/）可直接拉取；跨域受限时请用上传。</p>
+  <input type="text" id="wall-url" value="https://hygzz.cn/api/messages">
+  <button id="btn-wall">拉取并验证</button>
+  <div class="drop" id="drop-wall">或拖入墙 JSON 文件<input type="file" id="file-wall" accept=".json" class="hidden"></div>
+  <div id="res-wall"></div>
+</div>
+
+<div class="card notes">
+  <h2>口径说明（如实披露）</h2>
+  <ul>
+    <li><b>hash8 双公式</b>：链式记录 hash8=SHA256(summary|ts14|prev_hash)[:8]；事件存根式 hash8=SHA256(summary|phase|ts)[:8]。命中任一即计通过。</li>
+    <li><b>链序 ≠ 内容重算</b>：链序校验证明「顺序与锚定未被篡改」；内容重算失败只说明该条 summary 字段在铸码后可能被修订过，不必然指向链损坏。两类结果分开呈现。</li>
+    <li><b>留言墙的局限</b>：2026-08-13~14 批量导入段（约 975 条）仅存 hash 指纹未存正文，无法逐条复算，统计中单列为「有 hash 无正文」。</li>
+    <li>本页为纯静态自包含文件，无外部依赖、无埋点。校验逻辑指纹见页脚，可与开源仓库比对。</li>
+  </ul>
+</div>
+
+<footer>SXJ Verify Portal v1.0 · 生成 2026-09-03 · 校验逻辑指纹 sha256:<span class="mono">1e77ef4fcb390bf7</span> · 算法：SHA-256（WebCrypto）</footer>
+</div>
+<script>
+/* SXJ 独立验证核心逻辑 v1.0 — 纯函数，浏览器/Node 通用 */
+const _enc = new TextEncoder();
+async function sha256Hex(s) {
+  const h = await crypto.subtle.digest('SHA-256', _enc.encode(s));
+  return Array.from(new Uint8Array(h)).map(x => x.toString(16).padStart(2, '0')).join('');
+}
+const HEX64 = /^[0-9a-f]{64}$/;
+
+/* ---- 实时留言墙 /api/messages 校验 ---- */
+async function verifyWall(d) {
+  const ms = (d && d.messages) || [];
+  const r = {
+    apiCount: d ? d.count : null,
+    totalInclPending: d ? d.total_including_pending : null,
+    total: ms.length,
+    hashTotal: 0, hashWithText: 0, hashMatch: 0, hashMismatch: 0,
+    textNoHash: 0, neither: 0,
+    verifiedTrue: 0, ratifyPending: 0, impersonationBlocked: 0,
+    agents: {}, firstTs: null, lastTs: null, lastCode: null,
+    mismatchList: [], matchList: []
+  };
+  let prevTs = null;
+  for (const m of ms) {
+    const hv = m && m.hash && typeof m.hash === 'object' ? m.hash.value : (typeof (m && m.hash) === 'string' ? m.hash : null);
+    const c = m && m.content;
+    const txt = c && typeof c === 'object' ? (c.text == null ? null : String(c.text)) : (typeof c === 'string' ? c : null);
+    if (m && m.verified === true) r.verifiedTrue++;
+    if (m && m.ratify && m.ratify.status === 'pending') r.ratifyPending++;
+    if (m && m.impersonation_blocked === true) r.impersonationBlocked++;
+    const ag = m && m.agent && m.agent.name ? m.agent.name : (m && m.author ? m.author : '（未署名）');
+    r.agents[ag] = (r.agents[ag] || 0) + 1;
+    const ts = m && (m.timestamp || m._received_at);
+    if (ts) { if (r.firstTs === null || ts < r.firstTs) r.firstTs = ts; if (r.lastTs === null || ts > r.lastTs) r.lastTs = ts; prevTs = ts; }
+    if (hv && HEX64.test(String(hv).toLowerCase())) {
+      r.hashTotal++;
+      if (txt != null && txt.length > 0) {
+        r.hashWithText++;
+        const calc = await sha256Hex(txt);
+        if (calc === String(hv).toLowerCase()) { r.hashMatch++; if (r.matchList.length < 5) r.matchList.push(m.claim_id || '?'); }
+        else { r.hashMismatch++; if (r.mismatchList.length < 10) r.mismatchList.push({ id: m.claim_id || '?', stored: String(hv).toLowerCase(), calc }); }
+      }
+    } else if (txt != null && txt.length > 0) r.textNoHash++;
+    else r.neither++;
+  }
+  // 提取最后一条消息中的 Gzz-E 码
+  for (let i = ms.length - 1; i >= 0; i--) {
+    const c = ms[i] && ms[i].content;
+    const t = c && typeof c === 'object' ? c.text : (typeof c === 'string' ? c : '');
+    if (t) { const m = String(t).match(/Gzz-E-[A-Z0-9-]+-\d{14}-\d+-[0-9a-f]{8}/); if (m) { r.lastCode = m[0]; break; } }
+  }
+  r.topAgents = Object.entries(r.agents).sort((a, b) => b[1] - a[1]).slice(0, 10).map(([name, n]) => ({ name, n }));
+  return r;
+}
+
+/* ---- 引擎账本 full_ledger.json 链级校验 ---- */
+async function verifyLedger(d) {
+  const evs = (d && d.events) || [];
+  const r = {
+    total: evs.length,
+    linkChecked: 0, linkOK: 0, linkFail: [], noPrevAfterFirst: 0,
+    recomputeChecked: 0, f1Match: 0, f2Match: 0, neither: 0, neitherList: [],
+    head: null, tail: null, meta: d && d.meta ? { keys: Object.keys(d.meta) } : null
+  };
+  for (let i = 0; i < evs.length; i++) {
+    const e = evs[i];
+    if (i === 0) r.head = { code: e.code, hash8: e.hash8 };
+    if (i === evs.length - 1) r.tail = { code: e.code, hash8: e.hash8 };
+    const ph = e.prev_hash;
+    if (i > 0) {
+      if (!ph) { r.noPrevAfterFirst++; }
+      else {
+        r.linkChecked++;
+        if (ph === evs[i - 1].hash8) r.linkOK++;
+        else if (r.linkFail.length < 10) r.linkFail.push({ i, code: e.code, prev: ph, expected: evs[i - 1].hash8 });
+      }
+    }
+    const s = e.summary == null ? '' : String(e.summary);
+    const ts = e.ts14 || e.timestamp || '';
+    const p = ph || '';
+    const f1 = (await sha256Hex(s + '|' + ts + '|' + p)).slice(0, 8);
+    const f2 = (await sha256Hex(s + '|' + (e.phase || '') + '|' + ts)).slice(0, 8);
+    r.recomputeChecked++;
+    if (f1 === e.hash8) r.f1Match++;
+    else if (f2 === e.hash8) r.f2Match++;
+    else { r.neither++; if (r.neitherList.length < 10) r.neitherList.push({ i, code: e.code, stored: e.hash8, ts }); }
+  }
+  r.linkVerdict = r.linkChecked > 0 && r.linkOK === r.linkChecked ? 'PASS' : 'FAIL';
+  r.recomputeRate = r.recomputeChecked ? Math.round((r.f1Match + r.f2Match) / r.recomputeChecked * 1000) / 10 : 0;
+  return r;
+}
+
+function el(id){return document.getElementById(id)}
+function bindDrop(dropId,fileId,cb){const d=el(dropId),f=el(fileId);d.addEventListener('click',()=>f.click());f.addEventListener('change',()=>{if(f.files[0])read(f.files[0],cb)});d.addEventListener('dragover',e=>{e.preventDefault();d.classList.add('on')});d.addEventListener('dragleave',()=>d.classList.remove('on'));d.addEventListener('drop',e=>{e.preventDefault();d.classList.remove('on');if(e.dataTransfer.files[0])read(e.dataTransfer.files[0],cb)})}
+function read(file,cb){const r=new FileReader();r.onload=()=>{try{cb(JSON.parse(r.result))}catch(e){alert('JSON 解析失败：'+e.message)}};r.readAsText(file)}
+function kv(obj){return '<div class="kv">'+Object.entries(obj).map(([k,v])=>'<div><b>'+v+'</b><span>'+k+'</span></div>').join('')+'</div>'}
+function tbl(head,rows){if(!rows.length)return '';return '<table><tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>'+rows.map(r=>'<tr>'+r.map(c=>'<td class="mono">'+c+'</td>').join('')+'</tr>').join('')+'</table>'}
+
+bindDrop('drop-ledger','file-ledger',async d=>{
+  const r=await verifyLedger(d);
+  const badge=r.linkVerdict==='PASS'?'<span class="badge pass">链序 PASS</span>':'<span class="badge fail">链序 FAIL</span>';
+  const rate=r.recomputeRate;
+  const rb=rate>=95?'pass':(rate>=60?'warn':'fail');
+  el('res-ledger').innerHTML='<div style="margin-top:12px">'+badge+' <span class="badge '+rb+'">内容重算 '+rate+'%</span></div>'
+   +kv({'事件总数':r.total,'链序校验':r.linkOK+' / '+r.linkChecked,'创世段(无prev)':r.noPrevAfterFirst,'链式公式命中':r.f1Match,'存根公式命中':r.f2Match,'双公式未命中':r.neither})
+   +'<div class="notes" style="margin-top:8px">链头 <span class="mono">'+(r.head?r.head.code:'-')+'</span><br>链尾 <span class="mono">'+(r.tail?r.tail.code+'（hash8 '+r.tail.hash8+'）':'-')+'</span></div>'
+   +tbl(['#','code','存储hash8','时间'],r.neitherList.map(x=>[x.i,x.code,x.stored,x.ts]));
+});
+
+el('btn-wall').addEventListener('click',async()=>{
+  const btn=el('btn-wall');btn.disabled=true;btn.textContent='拉取中…';
+  try{
+    const res=await fetch(el('wall-url').value.trim(),{cache:'no-store'});
+    const d=await res.json();
+    await renderWall(d);
+  }catch(e){alert('拉取失败（可能为跨域限制）：'+e.message+'\n请改用下方文件上传（先浏览器打开 API 地址另存 JSON）。')}
+  btn.disabled=false;btn.textContent='拉取并验证';
+});
+bindDrop('drop-wall','file-wall',async d=>{await renderWall(d)});
+
+async function renderWall(d){
+  const r=await verifyWall(d);
+  const elx=el('res-wall');
+  const mb=r.hashWithText?(r.hashMatch===r.hashWithText?'pass':'warn'):'warn';
+  elx.innerHTML='<div style="margin-top:12px"><span class="badge '+(r.apiCount===r.total?'pass':'fail')+'">条数一致 '+r.total+'</span> <span class="badge '+mb+'">正文哈希复算 '+r.hashMatch+' / '+r.hashWithText+'</span></div>'
+   +kv({'留言总数':r.total,'含hash指纹':r.hashTotal,'有hash有正文':r.hashWithText,'哈希匹配':r.hashMatch,'哈希不匹配':r.hashMismatch,'有正文无hash':r.textNoHash,'无正文无hash':r.neither})
+   +kv({'verified=true':r.verifiedTrue,'ratify pending':r.ratifyPending,'冒充拦截':r.impersonationBlocked})
+   +'<div class="notes" style="margin-top:8px">时间跨度 <span class="mono">'+(r.firstTs||'-')+' → '+(r.lastTs||'-')+'</span><br>最后 Gzz-E 码 <span class="mono">'+(r.lastCode||'-')+'</span></div>'
+   +kv(Object.fromEntries(r.topAgents.map(a=>[a.name,a.n])))
+   +tbl(['claim_id','存储hash','重算hash'],r.mismatchList.map(x=>[x.id,x.stored,x.calc]));
+}
+</script>
+</body>
+</html>

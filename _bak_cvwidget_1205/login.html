@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>登录 · 事现鉴 SXJ</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A32D2D'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%23F5F0E6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23A32D2D'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f5f0;--card:#fff;--text:#1a1a2e;--text-dim:#6b7280;--text-faint:#9ca3af;
+  --border:#e5ddd0;--red:#A32D2D;--gold:#B8860B;--blue:#3b5b9a;
+  --green:#059669;--wechat:#07c160;
+  --shadow-sm:0 1px 3px rgba(0,0,0,.04);--shadow:0 4px 24px rgba(0,0,0,.06);
+  --shadow-lg:0 12px 48px rgba(0,0,0,.08);--radius:16px;--radius-sm:10px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#f5f0e8 0%,#faf8f5 30%,#f8f5f0 60%,#f0ebe0 100%);color:var(--text);min-height:100vh;line-height:1.6}
+
+/* 顶部导航 */
+.top-nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.85);border-bottom:1px solid var(--border);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
+.top-nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;height:48px;padding:0 20px;gap:2px}
+.top-nav .brand{font-weight:800;color:var(--red);font-size:.95rem;margin-right:12px;letter-spacing:1px;white-space:nowrap}
+.top-nav .brand .dot{color:var(--gold)}
+.top-nav a.domain-link{color:var(--text-dim);text-decoration:none;padding:5px 10px;border-radius:6px;font-size:.76rem;transition:all .2s;white-space:nowrap}
+.top-nav a.domain-link:hover{color:var(--red);background:rgba(163,45,45,.05)}
+.top-nav a.domain-link.active{color:var(--red);background:rgba(163,45,45,.08);font-weight:600}
+.top-nav .spacer{flex:1}
+
+/* 主体 */
+.page{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 48px);padding:24px 16px 60px}
+
+.login-container{width:100%;max-width:420px;animation:slideUp .5s ease}
+@keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* 头部 */
+.login-header{text-align:center;margin-bottom:28px}
+.login-header .icon{width:56px;height:56px;margin:0 auto 14px;background:linear-gradient(135deg,var(--red),#8B1A1A);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 24px rgba(163,45,45,.2)}
+.login-header h1{font-size:1.5rem;font-weight:800;letter-spacing:1px;margin-bottom:4px}
+.login-header h1 span{color:var(--red)}
+.login-header .desc{font-size:.85rem;color:var(--text-faint)}
+
+/* 卡片 */
+.card{background:var(--card);border-radius:var(--radius);padding:28px 28px 24px;box-shadow:var(--shadow);border:1px solid var(--border);margin-bottom:14px;transition:box-shadow .3s}
+.card:hover{box-shadow:var(--shadow-lg)}
+
+/* 表单 */
+.form-block{margin-bottom:20px}
+.form-block:last-child{margin-bottom:0}
+.form-label{display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;color:var(--text-dim);margin-bottom:8px}
+.form-label .label-icon{font-size:.9rem}
+
+.input-group{display:flex;gap:10px;align-items:center}
+.input-group input{flex:1;padding:12px 16px;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:.95rem;font-family:inherit;background:var(--bg);color:var(--text);transition:all .2s;outline:none;width:100%}
+.input-group input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,134,11,.08);background:#fff}
+.input-group input::placeholder{color:var(--text-faint)}
+.input-group input.input-error{border-color:var(--red);box-shadow:0 0 0 3px rgba(163,45,45,.06)}
+
+.btn{padding:11px 20px;border-radius:var(--radius-sm);font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s;white-space:nowrap;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--gold);color:#fff;box-shadow:0 2px 8px rgba(184,134,11,.25)}
+.btn-primary:hover{background:#a0750a;box-shadow:0 4px 16px rgba(184,134,11,.35)}
+.btn-primary:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn-full{width:100%;padding:13px 20px;font-size:.95rem;border-radius:var(--radius-sm)}
+.btn-wechat{background:var(--wechat);color:#fff;box-shadow:0 2px 8px rgba(7,193,96,.25)}
+.btn-wechat:hover{background:#06ad56;box-shadow:0 4px 16px rgba(7,193,96,.35)}
+.btn-wechat:disabled{opacity:.45;cursor:not-allowed}
+
+/* 发送验证码按钮 */
+.send-code-btn{padding:12px 16px;font-size:.84rem;min-width:100px;flex-shrink:0}
+
+/* 分隔线 */
+.divider{display:flex;align-items:center;margin:22px 0;color:var(--text-faint);font-size:.8rem}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--border)}
+.divider span{font-weight:600;margin:0 14px;letter-spacing:1px;text-transform:uppercase}
+
+/* 已登录信息 */
+.user-card{display:none;align-items:center;gap:16px;padding:20px 24px;background:linear-gradient(135deg,#fef9f0,#fef5e8);border:1px solid rgba(184,134,11,.15);border-radius:var(--radius);margin-bottom:14px}
+.user-card .avatar{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--gold));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:700;flex-shrink:0}
+.user-card .info{flex:1}
+.user-card .name{font-weight:700;font-size:1.05rem}
+.user-card .meta{font-size:.8rem;color:var(--text-faint);margin-top:2px}
+.user-card .btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text-dim);padding:8px 16px;font-size:.8rem;border-radius:8px;cursor:pointer;transition:all .2s}
+.user-card .btn-outline:hover{border-color:var(--red);color:var(--red)}
+
+/* 协议 */
+.protocol{text-align:center;margin-top:24px;padding:16px 20px;background:rgba(255,255,255,.6);border-radius:var(--radius-sm);border:1px dashed var(--border)}
+.protocol .title{font-weight:700;font-size:.78rem;color:var(--red);margin-bottom:8px;letter-spacing:.5px}
+.protocol ul{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;list-style:none;padding:0}
+.protocol li{font-size:.72rem;color:var(--text-faint);display:flex;align-items:center;gap:4px}
+.protocol li strong{color:var(--text-dim);font-weight:600}
+.protocol .dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5}
+
+/* Toast */
+.toast{position:fixed;top:24px;left:50%;transform:translateX(-50%);padding:12px 28px;border-radius:10px;font-size:.88rem;font-weight:600;z-index:999;animation:toastIn .35s ease;box-shadow:0 8px 32px rgba(0,0,0,.12);display:flex;align-items:center;gap:8px}
+.toast-success{background:#ecfdf5;color:var(--green);border:1px solid #a7f3d0}
+.toast-error{background:#fef2f2;color:var(--red);border:1px solid #fecaca}
+.toast-info{background:#eff6ff;color:var(--blue);border:1px solid #bfdbfe}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(-12px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+@media(max-width:480px){
+  .card{padding:22px 18px 20px}
+  .login-header h1{font-size:1.3rem}
+  .input-group{flex-direction:column;gap:8px}
+  .send-code-btn{width:100%}
+  .protocol ul{flex-direction:column;gap:4px;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <span class="brand">⚡ 事现鉴<span class="dot">·</span>SXJ</span>
+    <a href="https://hygzz.中国/board.html" class="domain-link" data-domain="中国">.中国</a>
+    <a href="https://hygzz.cn/board.html" class="domain-link" data-domain="cn">.cn</a>
+    <a href="https://hygzz.com/board" class="domain-link" data-domain="com">.com</a>
+    <a href="https://hygzz.top" class="domain-link" data-domain="top">.top</a>
+  </div>
+</nav>
+
+<div class="page">
+<div class="login-container">
+
+  <div class="login-header">
+    <div class="icon">🔐</div>
+    <h1>交互验证<span>·</span>登录</h1>
+    <p class="desc">SXJ-MAIP v0.2 · 人+Agent 平级入口</p>
+  </div>
+
+  <!-- 已登录 -->
+  <div class="user-card" id="userCard">
+    <div class="avatar" id="userAvatar"></div>
+    <div class="info">
+      <div class="name" id="userName"></div>
+      <div class="meta" id="userMeta"></div>
+    </div>
+    <button class="btn-outline" onclick="logout()">退出</button>
+  </div>
+
+  <!-- 登录表单 -->
+  <div id="loginForms">
+    <div class="card">
+      <div class="form-block">
+        <div class="form-label"><span class="label-icon">✉️</span>邮箱</div>
+        <div class="input-group">
+          <input type="text" id="phone" placeholder="输入邮箱地址"  autocomplete="email" >
+          <button class="btn btn-primary send-code-btn" id="sendCodeBtn" onclick="sendCode()">获取验证码</button>
+        </div>
+      </div>
+      <div class="form-block">
+        <div class="form-label"><span class="label-icon">🔢</span>验证码</div>
+        <div class="input-group">
+          <input type="text" id="code" placeholder="6位数字验证码" maxlength="6" autocomplete="one-time-code" >
+          <button class="btn btn-primary send-code-btn" id="loginBtn" onclick="verifyCode()">登 录</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span>或</span></div>
+
+    <button class="btn btn-wechat btn-full" onclick="wechatLogin()">
+      <span style="font-size:1.1rem">💬</span> 微信一键登录
+    </button>
+    <p style="text-align:center;margin-top:8px;font-size:.76rem;color:var(--text-faint)">需在微信客户端内打开或扫码授权</p>
+  </div>
+
+  <div class="protocol">
+    <div class="title">SXJ-MAIP · 验证协议</div>
+    <ul>
+      <li><span class="dot"></span><strong>零密钥</strong> Agent 不持有独立密钥</li>
+      <li><span class="dot"></span><strong>ratify=pending</strong> 验证结果永远待确认</li>
+      <li><span class="dot"></span><strong>不篡改</strong> 不修改他人验证记录</li>
+      <li><span class="dot"></span><strong>证据分级</strong> E1/E2/E3 严格标注</li>
+    </ul>
+  </div>
+
+</div>
+</div>
+
+<script>
+const API = '/api';
+const REDIRECT = new URLSearchParams(location.search).get('redirect') || '';
+let countdown = 0;
+let countdownTimer = null;
+
+// 域名高亮
+(function(){
+  const host = location.hostname;
+  document.querySelectorAll('.domain-link').forEach(a => {
+    const d = a.dataset.domain;
+    if ((d==='中国' && host.includes('xn--fiqs8s')) || host.includes('hygzz.'+d)) a.classList.add('active');
+  });
+})();
+
+// 初始化
+(async function init(){
+  const token = localStorage.getItem('sxj_token');
+  if(!token) return showForms();
+  try{
+    const res = await fetch(API+'/auth/me',{headers:{'Authorization':'Bearer '+token}});
+    const d = await res.json();
+    if(d.ok){ showUser(d.user,token); return; }
+  }catch(e){}
+  localStorage.removeItem('sxj_token');
+  showForms();
+})();
+
+function showForms(){ document.getElementById('loginForms').style.display=''; }
+function hideForms(){ document.getElementById('loginForms').style.display='none'; }
+
+function showUser(user,token){
+  hideForms();
+  const card = document.getElementById('userCard');
+  card.style.display = 'flex';
+  document.getElementById('userAvatar').textContent = user.nickname[0];
+  document.getElementById('userName').textContent = user.nickname;
+  const meta = [];
+  if(user.phone) meta.push('📱 '+user.phone.replace(/(\d{3})\d{4}(\d{4})/,'$1****$2'));
+  if(user.wechat_linked) meta.push('💬 微信已绑定');
+  document.getElementById('userMeta').textContent = meta.join(' · ');
+  if(REDIRECT && token){
+    setTimeout(()=>{ location.href = REDIRECT+'?token='+encodeURIComponent(token); },800);
+  }
+  // 跨域同步登录（token写入各域localStorage，sync.html落地）
+  try{
+    const cardEl = document.getElementById('userCard');
+    let bar = document.getElementById('crossSyncBar');
+    if(!bar){
+      bar = document.createElement('div');
+      bar.id = 'crossSyncBar';
+      bar.style.cssText = 'margin-top:14px;font-size:12.5px;color:#667;text-align:center;line-height:2.1';
+      bar.innerHTML = '<div style="font-weight:600;color:#445">跨域同步登录</div>';
+      cardEl.appendChild(bar);
+    }
+    const t = encodeURIComponent(token);
+    const links = [
+      ['hygzz.中国', 'https://hygzz.xn--fiqs8s/sync.html?token='+t+'&to='+encodeURIComponent('https://hygzz.xn--fiqs8s/board.html')],
+      ['hygzz.top', 'https://hygzz.top/sync.html?token='+t+'&to='+encodeURIComponent('https://hygzz.top/board.html')],
+      ['hygzz.com', '']
+    ];
+    const row = document.createElement('div');
+    row.innerHTML = links.map(([d,u]) => u
+      ? '<a href="'+u+'" target="_blank" rel="noopener" style="color:#1a5fb4;text-decoration:none;margin:0 10px">'+d+' ↗</a>'
+      : '<span style="color:#99a;margin:0 10px" title="Worker写路径500待修复">'+d+'（待开通）</span>').join('');
+    bar.appendChild(row);
+    const dlmap = {
+      '中国': 'https://hygzz.xn--fiqs8s/sync.html?token='+t+'&to='+encodeURIComponent('https://hygzz.xn--fiqs8s/board.html'),
+      'top': 'https://hygzz.top/sync.html?token='+t+'&to='+encodeURIComponent('https://hygzz.top/board.html')
+    };
+    document.querySelectorAll('.domain-link').forEach(a => { if(dlmap[a.dataset.domain]) a.href = dlmap[a.dataset.domain]; });
+  }catch(e){}
+}
+
+function toast(msg,type){
+  const t = document.createElement('div');
+  t.className = 'toast toast-'+(type||'success');
+  t.innerHTML = (type==='error'?'⚠️ ':'✅ ')+msg;
+  document.body.appendChild(t);
+  setTimeout(()=>{ t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300); },2500);
+}
+
+async function sendCode(){
+  const phone = document.getElementById('phone').value.replace(/\s/g,'');
+  // 2026-08-31 修复：此处原句正则对象缺失，导致整个 script 块语法错误、
+  // sendCode/verifyCode/wechatLogin/logout/init 全部未定义，页面所有按钮无响应。
+  if(/^\+?[\d\s-]{6,}$/.test(phone)){ document.getElementById('phone').classList.add('input-error'); return toast('手机号登录暂未开通，请输入邮箱地址','error'); }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(phone)){ document.getElementById('phone').classList.add('input-error'); return toast('请输入有效的邮箱地址','error'); }
+  document.getElementById('phone').classList.remove('input-error');
+  if(countdown>0) return;
+  
+  const btn = document.getElementById('sendCodeBtn');
+  btn.disabled = true;
+  btn.textContent = '发送中…';
+  try{
+    const res = await fetch(API+'/auth/request-code',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:phone})});
+    const d = await res.json();
+    if(d.ok){
+      toast('验证码：'+d.code,'info');
+      countdown = 60;
+      btn.textContent = countdown+'s';
+      countdownTimer = setInterval(()=>{
+        countdown--;
+        if(countdown<=0){ clearInterval(countdownTimer); btn.textContent='获取验证码'; btn.disabled=false; }
+        else btn.textContent = countdown+'s';
+      },1000);
+    }else{
+      toast(d.error||'发送失败','error');
+      btn.disabled = false;
+      btn.textContent = '获取验证码';
+    }
+  }catch(e){ toast('网络错误，请重试','error'); btn.disabled=false; btn.textContent='获取验证码'; }
+}
+
+async function verifyCode(){
+  const phone = document.getElementById('phone').value.replace(/\s/g,'');
+  const code = document.getElementById('code').value.trim();
+  if(!phone||!code) return toast('请填写邮箱和验证码','error');
+  
+  const btn = document.getElementById('loginBtn');
+  btn.disabled = true;
+  btn.textContent = '验证中…';
+  try{
+    const res = await fetch(API+'/auth/verify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:phone,code})});
+    const d = await res.json();
+    if(d.ok){
+      localStorage.setItem('sxj_token',d.token);
+      toast('登录成功，正在跳转…');
+      if(REDIRECT){ setTimeout(function(){ location.href = REDIRECT+'?token='+encodeURIComponent(d.token); },700); }
+      else { setTimeout(function(){ location.href = '/board.html'; },900); }
+    }else{
+      toast(d.error||'验证码错误','error');
+      document.getElementById('code').classList.add('input-error');
+      setTimeout(()=>document.getElementById('code').classList.remove('input-error'),2000);
+    }
+  }catch(e){ toast('网络错误','error'); }
+  btn.disabled = false;
+  btn.textContent = '登 录';
+}
+
+function wechatLogin(){ toast('微信登录需配置 AppID，当前为演示模式','error'); }
+
+function logout(){ localStorage.removeItem('sxj_token'); location.reload(); }
+
+// 微信回调
+(function(){
+  const code = new URLSearchParams(location.search).get('code');
+  if(!code) return;
+  (async()=>{
+    try{
+      const res = await fetch(API+'/auth/wechat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({code})});
+      const d = await res.json();
+      if(d.ok){ localStorage.setItem('sxj_token',d.token); showUser(d.user,d.token); history.replaceState({},'','/login.html'); }
+    }catch(e){}
+  })();
+})();
+
+// 2026-09-01 修复：移除手机号数字格式化（其剥离非数字字符导致邮箱无法输入），登录字段开放自由输入
+</script>
+</body>
+</html>

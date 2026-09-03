@@ -2,84 +2,127 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>共创论·事现鉴 概念/定义树</title>
 <style>
-  :root{
-    --bg:#0f1419; --panel:#161d26; --panel2:#1c2530; --line:#2a3645;
-    --txt:#e6edf3; --dim:#9bb0c3; --acc:#5ec8d8; --acc2:#e0a458;
-    --red:#e06c75; --green:#7ec699; --amber:#e5c07b; --blue:#6cb6ff; --purple:#c792ea;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.7;padding:34px 20px 110px}
-  .wrap{max-width:980px;margin:0 auto}
-  h1{font-size:25px;letter-spacing:.5px;margin-bottom:6px}
-  .sub{color:var(--dim);font-size:13px;margin-bottom:18px;border-bottom:1px solid var(--line);padding-bottom:14px}
-  .legend{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
-  .legend span{font-size:11.5px;padding:2px 9px;border-radius:20px;border:1px solid var(--line)}
-  details.cat{margin:0 0 12px;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
-  details.cat>summary{cursor:pointer;padding:13px 16px;font-size:15.5px;font-weight:600;color:var(--acc);list-style:none;display:flex;align-items:center;gap:9px;background:linear-gradient(90deg,rgba(94,200,216,.07),transparent)}
-  details.cat>summary::-webkit-details-marker{display:none}
-  details.cat>summary:before{content:"▸";color:var(--acc);transition:transform .15s;font-size:12px}
-  details.cat[open]>summary:before{content:"▾"}
-  .cnt{margin-left:auto;font-size:11px;color:var(--dim);font-weight:400}
-  .body{padding:6px 14px 14px}
-  .node{border:1px solid var(--line);border-radius:9px;padding:11px 13px;margin:9px 0;background:var(--panel2)}
-  .node .h{font-size:14px;font-weight:600;color:var(--txt);display:flex;align-items:center;gap:7px;flex-wrap:wrap}
-  .node .d{font-size:13px;color:var(--dim);margin-top:5px}
-  .node .d b{color:var(--acc2)}
-  .node .src{font-size:11px;color:var(--blue);margin-top:6px;word-break:break-all}
-  .pill{display:inline-block;font-size:10px;padding:1px 7px;border-radius:20px;font-weight:600}
-  .pill.meta{background:rgba(199,146,234,.18);color:var(--purple)}
-  .pill.axi{background:rgba(108,182,255,.18);color:var(--blue)}
-  .pill.val{background:rgba(126,198,153,.18);color:var(--green)}
-  .pill.ver{background:rgba(94,200,216,.18);color:var(--acc)}
-  .pill.dis{background:rgba(229,192,123,.18);color:var(--amber)}
-  .pill.gov{background:rgba(224,108,117,.16);color:var(--red)}
-  .pill.tec{background:rgba(155,176,195,.18);color:var(--dim)}
-  .pill.app{background:rgba(94,200,216,.12);color:var(--acc)}
-  .pill.crit{background:rgba(224,108,117,.18);color:var(--red)}
-  .pill.evo{background:rgba(229,192,123,.16);color:var(--amber)}
-  .pill.conf{background:rgba(224,108,117,.22);color:var(--red);border:1px solid var(--red)}
-  .child{margin-left:14px;border-left:2px solid var(--line);padding-left:12px}
-  .root{background:linear-gradient(135deg,rgba(94,200,216,.14),rgba(224,164,88,.08));border:1px solid var(--acc2);border-radius:12px;padding:16px 18px;margin-bottom:18px}
-  .root b{color:var(--acc2)}
-  .muted{color:var(--dim);font-size:12px;margin-top:7px}
-  .foot{margin-top:28px;font-size:12px;color:var(--dim);border-top:1px solid var(--line);padding-top:14px}
-  a{color:var(--blue);text-decoration:none}
-</style>
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7}
 
-  <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="theme-color" content="#A32D2D">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="事现鉴">
-  <link rel="apple-touch-icon" href="/icon-192.png">
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap;text-decoration:none}
+.nav-links a:hover{color:var(--red);background:var(--red-light)}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:24px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+
+/* info banner */
+.info-banner{margin:0 0 24px;padding:16px 20px;border:1px solid var(--gold);border-radius:10px;background:var(--gold-light);font-size:0.88rem;line-height:1.75;color:var(--text-dim)}
+.info-banner b{color:var(--text)}
+
+/* legend pills */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px}
+.legend .pill{display:inline-block;font-size:0.75rem;padding:3px 10px;border-radius:20px;font-weight:600;border:1px solid var(--border)}
+.pill.meta{background:#f3e8ff;color:#7c3aed;border-color:#e0d4f5}
+.pill.axi{background:#e8f0fe;color:var(--blue);border-color:#d0dff5}
+.pill.val{background:#e8f5e9;color:var(--green);border-color:#c8e6c9}
+.pill.ver{background:#e0f7fa;color:#0d7377;border-color:#b2ebf2}
+.pill.dis{background:var(--gold-light);color:#8a6d1b;border-color:#f0e0b0}
+.pill.gov{background:var(--red-light);color:var(--red);border-color:#f8d0d0}
+.pill.tec{background:#f5f5f5;color:#666;border-color:#e0e0e0}
+.pill.app{background:#e0f7fa;color:#0d7377;border-color:#b2ebf2}
+.pill.crit{background:var(--red-light);color:var(--red);border-color:#f8d0d0}
+.pill.evo{background:var(--gold-light);color:#8a6d1b;border-color:#f0e0b0}
+.pill.conf{background:var(--red-light);color:var(--red);border:2px solid var(--red)}
+.pill.green{background:#e8f5e9;color:var(--green);border-color:#c8e6c9}
+
+/* root card */
+.root{background:linear-gradient(135deg,rgba(59,91,154,.06),rgba(201,162,75,.08));border:1px solid var(--gold);border-radius:10px;padding:18px 20px;margin-bottom:20px}
+.root b{color:var(--text)}
+.root .muted{color:var(--text-faint);font-size:0.82rem;margin-top:8px}
+
+/* collapsible branch */
+details.cat{margin:0 0 10px;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden;box-shadow:var(--shadow)}
+details.cat>summary{cursor:pointer;padding:14px 18px;font-size:0.95rem;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;gap:10px;background:rgba(59,91,154,.04)}
+details.cat>summary::-webkit-details-marker{display:none}
+details.cat>summary:before{content:"▸";color:var(--blue);transition:transform .15s;font-size:0.8rem}
+details.cat[open]>summary:before{content:"▾"}
+.cnt{margin-left:auto;font-size:0.75rem;color:var(--text-faint);font-weight:400}
+.body{padding:8px 16px 16px}
+
+/* concept node */
+.node{border:1px solid var(--border);border-radius:8px;padding:13px 16px;margin:10px 0;background:var(--bg);transition:all .15s}
+.node:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.node .h{font-size:0.92rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.node .d{font-size:0.84rem;color:var(--text-dim);margin-top:6px;line-height:1.65}
+.node .d b{color:var(--text)}
+.node .src{font-size:0.75rem;color:var(--blue);margin-top:7px;padding-top:6px;border-top:1px dashed var(--border);word-break:break-all}
+
+.child{margin-left:14px;border-left:2px solid var(--border);padding-left:12px}
+
+.foot{margin-top:28px;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:16px;line-height:1.8}
+.foot b{color:var(--text-dim)}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px;text-decoration:none}
+footer a:hover{color:var(--red)}
+
+@media(max-width:640px){
+  nav{padding:0 12px;height:48px}
+  .nav-links{font-size:0.72rem;gap:4px}
+  .nav-links a{padding:3px 6px}
+  .wrap{padding:24px 14px 40px}
+  h1{font-size:1.4rem}
+}
+</style>
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#A32D2D">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="事现鉴">
+<link rel="apple-touch-icon" href="/icon-192.png">
 </head>
 <body>
-<!-- SXJ_NAV -->
-<nav style="position:sticky;top:0;z-index:999;display:flex;flex-wrap:wrap;gap:4px;align-items:center;background:#A32D2D;padding:8px 14px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
-  <a href="./" style="color:#fff;font-weight:700;text-decoration:none;margin-right:10px;">事现鉴</a>
-  <a href="./events.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">事件簿</a>
-  <a href="./knowledge_tree.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">知识树</a>
-  <a href="./org.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">组织架构一览</a>
-  <a href="./history.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">发展历史</a>
-  <a href="./matrix/" style="color:#FFE6A8;text-decoration:none;padding:4px 8px;font-weight:700;">三元坐标场</a>
+
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="knowledge_tree.html">知识树</a>
+    <a href="org.html">组织架构</a>
+    <a href="history.html">发展历史</a>
+    <a href="concept_tree.html" class="cur">三元光锥空间站</a>
+  </div>
 </nav>
-
-
 
 <div class="wrap">
 
-<h1>共创论·事现鉴 — 概念 / 定义树</h1>
+<h1>共创论·事现鉴 — 概念<span>/ 定义树</span></h1>
 <div class="sub">共建构 12 主枝（含 1.5 统一逻辑链）· 约 77 概念节点 · 每个节点含操作化定义 + 语料出处 · 配套：<a href="qualitative_analysis.html">qualitative_analysis.html（质性研究报告）</a> · 2026-07-28（查漏补缺续 + 千问批 + 豆包批 + 理论合成定版）</div>
-<div style="margin:16px 0;padding:14px 18px;border:1px solid #e0a458;border-radius:12px;background:rgba(224,164,88,.12);font-size:13.5px;line-height:1.75;color:#e6edf3">
-  <b style="color:#e0a458">概念变更 · 2026-07-30</b>　A 值「共通值」正式定名为「<b style="color:#5ec8d8">共济值</b>」。<br>
-  理由：① 原型环宇光锥舟＝同舟<b>共济</b>；② 中（同舟共济）/ 日（同舟共済）/ 德（Schicksalsgemeinschaft·海难同船）三语在“同船互济”上同源统一。<br>
-  「共助」（第四阶·国际联动）保持不变。本档案历史条目中的“共通值”为彼时术语，请对照阅读。
-</div>
 
+<div class="info-banner">
+  <b>概念变更 · 2026-07-30</b>　A 值「共通值」正式定名为「<b>共济值</b>」。<br>
+  理由：① 原型环宇光锥舟＝同舟<b>共济</b>；② 中（同舟共济）/ 日（同舟共済）/ 德（Schicksalsgemeinschaft·海难同船）三语在"同船互济"上同源统一。<br>
+  「共助」（第四阶·国际联动）保持不变。本档案历史条目中的"共通值"为彼时术语，请对照阅读。
+</div>
 
 <div class="legend">
   <span class="pill meta">元范式</span><span class="pill axi">公理</span><span class="pill val">三值</span>
@@ -92,10 +135,7 @@
   <b>核心范畴（根）：公开验证层作为统一度量衡</b><br>
   共创论以"事现鉴"为工具，用行为的公开验证记录替代"不透明权力"来度量价值与分配。当验证层足够厚实，"不透明"不再能作为定价权/分配权依据——被作者定位为人类<b>第四次系统置信度切换</b>。
   <div class="muted">单作者单参与者生态：作者全网记录 = 第一个最小 MVP；第二个真实参与者 = 待出现。</div>
-</div>
-
-<!-- 0 元范式 -->
-<details class="cat" open>
+</div><details class="cat" open>
   <summary>0 · 元范式与定位 <span class="cnt">18 概念</span></summary>
   <div class="body">
     <div class="node"><div class="h"><span class="pill meta">元</span> 共创论</div><div class="d">基于"验证驱动"的社会协作理论体系；<b>可操作的社会协议</b>而非哲学宣言。起点是"如何让人不再被欺骗、被屏蔽、被定义"。</div><div class="src">来源：DeepSeek 权威框架 §前言/附录；GSSO 库自署"共创论发起人"</div></div>
@@ -175,6 +215,7 @@
   <div class="body">
     <div class="node"><div class="h"><span class="pill ver">权威机制</span> 事现鉴（唯一验证协议层）</div><div class="d">共创论<b>唯一权威验证机制</b>：公开验证协议层，存储验证过程（非结论）的公共记录层。"双向验证/双向反射"是<b>事现鉴的本质特征</b>，不是独立于事现鉴的另一套机制。其目的=把现实行为导入公开可验证记录，使"不透明"不再能作为定价/分配依据。</div><div class="src">来源：用户 2026-07-28 口述（Block C）；DeepSeek 附录；元范式 事现鉴节点</div></div>
     <div class="node"><div class="h"><span class="pill ver">权威机制</span> Gzz / GZZ 计量凭证（同一概念·大小写）</div><div class="d">行动净值的<b>永久计量凭证</b>：净值正→发放；负→支付/后续抵消，用于资源调度与债务化解。"Root 权限编程 Gzz 是真实的"（用户 2026-07-28 确认）。Gzz=GZZ 仅输入大小写之分，按国内/国际落地场景表述。⚠️ 旧"Gzz 消亡论"已作废（2026-07-27 框架裁定 + 用户 2026-07-28 确认）。</div><div class="src">来源：DeepSeek §3.3-3.5；用户 2026-07-28 口述（Block C/E）</div></div>
+    <div class="node"><div class="h"><span class="pill ver">权威机制</span> Gzz 编码时间精度升级（2026-08-24）</div><div class="d">Gzz 事件编码格式从日期级(YYYYMMDD)升级到<b>秒级(YYYYMMDDHHMMSS)</b>。sxj-agent-handbook.html 中 26 处实例全部同步更新。<b>编码：Gzz-E-EVENT-FIX-20260824135800-001-b5cfe458</b>。</div><div class="src">来源：2026-08-24 事现鉴技术债清理</div></div>
     <div class="node" style="border-style:dashed;opacity:.82"><div class="h"><span class="pill tec">AI 生成·非权威</span> 以下均为 AI 自造的"验证子概念"（非用户/权威框架定义）</div><div class="d">用户 2026-07-28 明确：验证机制只有<b>事现鉴</b>和<b>Gzz</b>，其余都是 AI 自己生成的概念。下列节点属此前 AI 发挥，<b>不纳入定版</b>，仅作存档标记：<br>
     • 最小可运行单元（个人上传/他人认证/阈值共识三环节）<br>
     • 双向验证回路（现实→SHA-256→CV→SCA→现实后果）——实为事现鉴本质特征的 AI 重述<br>
@@ -313,6 +354,19 @@
 </div>
 
 </div>
+
+<footer>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="knowledge_tree.html">知识树</a>
+    <a href="docs.html">文档中心</a>
+    <a href="cv.html">CV平台</a>
+    <a href="https://github.com/baixi6313">GitHub</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 基于 UDHR 第22条的可验证公共事实协议</p>
+</footer>
+
 <script>if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}</script>
-</body>
+<script src="/cv_widget.js" defer></script></body>
 </html>

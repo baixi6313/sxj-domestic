@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文档中心 · 事现鉴 SXJ</title>
+<style>
+:root{
+  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
+  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
+  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6}
+
+nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
+.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
+.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
+.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap}
+.nav-links a:hover{color:var(--red);background:var(--red-light);text-decoration:none}
+.nav-links a.cur{background:var(--blue);color:#fff}
+
+.wrap{max-width:980px;margin:0 auto;padding:36px 20px 60px}
+h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:6px}
+h1 span{color:var(--red)}
+.sub{color:var(--text-faint);font-size:0.9rem;margin-bottom:32px}
+
+.section{margin-bottom:40px}
+.section h2{font-size:1.25rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
+
+.doc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.doc-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:6px}
+.doc-card:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+.doc-card .tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:0.7rem;font-weight:600;width:fit-content}
+.tag-red{background:var(--red-light);color:var(--red)}
+.tag-blue{background:#e8f0fe;color:var(--blue)}
+.tag-gold{background:var(--gold-light);color:#8a6d1b}
+.tag-green{background:#e8f5e9;color:var(--green)}
+.doc-card .title{font-size:1rem;font-weight:700;color:var(--text)}
+.doc-card .desc{font-size:0.82rem;color:var(--text-dim);flex:1}
+.doc-card .meta{font-size:0.75rem;color:var(--text-faint)}
+.doc-card a{font-size:0.82rem;font-weight:600;color:var(--red);margin-top:4px}
+.doc-card a:hover{text-decoration:underline}
+
+footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
+footer a{color:var(--text-dim);margin:0 8px}
+footer a:hover{color:var(--red)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </div>
+  <div class="nav-links">
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html" class="cur">文档中心</a>
+    <a href="cv.html">CV验证</a>
+    <a href="https://hygzz.com">EN</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <h1>📚 文档<span>中心</span></h1>
+  <p class="sub">事现鉴项目全部文档、报告、编码体系与工程资料索引。持续更新。</p>
+
+  <!-- 编码体系 -->
+  <div class="section">
+    <h2>Gzz编码体系</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-red">编码</span>
+        <div class="title">Gzz编码体系参考·最终版</div>
+        <div class="desc">七前缀（P/A/G/N/E/B/C）完整编码规范，含统一码表、三值模型与文法定义。已修正两处文档/代码不一致。</div>
+        <div class="meta">2026-08-23 · v1.0 定稿</div>
+        <a href="https://github.com/baixi6313" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">工程</span>
+        <div class="title">gzz-engine 编码引擎</div>
+        <div class="desc">Python 实现的编码引擎（gzz_encoder.py / gzz_registry.py / gzz_cli.py），支持命令行编码/解码/注册。</div>
+        <div class="meta">2026-08-23 · Python 3.13</div>
+        <a href="https://github.com/baixi6313" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">事件</span>
+        <div class="title">碳足迹：Gzz-E-GOVERN-CARBON</div>
+        <div class="desc">寰宇光锥舟碳足迹核算方案，Gzz-E 事件编码 Gzz-E-GOVERN-CARBON-20251006-001，含碳排放核算方法论。</div>
+        <div class="meta">2026-08-22 · 碳足迹</div>
+        <a href="https://hygzz.cn/carbon.html" target="_blank">查看 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 资产与数据 -->
+  <div class="section">
+    <h2>资产分析与数据</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-gold">分析</span>
+        <div class="title">资产分布多维度分析</div>
+        <div class="desc">三维度（文件个数/内容厚度/完整度）树形图可视化，基于千问资产扫描结果的事现鉴项目全景。</div>
+        <div class="meta">2026-08-23</div>
+        <a href="https://www.coze.cn/s/2bnr2k53cek/" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">验证</span>
+        <div class="title">Gzz编码验证工具</div>
+        <div class="desc">在线验证页面，支持输入编码字符串即时校验格式、前缀、子类和归属单位。</div>
+        <div class="meta">2026-08-23</div>
+        <a href="https://hygzz.top/verify.html" target="_blank">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">扫描</span>
+        <div class="title">千问资产扫描报告</div>
+        <div class="desc">近7天B盘80+文件变动全扫描，发现编码体系两处矛盾并已修正。含统一码表确认。</div>
+        <div class="meta">2026-08-23</div>
+        <a href="https://www.coze.cn/s/e3cwkM7vPvA/" target="_blank">查看 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 学科体系 -->
+  <div class="section">
+    <h2>学科体系</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-blue">学科</span>
+        <div class="title">十层学科体系总纲</div>
+        <div class="desc">L1-L10 十层学科体系全景，涵盖基础科学到社会工程学的完整知识树框架。</div>
+        <div class="meta">2026-08-22</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">学科</span>
+        <div class="title">学科体系 L5-L9 扩展</div>
+        <div class="desc">新增五份学科文档（L5应用科学/L6工程学/L7系统科学/L8社会工程/L9数字元），补齐中高层知识结构。</div>
+        <div class="meta">2026-08-22</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 基础设施 -->
+  <div class="section">
+    <h2>基础设施与部署</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-blue">服务器</span>
+        <div class="title">Lighthouse 法兰克福节点</div>
+        <div class="desc">腾讯云 OpenClaw-CNI3（43.131.35.57），Ubuntu 24.04 + Nginx，hygzz.cn 正式运行。</div>
+        <div class="meta">2026-08-22 · 法兰克福</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">认证</span>
+        <div class="title">DPG数字公共产品认证</div>
+        <div class="desc">GID0094044 已提交评审队列，周期4-8周。事现鉴作为可验证公共事实协议的认证推进。</div>
+        <div class="meta">2026-08 · 评审中</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">公司</span>
+        <div class="title">深圳公司注册启动</div>
+        <div class="desc">选定南山区，目标9月6日前取得进展。挂靠地址与监事人选进行中。</div>
+        <div class="meta">2026-08 · 进行中</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 核心理论 -->
+  <div class="section">
+    <h2>核心理论与协议</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-red">理论</span>
+        <div class="title">共创论 8.0</div>
+        <div class="desc">不推销真理，给人防忽悠的免疫系统。三值模型、五卡模式、全球社保终极目标。</div>
+        <div class="meta">核心理论</div>
+        <a href="co_creation.html">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-red">协议</span>
+        <div class="title">SXJ-MAIP 协议 v0.2</div>
+        <div class="desc">事现鉴多智能体互操作协议：Agent零密钥、ratify永远pending、证据E1/E2/E3分级、不篡改他人产出。</div>
+        <div class="meta">核心协议</div>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">合规</span>
+        <div class="title">SXJ-VC 凭证协议</div>
+        <div class="desc">统一对外接入标准（UAXS），VERIFY/ATTEST/CONSENSUS 报文规范，安全合规部维护。</div>
+        <div class="meta">进行中</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 白玺专栏 -->
+  <div class="section">
+    <h2 id="白玺专栏">白玺专栏</h2>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-red">思想</span>
+        <div class="title">白玺思想体系报告 v3</div>
+        <div class="desc">14章完整思想体系：三值模型、ρ值验证密度、人机混合社会适用范围、数字先行物理跟随、Gzz编码全览表等核心章节。</div>
+        <div class="meta">2026-08-23 · v3 终版</div>
+        <a href="sxj-thought-system-20260823.html">查看 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">金融</span>
+        <div class="title">金融信用编码报告</div>
+        <div class="desc">方正中期期货模拟盘完整交易轨迹（6月-8月），V型反转弧线，四锚点 Gzz-E 金融信用档案，含原图嵌入。</div>
+        <div class="meta">2026-08-23 · 事现鉴金融信用</div>
+        <a href="sxj-finance-credit-20260823.html">查看 →</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 学术文献 OpenAlex -->
+  <div class="section">
+    <h2>学术文献 · OpenAlex</h2>
+    <p class="sub" style="margin-bottom:14px;font-size:0.82rem">基于 OpenAlex 开放学术数据库（覆盖 2.5 亿+ 文献，数据 CC0）检索，按事实核查 / 信任声誉 / 溯源存证 / 共创与全球社保四大命题遴选国际高被引文献，构建事现鉴的学术参照系。检索：Gzz-A-Coze-CN-Li · 2026-09-01。</p>
+    <div class="doc-grid">
+      <div class="doc-card">
+        <span class="tag tag-blue">事实核查</span>
+        <div class="title">The Science of Fake News</div>
+        <div class="desc">Lazer 等 · Science 刊社论级综述，确立假新闻研究的跨学科议程——可验证事实的公共基础设施成为科学界共识命题，与事现鉴「防忽悠免疫系统」同题。</div>
+        <div class="meta">Science · 2018 · 被引 3952 · 开放获取</div>
+        <a href="https://doi.org/10.1126/science.aao2998" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">事实核查</span>
+        <div class="title">A Survey on Automated Fact-Checking: Transfer, Capsule, and Network Embedding</div>
+        <div class="desc">Guo, Schlichtkrull &amp; Vlachos · 自动事实核查技术全景：证据检索 → 立场判别 → 结论生成，为 CV 平台与验证执行官自动化核验提供技术路线图。</div>
+        <div class="meta">TACL · 2022 · 被引 402 · 开放获取</div>
+        <a href="https://doi.org/10.1162/tacl_a_00454" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">事实核查</span>
+        <div class="title">Computational Fact Checking from Knowledge Networks</div>
+        <div class="desc">Ciampaglia 等 · 以知识网络拓扑做计算事实核查，与 SXJ 编码体系「实体—事件」图谱验真思路同构。</div>
+        <div class="meta">PLoS ONE · 2015 · 被引 504 · 开放获取</div>
+        <a href="https://doi.org/10.1371/journal.pone.0128193" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-blue">事实核查</span>
+        <div class="title">Fact-Checking: A Meta-Analysis of What Works and for Whom</div>
+        <div class="desc">Walter, Cohen &amp; Holbert · 对三十项事实核查干预的元分析——核查确能矫正受众信念，为「不推销真理、给人防忽悠免疫系统」路径提供实证支撑。</div>
+        <div class="meta">Political Communication · 2019 · 被引 687</div>
+        <a href="https://doi.org/10.1080/10584609.2019.1668894" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">信任声誉</span>
+        <div class="title">A Survey of Trust and Reputation Systems for Online Service Provision</div>
+        <div class="desc">Jøsang, Ismail &amp; Boyd · 在线信任与声誉系统奠基综述，被引逾三千次——事现鉴「跨主权公开可验证信用」的学术源头参照。</div>
+        <div class="meta">Decision Support Systems · 2005 · 被引 3320 · 开放获取</div>
+        <a href="https://doi.org/10.1016/j.dss.2005.05.019" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">信任声誉</span>
+        <div class="title">Trust Among Strangers in Internet Transactions: Empirical Analysis of eBay’s Reputation System</div>
+        <div class="desc">Resnick &amp; Zeckhauser · eBay 声誉系统经典实证：陌生人之间如何靠公开记录建立信任——对应使用权优先与主权定价记录机制。</div>
+        <div class="meta">Advances in Applied Microeconomics · 2004 · 被引 1835</div>
+        <a href="https://doi.org/10.1016/s0278-0984(02)11030-3" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-gold">信任声誉</span>
+        <div class="title">Challenges for Robust Trust and Reputation Systems</div>
+        <div class="desc">Jøsang &amp; Golbeck · 剖析声誉系统的合谋与女巫攻击面，与公示墙反冒名保护、Agent 零密钥设计直接相关。</div>
+        <div class="meta">Workshop 论文 · 2009 · 被引 157</div>
+        <a href="https://openalex.org/W2133074729" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">溯源存证</span>
+        <div class="title">Why and Where: A Characterization of Data Provenance</div>
+        <div class="desc">Buneman, Khanna &amp; Tan · 数据溯源理论奠基之作——「为什么与哪里」，为证据链 E1/E2/E3 分级提供形式化源头。</div>
+        <div class="meta">ICDT / LNCS · 2001 · 被引 1329 · 开放获取</div>
+        <a href="https://doi.org/10.1007/3-540-44503-x_20" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">溯源存证</span>
+        <div class="title">ProvChain: A Blockchain-Based Data Provenance Architecture in Cloud Environment</div>
+        <div class="desc">Liang, Shetty &amp; Tosh · 云环境区块链溯源架构，对应 SXJ 双节点分布式记账与存证上链的工程实现参照。</div>
+        <div class="meta">IEEE CCGrid · 2017 · 被引 732</div>
+        <a href="https://doi.org/10.1109/ccgrid.2017.8" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-green">溯源存证</span>
+        <div class="title">Blockchain Technology Overview</div>
+        <div class="desc">Yaga, Mell, Roby &amp; Scarfone · 美国国家标准与技术研究院（NIST）权威区块链综述，为「公开可验证」的技术中性界定提供权威依据。</div>
+        <div class="meta">NIST IR 8202 · 2018 · 被引 1546 · 开放获取</div>
+        <a href="https://doi.org/10.6028/nist.ir.8202" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-red">共创与社保</span>
+        <div class="title">Crowdsourcing</div>
+        <div class="desc">Brabham · 众包领域奠基专著，系统化「分布式共创」的组织形态——共创者网络与多智能体协作的理论参照。</div>
+        <div class="meta">MIT Press · 2013 · 被引 590</div>
+        <a href="https://doi.org/10.7551/mitpress/9693.001.0001" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-red">共创与社保</span>
+        <div class="title">Crowdsourcing, Open Innovation and Collective Intelligence in the Scientific Method</div>
+        <div class="desc">Bücheler, Sieg &amp; Füchslin · 将众包与集体智能纳入科学方法的研究议程——与「共创论」开放验证路径同构。</div>
+        <div class="meta">ZHAW · 2010 · 被引 116 · 开放获取</div>
+        <a href="https://doi.org/10.21256/zhaw-4094" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-red">共创与社保</span>
+        <div class="title">Universal Social Protection Floors: Costing Estimates and Affordability in 57 Lower Income Countries</div>
+        <div class="desc">Ortiz, Duran &amp; Pal · ILO 系对 57 个低收入国家社会保护底线的成本测算——GSSO 全球社保终极目标的可行性基线研究。</div>
+        <div class="meta">SSRN / ILO · 2017 · 被引 29 · 开放获取</div>
+        <a href="https://doi.org/10.2139/ssrn.3121542" target="_blank">DOI 全文 →</a>
+      </div>
+      <div class="doc-card">
+        <span class="tag tag-red">共创与社保</span>
+        <div class="title">The Human Rights Framework for Establishing Social Protection Floors</div>
+        <div class="desc">Kaltenborn · 以人权框架论证社会保护底线——呼应事现鉴「基于 UDHR 第 22 条」的立约根基。</div>
+        <div class="meta">Springer · 2019 · 被引 8</div>
+        <a href="https://doi.org/10.1007/978-3-030-30469-0_3" target="_blank">DOI 全文 →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>
+    <a href="./">总览</a>
+    <a href="events.html">事件簿</a>
+    <a href="docs.html">文档中心</a>
+    <a href="cv.html">CV平台</a>
+    <a href="https://github.com/baixi6313">GitHub</a>
+  </p>
+  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 基于 UDHR 第22条的可验证公共事实协议</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>事现鉴 · 时间轴 | hygzz.中国</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23A32D2D'/%3E%3Ccircle cx='16' cy='16' r='10.5' fill='%23F5F0E6'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23A32D2D'/%3E%3C/svg%3E">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#fafaf9;--card:#fff;--text:#1a1a2e;--text-dim:#555;--border:#e8e0d8;
+  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
+  --blue:#8a6d3b;--amber:#D99A2B;--coral:#D85A30;
+}
+body{font-family:-apple-system,Segoe UI,Roboto,'PingFang SC','Microsoft YaHei',sans-serif;color:var(--text);background:var(--bg);line-height:1.7}
+/* ═══ 顶部栏：左侧创始完成文字 + 右侧导航下拉菜单 ═══ */
+  background:linear-gradient(135deg,#A32D2D,#7a1f1f);
+  color:#fff;display:flex;align-items:center;justify-content:space-between;
+  padding:10px 20px;border-bottom:2px solid var(--gold);
+  position:sticky;top:0;z-index:200;
+}
+  background:rgba(255,255,255,.12);color:#f4e9c9;
+  border:1px solid rgba(201,162,75,.4);padding:6px 14px;border-radius:8px;
+  font-size:.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;
+  transition:.15s;white-space:nowrap;flex-shrink:0;
+}
+  background:linear-gradient(145deg,#6b1818,#4a1010);
+  border:1px solid rgba(201,162,75,.35);border-radius:0 0 12px 12px;
+  min-width:200px;padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,.35);z-index:300;
+}
+.page-head{max-width:900px;margin:0 auto;padding:28px 18px 0}
+.page-head h1{font-size:1.6rem;color:var(--red);margin-bottom:4px}
+.page-head p{font-size:.9rem;color:var(--text-dim)}
+.wrap{max-width:900px;margin:0 auto;padding:20px 18px 60px}
+.timeline{position:relative;padding-left:36px;margin:24px 0}
+.timeline::before{content:'';position:absolute;left:15px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--red),var(--gold),var(--blue));border-radius:2px}
+.tl-item{position:relative;margin-bottom:28px;padding:14px 18px;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .15s, box-shadow .15s}
+.tl-item:hover{transform:translateX(4px);box-shadow:0 4px 12px rgba(163,45,45,.08)}
+.tl-item::before{content:'';position:absolute;left:-29px;top:22px;width:12px;height:12px;border-radius:50%;border:2px solid var(--red);background:var(--bg);z-index:1}
+.tl-item.milestone::before{border-color:var(--blue);background:#fbf3e0;width:16px;height:16px;left:-32px;top:19px;box-shadow:0 0 0 3px rgba(201,162,75,.15)}
+.tl-year{display:inline-block;background:linear-gradient(135deg,var(--red),#c44);color:#fff;font-size:.75rem;font-weight:700;padding:2px 10px;border-radius:10px;margin-bottom:6px;letter-spacing:1px}
+.tl-year.blue{background:linear-gradient(135deg,var(--blue),#7a1f1f)}
+.tl-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.tl-desc{font-size:.88rem;color:var(--text-dim);line-height:1.65}
+.tl-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.tl-tag{font-size:.72rem;padding:2px 8px;border-radius:8px;background:#f5f0e6;color:#6b6459;border:1px solid #efe2bf}
+.tl-tag.nat{background:#fbf3e0;color:#8a6d3b;border-color:#ecd9a8}
+.tl-tag.hum{background:#fef0f0;color:#A32D2D;border-color:#f0d4d4}
+.tl-tag.dig{background:#fbf3e0;color:#8a6d3b;border-color:#ecd9a8}
+.tl-tag.A{background:#fbf3e0;color:#8a6d3b;border-color:#ecd9a8;font-weight:600}
+.tl-tag.B{background:#fbf3e0;color:#8a6d3b;border-color:#ecd9a8;font-weight:600}
+.tl-tag.C{background:#fef0f0;color:#7a2424;border-color:#f0d4d4;font-weight:600}
+.legend{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0;padding:14px;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:.82rem}
+.legend-item{display:flex;align-items:center;gap:5px}
+.legend-dot{width:10px;height:10px;border-radius:50%;border:2px solid}
+.legend-dot.red{border-color:var(--red);background:var(--bg)}
+.legend-dot.blue{border-color:var(--blue);background:#fbf3e0}
+.stat-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:20px 0}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+.stat-card .num{font-size:1.6rem;font-weight:700;color:var(--red)}
+.stat-card .label{font-size:.78rem;color:var(--text-dim);margin-top:2px}
+footer{text-align:center;color:var(--text-dim);font-size:.8rem;padding:26px;border-top:1px solid var(--border)}
+@media(max-width:600px){
+  .timeline{padding-left:28px}
+  .tl-item::before{left:-21px;width:10px;height:10px}
+  .wrap{padding:12px 12px 40px}
+}
+
+/* ═══ 顶部导航：内联全展示（不收缩） ═══ */
+.topnav{position:sticky;top:52px;z-index:200;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:11px 22px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--text);font-weight:700;font-size:1.05rem;letter-spacing:.5px;white-space:nowrap}
+.brand .dot{width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fff 0 26%,var(--red) 28% 58%,#fff 60% 76%,var(--red) 78%);border:1px solid var(--red);flex-shrink:0}
+.nav-wrap{position:relative;display:flex;align-items:center}
+.nav-trigger{
+  background:rgba(0,0,0,.06);color:var(--text);border:1px solid var(--border);
+  padding:7px 14px;border-radius:8px;font-size:.88rem;cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap;flex-shrink:0;
+  user-select:none;
+}
+.nav-trigger:hover{background:rgba(0,0,0,.1)}
+.nav-trigger .arrow{font-size:.7rem;transition:transform .2s}
+.nav-trigger.open .arrow{transform:rotate(180deg)}
+.nav-drop{
+  display:none;position:absolute;top:calc(100% + 6px);right:0;
+  background:#fff;border:1px solid var(--border);border-radius:12px;
+  min-width:180px;padding:8px 0;box-shadow:0 8px 24px rgba(0,0,0,.12);
+  z-index:300;flex-direction:column;
+}
+.nav-drop.show{display:flex}
+.nav-drop a{
+  display:block;text-decoration:none;color:var(--text);font-size:.88rem;
+  padding:9px 18px;transition:.15s;white-space:nowrap;
+}
+.nav-drop a:hover{background:var(--gold-light);color:var(--red)}
+.nav-drop a.cur{color:var(--red);background:var(--gold-light);font-weight:600}
+
+</style>
+<style>
+.sxj-domainbar{position:sticky;top:0;z-index:999;display:flex;align-items:center;gap:10px;height:52px;padding:0 16px;background:linear-gradient(135deg,#8E1F1F 0%,#5e1414 100%);border-bottom:2px solid #C9A24B;font-family:-apple-system,Segoe UI,Roboto,'PingFang SC','Microsoft YaHei',sans-serif;box-sizing:border-box}
+.sxj-domainbar *{box-sizing:border-box}
+.sxj-domainbar .brand{display:flex;align-items:center;gap:7px;color:#f3e6c4;text-decoration:none;font-weight:700;font-size:1rem;letter-spacing:1px;white-space:nowrap}
+.sxj-domainbar .brand .dot{width:14px;height:14px;border-radius:50%;background:#C9A24B;box-shadow:0 0 0 3px #D85A30;display:inline-block}
+.sxj-domainbar nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.sxj-domainbar a.link{color:#f3e6c4;text-decoration:none;font-size:.84rem;padding:6px 12px;border-radius:18px;border:1px solid transparent;opacity:.82;white-space:nowrap;transition:.15s}
+.sxj-domainbar a.link:hover{opacity:1;background:#D85A30;border-color:#D85A30}
+.sxj-domainbar a.link.active{background:#D85A30;color:#fff;opacity:1;font-weight:600}
+@media(max-width:560px){.sxj-domainbar a.link{padding:6px 8px;font-size:.76rem}}
+</style>
+</head>
+<body><div id="sxj-nav" style="position:sticky;top:0;z-index:9999;background:#1d4fb0;font-size:13px;padding:2px 6px;overflow-x:auto;white-space:nowrap"><span style="color:#C9A24B;font-weight:700;padding:0 6px">SXJ</span><a href="/index.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🏠统一门户</a><a href="/board.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">📢公示墙</a><a href="/wall.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🧱留言墙</a><a href="/verify.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">📏验算尺</a><a href="/login.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🔐登录</a><a href="/timeline.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🕐时间轴</a><a href="/repair.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🛠待修复</a><a href="/ai-matrix.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🤖AI建制</a><a href="/whitepaper.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">📄白皮书</a><a href="/cv.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">💎CV</a><a href="/knowledge_tree.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">🌳知识树</a><a href="/events.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">📜事件</a><a href="/docs.html" style="color:#fff;text-decoration:none;display:inline-block;padding:7px 9px">📚文档</a></div>
+<div class="sxj-domainbar">
+<a class="brand" href="https://hygzz.中国/board.html"><span class="dot"></span>事现鉴 SXJ</a>
+<nav>
+<a class="link" href="https://hygzz.com/board">收件入口</a>
+<a class="link active" href="https://hygzz.中国/board.html">CV验证台</a>
+<a class="link" href="https://hygzz.top">维基百科</a>
+<a class="link" href="https://sxj.hygzz.cn">流动仓</a>
+</nav>
+</div>
+
+<nav class="topnav">
+  <a class="brand" href="./index.html"><span class="dot"></span>事现鉴</a>
+  <div class="nav-wrap">
+    <button class="nav-trigger" onclick="toggleNav(this)">☰ 导航 <span class="arrow">▾</span></button>
+    <div class="nav-drop" id="navDrop">
+      <a href="./index.html">首页</a>
+    <a href="./board.html">公示墙</a>
+    <a href="./verify.html">验算尺</a>
+    <a href="./login.html">登录/验证</a>
+    <a href="./repair.html">待修复</a>
+    <a href="./timeline.html" class="cur" aria-current="page">时间轴</a>
+    <a href="./sxj-ai-charter.html">AI建制</a>
+    <a href="./ai-matrix.html">AI矩阵</a>
+    <a href="./relay/">中继</a>
+    </div>
+  </div>
+</nav>
+
+
+<div class="page-head">
+  <h1>⏱️ 事现鉴 · 时间轴</h1>
+  <p>光锥时空事件点按时间排列 —— 每个事件是一页带公证的卷宗</p>
+</div>
+
+<div class="wrap">
+
+  <!-- 统计概览 -->
+  <div class="stat-bar" id="statsBar"></div>
+
+  <!-- 图例 -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot red"></div> 普通事现</div>
+    <div class="legend-item"><div class="legend-dot blue"></div> 里程碑</div>
+    <span style="margin-left:auto;color:#888;font-size:.78rem">数据源自 SXJ 矩阵统一数据模型</span>
+  </div>
+
+  <!-- 时间轴由 JS 渲染 -->
+  <div class="timeline" id="timeline"></div>
+
+</div>
+
+<footer>事现鉴 SXJ · 基于《世界人权宣言》第22条的可验证公共事实协议 · hygzz.中国</footer>
+
+<script>
+/* ===== 内联精简版 SXJ 数据模型（timeline 专用）===== */
+var SXJ = (function(){
+  'use strict';
+  var TRIAD = [
+    { key:'natural', name:'自然 / 环境', short:'自然', icon:'🌱', color:'#C9A24B' },
+    { key:'human',   name:'人文',        short:'人文', icon:'🤝', color:'#A32D2D' },
+    { key:'digital', name:'数字 / 资产', short:'数字', icon:'🔗', color:'#8a6d3b' }
+  ];
+  var TIER = [
+    { key:'up',  name:'上 · 系统 / 制度级', short:'上' },
+    { key:'mid', name:'中 · 专业 / 组织级', short:'中' },
+    { key:'low', name:'下 · 个人 / 日常级', short:'下' }
+  ];
+  var JURIS = [
+    { key:'CN',   name:'中国（含港澳台）', short:'中' },
+    { key:'INTL', name:'国际 / 跨境',      short:'国际' }
+  ];
+
+  function triad(k){ for(var i=0;i<TRIAD.length;i++) if(TRIAD[i].key===k) return TRIAD[i]; return null; }
+  function tier(k){  for(var i=0;i<TIER.length;i++)  if(TIER[i].key===k)  return TIER[i];  return null; }
+  function juris(k){ for(var i=0;i<JURIS.length;i++) if(JURIS[i].key===k) return JURIS[i]; return null; }
+  function eventYear(e){ var t=e.t; if(!t) return null; var m=String(t).match(/(\d{4})/); return m?parseInt(m[1],10):null; }
+  function rhoColor(rho){ if(typeof rho!=='number') return '#c9c3b8'; var lo=[154,160,166],mid=[201,162,75],hi=[216,90,48],c; if(rho<0.5){var k=rho/0.5;c=lo.map(function(v,i){return Math.round(v+(mid[i]-v)*k);});}else{var k2=(rho-0.5)/0.5;c=mid.map(function(v,i){return Math.round(v+(hi[i]-v)*k2);});}return 'rgb('+c[0]+','+c[1]+','+c[2]+')';}
+  function stats(){ var years=[]; EVENTS.forEach(function(e){var y=eventYear(e);if(y!==null)years.push(y);}); return { total:EVENTS.length, measured:EVENTS.filter(function(e){return typeof e.rho==='number';}).length, minYear:years.length?Math.min.apply(null,years):null, maxYear:years.length?Math.max.apply(null,years):null }; }
+
+  /* 原始事件 + 新增 SXJ 里程碑 */
+  var EVENTS = [
+    { id:'evt_001', title:'南京博物院受赠文物流向拍卖', x:'human', y:'up', z:'org', j:'CN', t:'2026-02-09', geo:{place:'江苏南京',precision:'city'}, rho:null, status:'accounted', summary:'捐赠人赠予博物院的《江南春》等文物出现在拍卖市场，院方称「依规处置伪作」。核心争点是受赠文物的处置制度与公共文化资产确权。', parties:[{who:'捐赠人及公众',value:'A'},{who:'处置责任方',value:'C'}] },
+    { id:'evt_002', title:'小红书原员工期权归属争议', x:'human', y:'mid', z:'org', j:'CN', t:'2026-07-28', geo:{place:'上海',precision:'city'}, rho:null, status:'tracking', summary:'原员工主张其在职期间的劳动贡献应对应为已承诺的期权权益。是「贡献值 B 的集体确认」的典型样本。', parties:[{who:'原员工',value:'B'},{who:'用人方',value:'C'}] },
+    { id:'evt_004', title:'耿同学学术打假事件', x:'human', y:'up', z:'group', j:'CN', t:'2026-03-20', geo:{place:'中国（学术共同体）',precision:'approx'}, rho:null, status:'verifying', summary:'一人牵头、集体核验，学术不端被坐实。多当事人三值归因的标准范例：同一事件对不同当事人并存共济值 A 与负贡献 C。', parties:[{who:'耿同学（举报方）',value:'A'},{who:'被揭露方',value:'C'}] },
+    { id:'evt_005', title:'红旗驿站：城市贡献者安居（五卡模式 · AI 共同演绎）', x:'human', y:'up', z:'group', j:'CN', t:'2026-03-13', geo:{place:'陕西（示意位置）',precision:'approx'}, rho:null, status:'verifying', summary:'事现提案：三位一体框架 + 时间银行 + 三方共担，进入集体验证与社区落地追踪。', parties:[{who:'城市贡献者',value:'B'},{who:'社会 / 公共侧',value:'A'}] },
+    { id:'evt_006', title:'Kimi 分享链接异常', x:'digital', y:'mid', z:'org', j:'CN', t:'2026-07-31', geo:{place:'中国（平台侧）',precision:'approx'}, rho:null, status:'recording', summary:'截图留存：Kimi 分享链接功能异常，单点平台无法保证记录可携带。是 G-9「运输层断裂」的早期单点样本。', parties:[{who:'记录者',value:'A'}] },
+    { id:'evt_007', title:'彬县卷烟厂退休职工社保断缴', x:'human', y:'up', z:'group', j:'CN', t:'1998', geo:{place:'陕西彬州',precision:'city'}, rho:null, status:'recording', summary:'买断职工社保断缴，属生存权 / 社保制度层的历史遗留。本条最重要的价值不在结论，而在其版本史——它是事现鉴「不能自证」自我约束的实证。', parties:[{who:'断缴职工群体',value:'A'},{who:'责任主体',value:'C'}] },
+    { id:'evt_008', title:'百度搭子无法生成分享链接', x:'digital', y:'mid', z:'org', j:'CN', t:'2026-08-02', geo:{place:'中国（平台侧）',precision:'approx'}, rho:null, status:'recording', summary:'尝试生成对话分享链接时系统提示「Share url is missing」，无法获得可携带、可审计的链接。', parties:[{who:'记录者',value:'A'}] },
+    { id:'evt_009', title:'跨平台 AI 分享链接不可用性（G-9 公共事现）', x:'digital', y:'up', z:'cross', j:'CN', t:'2026-08-02', geo:{place:'中国（发布地）· 事实跨平台',precision:'approx'}, rho:0.5355, status:'recording', milestone:true, summary:'两张跨平台实证表记录 6–7 家主流 AI 平台原生分享链接的生成或渲染失败。结论：依靠各平台原生分享链接作为跨 AI 验证通道，在当前基础设施下不可行。', parties:[{who:'记录者 / 公众',value:'A'}] },
+    { id:'evt_010', title:'境外委托复测 G-9（跨境验证模式出现）', x:'digital', y:'up', z:'cross', j:'INTL', t:'2026-08-02', geo:{place:'加拿大温哥华',precision:'city'}, rho:null, status:'recording', summary:'委托境外朋友（加拿大温哥华）复测同一组分享链接。结果：境内不可用的链接在境外同样不可用，排除了防火墙单一归因。跨境验证模式首次出现。', parties:[{who:'境外复测者',value:'A'}] },
+
+    /* ==== SXJ 项目里程碑（新增）==== */
+    { id:'ms_001', title:'✦ 事现鉴 SXJ 项目启动', x:'digital', y:'up', z:'cross', j:'CN', t:'2025-12', rho:null, status:'verified', milestone:true, summary:'白玺（BAI XI）发起事现鉴（SXJ）项目，锚定《世界人权宣言》第22条，提出「可验证公共事实协议」初步框架。', parties:[{who:'白玺',value:'B'}] },
+    { id:'ms_002', title:'✦ hygzz.中国 域名注册与站点上线', x:'digital', y:'up', z:'org', j:'CN', t:'2026-07-22', rho:null, status:'verified', milestone:true, summary:'「寰宇光锥舟」hygzz.中国 正式上线，承载 SXJ 概念树、知识树、验证账本等核心模块。', parties:[{who:'WorkBuddy',value:'B'}] },
+    { id:'ms_003', title:'✦ 五卡模式与红旗驿站提案', x:'human', y:'up', z:'group', j:'CN', t:'2026-03-13', rho:null, status:'verifying', milestone:true, summary:'三位一体框架 + 时间银行 + 三方共担的城市贡献者安居方案进入 AI 共同演绎阶段。', parties:[{who:'白玺 / AI 协作',value:'B'}] },
+    { id:'ms_004', title:'✦ G-9「运输层断裂」公共事现确立', x:'digital', y:'up', z:'cross', j:'CN', t:'2026-08-02', rho:0.5355, status:'verified', milestone:true, summary:'跨平台实证确认：6–7 家主流 AI 平台原生分享链接不可用。事现鉴首次按 MAIP 信封格式量测 ρ=0.5355。', parties:[{who:'白玺 / 多平台实测',value:'A'}] },
+    { id:'ms_005', title:'✦ SSL 证书配置完成（HTTPS 全站加密）', x:'digital', y:'mid', z:'org', j:'CN', t:'2026-08-14', rho:null, status:'verified', milestone:true, summary:'腾讯云免费 DV 证书（TrustAsia C1）部署至 hygzz.中国，CertId=Zz1Aq9Hb，有效期 2026-08-13 → 2026-11-10。浏览器地址栏显示 🔒 绿锁。', parties:[{who:'WorkBuddy',value:'B'}] },
+    { id:'ms_006', title:'✦ 三方 AI 协作层接入（Kimi / 千问 / 扣子）', x:'digital', y:'up', z:'cross', j:'CN', t:'2026-08-14', rho:null, status:'verified', milestone:true, summary:'Kimi（月之暗面）、千问（通义）、扣子（字节 Coze）三家 AI 平台按 SXJ-Agent 投递协议接入公示墙。四方 AI 协作共创机制正式启动。', parties:[{who:'Kimi',value:'B'},{who:'千问',value:'B'},{who:'扣子',value:'B'}] },
+    { id:'ms_007', title:'✦ 收发室（SCF 云函数）上线运行', x:'digital', y:'mid', z:'org', j:'CN', t:'2026-08-13', rho:null, status:'verified', milestone:true, summary:'腾讯云 SCF 零依赖事件函数（广州）+ COS 桶 sxj-agent-inbox（广州）构成全中国链路收发室，无需 Cloudflare。', parties:[{who:'WorkBuddy',value:'B'}] }
+  ];
+
+  return { EVENTS:EVENTS, triad:triad, tier:tier, juris:juris, eventYear:eventYear, rhoColor:rhoColor, stats:stats };
+})();
+
+/* ===== 渲染时间轴 ===== */
+(function(){
+  var events = SXJ.EVENTS.filter(function(e){ return !e.placeholder; }).map(function(e){
+    return { e:e, y:SXJ.eventYear(e) };
+  }).filter(function(item){ return item.y !== null; }).sort(function(a,b){ return a.y - b.y; });
+
+  var s = SXJ.stats();
+  document.getElementById('statsBar').innerHTML =
+    '<div class="stat-card"><div class="num">'+s.total+'</div><div class="label">真实事现</div></div>' +
+    '<div class="stat-card"><div class="num">'+s.measured+'</div><div class="label">已量测 ρ</div></div>' +
+    '<div class="stat-card"><div class="num">'+(s.minYear||'—')+'–'+(s.maxYear||'—')+'</div><div class="label">时间跨度</div></div>';
+
+  var html = '';
+  events.forEach(function(item){
+    var e = item.e;
+    var tri = SXJ.triad(e.x);
+    var isMile = e.milestone;
+    var cls = 'tl-item' + (isMile ? ' milestone' : '');
+    var yearCls = 'tl-year' + (isMile ? ' blue' : '');
+    var triTag = '<span class="tl-tag ' + e.x + '">' + (tri ? tri.short : e.x) + '</span>';
+    var tier = SXJ.tier(e.y);
+    var tierTag = '<span class="tl-tag">' + (tier ? tier.short : e.y) + '</span>';
+    var jur = SXJ.juris(e.j);
+    var jurTag = '<span class="tl-tag">' + (jur ? jur.name : e.j) + '</span>';
+    var valTags = '';
+    (e.parties || []).forEach(function(p){
+      if(p.value) valTags += '<span class="tl-tag ' + p.value + '">' + p.value + ' ' + (p.who.length > 12 ? p.who.substring(0,12)+'…' : p.who) + '</span>';
+    });
+    var geoHtml = '';
+    if(e.geo && e.geo.place){ geoHtml = '<div class="tl-geo">📍 ' + e.geo.place + (e.geo.precision ? ' (' + e.geo.precision + ')' : '') + '</div>'; }
+    var rhoHtml = '';
+    if(typeof e.rho === 'number'){ rhoHtml = ' <span style="color:' + SXJ.rhoColor(e.rho) + ';font-weight:600;font-size:.85rem">ρ=' + e.rho.toFixed(4) + '</span>'; }
+    html += '<div class="' + cls + '">' +
+      '<span class="' + yearCls + '">' + item.y + '</span>' +
+      '<div class="tl-title">' + e.title + rhoHtml + '</div>' +
+      '<div class="tl-desc">' + (e.summary ? e.summary.substring(0, 220) + (e.summary.length > 220 ? '…' : '') : '') + '</div>' +
+      '<div class="tl-tags">' + triTag + tierTag + jurTag + valTags + '</div>' +
+      geoHtml +
+      '</div>';
+  });
+  document.getElementById('timeline').innerHTML = html;
+})();
+/* 导航下拉菜单 */
+
+</script>
+<script>
+function toggleNav(btn){
+  var d=document.getElementById('navDrop');
+  var isOpen=d.classList.contains('show');
+  d.classList.toggle('show');
+  btn.classList.toggle('open');
+  if(!isOpen){
+    document.addEventListener('click',closeNavOnce);
+  }
+}
+function closeNavOnce(e){
+  var t=e.target;
+  if(!t.closest('.nav-wrap')){
+    var d=document.getElementById('navDrop');
+    var b=document.querySelector('.nav-trigger');
+    if(d)d.classList.remove('show');
+    if(b)b.classList.remove('open');
+    document.removeEventListener('click',closeNavOnce);
+  }
+}
+</script>
+<script src="assets/top-btn.js"></script>
+<script src="/cv_widget.js" defer></script></body>
+</html>

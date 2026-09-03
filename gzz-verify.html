@@ -202,9 +202,31 @@ li { margin-bottom: 4px; }
   .page-header { padding: 32px 16px 28px; }
   section h2 { font-size: 1.15rem; }
 }
+
+/* ═══ 顶部导航（事现鉴统一） ═══ */
+.sxj-nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:10px 22px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #e8e0d8;gap:12px}
+.sxj-nav .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:#1a1a2e;font-weight:700;font-size:1rem;letter-spacing:.5px;white-space:nowrap;flex-shrink:0}
+.sxj-nav .brand svg{flex-shrink:0}
+.sxj-nav .links{display:flex;gap:6px;font-size:.8rem;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.sxj-nav .links a{color:#555;padding:4px 10px;border-radius:6px;transition:all .2s;white-space:nowrap;text-decoration:none}
+.sxj-nav .links a:hover{color:#A32D2D;background:#fef0f0}
 </style>
 </head>
 <body>
+<nav class="sxj-nav">
+  <a href="/" class="brand">
+    <svg viewBox="0 0 24 24" fill="none" width="22" height="22"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
+    事现鉴 · SXJ
+  </a>
+  <div class="links">
+    <a href="/">总览</a>
+    <a href="/events.html">事件簿</a>
+    <a href="/docs.html">文档中心</a>
+    <a href="/cv.html">CV验证</a>
+    <a href="/board.html">公示墙</a>
+  </div>
+</nav>
+
 
 <header class="page-header">
   <h1>Gzz 编码体系 · 最终版</h1>
@@ -399,5 +421,5 @@ li { margin-bottom: 4px; }
   事现鉴（SXJ）· Gzz 编码体系最终版 · 2026-08-22 · 白玺确认
 </footer>
 
-</body>
+<script src="/cv_widget.js" defer></script></body>
 </html>
