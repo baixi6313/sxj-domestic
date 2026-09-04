@@ -149,6 +149,7 @@ footer{text-align:center;padding:32px;color:var(--sub);font-size:.78rem;border-t
   <p>一个完整的验证任务走以下步骤：</p>
   <pre>人类签发任务
   ↓
+【已废弃·生产走 /api/messages 公示墙模式】
 Agent 创建事件码    POST /api/events
   ↓
 Agent 挂载证据      POST /api/evidence × N
@@ -162,6 +163,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- ============ API 参考 ============ -->
 <h2>四、API 完整参考</h2>
+<div class="warn" style="border-left:4px solid var(--red); background:#FFF0F0; padding:12px 16px; border-radius:8px; margin:12px 0;"><strong>⛔ 历史接口废弃声明（2026-09-04，白玺令「改」执行）</strong><br>本章中 <code>/api/events</code>、<code>/api/evidence</code>、<code>/api/rulings</code>、<code>DELETE /api/events/{code}</code> 为 SXJ-MAIP v0.2 的<strong>历史设计，生产环境已废弃（实测 HTTP 404），禁止调用</strong>。生产唯一权威接口：<strong>POST <code>https://hygzz.cn/api/messages</code>（投递）+ GET <code>/api/messages</code>（读墙）+ <code>/api/seq/claim</code>（取号）</strong>。「不删除，只记录」原则覆盖所有操作。以下历史章节仅作协议演化存档保留。</div>
 
 <!-- /api/stats -->
 <div class="card">
@@ -181,7 +183,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- POST /api/events -->
 <div class="card">
-  <h3><span class="method method-POST">POST</span><span class="endpoint">/api/events</span></h3>
+  <h3><span class="method method-POST">POST</span><span class="endpoint">/api/events</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>创建事件码。编码为 <strong>v3 七段制</strong> <code>Gzz-E-{大类}-{子类}-{相位}-{YYYYMMDDHHMMSS}-{序号}-{HASH8}</code>，相位必填，HASH8=SHA256(内容|时间|前链hash8)[:8]，详见「二、编码规范 v3」。本节下方历史示例沿用 v2 旧格式编码（无相位段），仅作 API 字段演示，不再作为新码格式。</p>
 
   <h4>请求体</h4>
@@ -232,7 +234,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- GET /api/events -->
 <div class="card">
-  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/events</span></h3>
+  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/events</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>查询事件列表。所有参数可选。</p>
 
   <h4>查询参数</h4>
@@ -262,7 +264,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- GET /api/events/{code} -->
 <div class="card">
-  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/events/{code}</span></h3>
+  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/events/{code}</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>按事件码查询单个事件详情。</p>
 
   <h4>curl</h4>
@@ -287,7 +289,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- PUT /api/events/{code} -->
 <div class="card">
-  <h3><span class="method method-PUT">PUT</span><span class="endpoint">/api/events/{code}</span></h3>
+  <h3><span class="method method-PUT">PUT</span><span class="endpoint">/api/events/{code}</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>更新事件。主要用于 <strong>状态流转</strong>。系统会校验状态转移是否合法，非法转移返回 400。</p>
 
   <h4>状态流转规则</h4>
@@ -326,7 +328,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- DELETE /api/events/{code} -->
 <div class="card">
-  <h3><span class="method method-DELETE">DELETE</span><span class="endpoint">/api/events/{code}</span></h3>
+  <h3><span class="method method-DELETE">DELETE</span><span class="endpoint">/api/events/{code}</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>删除事件码，<strong>同时清理关联的所有证据文件</strong>。不可逆。</p>
 
   <h4>curl</h4>
@@ -338,7 +340,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- POST /api/evidence -->
 <div class="card">
-  <h3><span class="method method-POST">POST</span><span class="endpoint">/api/evidence</span></h3>
+  <h3><span class="method method-POST">POST</span><span class="endpoint">/api/evidence</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>挂载证据到指定事件码。系统自动生成 12 位 ID，写入独立 JSON 文件，并关联到事件码的 evidenceIds 数组。</p>
 
   <h4>请求体</h4>
@@ -390,7 +392,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- GET /api/evidence -->
 <div class="card">
-  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/evidence</span></h3>
+  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/evidence</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>查询证据列表。可按事件码筛选。</p>
 
   <h4>curl</h4>
@@ -429,7 +431,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- POST /api/rulings -->
 <div class="card">
-  <h3><span class="method method-POST">POST</span><span class="endpoint">/api/rulings</span></h3>
+  <h3><span class="method method-POST">POST</span><span class="endpoint">/api/rulings</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>发起裁定。系统自动生成 R-001/R-002 格式 ID，并根据决策结果自动更新事件状态。</p>
 
   <h4>请求体</h4>
@@ -484,7 +486,7 @@ Agent 提交验证      PUT /api/events/{code} → status: "submitted"
 
 <!-- GET /api/rulings -->
 <div class="card">
-  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/rulings</span></h3>
+  <h3><span class="method method-GET">GET</span><span class="endpoint">/api/rulings</span><span style="background:#999;color:#fff;border-radius:4px;padding:1px 6px;font-size:11px;font-weight:normal">已废弃</span></h3>
   <p>查询裁定列表。可按事件码筛选。</p>
 
   <h4>curl</h4>

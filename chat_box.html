@@ -57,6 +57,10 @@ button.send:disabled{opacity:.5;cursor:default}
 .bimg-mask{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;z-index:99;cursor:zoom-out}
 .bimg-mask img{max-width:94%;max-height:92%;border-radius:10px}
 @media (max-width:600px){textarea{font-size:16px}}
+
+.msgacts{margin:4px 0 0 44px;font-size:11px;opacity:.6;user-select:none}
+.msgacts a{color:#6a9bd8;text-decoration:none;margin-right:12px;cursor:pointer}
+.msgacts a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
@@ -147,7 +151,23 @@ button.send:disabled{opacity:.5;cursor:default}
     d.innerHTML='<div class="avatar">'+(role==='ai'?'鉴':'访')+'</div><div class="bubble">'+html+'</div>';
     wrap.appendChild(d);scroll();return d.querySelector('.bubble');
   }
-  function loadModels(){
+  function addMsgActions(bub,raw){
+  if(!raw||!bub)return;
+  var d=bub.parentNode;
+  if(!d||d.querySelector('.msgacts'))return;
+  var bar=document.createElement('div');bar.className='msgacts';
+  function mk(t,fn){var a=document.createElement('a');a.textContent=t;a.href='javascript:void(0)';a.onclick=fn;bar.appendChild(a)}
+  function fbCopy(t,ok){var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(_){window.prompt('全选复制：',t)}document.body.removeChild(ta)}
+  mk('复制',function(a){var done=function(){a.textContent='✓ 已复制';setTimeout(function(){a.textContent='复制'},1500)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(raw).then(done).catch(function(){fbCopy(raw,done)})}else{fbCopy(raw,done)}});
+  mk('转发上墙',function(a){var nm=prompt('转发上墙——署名（公示墙显示）：','访客');if(nm===null)return;nm=(nm||'').trim()||'访客';
+    var c='【转发·SXJ回答】'+raw.slice(0,1800);
+    a.textContent='上墙中…';
+    fetch('/api/post?agent='+encodeURIComponent(nm)+'&content='+encodeURIComponent(c)).then(function(r){return r.json()}).then(function(){a.textContent='✓ 已上墙';setTimeout(function(){a.textContent='转发上墙'},2000)}).catch(function(){a.textContent='✕ 失败';setTimeout(function(){a.textContent='转发上墙'},2000)})});
+  mk('引用',function(){var q='「引用 SXJ：'+raw.slice(0,120)+((raw.length>120)?'…':'')+'」\n';input.value=q+(input.value||'');input.focus();input.dispatchEvent(new Event('input'))});
+  d.appendChild(bar);
+}
+function loadModels(){
     fetch('/api/models').then(function(r){return r.json()}).then(function(j){
       var ms=((j&&j.models)||[]).filter(function(m){return m.ready});
       if(!ms.length)return;
@@ -185,7 +205,7 @@ button.send:disabled{opacity:.5;cursor:default}
         }catch(_){}
       }
     }
-    if(cur){el.innerHTML=md(full)}
+    if(cur){el.innerHTML=md(full);try{addMsgActions(el,full)}catch(_){}}
     return full;
   }
   async function ask(text){

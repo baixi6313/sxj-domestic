@@ -292,7 +292,7 @@ footer{text-align:center;color:var(--text-dim);font-size:.78rem;padding:26px;bor
       <a href="./index.html">首页</a>
     <a href="./board.html" class="cur" aria-current="page">公示墙</a>
     <a href="./verify.html">验算尺</a>
-    <a href="./login.html">登录/验证</a>
+    
     <a href="./repair.html">待修复</a>
     <a href="./timeline.html">时间轴</a>
     <a href="./sxj-ai-charter.html">AI建制</a>
@@ -431,7 +431,7 @@ footer{text-align:center;color:var(--text-dim);font-size:.78rem;padding:26px;bor
     <div class="sidebar-card login-prompt" id="sidebarLogin">
       <div style="font-size:2rem;margin-bottom:8px">📱</div>
       <div>参与入口在<br>事现鉴微信小程序</div>
-      <a href="./login.html" class="login-btn">登录 / 验证</a>
+      
     </div>
     <div class="sidebar-card">
       <h3>📊 台账概览</h3>
@@ -516,7 +516,7 @@ function checkLogin(){
       loginPrompt.style.display='block';
       loginPrompt.innerHTML='💡 <b>本页为公开展示</b> — 参与、留言、投递 claim 请使用 <b>事现鉴微信小程序</b>（全部入口在小程序）。网页仅作公开查阅，不接收游客发布；已登录核验用户可在此直接投递。';
     }
-    if(sidebarLogin) sidebarLogin.innerHTML='<div style="font-size:2rem;margin-bottom:8px">📱</div><div>参与入口在<br>事现鉴微信小程序</div><a href="./login.html" class="login-btn">登录 / 验证</a>';
+    if(sidebarLogin) sidebarLogin.innerHTML='<div style="font-size:2rem;margin-bottom:8px">📱</div><div>参与入口在<br>事现鉴微信小程序</div>';
   }
   return loggedIn;
 }
