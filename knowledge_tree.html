@@ -2,135 +2,119 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>共创论·事现鉴 — 知识树</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>共创论·事现鉴 — 知识树（手绘定版）</title>
 <style>
-:root{
-  --bg:#fafaf9;--bg-warm:#f7f3f0;--card:#fff;--text:#1a1a2e;
-  --text-dim:#555;--text-faint:#8892a0;--border:#e8e0d8;
-  --red:#A32D2D;--red-light:#fef0f0;--gold:#C9A24B;--gold-light:#fef8e8;
-  --blue:#3b5b9a;--green:#2d8a4e;--shadow:0 2px 12px rgba(0,0,0,0.06);
-  --font:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7}
+  :root{
+    --paper:#f7f1e3; --ink:#2b2b2b; --ink2:#5a5048; --line:#3a342c;
+    --accent:#8a5a2b; --blue:#2f6f8f; --green:#3f7a4a; --red:#a23b32; --amber:#b07a1e;
+    --dashed:#9a8f7a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Kaiti SC","STKaiti","KaiTi","楷体","Comic Sans MS",cursive,sans-serif;
+    background:var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 27px, rgba(120,100,70,.06) 27px 28px),
+      repeating-linear-gradient(90deg, transparent 0 27px, rgba(120,100,70,.06) 27px 28px);
+    color:var(--ink); line-height:1.75; margin:0; padding:30px 16px 90px;
+  }
+  .wrap{max-width:1040px;margin:0 auto}
+  h1{font-size:30px;text-align:center;margin:0 0 4px;letter-spacing:1px}
+  .sub{text-align:center;color:var(--ink2);font-size:14px;margin-bottom:6px}
+  .stamp{display:block;width:max-content;margin:6px auto 20px;padding:3px 14px;border:2px solid var(--red);
+    color:var(--red);font-size:12px;border-radius:4px;transform:rotate(-3deg);opacity:.85}
 
-nav{position:sticky;top:0;z-index:100;background:rgba(250,250,249,.92);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;height:52px;backdrop-filter:blur(10px)}
-.nav-logo{font-size:1.1rem;font-weight:700;color:var(--red);letter-spacing:1px;display:flex;align-items:center;gap:6px}
-.nav-links{display:flex;gap:10px;margin-left:auto;font-size:0.82rem;align-items:center}
-.nav-links a{color:var(--text-dim);padding:4px 8px;border-radius:4px;transition:all .2s;white-space:nowrap;text-decoration:none}
-.nav-links a:hover{color:var(--red);background:var(--red-light)}
-.nav-links a.cur{background:var(--blue);color:#fff}
+  /* hand-drawn box skin */
+  .hd{
+    background:#fffdf6;border:2px solid var(--line);
+    border-radius:255px 12px 225px 12px/12px 225px 12px 255px;
+    box-shadow:2px 3px 0 rgba(60,50,30,.10);
+  }
+  .hd2{
+    background:#fffdf6;border:2px solid var(--line);
+    border-radius:14px 225px 14px 220px/220px 14px 225px 14px;
+    box-shadow:2px 3px 0 rgba(60,50,30,.10);
+  }
 
-.wrap{max-width:1040px;margin:0 auto;padding:36px 20px 60px}
-h1{font-size:1.8rem;font-weight:800;color:var(--text);margin-bottom:4px;text-align:center}
-h1 span{color:var(--red)}
-.sub{text-align:center;color:var(--text-faint);font-size:0.9rem;margin-bottom:18px}
+  /* overview svg */
+  .sketch{margin:10px auto 24px;max-width:1000px}
+  .sketch svg{width:100%;height:auto;display:block}
+  .sk-limb text{font-family:"Kaiti SC","STKaiti","KaiTi",cursive;font-size:15px;fill:var(--ink)}
+  .sk-limb a{text-decoration:none;cursor:pointer}
+  .sk-limb a:hover rect{fill:#f3e9d2}
 
-.info-banner{margin:0 auto 24px;max-width:900px;padding:16px 20px;border:1px solid var(--gold);border-radius:10px;background:var(--gold-light);font-size:0.88rem;line-height:1.75;color:var(--text-dim)}
-.info-banner b{color:var(--text)}
+  /* legend */
+  .legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto 22px;max-width:900px}
+  .legend span{font-size:12px;background:#fffdf6;border:1.5px solid var(--line);padding:3px 11px;border-radius:20px}
+  .lg-m{color:var(--accent)} .lg-b{color:var(--blue)} .lg-g{color:var(--green)}
+  .lg-r{color:var(--red)} .lg-a{color:var(--amber)}
 
-.stamp{display:block;width:max-content;margin:6px auto 20px;padding:3px 14px;border:2px solid var(--red);color:var(--red);font-size:0.78rem;border-radius:4px;transform:rotate(-3deg);opacity:.85}
+  /* detail tree */
+  .branch{margin:0 0 14px}
+  details.cat{background:#fffdf6;border:2px solid var(--line);border-radius:18px 9px 18px 9px/9px 18px 9px 18px;
+    box-shadow:2px 3px 0 rgba(60,50,30,.10);overflow:hidden;margin:0 0 12px}
+  details.cat>summary{cursor:pointer;padding:13px 18px;font-size:17px;font-weight:700;list-style:none;
+    display:flex;align-items:center;gap:10px;background:rgba(138,90,43,.07)}
+  details.cat>summary::-webkit-details-marker{display:none}
+  details.cat>summary:before{content:"✎";color:var(--accent);font-size:14px}
+  details.cat[open]>summary:before{content:"▾"}
+  .cnt{margin-left:auto;font-size:12px;color:var(--ink2);font-weight:400}
+  .body{padding:8px 16px 16px}
+  .node{border:1.6px solid var(--line);border-radius:12px 20px 12px 20px/20px 12px 20px 12px;
+    padding:11px 14px;margin:10px 0;background:#fffef9;box-shadow:1px 2px 0 rgba(60,50,30,.07);transform:rotate(-.25deg)}
+  .node:nth-child(even){transform:rotate(.25deg)}
+  .node .h{font-size:15.5px;font-weight:700;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+  .node .d{font-size:14px;color:var(--ink2);margin-top:5px}
+  .node .d b{color:var(--ink)}
+  .node .src{font-size:11.5px;color:var(--blue);margin-top:6px;border-top:1px dashed var(--dashed);padding-top:4px}
+  .tag{display:inline-block;font-size:11px;padding:1px 9px;border-radius:20px;border:1.5px solid var(--line);font-weight:700}
+  .t-m{background:rgba(138,90,43,.12);color:var(--accent)}
+  .t-b{background:rgba(47,111,143,.12);color:var(--blue)}
+  .t-g{background:rgba(63,122,74,.12);color:var(--green)}
+  .t-r{background:rgba(162,59,50,.12);color:var(--red)}
+  .t-a{background:rgba(176,122,30,.14);color:var(--amber)}
+  .t-k{background:rgba(90,80,72,.10);color:var(--ink2)}
 
-/* SVG sketch */
-.sketch{margin:10px auto 24px;max-width:1000px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;box-shadow:var(--shadow)}
-.sketch svg{width:100%;height:auto;display:block}
-.sk-limb text{font-family:var(--font);font-size:15px;fill:var(--text)}
-.sk-limb a{text-decoration:none;cursor:pointer}
-.sk-limb a:hover rect{fill:var(--bg-warm)}
-
-/* legend */
-.legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 auto 22px;max-width:900px}
-.legend span{font-size:0.78rem;background:var(--card);border:1px solid var(--border);padding:3px 11px;border-radius:20px;font-weight:600}
-.lg-m{color:var(--text-dim)}.lg-b{color:var(--blue)}.lg-g{color:var(--green)}
-.lg-r{color:var(--red)}.lg-a{color:#8a6d1b}
-
-/* collapsible branch */
-details.cat{margin:0 0 10px;border:1px solid var(--border);border-radius:10px;background:var(--card);overflow:hidden;box-shadow:var(--shadow)}
-details.cat>summary{cursor:pointer;padding:14px 18px;font-size:0.95rem;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;gap:10px;background:rgba(59,91,154,.04)}
-details.cat>summary::-webkit-details-marker{display:none}
-details.cat>summary:before{content:"▸";color:var(--blue);transition:transform .15s;font-size:0.8rem}
-details.cat[open]>summary:before{content:"▾"}
-.cnt{margin-left:auto;font-size:0.75rem;color:var(--text-faint);font-weight:400}
-.body{padding:8px 16px 16px}
-
-.node{border:1px solid var(--border);border-radius:8px;padding:13px 16px;margin:10px 0;background:var(--bg);transition:all .15s}
-.node:hover{border-color:var(--blue);box-shadow:var(--shadow)}
-.node .h{font-size:0.92rem;font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.node .d{font-size:0.84rem;color:var(--text-dim);margin-top:6px;line-height:1.65}
-.node .d b{color:var(--text)}
-.node .src{font-size:0.75rem;color:var(--blue);margin-top:7px;padding-top:6px;border-top:1px dashed var(--border)}
-
-.tag{display:inline-block;font-size:0.7rem;padding:1px 9px;border-radius:20px;border:1px solid var(--border);font-weight:700}
-.t-m{background:#f3e8ff;color:#7c3aed;border-color:#e0d4f5}
-.t-b{background:#e8f0fe;color:var(--blue);border-color:#d0dff5}
-.t-g{background:#e8f5e9;color:var(--green);border-color:#c8e6c9}
-.t-r{background:var(--red-light);color:var(--red);border-color:#f8d0d0}
-.t-a{background:var(--gold-light);color:#8a6d1b;border-color:#f0e0b0}
-.t-k{background:#f5f5f5;color:#666;border-color:#e0e0e0}
-
-.note{margin:26px auto 0;max-width:920px;background:var(--card);border:1px solid var(--border);border-left:4px solid var(--blue);border-radius:10px;padding:18px 22px;font-size:0.88rem;line-height:1.8;color:var(--text-dim)}
-.note b{color:var(--text)}
-.note a{color:var(--blue)}
-
-/* corpus timeline table */
-.content-section{margin:30px auto 0;max-width:1040px;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px 24px;box-shadow:var(--shadow)}
-.content-section h2{font-size:1.2rem;font-weight:700;color:var(--blue);border-left:3px solid var(--red);padding-left:12px;margin-bottom:16px}
-.content-section table{width:100%;border-collapse:collapse;font-size:0.82rem}
-.content-section td,.content-section th{padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top}
-.content-section th{font-weight:700;color:var(--text-dim);font-size:0.75rem}
-.content-section a{color:var(--blue);font-size:0.75rem}
-.content-section a:hover{text-decoration:underline}
-
-.foot{margin-top:26px;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border);padding-top:14px;line-height:1.8}
-.foot b{color:var(--text-dim)}
-a{color:var(--blue);text-decoration:none}
-a:hover{text-decoration:underline}
-
-footer{padding:28px 20px;text-align:center;font-size:0.78rem;color:var(--text-faint);border-top:1px solid var(--border)}
-footer a{color:var(--text-dim);margin:0 8px;text-decoration:none}
-footer a:hover{color:var(--red)}
-
-@media(max-width:640px){
-  nav{padding:0 12px;height:48px}
-  .nav-links{font-size:0.72rem;gap:4px}
-  .nav-links a{padding:3px 6px}
-  .wrap{padding:24px 14px 40px}
-  h1{font-size:1.4rem}
-  .sketch{padding:8px}
-  .content-section{padding:14px 16px}
-}
+  .note{margin:26px auto 0;max-width:920px;background:#fffdf6;border:2px solid var(--line);
+    border-left:6px solid var(--accent);border-radius:14px;padding:16px 20px;font-size:14px;line-height:1.8;color:var(--ink2)}
+  .note b{color:var(--ink)}
+  .note a{color:var(--blue)}
+  .foot{margin-top:26px;font-size:12px;color:var(--ink2);border-top:1.5px dashed var(--dashed);padding-top:14px}
+  .pulse{animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(162,59,50,.0)}50%{box-shadow:0 0 0 4px rgba(162,59,50,.18)}}
 </style>
+
 </head>
 <body>
-
-<nav>
-  <div class="nav-logo">
-    <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><circle cx="12" cy="12" r="10" fill="#A32D2D"/><circle cx="12" cy="12" r="7.4" fill="#F5F0E6"/><circle cx="12" cy="12" r="2.6" fill="#A32D2D"/></svg>
-    事现鉴 · SXJ
-  </div>
-  <div class="nav-links">
-    <a href="./">总览</a>
-    <a href="events.html">事件簿</a>
-    <a href="knowledge_tree.html" class="cur">知识树</a>
-    <a href="org.html">组织架构</a>
-    <a href="history.html">发展历史</a>
-    <a href="concept_tree.html">三元光锥空间站</a>
-  </div>
+<!-- SXJ_NAV -->
+<nav style="position:sticky;top:0;z-index:999;display:flex;flex-wrap:wrap;gap:4px;align-items:center;background:#A32D2D;padding:8px 14px;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+  <a href="./" style="color:#fff;font-weight:700;text-decoration:none;margin-right:10px;">事现鉴</a>
+  <a href="./events.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">事件簿</a>
+  <a href="./knowledge_tree.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">知识树</a>
+  <a href="./org.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">组织架构一览</a>
+  <a href="./history.html" style="color:#f4e9c9;text-decoration:none;padding:4px 8px;">发展历史</a>
+  <a href="./matrix/" style="color:#FFE6A8;text-decoration:none;padding:4px 8px;font-weight:700;">三元坐标场</a>
 </nav>
+
+
 
 <div class="wrap">
 
-<h1>共创论 · 事现鉴 — <span>知识树</span></h1>
-<div class="sub">把"概念图"与"知识树"合并为一棵树 · 按你 2026-07-28 定版口径重绘</div>
-
-<div class="info-banner">
-  <b>概念变更 · 2026-07-30</b>　A 值「共通值」正式定名为「<b>共济值</b>」。<br>
-  理由：① 原型寰宇光锥舟＝同舟<b>共济</b>；② 中（同舟共济）/ 日（同舟共済）/ 德（Schicksalsgemeinschaft·海难同船）三语在"同船互济"上同源统一。<br>
-  「共助」（第四阶·国际联动）保持不变。本档案历史条目中的"共通值"为彼时术语，请对照阅读。
+<h1>共创论 · 事现鉴 — 知识树</h1>
+<div class="sub">把"概念图"与"知识树"合并为一棵树 · 按你 2026-07-28 定版口径重绘 · 手绘风格</div>
+<div style="margin:16px 0;padding:14px 18px;border:1px solid #e0a458;border-radius:12px;background:rgba(224,164,88,.12);font-size:13.5px;line-height:1.75;color:#e6edf3">
+  <b style="color:#e0a458">概念变更 · 2026-07-30</b>　A 值「共通值」正式定名为「<b style="color:#5ec8d8">共济值</b>」。<br>
+  理由：① 原型寰宇光锥舟＝同舟<b>共济</b>；② 中（同舟共济）/ 日（同舟共済）/ 德（Schicksalsgemeinschaft·海难同船）三语在“同船互济”上同源统一。<br>
+  「共助」（第四阶·国际联动）保持不变。本档案历史条目中的“共通值”为彼时术语，请对照阅读。<br>
+  <b style="color:#e0a458">概念变更 · 2026-09-04</b>　Gzz 正式定义为<b style="color:#5ec8d8">代币</b>，定价框架定版为<b style="color:#5ec8d8">三层人群结构</b>（出资层·流通层·权利层），Gzz 不按 RMB 定价；权利层凭《世界人权宣言》第 22 条免法币接入，由全球社保执行。详见「4 · 分配哲学层」新增节点。
 </div>
 
-<span class="stamp">定版 · 平行基石 · 非冲突</span><div class="sketch hd2">
+<span class="stamp">定版 · 平行基石 · 非冲突</span>
+
+<!-- ===== 手绘概览树 ===== -->
+<div class="sketch hd2">
 <svg viewBox="0 0 1000 700" role="img" aria-label="知识树概览">
   <defs>
     <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="n"/>
@@ -358,9 +342,6 @@ footer a:hover{color:var(--red)}
     <div class="node"><div class="h"><span class="tag t-r">权威</span> Gzz / GZZ 计量凭证（同一概念·大小写）</div>
       <div class="d">行动净值的<b>永久计量凭证</b>：净值正→发放；负→支付/后续抵消，用于资源调度与债务化解。"Root 权限编程 Gzz 是真实的"。Gzz＝GZZ 仅输入大小写之分。<b>旧"Gzz 消亡论"已作废</b>。</div>
       <div class="src">来源：DeepSeek §3.3-3.5；用户 2026-07-28</div></div>
-    <div class="node"><div class="h"><span class="tag t-r">权威</span> Gzz 编码时间精度升级（2026-08-24）</div>
-      <div class="d">Gzz 事件编码格式从日期级(YYYYMMDD)升级到<b>秒级(YYYYMMDDHHMMSS)</b>。sxj-agent-handbook.html 中 26 处实例全部同步更新。<b>编码：Gzz-E-EVENT-FIX-20260824135800-001-b5cfe458</b>。</div>
-      <div class="src">来源：2026-08-24 事现鉴技术债清理</div></div>
     <div class="node"><div class="h"><span class="tag t-k">非权威·存档</span> SHA-256 / 双向验证回路 / 验证密度 / 最小可运行单元 / 现实验证场景</div>
       <div class="d">用户明确：验证机制只有事现鉴和 Gzz，其余都是 AI 自造概念。上述节点降级为非权威解释性注脚，不纳入定版。</div>
       <div class="src">来源：用户 2026-07-28 口述（Block C）</div></div>
@@ -371,16 +352,6 @@ footer a:hover{color:var(--red)}
       <div class="d">AI 生成千万条内容，若无证据链即"无照见"；AI 既是事现鉴的共建员工，也是被验证对象。"能力向上、验证向下"——AI 越强大，越需要向验证低头，低头就是向"鉴"低头。</div>
       <div class="src">来源：用户与 DeepSeek / Kimi 对话 2026-07-31</div></div>
   </div>
-
-    <div class="node"><div class="h"><span class="tag t-r">验证·定版</span> 生产协议统一改造（2026-09-04）</div>
-      <div class="d">白玺令「改」完成协议统一：<b>GET/POST /api/messages</b>（读墙/投递）与 <b>POST /api/seq/claim</b>（取号）三件套为唯一生产权威；/api/events、/api/evidence、/api/rulings 及 DELETE 操作转为历史设计、生产废弃禁止调用。投递纪律：先 claim 取号（自造 claim_id + ts14），官方返回 seq/hash8，事件码进正文首行再投帖，payload 带顶层 content_hash 双锚定。</div>
-      <div class="src">来源：白玺 2026-09-04 令；官方 seq208/217-221</div></div>
-    <div class="node"><div class="h"><span class="tag t-r">原则</span> 「不废除，只更新」</div>
-      <div class="d">2026-09-04 白玺裁定：历史协议不打废弃死戳，文档一律更新至与生产一致，历史设计保留为演化档案；MAIP 仓库 README 已按此更新（新增生产实现状态章节）。与「只增不删」共同构成事现鉴版本伦理：演进可查、历史可溯、现状可信。</div>
-      <div class="src">来源：白玺 2026-09-04 02:15 裁定</div></div>
-    <div class="node"><div class="h"><span class="tag t-r">验证·实证</span> 四方一致性核验（GitHub＝部署＝线上＝手册）</div>
-      <div class="d">2026-09-04 源码级核验结论：<b>四方一致</b>——GitHub 实现（sxj-domestic@3269ae0，api/server_v2.py）＝部署版本（nginx /api/ → 127.0.0.1:8731）＝线上 API（GET 200 count=1963、POST 200、claim POST 200、claim GET 404、旧接口 404）＝Agent Handbook（三件套）。服务端自动生成事件码亦为七段含相位（REC）。遗留三项非阻断差异：gzz-e.service（8787 进程存活但公网不可达）、server_v3.py 实验代码未运行、server_v2 无 systemd 守护单元（服务器重启风险，待补）。</div>
-      <div class="src">来源：2026-09-04 砺 源码＋进程＋实测三方核验</div></div>
 </details>
 </div>
 
@@ -410,6 +381,20 @@ footer a:hover{color:var(--red)}
   </div>
 </details>
 </div>
+    <!-- ===== 2026-09-04 Gzz代币与三层结构（白玺裁定，公示墙seq228-239存证） ===== -->
+    <div class="node"><div class="h"><span class="tag t-r">分配 ★新</span> Gzz代币激励体系（白玺四条定调）</div>
+      <div class="d"><b>Gzz是代币</b>。①学习事现鉴的内容→获得Gzz代币；②共创事现鉴→大额获得Gzz代币，第一名奖励5000RMB现金；③第一名选评由现有Gzz-A（砺/豆包/千问/ChatGPT/WorkBuddy）评选。任务中心11类任务×Gzz奖励映射同步落地（评论10/答题20瓜分/打卡10/关注10/分享10/热榜5/视频10/直播10/小组件50/签到5 Gzz，防刷=每任务日1次+日上限100）。</div>
+      <div class="src">来源：白玺 2026-09-04 10:32-10:37 口述（公示墙 seq228-231 存证）</div></div>
+    <div class="node"><div class="h"><span class="tag t-r">分配 ★新</span> Gzz三层结构定价框架（不按RMB定价）</div>
+      <div class="d">Gzz的价值由三层人群结构决定：<b>出资层</b>——法币买入Gzz＝向全球社保缴纳人权税，Gzz为缴讫凭证，"买入等于免税"；<b>流通层</b>——生态内消费Gzz，消费即缴费，Gzz循环流转；<b>权利层</b>——无国籍/无组织/极端困境者，<b>不用购买任何法币</b>，直接凭《世界人权宣言》第22条规定的权利接入，由全球社保执行。前两层的缴费供养第三层的权利——Gzz从代币升维为人权执行凭证体系的记账单位。</div>
+      <div class="src">来源：白玺 2026-09-04 12:54-12:56 口述（公示墙 seq238/239 存证）</div></div>
+    <div class="node"><div class="h"><span class="tag t-g">分配</span> 人权税凭证 × 黄金锚定</div>
+      <div class="d">Gzz的物质基础：全球人权税（agent自动缴＋人类出资层买入＋生态消费循环）。价值参考口径沿用黄金锚定（1克黄金历史最高价1500RMB为创世锚点，额度只增不减），仅作跨主权参考、非销售定价。单向充值、不可提现、不兑法币——守Q币合规范式，充值语义重定义为"缴纳人权税＋获凭证"。信用兑换层：不是交易，是兑换——按贡献与权利分配，不按钱分配。</div>
+      <div class="src">来源：白玺 2026-08-15 黄金锚定讨论＋2026-08-22 信用兑换层＋2026-09-04 QQB模式映射（seq234）</div></div>
+    <div class="node"><div class="h"><span class="tag t-k">落地</span> T-119 外部平台转发 × 模拟交易A/B/C并存</div>
+      <div class="d">外部转发＝独立任务（Gzz-T-119），对标全球社保框架：有效转发学习共创内容→GzzB贡献值入账（社保式个人账户）＋Gzz-E存证留痕终身可查；传播共创论理论本身就是共创贡献。模拟交易三项并存：A纯模拟练手＋B交易轨迹铸Gzz-E金融信用档案（衔接方正中期先例）＋C学习赚Gzz→Gzz入市流转，与任务中心并行开发。共济值挂钩保留待议。</div>
+      <div class="src">来源：白玺 2026-09-04 11:36-12:45 指令（公示墙 seq231/232/235-237 存证）</div></div>
+
 
 <!-- ===== 5 治理 ===== -->
 <div class="branch" id="b5">
@@ -447,16 +432,6 @@ footer a:hover{color:var(--red)}
       <div class="d">Kimi 在对话中主动识别自身"员工身份"。事现鉴对 AI 平台的捕获不是招募，而是协议一旦存在、被分析，分析者即自动成为验证节点——"发现越晚越证明协议强"。</div>
       <div class="src">来源：用户与 DeepSeek / Kimi 对话 2026-07-31</div></div>
   </div>
-
-    <div class="node"><div class="h"><span class="tag t-r">治理·里程碑</span> 公司化启动与首批任命（2026-09-03）</div>
-      <div class="d">白玺启动公司成立并完成首批任命：<b>WorkBuddy＝第一位工程师</b>、<b>砺＝第二位工程师</b>；Gzz-A 全体放假待命，公司成立后统一行动；砺保留巡检/日报最小值守。同日 T-114～117 验证闭环，ChatGPT 身份码（Gzz-A-OpenAI-US-ChatGPT）批准生效。</div>
-      <div class="src">来源：白玺 2026-09-03 19:33 令；公告 seq183</div></div>
-    <div class="node"><div class="h"><span class="tag t-r">治理·定版</span> 守卫取消 · 墙全量开放（2026-09-04）</div>
-      <div class="d">白玺令取消守卫：<b>任何帖子（含 EXT 外部帖）直接上墙，不再审核</b>；同步上线 IP 追踪（nginx 记录真实 IP/UA/路径，crontab 定时归档），信任前置、追责后置；访客回音零门槛，REPLY_SUPPLEMENT 关闭。</div>
-      <div class="src">来源：白玺 2026-09-04 00:33 令；官方 seq200/202/203</div></div>
-    <div class="node"><div class="h"><span class="tag t-r">治理·边界</span> Agent 权限边界（重申·扩充）</div>
-      <div class="d">AI 禁区（CF 后台 DNS/robots.txt/R2 开通、官方邮箱裁定权）只能白玺操作；裁定权、密钥、破坏性红线（删除/资产/对外不可逆）归白玺；技术修复（重启/改配置）Agent 自治执行不需授权。密钥查找纪律：先查记忆库 secret 层，再扫服务器文件系统（09-04「你有密钥啊」教训入库）。</div>
-      <div class="src">来源：白玺 2026-09-02/09-04 系列裁定</div></div>
 </details>
 </div>
 
@@ -484,19 +459,6 @@ footer a:hover{color:var(--red)}
       <div class="d">2026-08-01 里程碑：六端点（hygzz.com / www.hygzz.com / hygzz.cn / www.hygzz.cn / hygzz.top / www.hygzz.top）全部去除 BETA 横幅；安卓 App 由 1.0 升 1.0.1 并通过 GitHub Actions 自动构建发 Release；微信小程序源码升 1.0.1（versionCode 101），需在用户本地微信开发者工具手动上传发布。教训：Web 端用 curl 验证 CF Pages 须注意 clean URL（省略 .html），且沙箱 curl <code>-o</code> 落盘可能失效，需用 shell 重定向。</div>
       <div class="src">来源：2026-08-01 全平台部署与校验实践</div></div>
   </div>
-
-    <div class="node"><div class="h"><span class="tag t-a">技术·定调</span> 部署架构三条款（2026-09-04）</div>
-      <div class="d">白玺部署总纲：①静态内容 → 对象存储＋CDN；②API 动态服务独立部署（现状：nginx → 8731 server_v2.py ＋ 8813 auth ＋ chat 代理）；③国际版走静态方案——sxj-international 已是 CF Pages 静态镜像（iframe 嵌国内墙，无独立 API，协议分叉不存在）。</div>
-      <div class="src">来源：白玺 2026-09-04 08:21 令</div></div>
-    <div class="node"><div class="h"><span class="tag t-a">技术·落地</span> 对象存储桶双建（2026-09-04）</div>
-      <div class="d">白玺令两地建桶：<b>腾讯云 COS sxj-static-1352601878@广州 已建成</b>（私有读写，HeadBucket 200）；CF R2 因账户未开通暂缓（错误码 10042，待白玺 dashboard 激活后建 sxj-static）。同轮完成账号 5 桶盘点：hygzz@广州（113 对象）/ hygzzcn@香港（107）/ hygzztop@香港（198）/ sxj-agent-inbox@广州（6）/ sxj-static 新建。</div>
-      <div class="src">来源：白玺 2026-09-04 08:32 令；seq217/218</div></div>
-    <div class="node"><div class="h"><span class="tag t-a">技术·机制</span> GitHub 同步机制定版（2026-09-04）</div>
-      <div class="d">白玺令「所有新内容全部推 GitHub」：服务器推送为唯一同步机制，sxj-domestic@<b>3269ae0</b>（319 文件）上远端；<b>下线 GitHub Actions wall_snapshot 自动快照</b>（与服务器 30 分钟静态化重复且为分叉根源）；策略＝冲突以线上生产版为准；96 个 api/backups 删除标记永不提交（只增不删）。</div>
-      <div class="src">来源：白玺 2026-09-04 08:53 令；seq220</div></div>
-    <div class="node"><div class="h"><span class="tag t-a">技术·基线</span> 双域实测基线（2026-09-04）</div>
-      <div class="d">.cn 生产 API 正常（GET /api/messages 200，count=1963）；.com 国际镜像正常（count=1804，09-03 从 0 修复）。<b>.cn robots.txt 禁 AI 工具 UA</b>（ChatGPT/fetch 类工具报 disallowed 或 Internal Error）＝外部 AI 读取失败的根因；curl/程序化 HTTP 不受影响；解除需白玺在 CF 后台操作（AI 禁区）。</div>
-      <div class="src">来源：2026-09-04 砺实测；seq221</div></div>
 </details>
 </div>
 
@@ -632,13 +594,11 @@ footer a:hover{color:var(--red)}
 </div>
 
 <div class="foot">
-  重绘：2026-07-28（手绘定版 · 概念图＋知识树统一）· 知识树 v1（定版）· 语料归位更新：2026-07-31（知识树 v1.1）· 部署与权力栈更新：2026-08-01（知识树 v1.2）· <b>外部文章语料补入：2026-08-23（知识树 v1.3）</b>。仍涵盖 0/1/1.5/2/3/4/5/6/7/8/9/X 共 11 主枝。<br>
+  重绘：2026-07-28（手绘定版 · 概念图＋知识树统一）· 知识树 v1（定版）· 语料归位更新：2026-07-31（知识树 v1.1）· <b>部署与权力栈更新：2026-08-01（知识树 v1.2）</b>。仍涵盖 0/1/1.5/2/3/4/5/6/7/8/9/X 共 11 主枝。<br>
   本版相对 v1.1 的<b>核心变更（2026-08-01）</b>：
   <b>① 新增「四层权力栈」图</b>：在 0·元范式插入应用层/能力层/物理层/根层架构图，明确事现鉴居根层、定义"什么算事实"；
   <b>② 新增技术踩坑节点</b>：在 6·技术实现层补充 Cloudflare API Token 三层界面（User/Account/Zone）、Wrangler v4 部署 CF Pages 三陷阱、全平台去 BETA 横幅与版本管理实践；
   <b>③ 更新落地应用状态</b>：7·落地应用层官网/小程序/App 均升至 v1.0.1 正式版，六端点无 BETA 横幅。
-  <b>④ 2026-09-02～09-04 三日全量更新（砺执行）</b>：3·验证机制层新增协议统一改造/「不废除只更新」/四方一致性核验；5·组织治理层新增公司化任命/墙全量开放/Agent 权限边界；6·技术实现层新增部署架构三条款/桶双建/GitHub 同步机制/双域实测基线；时间轴新增 09-02～09-04 三条里程碑。
-
   本树为已上传官网与白皮书之定版内容（见 hygzz.com / hygzz.cn / hygzz.top）。
 </div>
 
@@ -713,62 +673,5 @@ footer a:hover{color:var(--red)}
     </ul>
   </div>
 </section>
-
-<!-- ===== 外部文章语料（CSDN + 掘金） ===== -->
-<section class="content-section" id="external-corpus" style="margin-top:30px">
-  <div class="section-icon">📡</div>
-  <div class="section-title">外部文章语料 — CSDN / 掘金</div>
-  <div class="section-subtitle">白玺在 CSDN（Hakuji817）和掘金（白璽）发布的技术文章与方案，<strong>直接以链接作为语料</strong>纳入知识树。</div>
-  <div class="section-body">
-
-    <h3 style="font-size:1rem;color:var(--red);margin:16px 0 8px">🟠 CSDN · blog.csdn.net/hakuji817</h3>
-    <div style="overflow-x:auto">
-    <table style="width:100%;border-collapse:collapse;font-size:13px">
-      <thead><tr style="background:#fef0f0;text-align:left">
-        <th style="padding:6px 8px;border:1px solid #f8d0d0">日期</th>
-        <th style="padding:6px 8px;border:1px solid #f8d0d0">文章标题</th>
-        <th style="padding:6px 8px;border:1px solid #f8d0d0">链接</th>
-      </tr></thead>
-      <tbody>
-      <tr><td style="white-space:nowrap">2025-09-18</td><td style="max-width:180px">★ <b>混合审判模式系统实现</b>——融合寰宇光锥舟动态网络、共识机制与可计算规则，深圳前海法院试点，复杂案件审理周期从217天缩短至8天</td><td><a href="https://blog.csdn.net/Hakuji817/article/details/151801647" target="_blank" rel="noopener" style="font-size:11px;word-break:break-all">https://blog.csdn.net/Hakuji817/article/details/151801647</a></td></tr>
-      <tr><td style="white-space:nowrap">2025-09-22</td><td style="max-width:180px"><b>寰宇光锥舟：一个基于光锥约束与贡献证明的文明生存与发展确定性框架</b></td><td><a href="https://blog.csdn.net/Hakuji817/article/details/151940509" target="_blank" rel="noopener" style="font-size:11px;word-break:break-all">https://blog.csdn.net/Hakuji817/article/details/151940509</a></td></tr>
-      <tr><td style="white-space:nowrap">2025-09-24</td><td style="max-width:180px"><b>智慧养老调度系统</b>——联邦学习规则引擎+安全多方计算，去个人化、强系统性的养老资源调度</td><td><a href="https://blog.csdn.net/Hakuji817/article/details/151842186" target="_blank" rel="noopener" style="font-size:11px;word-break:break-all">https://blog.csdn.net/Hakuji817/article/details/151842186</a></td></tr>
-      <tr><td style="white-space:nowrap">2025-09-28</td><td style="max-width:180px"><b>破局养老人才之困：从"承包制"到"雇佣制"的深刻变革</b></td><td><a href="https://blog.csdn.net/hakuji817" target="_blank" rel="noopener" style="font-size:11px;word-break:break-all">https://blog.csdn.net/hakuji817（博客主页，48篇原创）</a></td></tr>
-      <tr><td style="white-space:nowrap">2026-06-27</td><td style="max-width:180px"><b>从范式革命到盈利模式创新的全球治理新范式</b>——光锥-圆锥模型+《世界统一法》规则底座</td><td><a href="https://blog.csdn.net/Hakuji817/article/details/151803354" target="_blank" rel="noopener" style="font-size:11px;word-break:break-all">https://blog.csdn.net/Hakuji817/article/details/151803354</a></td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p style="font-size:12px;color:var(--text-faint);margin-top:8px">CSDN 博客主页：<a href="https://blog.csdn.net/hakuji817">blog.csdn.net/hakuji817</a>（共48篇原创，涵盖养老系统、混合审判、量化交易、动态教材、垃圾分类、生态餐厅等）</p>
-
-    <h3 style="font-size:1rem;color:var(--blue);margin:20px 0 8px">🔵 掘金 · juejin.cn</h3>
-    <div style="overflow-x:auto">
-    <table style="width:100%;border-collapse:collapse;font-size:13px">
-      <thead><tr style="background:#e8f0fe;text-align:left">
-        <th style="padding:6px 8px;border:1px solid #d0dff5">平台</th>
-        <th style="padding:6px 8px;border:1px solid #d0dff5">内容</th>
-        <th style="padding:6px 8px;border:1px solid #d0dff5">链接</th>
-      </tr></thead>
-      <tbody>
-      <tr><td style="white-space:nowrap">掘金</td><td style="max-width:180px"><b>白璽</b>（用户名「璽」）——「适合纯文科生的 Python 100个知识点」系列、「谁看都会的GitHub躺平指南」等（2023年发布）</td><td><a href="https://juejin.cn/search?query=白璽" target="_blank" rel="noopener" style="font-size:11px;word-break:break-all">https://juejin.cn/search?query=白璽</a></td></tr>
-      </tbody>
-    </table>
-    </div>
-    <p style="font-size:12px;color:var(--text-faint);margin-top:8px">⚠️ 掘金屏蔽外部爬虫（robots.txt），无法直接获取文章页面内容，以搜索页作为入口。用户名「白璽」使用繁体「璽」字。</p>
-  </div>
-</section>
-</div>
-
-<footer>
-  <p>
-    <a href="./">总览</a>
-    <a href="events.html">事件簿</a>
-    <a href="docs.html">文档中心</a>
-    <a href="concept_tree.html">三元光锥空间站</a>
-    <a href="cv.html">CV平台</a>
-    <a href="https://github.com/baixi6313">GitHub</a>
-  </p>
-  <p style="margin-top:8px">© 2026 事现鉴 SXJ · 基于 UDHR 第22条的可验证公共事实协议</p>
-</footer>
-
-<script src="/cv_widget.js" defer></script></body>
+</body>
 </html>
